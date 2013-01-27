@@ -1,0 +1,12 @@
+Source: wxlame
+Section: sound
+Priority: optional
+Maintainer: Cristiano Nunes <cfgnunes@gmail.com>
+Build-Depends: debhelper (>= 7), libwxgtk2.8-dev
+Standards-Version: 3.8.1
+Homepage: http://sourceforge.net/projects/wxlame/
+
+Package: wxlame
+Architecture: any
+Depends:  ${shlibs:Depends}, ${misc:Depends}, lame (>= 3.98.4)
+Description: A free front-end for the LAME MP3 encoder.
