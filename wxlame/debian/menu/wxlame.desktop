@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+
+Name=wxLame
+Comment=A free front-end for the LAME MP3 encoder.
+Icon=wxlame
+
+Categories=AudioVideo;Audio;
+
+Exec=wxlame
+Terminal=false
