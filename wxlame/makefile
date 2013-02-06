@@ -1,9 +1,10 @@
 APP_NAME		= wxlame
 SRC_DIR			= ./src
-#DESTDIR		= /tmp/test
+PREFIX			= /usr
+#DESTDIR			= /tmp/test
 
-INSTALL_BIN_DIR 	= $(DESTDIR)/usr/bin
-INSTALL_SHARE_DIR	= $(DESTDIR)/usr/share
+INSTALL_BIN_DIR 	= $(DESTDIR)$(PREFIX)/bin
+INSTALL_SHARE_DIR	= $(DESTDIR)$(PREFIX)/share
 
 APP_SHARE_DIR = $(INSTALL_SHARE_DIR)/$(APP_NAME)
 DOC_SHARE_DIR = $(INSTALL_SHARE_DIR)/doc/$(APP_NAME)
@@ -34,3 +35,8 @@ install:
 
 	@mkdir -p $(DOC_SHARE_DIR)
 	@cp -r ./docs/* $(DOC_SHARE_DIR)
+
+uninstall:
+	@rm -f $(INSTALL_BIN_DIR)/$(APP_NAME)
+	@rm -rf $(APP_SHARE_DIR)
+	@rm -rf $(DOC_SHARE_DIR)
