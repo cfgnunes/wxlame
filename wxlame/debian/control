@@ -8,6 +8,6 @@ Homepage: http://sourceforge.net/projects/wxlame/
 
 Package: wxlame
 Architecture: any
-Depends:  ${shlibs:Depends}, ${misc:Depends}, lame (>= 3.98.4)
+Depends:  ${shlibs:Depends}, ${misc:Depends}, lame (>= 3.98.2)
 Description: Free front-end for the LAME MP3 encoder
  wxLame is a free front-end for the LAME MP3 encoder.
