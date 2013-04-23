@@ -12,7 +12,7 @@ ConfigBase::ConfigBase(const wxString & appName)
     config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
-    if(!config->Exists(CONFIG_GENERAL_GROUP))
+    if (!config->Exists(CONFIG_GENERAL_GROUP))
         setDefaultConfig();
 }
 
@@ -68,7 +68,7 @@ wxString ConfigBase::getStringLameOptions()
     wxString lameOptions;
 
     // Bitrate
-    lameOptions.append(wxT("-b ") + wxString::Format(wxT("%i "),getBitrate()));
+    lameOptions.append(wxT("-b ") + wxString::Format(wxT("%i "), getBitrate()));
 
     // Mode
     switch (getMode())
@@ -91,67 +91,68 @@ wxString ConfigBase::getStringLameOptions()
     }
 
     // Crc
-    if(getCrc())
+    if (getCrc())
         lameOptions.append(wxT("-p "));
 
     // MarkNonOriginal
-    if(getMarkNonOriginal())
+    if (getMarkNonOriginal())
         lameOptions.append(wxT("-o "));
 
     // MarkCopyright
-    if(getMarkCopyright())
+    if (getMarkCopyright())
         lameOptions.append(wxT("-c "));
 
     // VBR
-    if(getEnabledVBR())
+    if (getEnabledVBR())
     {
-        if(!getUseABR())
+        if (!getUseABR())
             // VBR quality
-            lameOptions.append(wxT("-V ") + wxString::Format(wxT("%i "),getVBRQuality()));
+            lameOptions.append(wxT("-V ") + wxString::Format(wxT("%i "), getVBRQuality()));
         else
             // ABR bitrate
-            lameOptions.append(wxT("--abr ") + wxString::Format(wxT("%i "),getAverageBitrateABR()));
+            lameOptions.append(wxT("--abr ") + wxString::Format(wxT("%i "), getAverageBitrateABR()));
 
         // VBR max bitrate
-        lameOptions.append(wxT("-B ") + wxString::Format(wxT("%i "),getMaxBitrate()));
+        lameOptions.append(wxT("-B ") + wxString::Format(wxT("%i "), getMaxBitrate()));
 
         // Disable TAG
-        if(getDisableVBRTag())
+        if (getDisableVBRTag())
             lameOptions.append(wxT("-t "));
 
         // EnforceMinBitrate
-        if(getEnforceMinBitrate())
+        if (getEnforceMinBitrate())
             lameOptions.append(wxT("-F "));
     }
 
-    if(getEnforceISO())
+    if (getEnforceISO())
         lameOptions.append(wxT("--strictly-enforce-ISO "));
 
-    if(getAlgorithmQualitySel()>0)
-        lameOptions.append(wxT("-q ") + wxString::Format(wxT("%i "),getAlgorithmQualitySel()-1));
+    if (getAlgorithmQualitySel() > 0)
+        lameOptions.append(wxT("-q ") + wxString::Format(wxT("%i "), getAlgorithmQualitySel() - 1));
 
     lameOptions.append(getCustomOptions());
 
-    if(getResampling()>0)
-        lameOptions.append(wxT("--resample ") + RESAMPLING_VALUES[getResampling()-1] + wxT(" "));
+    if (getResampling() > 0)
+        lameOptions.append(wxT("--resample ") + RESAMPLING_VALUES[getResampling() - 1] + wxT(" "));
 
-    if(getHighpassEnabled())
-        lameOptions.append(wxT("--highpass ") + wxString::Format(wxT("%i "),getHighpassFreq()));
+    if (getHighpassEnabled())
+        lameOptions.append(wxT("--highpass ") + wxString::Format(wxT("%i "), getHighpassFreq()));
 
-    if(getHighpassEnabled() && getHighpassWidthEnabled())
-        lameOptions.append(wxT("--highpass-width ") + wxString::Format(wxT("%i "),getHighpassWidth()));
+    if (getHighpassEnabled() && getHighpassWidthEnabled())
+        lameOptions.append(wxT("--highpass-width ") + wxString::Format(wxT("%i "), getHighpassWidth()));
 
-    if(getLowpassEnabled())
-        lameOptions.append(wxT("--lowpass ") + wxString::Format(wxT("%i "),getLowpassFreq()));
+    if (getLowpassEnabled())
+        lameOptions.append(wxT("--lowpass ") + wxString::Format(wxT("%i "), getLowpassFreq()));
 
-    if(getLowpassEnabled() && getLowpassWidth())
-        lameOptions.append(wxT("--lowpass-width ") + wxString::Format(wxT("%i "),getLowpassWidth()));
+    if (getLowpassEnabled() && getLowpassWidth())
+        lameOptions.append(wxT("--lowpass-width ") + wxString::Format(wxT("%i "), getLowpassWidth()));
 
     lameOptions.Trim();
     return lameOptions;
 }
 
 //gets...
+
 wxString ConfigBase::getLastOpenDir()
 {
     wxString value = wxEmptyString;
@@ -356,6 +357,7 @@ int ConfigBase::getLowpassWidth()
 }
 
 //sets...
+
 void ConfigBase::setLastOpenDir(wxString value)
 {
     config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
@@ -478,7 +480,8 @@ void ConfigBase::setHighpassWidthEnabled(bool value)
 
 void ConfigBase::setHighpassWidth(int value)
 {
-    config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidth, value);;
+    config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidth, value);
+    ;
 }
 
 void ConfigBase::setLowpassEnabled(bool value)

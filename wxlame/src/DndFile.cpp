@@ -20,9 +20,9 @@ bool DndFile::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames)
     wxArrayString files;
 
     // Check if is a directory or a file
-    for ( size_t n = 0; n < filenames.GetCount(); n++ )
+    for (size_t n = 0; n < filenames.GetCount(); n++)
     {
-        if(wxFileName::DirExists(filenames[n]))
+        if (wxFileName::DirExists(filenames[n]))
             InsertFileListDir(m_owner, filenames[n]);
         else
             files.Add(filenames[n]);
@@ -38,27 +38,27 @@ void DndFile::InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames
     size_t nFiles = filenames.GetCount();
 
     // Add files in wxListCtrl
-    for ( size_t n = 0; n < nFiles; n++ )
+    for (size_t n = 0; n < nFiles; n++)
     {
         file.SetFullName(filenames[n]);
 
-        if(CheckValidExtension(file))
+        if (CheckValidExtension(file))
         {
             // Don't insert repeated filenames
             bool repeated = false;
-            for (int i=0; i<m_owner->GetItemCount(); i++)
+            for (int i = 0; i < m_owner->GetItemCount(); i++)
             {
-                if(m_owner->GetItemText(i) == filenames[n])
+                if (m_owner->GetItemText(i) == filenames[n])
                 {
                     repeated = true;
                 }
             }
-            if(!repeated)
+            if (!repeated)
             {
                 m_owner->InsertItem(n, filenames[n]);
 
                 // Workaround to force wxListCtrl update insert event (on Windows)
-                if(m_owner->GetItemCount() == 1)
+                if (m_owner->GetItemCount() == 1)
                 {
                     m_owner->InsertItem(1, wxT(""));
                     m_owner->DeleteItem(1);
@@ -71,7 +71,7 @@ void DndFile::InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames
 void DndFile::InsertFileListDir(wxListCtrl* m_owner, const wxString& dirname)
 {
     wxArrayString files;
-    wxDir::GetAllFiles (dirname, &files);
+    wxDir::GetAllFiles(dirname, &files);
 
     InsertFileList(m_owner, files);
 }
@@ -79,11 +79,11 @@ void DndFile::InsertFileListDir(wxListCtrl* m_owner, const wxString& dirname)
 bool DndFile::CheckValidExtension(const wxFileName& file)
 {
     wxStringTokenizer strToken(APP_OPEN_EXT, wxT(";"));
-    while ( strToken.HasMoreTokens() )
+    while (strToken.HasMoreTokens())
     {
         wxString token = strToken.GetNextToken();
 
-        if(file.GetExt().CmpNoCase(token) == 0)
+        if (file.GetExt().CmpNoCase(token) == 0)
             return true;
     }
     return false;
