@@ -29,12 +29,12 @@ const long frmProgress::ID_TIMER1 = wxNewId();
 BEGIN_EVENT_TABLE(frmProgress, wxDialog)
 //(*EventTable(frmProgress)
 //*)
-EVT_IDLE(frmProgress::OnIdle)
-EVT_END_PROCESS(wxID_ANY, frmProgress::OnProcessTerm)
+    EVT_IDLE(frmProgress::OnIdle)
+    EVT_END_PROCESS(wxID_ANY, frmProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-frmProgress::frmProgress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType, wxWindowID id, const wxPoint& pos, const wxSize& size)
-: configBase(configBase), listFiles(listFiles), fileIterator(0), workType(workType), workingProgress(false)
+frmProgress::frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles* lstFilesData, int workType, wxWindowID id, const wxPoint& pos, const wxSize& size)
+    : configBase(configBase), lstFilesData(lstFilesData), fileIterator(0), workType(workType), workingProgress(false)
 {
     //(*Initialize(frmProgress)
     wxBoxSizer* BoxSizer1;
@@ -84,7 +84,7 @@ void frmProgress::OnInit(wxInitDialogEvent& event)
     Timer1.Start(100);
 
     // Sets the maximum of "bar list"
-    gaugeListProgress->SetRange(listFiles->GetItemCount());
+    gaugeListProgress->SetRange(lstFilesData->GetCount());
 
     // Processes the first file
     processNextFile();
@@ -95,7 +95,9 @@ void frmProgress::OnInit(wxInitDialogEvent& event)
 
 void frmProgress::processNextFile()
 {
-    wxFileName filenameInput(listFiles->GetItemText(fileIterator));
+    FileInfo& fileInfo = lstFilesData->Item(fileIterator);
+    wxFileName filenameInput = fileInfo.getFileName();
+
     wxFileName filenameOutput = filenameInput;
     wxString fullCommand = configBase->getEncoderExecutable() + wxT(" ");
 
@@ -121,10 +123,13 @@ void frmProgress::processNextFile()
 
 void frmProgress::stringLabelsUpdate()
 {
-    lblStatusList->SetLabel(wxString::Format(wxT("Processed %i files of %i."), fileIterator, listFiles->GetItemCount()));
-    if (fileIterator < listFiles->GetItemCount())
+    lblStatusList->SetLabel(wxString::Format(wxT("Processed %i files of %i."), fileIterator, lstFilesData->GetCount()));
+    int total = lstFilesData->GetCount();
+    if (fileIterator < total)
     {
-        wxFileName filenameInput(listFiles->GetItemText(fileIterator));
+        FileInfo& fileInfo = lstFilesData->Item(fileIterator);
+        wxFileName filenameInput = fileInfo.getFileName();
+
         lblStatusFile->SetLabel((workType == LAME_ENCODE ? wxT("Encoding: ") : wxT("Decoding: ")) + filenameInput.GetFullName());
     }
 }
@@ -188,9 +193,14 @@ void frmProgress::OnProcessTerm(wxProcessEvent& event)
     {
         // Delete the file already processed
         if (configBase->getDeleteFiles())
-            wxRemoveFile(listFiles->GetItemText(fileIterator));
+        {
+            FileInfo& fileInfo = lstFilesData->Item(fileIterator-1);
+            wxFileName filenameInput = fileInfo.getFileName();
+            wxRemoveFile(filenameInput.GetFullPath());
+        }
 
-        if (fileIterator < listFiles->GetItemCount())
+        int total = lstFilesData->GetCount();
+        if (fileIterator < total)
             processNextFile();
         else
             finishedWork();

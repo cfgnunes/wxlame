@@ -15,9 +15,10 @@
 #include <wx/gauge.h>
 //*)
 
-#include <wx/process.h>
-#include <wx/listctrl.h>
+#include "FileInfo.h"
 #include "ConfigBase.h"
+
+#include <wx/process.h>
 
 enum
 {
@@ -29,7 +30,7 @@ class frmProgress : public wxDialog
 {
 public:
 
-    frmProgress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
+    frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles* lstFilesData, int workType, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmProgress();
 
     //(*Declarations(frmProgress)
@@ -69,7 +70,7 @@ private:
     void stringLabelsUpdate();
 
     ConfigBase* configBase;
-    wxListCtrl* listFiles;
+    ArrayOfFiles* lstFilesData;
     wxProcess* process;
     int fileIterator;
     int workType;
