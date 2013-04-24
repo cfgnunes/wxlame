@@ -63,6 +63,8 @@
 		<Linker>
 			<Add option="-mthreads" />
 		</Linker>
+		<Unit filename="src/FileInfo.cpp" />
+		<Unit filename="src/FileInfo.h" />
 		<Unit filename="src/ConfigBase.cpp" />
 		<Unit filename="src/ConfigBase.h" />
 		<Unit filename="src/Global.h" />
