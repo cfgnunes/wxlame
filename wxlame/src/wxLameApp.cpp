@@ -40,7 +40,7 @@ bool wxLameApp::OnInit()
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
-    if ( wxsOK )
+    if (wxsOK)
     {
         frmMain* Frame = new frmMain(0);
         Frame->Show();

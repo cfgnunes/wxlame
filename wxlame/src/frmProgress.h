@@ -19,18 +19,17 @@
 #include <wx/listctrl.h>
 #include "ConfigBase.h"
 
-
 enum
 {
-    LAME_ENCODE    = 0,
-    LAME_DECODE    = 1,
+    LAME_ENCODE = 0,
+    LAME_DECODE = 1,
 };
 
-class frmProgress: public wxDialog
+class frmProgress : public wxDialog
 {
 public:
 
-    frmProgress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType, wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
+    frmProgress(wxWindow* parent, ConfigBase* configBase, wxListCtrl* listFiles, int workType, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmProgress();
 
     //(*Declarations(frmProgress)

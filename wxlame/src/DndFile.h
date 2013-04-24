@@ -16,7 +16,7 @@
 class DndFile : public wxFileDropTarget
 {
 public:
-    DndFile (wxListCtrl *owner);
+    DndFile(wxListCtrl *owner);
     virtual ~DndFile();
     virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames);
     static void InsertFileList(wxListCtrl* m_owner, const wxArrayString& filenames);
