@@ -87,10 +87,10 @@
 			<wxsmith version="1">
 				<gui name="wxWidgets" src="wxLameApp.cpp" main="wxLameFrame" init_handlers="necessary" language="CPP" />
 				<resources>
-					<wxFrame wxs="wxsmith/frmMain.wxs" src="frmMain.cpp" hdr="frmMain.h" name="frmMain" language="CPP" />
-					<wxDialog wxs="wxsmith/frmSettings.wxs" src="frmSettings.cpp" hdr="frmSettings.h" name="frmSettings" language="CPP" />
-					<wxDialog wxs="wxsmith/frmProgress.wxs" src="frmProgress.cpp" hdr="frmProgress.h" name="frmProgress" language="CPP" />
-					<wxDialog wxs="wxsmith/frmAbout.wxs" src="frmAbout.cpp" hdr="frmAbout.h" name="frmAbout" language="CPP" />
+					<wxFrame wxs="wxsmith/frmMain.wxs" src="src/frmMain.cpp" hdr="src/frmMain.h" name="frmMain" language="CPP" />
+					<wxDialog wxs="wxsmith/frmSettings.wxs" src="src/frmSettings.cpp" hdr="src/frmSettings.h" name="frmSettings" language="CPP" />
+					<wxDialog wxs="wxsmith/frmProgress.wxs" src="src/frmProgress.cpp" hdr="src/frmProgress.h" name="frmProgress" language="CPP" />
+					<wxDialog wxs="wxsmith/frmAbout.wxs" src="src/frmAbout.cpp" hdr="src/frmAbout.h" name="frmAbout" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>
