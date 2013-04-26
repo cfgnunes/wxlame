@@ -7,7 +7,6 @@
 
 #include "frmSettings.h"
 #include "frmProgress.h"
-#include "frmAbout.h"
 #include "Global.h"
 #include "DndFile.h"
 
@@ -351,8 +350,14 @@ void frmMain::updateStatusBar()
 
 void frmMain::mnuAbout(wxCommandEvent& event)
 {
-    frmAbout Dlg(this);
-    Dlg.ShowModal();
+    wxAboutDialogInfo aboutInfo;
+    aboutInfo.SetName(APP_NAME);
+    aboutInfo.SetVersion(APP_VERSION);
+    aboutInfo.SetDescription(_("Free front-end for the Lame"));
+    aboutInfo.SetCopyright(APP_COPYRIGHT);
+    aboutInfo.SetWebSite(APP_WEBSITE);
+    aboutInfo.AddDeveloper(APP_AUTHOR);
+    wxAboutBox(aboutInfo);
 }
 
 void frmMain::mnuLameWebsite(wxCommandEvent& event)
@@ -362,7 +367,7 @@ void frmMain::mnuLameWebsite(wxCommandEvent& event)
 
 void frmMain::mnuWxLameWebsite(wxCommandEvent& event)
 {
-    wxLaunchDefaultBrowser(wxT("http://sourceforge.net/projects/wxlame/"));
+    wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
 void frmMain::loadResources()

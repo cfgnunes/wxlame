@@ -37,15 +37,13 @@
 		<Linker>
 			<Add option="`wx-config --libs`" />
 		</Linker>
-		<Unit filename="src/FileInfo.cpp" />
-		<Unit filename="src/FileInfo.h" />
 		<Unit filename="src/ConfigBase.cpp" />
 		<Unit filename="src/ConfigBase.h" />
-		<Unit filename="src/Global.h" />
 		<Unit filename="src/DndFile.cpp" />
 		<Unit filename="src/DndFile.h" />
-		<Unit filename="src/frmAbout.cpp" />
-		<Unit filename="src/frmAbout.h" />
+		<Unit filename="src/FileInfo.cpp" />
+		<Unit filename="src/FileInfo.h" />
+		<Unit filename="src/Global.h" />
 		<Unit filename="src/frmMain.cpp" />
 		<Unit filename="src/frmMain.h" />
 		<Unit filename="src/frmProgress.cpp" />
@@ -69,6 +67,7 @@
 					<wxDialog wxs="wxsmith/frmAbout.wxs" src="src/frmAbout.cpp" hdr="src/frmAbout.h" fwddecl="0" i18n="1" name="frmAbout" language="CPP" />
 				</resources>
 			</wxsmith>
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
