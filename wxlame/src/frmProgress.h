@@ -7,12 +7,12 @@
 #define FRMPROGRESS_H
 
 //(*Headers(frmProgress)
-#include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
-#include <wx/timer.h>
 #include <wx/gauge.h>
+#include <wx/dialog.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/stattext.h>
+#include <wx/timer.h>
 //*)
 
 #include "FileInfo.h"
@@ -34,12 +34,12 @@ public:
     virtual ~frmProgress();
 
     //(*Declarations(frmProgress)
-    wxStaticText* lblStatusFile;
-    wxButton* btnCancel;
     wxGauge* gaugeListProgress;
+    wxStaticText* lblStatusFile;
     wxGauge* gaugeFileProgress;
-    wxStaticText* lblStatusList;
     wxTimer Timer1;
+    wxStaticText* lblStatusList;
+    wxButton* btnCancel;
     //*)
 
 protected:

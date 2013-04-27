@@ -4,10 +4,11 @@
  */
 
 #include "frmProgress.h"
+#include "Global.h"
 
 //(*InternalHeaders(frmProgress)
-#include <wx/intl.h>
 #include <wx/string.h>
+#include <wx/intl.h>
 //*)
 
 #include <wx/app.h>
@@ -39,28 +40,28 @@ frmProgress::frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles*
     //(*Initialize(frmProgress)
     wxBoxSizer* BoxSizer1;
 
-    Create(parent, wxID_ANY, _("Working progress"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("Progress"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
     lblStatusList = new wxStaticText(this, ID_STATICTEXT1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
-    BoxSizer1->Add(lblStatusList, 0, wxALL | wxEXPAND | wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5);
-    gaugeListProgress = new wxGauge(this, ID_GAUGE1, 100, wxDefaultPosition, wxSize(370, 20), 0, wxDefaultValidator, _T("ID_GAUGE1"));
-    BoxSizer1->Add(gaugeListProgress, 0, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(lblStatusList, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    gaugeListProgress = new wxGauge(this, ID_GAUGE1, 100, wxDefaultPosition, wxSize(370,20), 0, wxDefaultValidator, _T("ID_GAUGE1"));
+    BoxSizer1->Add(gaugeListProgress, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     lblStatusFile = new wxStaticText(this, ID_STATICTEXT2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
-    BoxSizer1->Add(lblStatusFile, 0, wxALL | wxEXPAND | wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5);
-    gaugeFileProgress = new wxGauge(this, ID_GAUGE2, 100, wxDefaultPosition, wxSize(370, 20), 0, wxDefaultValidator, _T("ID_GAUGE2"));
-    BoxSizer1->Add(gaugeFileProgress, 0, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(lblStatusFile, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    gaugeFileProgress = new wxGauge(this, ID_GAUGE2, 100, wxDefaultPosition, wxSize(370,20), 0, wxDefaultValidator, _T("ID_GAUGE2"));
+    BoxSizer1->Add(gaugeFileProgress, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     btnCancel = new wxButton(this, ID_BUTTON1, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-    BoxSizer1->Add(btnCancel, 1, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(btnCancel, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(BoxSizer1);
     Timer1.SetOwner(this, ID_TIMER1);
     BoxSizer1->Fit(this);
     BoxSizer1->SetSizeHints(this);
     Center();
 
-    Connect(ID_BUTTON1, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction) & frmProgress::OnbtnCancelClick);
-    Connect(ID_TIMER1, wxEVT_TIMER, (wxObjectEventFunction) & frmProgress::OnTimer1Trigger);
-    Connect(wxID_ANY, wxEVT_INIT_DIALOG, (wxObjectEventFunction) & frmProgress::OnInit);
-    Connect(wxID_ANY, wxEVT_CLOSE_WINDOW, (wxObjectEventFunction) & frmProgress::OnClose);
+    Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&frmProgress::OnbtnCancelClick);
+    Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&frmProgress::OnTimer1Trigger);
+    Connect(wxID_ANY,wxEVT_INIT_DIALOG,(wxObjectEventFunction)&frmProgress::OnInit);
+    Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&frmProgress::OnClose);
     //*)
 
     // Initializes the process
@@ -77,7 +78,7 @@ frmProgress::~frmProgress()
 void frmProgress::OnInit(wxInitDialogEvent& event)
 {
     // Change the button's label to "Cancel"
-    btnCancel->SetLabel(wxT("Cancel"));
+    btnCancel->SetLabel(_("Cancel"));
     workingProgress = true;
 
     // Initializes the timer for the process async
@@ -99,13 +100,13 @@ void frmProgress::processNextFile()
     wxFileName filenameInput = fileInfo.getFileName();
 
     wxFileName filenameOutput = filenameInput;
-    wxString fullCommand = configBase->getEncoderExecutable() + wxT(" ");
+    wxString fullCommand = configBase->getEncoderExecutable() + _T(" ");
 
     // Encode or Decode
     if (workType == LAME_ENCODE)
         fullCommand.append(configBase->getStringLameOptions());
     else
-        fullCommand.append(wxT("--decode"));
+        fullCommand.append(_T("--decode"));
 
     // Sets the output directory of the file
     if (configBase->getEnableOutDir())
@@ -113,24 +114,24 @@ void frmProgress::processNextFile()
 
     // Defines the file extension
     if (workType == LAME_ENCODE)
-        filenameOutput.SetExt(wxT("mp3"));
+        filenameOutput.SetExt(_T("mp3"));
     else
-        filenameOutput.SetExt(wxT("wav"));
+        filenameOutput.SetExt(_T("wav"));
 
     // Execute external application
-    processPID = wxExecute(fullCommand + wxT(" \"") + filenameInput.GetFullPath() + wxT("\" \"") + filenameOutput.GetFullPath() + wxT("\""), wxEXEC_ASYNC, process);
+    processPID = wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() + _T("\""), wxEXEC_ASYNC, process);
 }
 
 void frmProgress::stringLabelsUpdate()
 {
-    lblStatusList->SetLabel(wxString::Format(wxT("Processed %i files of %i."), fileIterator, lstFilesData->GetCount()));
+    lblStatusList->SetLabel(wxString::Format(_("Processed %i files of %i."), fileIterator, lstFilesData->GetCount()));
     int total = lstFilesData->GetCount();
     if (fileIterator < total)
     {
         FileInfo& fileInfo = lstFilesData->Item(fileIterator);
         wxFileName filenameInput = fileInfo.getFileName();
 
-        lblStatusFile->SetLabel((workType == LAME_ENCODE ? wxT("Encoding: ") : wxT("Decoding: ")) + filenameInput.GetFullName());
+        lblStatusFile->SetLabel((workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
     }
 }
 
@@ -215,7 +216,7 @@ void frmProgress::finishedWork()
     gaugeFileProgress->SetValue(1);
 
     // Change the button's label to "Close"
-    btnCancel->SetLabel(wxT("Close"));
+    btnCancel->SetLabel(_("Close"));
     workingProgress = false;
 }
 
@@ -244,7 +245,7 @@ void frmProgress::OnClose(wxCloseEvent& event)
     {
         if (workingProgress)
         {
-            if (wxMessageBox(wxT("Do you want to stop process now?"), wxT("Question"), wxYES_NO | wxICON_QUESTION) == wxYES)
+            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES)
             {
                 // Kill the process
                 workingProgress = false;

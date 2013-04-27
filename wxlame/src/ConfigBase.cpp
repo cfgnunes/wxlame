@@ -68,84 +68,84 @@ wxString ConfigBase::getStringLameOptions()
     wxString lameOptions;
 
     // Bitrate
-    lameOptions.append(wxT("-b ") + wxString::Format(wxT("%i "), getBitrate()));
+    lameOptions.append(_T("-b ") + wxString::Format(_T("%i "), getBitrate()));
 
     // Mode
     switch (getMode())
     {
     case 1:
-        lameOptions.append(wxT("-m j "));
+        lameOptions.append(_T("-m j "));
         break;
     case 2:
-        lameOptions.append(wxT("-m s "));
+        lameOptions.append(_T("-m s "));
         break;
     case 3:
-        lameOptions.append(wxT("-m f "));
+        lameOptions.append(_T("-m f "));
         break;
     case 4:
-        lameOptions.append(wxT("-m d "));
+        lameOptions.append(_T("-m d "));
         break;
     case 5:
-        lameOptions.append(wxT("-m m "));
+        lameOptions.append(_T("-m m "));
         break;
     }
 
     // Crc
     if (getCrc())
-        lameOptions.append(wxT("-p "));
+        lameOptions.append(_T("-p "));
 
     // MarkNonOriginal
     if (getMarkNonOriginal())
-        lameOptions.append(wxT("-o "));
+        lameOptions.append(_T("-o "));
 
     // MarkCopyright
     if (getMarkCopyright())
-        lameOptions.append(wxT("-c "));
+        lameOptions.append(_T("-c "));
 
     // VBR
     if (getEnabledVBR())
     {
         if (!getUseABR())
             // VBR quality
-            lameOptions.append(wxT("-V ") + wxString::Format(wxT("%i "), getVBRQuality()));
+            lameOptions.append(_T("-V ") + wxString::Format(_T("%i "), getVBRQuality()));
         else
             // ABR bitrate
-            lameOptions.append(wxT("--abr ") + wxString::Format(wxT("%i "), getAverageBitrateABR()));
+            lameOptions.append(_T("--abr ") + wxString::Format(_T("%i "), getAverageBitrateABR()));
 
         // VBR max bitrate
-        lameOptions.append(wxT("-B ") + wxString::Format(wxT("%i "), getMaxBitrate()));
+        lameOptions.append(_T("-B ") + wxString::Format(_T("%i "), getMaxBitrate()));
 
         // Disable TAG
         if (getDisableVBRTag())
-            lameOptions.append(wxT("-t "));
+            lameOptions.append(_T("-t "));
 
         // EnforceMinBitrate
         if (getEnforceMinBitrate())
-            lameOptions.append(wxT("-F "));
+            lameOptions.append(_T("-F "));
     }
 
     if (getEnforceISO())
-        lameOptions.append(wxT("--strictly-enforce-ISO "));
+        lameOptions.append(_T("--strictly-enforce-ISO "));
 
     if (getAlgorithmQualitySel() > 0)
-        lameOptions.append(wxT("-q ") + wxString::Format(wxT("%i "), getAlgorithmQualitySel() - 1));
+        lameOptions.append(_T("-q ") + wxString::Format(_T("%i "), getAlgorithmQualitySel() - 1));
 
     lameOptions.append(getCustomOptions());
 
     if (getResampling() > 0)
-        lameOptions.append(wxT("--resample ") + RESAMPLING_VALUES[getResampling() - 1] + wxT(" "));
+        lameOptions.append(_T("--resample ") + RESAMPLING_VALUES[getResampling() - 1] + _T(" "));
 
     if (getHighpassEnabled())
-        lameOptions.append(wxT("--highpass ") + wxString::Format(wxT("%i "), getHighpassFreq()));
+        lameOptions.append(_T("--highpass ") + wxString::Format(_T("%i "), getHighpassFreq()));
 
     if (getHighpassEnabled() && getHighpassWidthEnabled())
-        lameOptions.append(wxT("--highpass-width ") + wxString::Format(wxT("%i "), getHighpassWidth()));
+        lameOptions.append(_T("--highpass-width ") + wxString::Format(_T("%i "), getHighpassWidth()));
 
     if (getLowpassEnabled())
-        lameOptions.append(wxT("--lowpass ") + wxString::Format(wxT("%i "), getLowpassFreq()));
+        lameOptions.append(_T("--lowpass ") + wxString::Format(_T("%i "), getLowpassFreq()));
 
     if (getLowpassEnabled() && getLowpassWidth())
-        lameOptions.append(wxT("--lowpass-width ") + wxString::Format(wxT("%i "), getLowpassWidth()));
+        lameOptions.append(_T("--lowpass-width ") + wxString::Format(_T("%i "), getLowpassWidth()));
 
     lameOptions.Trim();
     return lameOptions;

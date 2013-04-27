@@ -10,56 +10,56 @@
 #include <wx/config.h>
 
 // Config Group Strings
-const wxString	CONFIG_SYSTEM_GROUP				= wxT("/System/");
-const wxString	CONFIG_GENERAL_GROUP			= wxT("/General/");
-const wxString	CONFIG_ADVANCED_GROUP			= wxT("/Advanced/");
-const wxString	CONFIG_VBR_GROUP				= wxT("/VBR/");
-const wxString	CONFIG_AUDIO_GROUP				= wxT("/Audio/");
+const wxString	CONFIG_SYSTEM_GROUP				= _T("/System/");
+const wxString	CONFIG_GENERAL_GROUP			= _T("/General/");
+const wxString	CONFIG_ADVANCED_GROUP			= _T("/Advanced/");
+const wxString	CONFIG_VBR_GROUP				= _T("/VBR/");
+const wxString	CONFIG_AUDIO_GROUP				= _T("/Audio/");
 
 // Config Strings
 
-const wxString	CONFIG_STR_LastOpenDir			= wxT("LastOpenDir");
+const wxString	CONFIG_STR_LastOpenDir			= _T("LastOpenDir");
 
-const wxString	CONFIG_STR_Bitrate				= wxT("Bitrate");
-const wxString	CONFIG_STR_Mode					= wxT("Mode");
-const wxString	CONFIG_STR_EncoderExecutable	= wxT("EncoderExecutable");
-const wxString	CONFIG_STR_EnableOutDir			= wxT("EnableOutDir");
-const wxString	CONFIG_STR_OutDir				= wxT("OutDir");
-const wxString	CONFIG_STR_DeleteFiles			= wxT("DeleteFiles");
+const wxString	CONFIG_STR_Bitrate				= _T("Bitrate");
+const wxString	CONFIG_STR_Mode					= _T("Mode");
+const wxString	CONFIG_STR_EncoderExecutable	= _T("EncoderExecutable");
+const wxString	CONFIG_STR_EnableOutDir			= _T("EnableOutDir");
+const wxString	CONFIG_STR_OutDir				= _T("OutDir");
+const wxString	CONFIG_STR_DeleteFiles			= _T("DeleteFiles");
 
-const wxString	CONFIG_STR_EnabledVBR			= wxT("EnabledVBR");
-const wxString	CONFIG_STR_MaxBitrate			= wxT("MaxBitrate");
-const wxString	CONFIG_STR_DisableVBRTag		= wxT("DisableVBRTag");
-const wxString	CONFIG_STR_EnforceMinBitrate	= wxT("EnforceMinBitrate");
-const wxString	CONFIG_STR_UseABR				= wxT("UseABR");
-const wxString	CONFIG_STR_VBRQuality			= wxT("VBRQuality");
-const wxString	CONFIG_STR_AverageBitrateABR	= wxT("AverageBitrateABR");
+const wxString	CONFIG_STR_EnabledVBR			= _T("EnabledVBR");
+const wxString	CONFIG_STR_MaxBitrate			= _T("MaxBitrate");
+const wxString	CONFIG_STR_DisableVBRTag		= _T("DisableVBRTag");
+const wxString	CONFIG_STR_EnforceMinBitrate	= _T("EnforceMinBitrate");
+const wxString	CONFIG_STR_UseABR				= _T("UseABR");
+const wxString	CONFIG_STR_VBRQuality			= _T("VBRQuality");
+const wxString	CONFIG_STR_AverageBitrateABR	= _T("AverageBitrateABR");
 
-const wxString	CONFIG_STR_MarkNonOriginal		= wxT("MarkNonOriginal");
-const wxString	CONFIG_STR_MarkCopyright		= wxT("MarkCopyright");
-const wxString	CONFIG_STR_Crc					= wxT("Crc");
-const wxString	CONFIG_STR_EnforceISO			= wxT("EnforceISO");
-const wxString	CONFIG_STR_AlgorithmQualitySel	= wxT("AlgorithmQualitySel");
-const wxString	CONFIG_STR_CustomOptions		= wxT("CustomOptions");
+const wxString	CONFIG_STR_MarkNonOriginal		= _T("MarkNonOriginal");
+const wxString	CONFIG_STR_MarkCopyright		= _T("MarkCopyright");
+const wxString	CONFIG_STR_Crc					= _T("Crc");
+const wxString	CONFIG_STR_EnforceISO			= _T("EnforceISO");
+const wxString	CONFIG_STR_AlgorithmQualitySel	= _T("AlgorithmQualitySel");
+const wxString	CONFIG_STR_CustomOptions		= _T("CustomOptions");
 
-const wxString	CONFIG_STR_Resampling			= wxT("Resampling");
-const wxString	CONFIG_STR_HighpassEnabled		= wxT("HighpassEnabled");
-const wxString	CONFIG_STR_HighpassFreq			= wxT("HighpassFreq");
-const wxString	CONFIG_STR_HighpassWidthEnabled	= wxT("HighpassWidthEnabled");
-const wxString	CONFIG_STR_HighpassWidth		= wxT("HighpassWidth");;
-const wxString	CONFIG_STR_LowpassEnabled		= wxT("LowpassEnabled");
-const wxString	CONFIG_STR_LowpassFreq			= wxT("LowpassFreq");
-const wxString	CONFIG_STR_LowpassWidthEnabled	= wxT("LowpassWidthEnabled");
-const wxString	CONFIG_STR_LowpassWidth			= wxT("LowpassWidth");
+const wxString	CONFIG_STR_Resampling			= _T("Resampling");
+const wxString	CONFIG_STR_HighpassEnabled		= _T("HighpassEnabled");
+const wxString	CONFIG_STR_HighpassFreq			= _T("HighpassFreq");
+const wxString	CONFIG_STR_HighpassWidthEnabled	= _T("HighpassWidthEnabled");
+const wxString	CONFIG_STR_HighpassWidth		= _T("HighpassWidth");;
+const wxString	CONFIG_STR_LowpassEnabled		= _T("LowpassEnabled");
+const wxString	CONFIG_STR_LowpassFreq			= _T("LowpassFreq");
+const wxString	CONFIG_STR_LowpassWidthEnabled	= _T("LowpassWidthEnabled");
+const wxString	CONFIG_STR_LowpassWidth			= _T("LowpassWidth");
 
 // Default Values
 const wxString	DEFAULT_VALUE_LastOpenDir			= wxEmptyString;
 
-const int		DEFAULT_VALUE_Bitrate				= 128;
+const int		DEFAULT_VALUE_Bitrate				= 192;
 const int		DEFAULT_VALUE_Mode					= 0;
-const wxString	DEFAULT_VALUE_EncoderExecutable		= wxT("lame");
+const wxString	DEFAULT_VALUE_EncoderExecutable		= _T("lame");
 const bool		DEFAULT_VALUE_EnableOutDir			= false;
-const wxString	DEFAULT_VALUE_OutDir				= wxT("output/");
+const wxString	DEFAULT_VALUE_OutDir				= _T("output/");
 const bool		DEFAULT_VALUE_DeleteFiles			= false;
 
 const bool		DEFAULT_VALUE_EnabledVBR			= false;
