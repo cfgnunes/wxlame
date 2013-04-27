@@ -59,7 +59,7 @@ msgid "Algorithm quality selection:"
 msgstr ""
 
 #: frmSettings.cpp:267
-msgid "Audio Processing"
+msgid "Audio processing"
 msgstr ""
 
 #: frmSettings.cpp:181
@@ -261,7 +261,7 @@ msgid "Settings"
 msgstr ""
 
 #: frmSettings.cpp:169
-msgid "Stricty enforce minimum bitrate"
+msgid "Strictly enforce minimum bitrate"
 msgstr ""
 
 #: frmSettings.cpp:172
