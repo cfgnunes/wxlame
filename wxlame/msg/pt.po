@@ -256,7 +256,7 @@ msgid "Remove files"
 msgstr "Remover arquivos"
 
 #: frmSettings.cpp:270
-msgid "Restore Defaults"
+msgid "Restore defaults"
 msgstr "Restaurar padrões"
 
 #: frmSettings.cpp:129
