@@ -61,7 +61,7 @@ msgstr "Avançado"
 
 #: frmSettings.cpp:210
 msgid "Algorithm quality selection:"
-msgstr "Seleção do algoritmo de qualidade :"
+msgstr "Seleção do algoritmo de qualidade:"
 
 #: frmSettings.cpp:267
 msgid "Audio processing"
