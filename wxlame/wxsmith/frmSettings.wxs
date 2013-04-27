@@ -219,7 +219,7 @@
 												</object>
 												<object class="sizeritem">
 													<object class="wxCheckBox" name="ID_CHECKBOX6" variable="chkEnforceMinBitrate" member="yes">
-														<label>Stricty enforce minimum bitrate</label>
+														<label>Strictly enforce minimum bitrate</label>
 													</object>
 													<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 													<border>2</border>
@@ -492,7 +492,7 @@
 								</object>
 							</object>
 						</object>
-						<label>Audio Processing</label>
+						<label>Audio processing</label>
 					</object>
 				</object>
 				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

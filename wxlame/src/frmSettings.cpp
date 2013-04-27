@@ -166,7 +166,7 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     chkDisableVBRTag = new wxCheckBox(Panel2, ID_CHECKBOX5, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX5"));
     chkDisableVBRTag->SetValue(false);
     StaticBoxSizer11->Add(chkDisableVBRTag, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 2);
-    chkEnforceMinBitrate = new wxCheckBox(Panel2, ID_CHECKBOX6, _("Stricty enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX6"));
+    chkEnforceMinBitrate = new wxCheckBox(Panel2, ID_CHECKBOX6, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX6"));
     chkEnforceMinBitrate->SetValue(false);
     StaticBoxSizer11->Add(chkEnforceMinBitrate, 0, wxALL|wxALIGN_LEFT|wxALIGN_TOP, 2);
     chkUseABR = new wxCheckBox(Panel2, ID_CHECKBOX8, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_CHECKBOX8"));
@@ -264,7 +264,7 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     Notebook1->AddPage(Panel6, _("General"), false);
     Notebook1->AddPage(Panel2, _("VBR"), false);
     Notebook1->AddPage(Panel1, _("Advanced"), false);
-    Notebook1->AddPage(Panel4, _("Audio Processing"), false);
+    Notebook1->AddPage(Panel4, _("Audio processing"), false);
     BoxSizer1->Add(Notebook1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
     btnDefault = new wxButton(this, ID_BUTTON1, _("Restore Defaults"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));

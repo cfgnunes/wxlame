@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wxLame\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2013-04-26 21:57-0300\n"
+"PO-Revision-Date: 2013-04-26 22:22-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -16,324 +16,324 @@ msgstr ""
 
 #: frmMain.cpp:106
 msgid "&Actions"
-msgstr ""
+msgstr "&Ações"
 
 #: frmMain.cpp:100
 msgid "&Edit"
-msgstr ""
+msgstr "&Editar"
 
 #: frmMain.cpp:91
 msgid "&File"
-msgstr ""
+msgstr "&Arquivo"
 
 #: frmMain.cpp:115
 msgid "&Help"
-msgstr ""
+msgstr "&Ajuda"
 
 #: frmSettings.cpp:561
 msgid "0 (highest quality, slow)"
-msgstr ""
+msgstr "0 (alta qualidade, lento)"
 
 #: frmSettings.cpp:570
 msgid "9 (lowest quality, fast)"
-msgstr ""
+msgstr "9 (baixa qualidade, rápido)"
 
 #: frmMain.cpp:113
 #: frmMain.cpp:133
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: frmMain.cpp:86
 #: frmMain.cpp:125
 #: frmMain.cpp:138
 msgid "Add files"
-msgstr ""
+msgstr "Adicionar arquivos"
 
 #: frmMain.cpp:84
 #: frmMain.cpp:124
 #: frmMain.cpp:136
 msgid "Add folder"
-msgstr ""
+msgstr "Adicionar diretório"
 
 #: frmSettings.cpp:266
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #: frmSettings.cpp:210
 msgid "Algorithm quality selection:"
-msgstr ""
+msgstr "Seleção do algoritmo de qualidade :"
 
 #: frmSettings.cpp:267
-msgid "Audio Processing"
-msgstr ""
+msgid "Audio processing"
+msgstr "Processamento de áudio"
 
 #: frmSettings.cpp:181
 msgid "Average bitrate encoding ABR:"
-msgstr ""
+msgstr "Bitrate médio na codificação ABR:"
 
 #: frmSettings.cpp:105
 msgid "Bitrate"
-msgstr ""
+msgstr "Bitrate"
 
 #: frmProgress.cpp:53
 #: frmProgress.cpp:81
 #: frmSettings.cpp:274
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: frmMain.cpp:95
 #: frmMain.cpp:127
 #: frmMain.cpp:142
 msgid "Clear list"
-msgstr ""
+msgstr "Limpar lista"
 
 #: frmProgress.cpp:219
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: frmSettings.cpp:204
 msgid "Comply as much as possible to ISO MPEG spec"
-msgstr ""
+msgstr "Cumprir quando possível com a norma ISO especificação MPEG"
 
 #: frmSettings.cpp:106
 #: frmSettings.cpp:157
 #: frmSettings.cpp:341
 #: frmSettings.cpp:347
 msgid "Current bitrate:"
-msgstr ""
+msgstr "Bitrate atual:"
 
 #: frmSettings.cpp:214
 msgid "Custom options:"
-msgstr ""
+msgstr "Opções customizadas:"
 
 #: frmMain.cpp:104
 #: frmMain.cpp:130
 msgid "Decode"
-msgstr ""
+msgstr "Decodificar"
 
 #: frmProgress.cpp:134
 msgid "Decoding: "
-msgstr ""
+msgstr "Decodificando: "
 
 #: frmSettings.cpp:141
 msgid "Delete source file after processing"
-msgstr ""
+msgstr "Apagar arquivo fonte após processamento"
 
 #: frmSettings.cpp:166
 msgid "Disable writing of VBR Tag"
-msgstr ""
+msgstr "Desabilitar escrita de Tag VBR"
 
 #: frmProgress.cpp:248
 msgid "Do you want to stop process now?"
-msgstr ""
+msgstr "Deseja parar o processo agora?"
 
 #: frmSettings.cpp:151
 msgid "Enable Variable Bitrate (VBR)"
-msgstr ""
+msgstr "Habilitar Bitrate Variável (VBR)"
 
 #: frmMain.cpp:102
 #: frmMain.cpp:129
 msgid "Encode"
-msgstr ""
+msgstr "Codificar"
 
 #: frmProgress.cpp:134
 msgid "Encoding: "
-msgstr ""
+msgstr "Codificando: "
 
 #: frmMain.cpp:89
 msgid "Exit"
-msgstr ""
+msgstr "Sair"
 
 #: frmMain.cpp:192
 msgid "File"
-msgstr ""
+msgstr "Arquivo"
 
 #: frmSettings.cpp:140
 msgid "Filing"
-msgstr ""
+msgstr "Arquivamento"
 
 #: frmSettings.cpp:194
 msgid "Flags"
-msgstr ""
+msgstr "Flags"
 
 #: frmMain.cpp:356
 msgid "Free front-end for the Lame"
-msgstr ""
+msgstr "Livre front-end para o Lame"
 
 #: frmSettings.cpp:264
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: frmSettings.cpp:229
 msgid "Highpass filter"
-msgstr ""
+msgstr "Filtro passa alta"
 
 #: frmSettings.cpp:231
 msgid "Highpass filtering frequency (in Hz):"
-msgstr ""
+msgstr "Frequência de filtragem passa alta (em Hz):"
 
 #: frmSettings.cpp:201
 msgid "Include CRC error detection"
-msgstr ""
+msgstr "Incluir detecção de erro CRC"
 
 #: frmMain.cpp:108
 msgid "LAME Website"
-msgstr ""
+msgstr "Site do LAME"
 
 #: frmSettings.cpp:122
 msgid "LAME executable"
-msgstr ""
+msgstr "Executável do LAME"
 
 #: frmMain.cpp:345
 msgid "LAME not found!"
-msgstr ""
+msgstr "LAME não encontrado!"
 
 #: frmMain.cpp:348
 msgid "Lame options: "
-msgstr ""
+msgstr "Opções do Lame: "
 
 #: frmSettings.cpp:245
 msgid "Lowpass filter"
-msgstr ""
+msgstr "Filtro passa baixa"
 
 #: frmSettings.cpp:247
 msgid "Lowpass filtering frequency (in Hz):"
-msgstr ""
+msgstr "Frequência de filtragem passa baixa (em Hz):"
 
 #: frmSettings.cpp:198
 msgid "Mark as copyright"
-msgstr ""
+msgstr "Marcar como copyright"
 
 #: frmSettings.cpp:195
 msgid "Mark as non-original"
-msgstr ""
+msgstr "Marcar como não original"
 
 #: frmSettings.cpp:156
 msgid "Maximum VBR bitrate"
-msgstr ""
+msgstr "Bitrate VBR máximo"
 
 #: frmSettings.cpp:111
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 #: frmSettings.cpp:272
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: frmSettings.cpp:208
 msgid "Options"
-msgstr ""
+msgstr "Opções"
 
 #: frmSettings.cpp:165
 msgid "Others"
-msgstr ""
+msgstr "Outros"
 
 #: frmSettings.cpp:128
 msgid "Output directory"
-msgstr ""
+msgstr "Diretório de saída"
 
 #: frmSettings.cpp:225
 msgid "Output sampling frequency"
-msgstr ""
+msgstr "Frequência de amostragem de saída"
 
 #: frmProgress.cpp:127
 #, c-format
 msgid "Processed %i files of %i."
-msgstr ""
+msgstr "Processado %i arquivos de %i."
 
 #: frmProgress.cpp:43
 msgid "Progress"
-msgstr ""
+msgstr "Progresso"
 
 #: frmSettings.cpp:176
 msgid "Quality of VBR encoding:"
-msgstr ""
+msgstr "Qualidade da codificação VBR:"
 
 #: frmMain.cpp:93
 #: frmMain.cpp:126
 #: frmMain.cpp:140
 msgid "Remove files"
-msgstr ""
+msgstr "Remover arquivos"
 
 #: frmSettings.cpp:270
 msgid "Restore Defaults"
-msgstr ""
+msgstr "Restaurar padrões"
 
 #: frmSettings.cpp:129
 msgid "Same as input directory"
-msgstr ""
+msgstr "Igual ao diretório de entrada"
 
 #: frmMain.cpp:235
 #: frmSettings.cpp:278
 msgid "Select directory"
-msgstr ""
+msgstr "Selecionar diretório"
 
 #: frmMain.cpp:213
 #: frmSettings.cpp:279
 msgid "Select file"
-msgstr ""
+msgstr "Selecionar arquivo"
 
 #: frmMain.cpp:98
 #: frmMain.cpp:132
 #: frmSettings.cpp:99
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: frmSettings.cpp:169
-msgid "Stricty enforce minimum bitrate"
-msgstr ""
+msgid "Strictly enforce minimum bitrate"
+msgstr "Cumprir rigorosamente o bitrate mínimo"
 
 #: frmSettings.cpp:172
 msgid "Use ABR instead VBR"
-msgstr ""
+msgstr "Use ABR em vez de VBR"
 
 #: frmSettings.cpp:131
 msgid "Use below:"
-msgstr ""
+msgstr "Use a seguir:"
 
 #: frmSettings.cpp:150
 #: frmSettings.cpp:265
 msgid "VBR"
-msgstr ""
+msgstr "VBR"
 
 #: frmSettings.cpp:237
 msgid "Width of Highpass filter (in Hz):"
-msgstr ""
+msgstr "Largura do filtro passa alta (em Hz):"
 
 #: frmSettings.cpp:253
 msgid "Width of Lowpass filter (in Hz):"
-msgstr ""
+msgstr "Largura do filtro passa baixa (em Hz):"
 
 #: frmSettings.cpp:113
 #: frmSettings.cpp:560
 msgid "default"
-msgstr ""
+msgstr "padrão"
 
 #: frmSettings.cpp:549
 msgid "default (automatic)"
-msgstr ""
+msgstr "padrão (automático)"
 
 #: frmSettings.cpp:117
 msgid "dual-mono"
-msgstr ""
+msgstr "dual-mono"
 
 #: frmSettings.cpp:116
 msgid "force"
-msgstr ""
+msgstr "forçar"
 
 #: frmSettings.cpp:114
 msgid "joint"
-msgstr ""
+msgstr "joint"
 
 #: frmSettings.cpp:118
 msgid "mono"
-msgstr ""
+msgstr "mono"
 
 #: frmSettings.cpp:115
 msgid "simple"
-msgstr ""
+msgstr "simples"
 
 #: frmMain.cpp:110
 msgid "wxLame Website"
-msgstr ""
+msgstr "Site do wxLame"
 
