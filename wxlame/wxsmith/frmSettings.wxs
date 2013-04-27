@@ -46,12 +46,12 @@
 												<object class="sizeritem">
 													<object class="wxChoice" name="ID_CHOICE4" variable="chcMode" member="yes">
 														<content>
-															<item>Default</item>
-															<item>Joint</item>
-															<item>Simple</item>
-															<item>Force</item>
-															<item>Dual-mono</item>
-															<item>Mono</item>
+															<item>default</item>
+															<item>joint</item>
+															<item>simple</item>
+															<item>force</item>
+															<item>dual-mono</item>
+															<item>mono</item>
 														</content>
 													</object>
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
@@ -77,7 +77,6 @@
 										</object>
 										<object class="sizeritem">
 											<object class="wxButton" name="ID_BUTTON5" variable="btnLameExecutable" member="yes">
-												<label>...</label>
 												<size>22,22</size>
 												<handler function="OnbtnLameExecutableClick" entry="EVT_BUTTON" />
 											</object>
@@ -118,7 +117,6 @@
 												</object>
 												<object class="sizeritem">
 													<object class="wxButton" name="ID_BUTTON3" variable="btnOutputDirectory" member="yes">
-														<label>...</label>
 														<size>22,21</size>
 														<handler function="OnbtnOutputDirectoryClick" entry="EVT_BUTTON" />
 													</object>
@@ -343,19 +341,7 @@
 												</object>
 												<object class="sizeritem">
 													<object class="wxChoice" name="ID_CHOICE2" variable="chcAlgorithmQualitySel" member="yes">
-														<content>
-															<item>default</item>
-															<item>0 (highest quality, very slow)</item>
-															<item>1</item>
-															<item>2</item>
-															<item>3</item>
-															<item>4</item>
-															<item>5</item>
-															<item>6</item>
-															<item>7</item>
-															<item>8</item>
-															<item>9 (poor quality, but fast)</item>
-														</content>
+														<size>200,-1</size>
 													</object>
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
@@ -393,20 +379,7 @@
 									<object class="wxStaticBoxSizer" variable="StaticBoxSizer12" member="no">
 										<label>Output sampling frequency</label>
 										<object class="sizeritem">
-											<object class="wxChoice" name="ID_CHOICE5" variable="chcResampling" member="yes">
-												<content>
-													<item>default (automatic)</item>
-													<item>8 kHz</item>
-													<item>11.025 kHz</item>
-													<item>12 kHz</item>
-													<item>16 kHz</item>
-													<item>22.05 kHz</item>
-													<item>24 kHz</item>
-													<item>32 kHz</item>
-													<item>44.1 kHz</item>
-													<item>48 kHz</item>
-												</content>
-											</object>
+											<object class="wxChoice" name="ID_CHOICE5" variable="chcResampling" member="yes" />
 											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>
 											<option>1</option>
@@ -565,7 +538,6 @@
 		</object>
 		<object class="wxFileDialog" variable="FileDialog1" member="yes">
 			<message>Select file</message>
-			<default_file>lame</default_file>
 			<style>wxFD_DEFAULT_STYLE|wxFD_OPEN</style>
 		</object>
 	</object>

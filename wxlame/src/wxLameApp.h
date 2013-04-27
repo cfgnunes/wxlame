@@ -12,6 +12,10 @@ class wxLameApp : public wxApp
 {
 public:
     virtual bool OnInit();
+
+private:
+    void selectLanguage(int lang);
+    wxLocale* m_locale;
 };
 
 #endif // WXLAMEAPP_H
