@@ -82,16 +82,16 @@ private:
     void mnuExit(wxCommandEvent& event);
     void mnuClearList(wxCommandEvent& event);
     void mnuRemoveFiles(wxCommandEvent& event);
-    void mnuLameOptions(wxCommandEvent& event);
     void mnuEncode(wxCommandEvent& event);
     void mnuDecode(wxCommandEvent& event);
-    void OnlstFilesClick(wxListEvent& event);
-    void OnlstFilesItemRClick(wxListEvent& event);
     void mnuAbout(wxCommandEvent& event);
     void mnuLameWebsite(wxCommandEvent& event);
     void mnuWxLameWebsite(wxCommandEvent& event);
     void mnuAddDirectory(wxCommandEvent& event);
+    void mnuSettings(wxCommandEvent& event);
     void OnlstFilesDeleteItem(wxListEvent& event);
+    void OnlstFilesClick(wxListEvent& event);
+    void OnlstFilesItemRClick(wxListEvent& event);
     //*)
 
     void updateStatusBar();

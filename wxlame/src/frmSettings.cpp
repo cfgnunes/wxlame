@@ -298,10 +298,6 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     Connect(ID_BUTTON4,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&frmSettings::OnbtnCancelClick);
     //*)
 
-    // Sets the size of the sliders
-    sldBitrate->SetMax(BITRATE_VALUES_SIZE - 1);
-    sldBitrateVBR->SetMax(BITRATE_VALUES_SIZE - 1);
-
     // Set labels of controls
     setLabelsControls();
 
@@ -546,6 +542,10 @@ void frmSettings::defaultValueControls()
 
 void frmSettings::setLabelsControls()
 {
+    // Sets the size of the sliders
+    sldBitrate->SetMax(BITRATE_VALUES_SIZE - 1);
+    sldBitrateVBR->SetMax(BITRATE_VALUES_SIZE - 1);
+
     chcResampling->Append(_("default (automatic)"));
     chcResampling->Append(_T("8 kHz"));
     chcResampling->Append(_T("11.025 kHz"));

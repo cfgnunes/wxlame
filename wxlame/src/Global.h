@@ -8,9 +8,9 @@
 
 #include <wx/string.h>
 
-const wxString	APP_NAME = wxT("wxLame");
-const wxString	APP_VERSION = wxT("2.4.1");
-const wxString	APP_NAME_WITH_VERSION = APP_NAME + wxT(" v") + APP_VERSION;
+const wxString	APP_NAME = _T("wxLame");
+const wxString	APP_VERSION = _T("2.4.1");
+const wxString	APP_NAME_WITH_VERSION = APP_NAME + _T(" v") + APP_VERSION;
 
 const wxString APP_AUTHOR = _T("Cristiano Nunes <cfgnunes@gmail.com>");
 const wxString APP_COPYRIGHT = _T("(C) 2011-2013 Cristiano Nunes <cfgnunes@gmail.com>");
