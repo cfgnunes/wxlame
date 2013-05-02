@@ -153,7 +153,7 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuExit);
     Connect(ID_MENUITEM3,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuRemoveFiles);
     Connect(ID_MENUITEM4,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuClearList);
-    Connect(ID_MENUITEM6,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuLameOptions);
+    Connect(ID_MENUITEM6,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuSettings);
     Connect(ID_MENUITEM7,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuEncode);
     Connect(ID_MENUITEM8,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuDecode);
     Connect(ID_MENUITEM10,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuLameWebsite);
@@ -165,7 +165,7 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Connect(ID_TOOLBARITEM3,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuClearList);
     Connect(ID_TOOLBARITEM4,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuEncode);
     Connect(ID_TOOLBARITEM5,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuDecode);
-    Connect(ID_TOOLBARITEM6,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuLameOptions);
+    Connect(ID_TOOLBARITEM6,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuSettings);
     Connect(ID_TOOLBARITEM7,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuAbout);
     Connect(ID_MENUITEM14,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddDirectory);
     Connect(ID_MENUITEM5,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
@@ -274,16 +274,6 @@ void frmMain::mnuRemoveFiles(wxCommandEvent& event)
     updateDisabledControls();
 }
 
-void frmMain::mnuLameOptions(wxCommandEvent& event)
-{
-    // Displays the "Settings" window
-    frmSettings Dlg(this, configBase);
-    Dlg.ShowModal();
-
-    // Updates the status bar after closing the window "Settings"
-    updateStatusBar();
-}
-
 void frmMain::mnuEncode(wxCommandEvent& event)
 {
     // Displays the "Progress" window
@@ -328,6 +318,16 @@ void frmMain::updateDisabledControls()
     MenuBar1->Enable(ID_MENUITEM8, lstFiles->GetItemCount() > 0);
     ToolBar1->EnableTool(ID_TOOLBARITEM4, lstFiles->GetItemCount() > 0);
     ToolBar1->EnableTool(ID_TOOLBARITEM5, lstFiles->GetItemCount() > 0);
+}
+
+void frmMain::mnuSettings(wxCommandEvent& event)
+{
+    // Displays the "Settings" window
+    frmSettings Dlg(this, configBase);
+    Dlg.ShowModal();
+
+    // Updates the status bar after closing the window "Settings"
+    updateStatusBar();
 }
 
 void frmMain::updateStatusBar()
@@ -395,3 +395,4 @@ void frmMain::OnlstFilesDeleteItem(wxListEvent& event)
     lstFilesData->Detach(event.GetIndex());
     updateDisabledControls();
 }
+

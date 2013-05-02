@@ -45,7 +45,7 @@
 				<object class="separator" />
 				<object class="wxMenuItem" name="ID_MENUITEM6" variable="MenuItem6" member="no">
 					<label>Settings</label>
-					<handler function="mnuLameOptions" entry="EVT_MENU" />
+					<handler function="mnuSettings" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu4" member="no">
@@ -119,7 +119,7 @@
 			<object class="tool" name="ID_TOOLBARITEM6" variable="ToolBarItem7" member="yes">
 				<label>Settings</label>
 				<bitmap stock_id="wxART_QUESTION" />
-				<handler function="mnuLameOptions" entry="EVT_TOOL" />
+				<handler function="mnuSettings" entry="EVT_TOOL" />
 			</object>
 			<object class="tool" name="ID_TOOLBARITEM7" variable="ToolBarItem8" member="yes">
 				<label>About</label>
