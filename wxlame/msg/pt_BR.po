@@ -6,13 +6,13 @@ msgstr ""
 "Project-Id-Version: wxLame\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2013-04-26 22:22-0300\n"
+"PO-Revision-Date: 2013-05-01 22:03-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: frmMain.cpp:106
 msgid "&Actions"
@@ -38,20 +38,15 @@ msgstr "0 (alta qualidade, lento)"
 msgid "9 (lowest quality, fast)"
 msgstr "9 (baixa qualidade, rápido)"
 
-#: frmMain.cpp:113
-#: frmMain.cpp:133
+#: frmMain.cpp:113 frmMain.cpp:133
 msgid "About"
 msgstr "Sobre"
 
-#: frmMain.cpp:86
-#: frmMain.cpp:125
-#: frmMain.cpp:138
+#: frmMain.cpp:86 frmMain.cpp:125 frmMain.cpp:138
 msgid "Add files"
 msgstr "Adicionar arquivos"
 
-#: frmMain.cpp:84
-#: frmMain.cpp:124
-#: frmMain.cpp:136
+#: frmMain.cpp:84 frmMain.cpp:124 frmMain.cpp:136
 msgid "Add folder"
 msgstr "Adicionar diretório"
 
@@ -75,15 +70,11 @@ msgstr "Bitrate médio na codificação ABR:"
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#: frmProgress.cpp:53
-#: frmProgress.cpp:81
-#: frmSettings.cpp:274
+#: frmProgress.cpp:53 frmProgress.cpp:81 frmSettings.cpp:274
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: frmMain.cpp:95
-#: frmMain.cpp:127
-#: frmMain.cpp:142
+#: frmMain.cpp:95 frmMain.cpp:127 frmMain.cpp:142
 msgid "Clear list"
 msgstr "Limpar lista"
 
@@ -95,9 +86,7 @@ msgstr "Fechar"
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr "Cumprir quando possível com a norma ISO especificação MPEG"
 
-#: frmSettings.cpp:106
-#: frmSettings.cpp:157
-#: frmSettings.cpp:341
+#: frmSettings.cpp:106 frmSettings.cpp:157 frmSettings.cpp:341
 #: frmSettings.cpp:347
 msgid "Current bitrate:"
 msgstr "Bitrate atual:"
@@ -106,8 +95,7 @@ msgstr "Bitrate atual:"
 msgid "Custom options:"
 msgstr "Opções customizadas:"
 
-#: frmMain.cpp:104
-#: frmMain.cpp:130
+#: frmMain.cpp:104 frmMain.cpp:130
 msgid "Decode"
 msgstr "Decodificar"
 
@@ -131,8 +119,7 @@ msgstr "Deseja parar o processo agora?"
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Habilitar Bitrate Variável (VBR)"
 
-#: frmMain.cpp:102
-#: frmMain.cpp:129
+#: frmMain.cpp:102 frmMain.cpp:129
 msgid "Encode"
 msgstr "Codificar"
 
@@ -249,9 +236,7 @@ msgstr "Progresso"
 msgid "Quality of VBR encoding:"
 msgstr "Qualidade da codificação VBR:"
 
-#: frmMain.cpp:93
-#: frmMain.cpp:126
-#: frmMain.cpp:140
+#: frmMain.cpp:93 frmMain.cpp:126 frmMain.cpp:140
 msgid "Remove files"
 msgstr "Remover arquivos"
 
@@ -263,19 +248,15 @@ msgstr "Restaurar padrões"
 msgid "Same as input directory"
 msgstr "Igual ao diretório de entrada"
 
-#: frmMain.cpp:235
-#: frmSettings.cpp:278
+#: frmMain.cpp:235 frmSettings.cpp:278
 msgid "Select directory"
 msgstr "Selecionar diretório"
 
-#: frmMain.cpp:213
-#: frmSettings.cpp:279
+#: frmMain.cpp:213 frmSettings.cpp:279
 msgid "Select file"
 msgstr "Selecionar arquivo"
 
-#: frmMain.cpp:98
-#: frmMain.cpp:132
-#: frmSettings.cpp:99
+#: frmMain.cpp:98 frmMain.cpp:132 frmSettings.cpp:99
 msgid "Settings"
 msgstr "Configurações"
 
@@ -291,8 +272,7 @@ msgstr "Use ABR em vez de VBR"
 msgid "Use below:"
 msgstr "Use a seguir:"
 
-#: frmSettings.cpp:150
-#: frmSettings.cpp:265
+#: frmSettings.cpp:150 frmSettings.cpp:265
 msgid "VBR"
 msgstr "VBR"
 
@@ -304,8 +284,7 @@ msgstr "Largura do filtro passa alta (em Hz):"
 msgid "Width of Lowpass filter (in Hz):"
 msgstr "Largura do filtro passa baixa (em Hz):"
 
-#: frmSettings.cpp:113
-#: frmSettings.cpp:560
+#: frmSettings.cpp:113 frmSettings.cpp:560
 msgid "default"
 msgstr "padrão"
 
@@ -336,4 +315,3 @@ msgstr "simples"
 #: frmMain.cpp:110
 msgid "wxLame Website"
 msgstr "Site do wxLame"
-
