@@ -11,11 +11,11 @@
 #include "DndFile.h"
 
 //(*InternalHeaders(frmMain)
-#include <wx/string.h>
-#include <wx/intl.h>
-#include <wx/bitmap.h>
-#include <wx/image.h>
 #include <wx/artprov.h>
+#include <wx/bitmap.h>
+#include <wx/intl.h>
+#include <wx/image.h>
+#include <wx/string.h>
 //*)
 
 #include <wx/aboutdlg.h>
@@ -49,6 +49,7 @@ const long frmMain::ID_MENUITEM14 = wxNewId();
 const long frmMain::ID_MENUITEM5 = wxNewId();
 const long frmMain::ID_MENUITEM12 = wxNewId();
 const long frmMain::ID_MENUITEM13 = wxNewId();
+const long frmMain::ID_TIMER1 = wxNewId();
 //*)
 
 BEGIN_EVENT_TABLE(frmMain, wxFrame)
@@ -59,21 +60,21 @@ END_EVENT_TABLE()
 frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size)
 {
     //(*Initialize(frmMain)
-    wxMenuItem* MenuItem2;
-    wxMenuItem* MenuItem1;
-    wxMenu* Menu5;
-    wxMenu* Menu3;
-    wxMenuItem* MenuItem3;
-    wxMenuItem* MenuItem9;
-    wxMenu* Menu4;
-    wxMenuItem* MenuItem11;
-    wxMenuItem* MenuItem5;
-    wxMenuItem* MenuItem10;
-    wxMenuItem* MenuItem7;
-    wxMenuItem* MenuItem6;
-    wxMenuItem* MenuItem4;
-    wxMenu* Menu2;
     wxMenuItem* MenuItem8;
+    wxMenuItem* MenuItem7;
+    wxMenuItem* MenuItem5;
+    wxMenuItem* MenuItem2;
+    wxMenu* Menu3;
+    wxMenuItem* MenuItem1;
+    wxMenuItem* MenuItem4;
+    wxMenuItem* MenuItem11;
+    wxMenuItem* MenuItem10;
+    wxMenuItem* MenuItem3;
+    wxMenuItem* MenuItem6;
+    wxMenu* Menu2;
+    wxMenuItem* MenuItem9;
+    wxMenu* Menu5;
+    wxMenu* Menu4;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
     SetClientSize(wxSize(763,450));
@@ -115,10 +116,10 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     MenuBar1->Append(Menu5, _("&Help"));
     SetMenuBar(MenuBar1);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, wxST_SIZEGRIP, _T("ID_STATUSBAR1"));
-    int __wxStatusBarWidths_1[2] = { -10, -10 };
-    int __wxStatusBarStyles_1[2] = { wxSB_NORMAL, wxSB_NORMAL };
-    StatusBar1->SetFieldsCount(2,__wxStatusBarWidths_1);
-    StatusBar1->SetStatusStyles(2,__wxStatusBarStyles_1);
+    int __wxStatusBarWidths_1[3] = { -10, -5, -10 };
+    int __wxStatusBarStyles_1[3] = { wxSB_NORMAL, wxSB_NORMAL, wxSB_NORMAL };
+    StatusBar1->SetFieldsCount(3,__wxStatusBarWidths_1);
+    StatusBar1->SetStatusStyles(3,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
     ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_FLAT|wxTB_HORIZONTAL|wxTB_TEXT|wxNO_BORDER, _T("ID_TOOLBAR1"));
     ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM8, _("Add folder"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
@@ -141,13 +142,12 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Menu1.Append(MenuItem10);
     MenuItem11 = new wxMenuItem((&Menu1), ID_MENUITEM13, _("Clear list"), wxEmptyString, wxITEM_NORMAL);
     Menu1.Append(MenuItem11);
+    Timer1.SetOwner(this, ID_TIMER1);
     Center();
 
     Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_DELETE_ITEM,(wxObjectEventFunction)&frmMain::OnlstFilesDeleteItem);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_SELECTED,(wxObjectEventFunction)&frmMain::OnlstFilesClick);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_DESELECTED,(wxObjectEventFunction)&frmMain::OnlstFilesClick);
     Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK,(wxObjectEventFunction)&frmMain::OnlstFilesItemRClick);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_INSERT_ITEM,(wxObjectEventFunction)&frmMain::OnlstFilesClick);
+    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_INSERT_ITEM,(wxObjectEventFunction)&frmMain::OnlstFilesInsertItem);
     Connect(ID_MENUITEM15,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddDirectory);
     Connect(ID_MENUITEM2,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuExit);
@@ -171,7 +171,11 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Connect(ID_MENUITEM5,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
     Connect(ID_MENUITEM12,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuRemoveFiles);
     Connect(ID_MENUITEM13,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuClearList);
+    Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&frmMain::OnTimer1Trigger);
     //*)
+
+    // Disable status bar pane used to display menu and toolbar help
+    SetStatusBarPane(-1);
 
     // Aux list for wxListctrl
     lstFilesData = new ArrayOfFiles();
@@ -191,11 +195,8 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     // Title List
     lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 600);
 
-    // Updates the status bar
-    updateStatusBar();
-
-    // Updates the controls that should be disabled
-    updateDisabledControls();
+    // Updates the controls
+    updateControls();
 }
 
 frmMain::~frmMain()
@@ -260,7 +261,7 @@ void frmMain::mnuClearList(wxCommandEvent& event)
     lstFiles->DeleteAllItems();
     lstFilesData->Clear();
 
-    updateDisabledControls();
+    updateControls();
 }
 
 void frmMain::mnuRemoveFiles(wxCommandEvent& event)
@@ -271,7 +272,7 @@ void frmMain::mnuRemoveFiles(wxCommandEvent& event)
         lstFiles->DeleteItem(lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
     SetCursor(wxCURSOR_ARROW);
 
-    updateDisabledControls();
+    updateControls();
 }
 
 void frmMain::mnuEncode(wxCommandEvent& event)
@@ -288,64 +289,13 @@ void frmMain::mnuDecode(wxCommandEvent& event)
     Dlg.ShowModal();
 }
 
-void frmMain::OnlstFilesItemRClick(wxListEvent& event)
-{
-    updateDisabledControls();
-
-    // Displays the popup menu when you click a list item
-    lstFiles->PopupMenu(&Menu1);
-}
-
-void frmMain::OnlstFilesClick(wxListEvent& event)
-{
-    updateDisabledControls();
-}
-
-void frmMain::updateDisabledControls()
-{
-    // Disables the menu item "Remove files" if no item is selected
-    Menu1.Enable(ID_MENUITEM12, lstFiles->GetSelectedItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM3, lstFiles->GetSelectedItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM2, lstFiles->GetSelectedItemCount() > 0);
-
-    // Disables the menu item "Clear list" if there is no item in the list
-    Menu1.Enable(ID_MENUITEM13, lstFiles->GetItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM4, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM3, lstFiles->GetItemCount() > 0);
-
-    // Disables menus Encode and Decode case there is no item in the list
-    MenuBar1->Enable(ID_MENUITEM7, lstFiles->GetItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM8, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM4, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM5, lstFiles->GetItemCount() > 0);
-}
-
 void frmMain::mnuSettings(wxCommandEvent& event)
 {
     // Displays the "Settings" window
     frmSettings Dlg(this, configBase);
     Dlg.ShowModal();
 
-    // Updates the status bar after closing the window "Settings"
-    updateStatusBar();
-}
-
-void frmMain::updateStatusBar()
-{
-    wxArrayString inputString;
-    wxArrayString inputErrorString;
-
-    // Execute external application
-    wxExecute(configBase->getEncoderExecutable(), inputString, inputErrorString, wxEXEC_NODISABLE);
-
-    // Show the version of tool
-    if (!inputErrorString.IsEmpty())
-        StatusBar1->SetStatusText(inputErrorString.Item(0), 0);
-    else
-        StatusBar1->SetStatusText(_("LAME not found!"), 0);
-
-    // Show the parameters
-    StatusBar1->SetStatusText(_("Lame options: ") + configBase->getStringLameOptions(), 1);
+    updateControls();
 }
 
 void frmMain::mnuAbout(wxCommandEvent& event)
@@ -391,8 +341,70 @@ void frmMain::loadResources()
     ToolBar1->SetToolNormalBitmap(ID_TOOLBARITEM8, wxBitmap(wxImage(RESOURCE_DIR + _T("toolbar/folder.png"))));
 }
 
+void frmMain::OnlstFilesItemRClick(wxListEvent& event)
+{
+    updateControls();
+
+    // Displays the popup menu when you click a list item
+    lstFiles->PopupMenu(&Menu1);
+}
+
 void frmMain::OnlstFilesDeleteItem(wxListEvent& event)
 {
     lstFilesData->Detach(event.GetIndex());
-    updateDisabledControls();
+    updateControls();
+}
+
+void frmMain::OnlstFilesInsertItem(wxListEvent& event)
+{
+    updateControls();
+}
+
+void frmMain::updateControls()
+{
+    Timer1.Start(10, true);
+}
+
+void frmMain::OnTimer1Trigger(wxTimerEvent& event)
+{
+    wxString newExeTool = configBase->getEncoderExecutable();
+    if(!exeTool.IsSameAs(newExeTool, false))
+    {
+        exeInputString.Clear();
+        exeInputErrorString.Clear();
+        exeTool = newExeTool;
+        if(wxFileName::FileExists(exeTool) || wxFileName::FileExists(exeTool + _T(".exe")))
+        {
+            // Execute external application
+            wxExecute(exeTool + _T(" -v"), exeInputString, exeInputErrorString, wxEXEC_NODISABLE);
+        }
+
+        // Show the version of tool
+        if (!exeInputErrorString.IsEmpty())
+            StatusBar1->SetStatusText(exeInputErrorString.Item(0), 0);
+        else
+            StatusBar1->SetStatusText(_("LAME not found!"), 0);
+    }
+
+    // Show the number of files in list on statusbar
+    StatusBar1->SetStatusText(wxString::Format(_T("%i "), lstFiles->GetItemCount()) + _("files"), 1);
+
+    // Show the parameters
+    StatusBar1->SetStatusText(_("Lame options: ") + configBase->getStringLameOptions(), 2);
+
+    // Disables the menu item "Remove files" if no item is selected
+    Menu1.Enable(ID_MENUITEM12, lstFiles->GetSelectedItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM3, lstFiles->GetSelectedItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM2, lstFiles->GetSelectedItemCount() > 0);
+
+    // Disables the menu item "Clear list" if there is no item in the list
+    Menu1.Enable(ID_MENUITEM13, lstFiles->GetItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM4, lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM3, lstFiles->GetItemCount() > 0);
+
+    // Disables menus Encode and Decode case there is no item in the list
+    MenuBar1->Enable(ID_MENUITEM7, lstFiles->GetItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM8, lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM4, lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM5, lstFiles->GetItemCount() > 0);
 }
