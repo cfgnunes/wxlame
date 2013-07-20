@@ -315,3 +315,6 @@ msgstr "simples"
 #: frmMain.cpp:110
 msgid "wxLame Website"
 msgstr "Site do wxLame"
+
+msgid "files"
+msgstr "arquivos"

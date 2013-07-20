@@ -318,3 +318,6 @@ msgstr ""
 #: frmMain.cpp:110
 msgid "wxLame Website"
 msgstr "Веб-сайт wxLame"
+
+msgid "files"
+msgstr "файлы"
