@@ -97,7 +97,7 @@ public:
     void setConfigFlush();
     wxString getStringLameOptions();
 
-    //gets...
+    // Gets...
     wxString getLastOpenDir();
     int getBitrate();
     int getMode();
@@ -128,7 +128,7 @@ public:
     bool getLowpassWidthEnabled();
     int getLowpassWidth();
 
-    //sets...
+    // Sets...
     void setLastOpenDir(wxString value);
     void setBitrate(int value);
     void setMode(int value);

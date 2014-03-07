@@ -151,7 +151,7 @@ wxString ConfigBase::getStringLameOptions()
     return lameOptions;
 }
 
-//gets...
+// Gets...
 
 wxString ConfigBase::getLastOpenDir()
 {
@@ -356,7 +356,7 @@ int ConfigBase::getLowpassWidth()
     return value;
 }
 
-//sets...
+// Sets...
 
 void ConfigBase::setLastOpenDir(wxString value)
 {
