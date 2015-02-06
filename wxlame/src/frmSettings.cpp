@@ -7,8 +7,8 @@
 #include "Global.h"
 
 //(*InternalHeaders(frmSettings)
-#include <wx/string.h>
 #include <wx/intl.h>
+#include <wx/string.h>
 //*)
 
 //(*IdInit(frmSettings)
@@ -68,33 +68,33 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
 : configBase(configBase)
 {
     //(*Initialize(frmSettings)
-    wxStaticBoxSizer* StaticBoxSizer2;
-    wxStaticBoxSizer* StaticBoxSizer10;
-    wxFlexGridSizer* FlexGridSizer1;
-    wxFlexGridSizer* FlexGridSizer2;
-    wxBoxSizer* BoxSizer3;
-    wxStaticBoxSizer* StaticBoxSizer7;
-    wxBoxSizer* BoxSizer10;
-    wxStaticBoxSizer* StaticBoxSizer12;
-    wxBoxSizer* BoxSizer7;
-    wxBoxSizer* BoxSizer13;
-    wxBoxSizer* BoxSizer2;
-    wxFlexGridSizer* FlexGridSizer4;
-    wxStaticBoxSizer* StaticBoxSizer3;
-    wxStaticBoxSizer* StaticBoxSizer13;
-    wxFlexGridSizer* FlexGridSizer3;
-    wxStaticBoxSizer* StaticBoxSizer8;
     wxBoxSizer* BoxSizer4;
-    wxStaticBoxSizer* StaticBoxSizer9;
-    wxStaticBoxSizer* StaticBoxSizer4;
-    wxStaticBoxSizer* StaticBoxSizer6;
-    wxBoxSizer* BoxSizer8;
-    wxStaticBoxSizer* StaticBoxSizer14;
-    wxBoxSizer* BoxSizer1;
-    wxStaticBoxSizer* StaticBoxSizer11;
+    wxStaticBoxSizer* StaticBoxSizer2;
     wxBoxSizer* BoxSizer6;
+    wxFlexGridSizer* FlexGridSizer4;
     wxBoxSizer* BoxSizer5;
+    wxBoxSizer* BoxSizer10;
+    wxBoxSizer* BoxSizer7;
+    wxStaticBoxSizer* StaticBoxSizer12;
+    wxBoxSizer* BoxSizer8;
+    wxBoxSizer* BoxSizer13;
+    wxStaticBoxSizer* StaticBoxSizer14;
+    wxStaticBoxSizer* StaticBoxSizer4;
+    wxFlexGridSizer* FlexGridSizer3;
+    wxFlexGridSizer* FlexGridSizer2;
+    wxStaticBoxSizer* StaticBoxSizer9;
+    wxBoxSizer* BoxSizer2;
+    wxStaticBoxSizer* StaticBoxSizer7;
+    wxStaticBoxSizer* StaticBoxSizer13;
+    wxStaticBoxSizer* StaticBoxSizer10;
+    wxStaticBoxSizer* StaticBoxSizer8;
+    wxStaticBoxSizer* StaticBoxSizer3;
+    wxStaticBoxSizer* StaticBoxSizer6;
+    wxStaticBoxSizer* StaticBoxSizer11;
+    wxBoxSizer* BoxSizer1;
     wxStaticBoxSizer* StaticBoxSizer1;
+    wxFlexGridSizer* FlexGridSizer1;
+    wxBoxSizer* BoxSizer3;
 
     Create(parent, wxID_ANY, _("Settings"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
@@ -105,7 +105,7 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     StaticBoxSizer1 = new wxStaticBoxSizer(wxVERTICAL, Panel6, _("Bitrate"));
     lblBitrate = new wxStaticText(Panel6, ID_STATICTEXT2, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
     StaticBoxSizer1->Add(lblBitrate, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
-    sldBitrate = new wxSlider(Panel6, ID_SLIDER1, 0, 0, 0, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_SELRANGE, wxDefaultValidator, _T("ID_SLIDER1"));
+    sldBitrate = new wxSlider(Panel6, ID_SLIDER1, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_SELRANGE, wxDefaultValidator, _T("ID_SLIDER1"));
     StaticBoxSizer1->Add(sldBitrate, 0, wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
     BoxSizer4->Add(StaticBoxSizer1, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticBoxSizer4 = new wxStaticBoxSizer(wxVERTICAL, Panel6, _("Mode"));
@@ -156,7 +156,7 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     StaticBoxSizer9 = new wxStaticBoxSizer(wxVERTICAL, Panel2, _("Maximum VBR bitrate"));
     lblBitrateVBR = new wxStaticText(Panel2, ID_STATICTEXT4, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT4"));
     StaticBoxSizer9->Add(lblBitrateVBR, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP, 5);
-    sldBitrateVBR = new wxSlider(Panel2, ID_SLIDER2, 0, 0, 0, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_SELRANGE, wxDefaultValidator, _T("ID_SLIDER2"));
+    sldBitrateVBR = new wxSlider(Panel2, ID_SLIDER2, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_SELRANGE, wxDefaultValidator, _T("ID_SLIDER2"));
     StaticBoxSizer9->Add(sldBitrateVBR, 0, wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer7->Add(StaticBoxSizer9, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer7->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -335,12 +335,16 @@ void frmSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent& event)
 {
     int number = sldBitrate->GetValue();
     lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+
+    event.Skip();
 }
 
 void frmSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent& event)
 {
     int number = sldBitrateVBR->GetValue();
     lblBitrateVBR->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+
+    event.Skip();
 }
 
 void frmSettings::updateDisabledControlsEvent(wxCommandEvent& event)

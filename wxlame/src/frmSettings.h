@@ -9,20 +9,20 @@
 #include "ConfigBase.h"
 
 //(*Headers(frmSettings)
-#include <wx/spinctrl.h>
-#include <wx/checkbox.h>
-#include <wx/dialog.h>
-#include <wx/sizer.h>
 #include <wx/notebook.h>
-#include <wx/button.h>
-#include <wx/dirdlg.h>
-#include <wx/radiobut.h>
-#include <wx/filedlg.h>
-#include <wx/panel.h>
-#include <wx/slider.h>
+#include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/checkbox.h>
+#include <wx/spinctrl.h>
+#include <wx/radiobut.h>
+#include <wx/slider.h>
+#include <wx/panel.h>
+#include <wx/filedlg.h>
 #include <wx/choice.h>
+#include <wx/button.h>
+#include <wx/dirdlg.h>
+#include <wx/dialog.h>
 //*)
 
 class frmSettings : public wxDialog
@@ -33,53 +33,53 @@ public:
     virtual ~frmSettings();
 
     //(*Declarations(frmSettings)
-    wxChoice* chcMode;
     wxCheckBox* chkHighpass;
-    wxButton* btnLameExecutable;
-    wxPanel* Panel1;
-    wxPanel* Panel6;
-    wxSlider* sldBitrateVBR;
-    wxCheckBox* chkEnforceMinBitrate;
+    wxChoice* chcMode;
     wxCheckBox* chkEnabledVBR;
-    wxRadioButton* optEnableOutDir;
-    wxSpinCtrl* spcLowpassWidth;
-    wxSpinCtrl* spcVBRQuality;
-    wxCheckBox* chkMarkNonOriginal;
-    wxTextCtrl* txtOutputDirectory;
-    wxCheckBox* chkHighpassWidth;
-    wxCheckBox* chkUseABR;
-    wxSpinCtrl* spcHighpassWidth;
-    wxSlider* sldBitrate;
-    wxDirDialog* DirDialog1;
-    wxPanel* Panel2;
-    wxChoice* chcAlgorithmQualitySel;
-    wxPanel* Panel4;
-    wxButton* btnOutputDirectory;
-    wxCheckBox* chkLowpass;
-    wxTextCtrl* txtLameExecutable;
-    wxStaticText* lblVBRQuality;
-    wxStaticText* StaticText8;
+    wxCheckBox* chkEnforceMinBitrate;
     wxSpinCtrl* spcAverageBitrateABR;
-    wxFileDialog* FileDialog1;
-    wxStaticText* StaticText7;
-    wxCheckBox* chkCrc;
-    wxCheckBox* chkDisableVBRTag;
+    wxTextCtrl* txtOutputDirectory;
     wxStaticText* lblBitrate;
-    wxCheckBox* chkEnforceISO;
     wxNotebook* Notebook1;
-    wxTextCtrl* txtCustomOptions;
-    wxSpinCtrl* spcLowpassFreq;
     wxChoice* chcResampling;
-    wxButton* btnOK;
-    wxButton* btnCancel;
-    wxStaticText* lblABR;
+    wxPanel* Panel4;
     wxCheckBox* chkLowpassWidth;
-    wxSpinCtrl* spcHighpassFreq;
-    wxStaticText* lblBitrateVBR;
-    wxRadioButton* optUseSameDir;
-    wxButton* btnDefault;
+    wxButton* btnCancel;
+    wxButton* btnLameExecutable;
+    wxButton* btnOutputDirectory;
+    wxCheckBox* chkHighpassWidth;
+    wxSlider* sldBitrate;
+    wxCheckBox* chkEnforceISO;
+    wxTextCtrl* txtCustomOptions;
+    wxStaticText* StaticText8;
+    wxChoice* chcAlgorithmQualitySel;
+    wxPanel* Panel1;
+    wxFileDialog* FileDialog1;
+    wxButton* btnOK;
+    wxPanel* Panel6;
     wxCheckBox* chkMarkCopyright;
+    wxSpinCtrl* spcHighpassFreq;
+    wxSpinCtrl* spcVBRQuality;
     wxCheckBox* chkDeleteFiles;
+    wxStaticText* StaticText7;
+    wxTextCtrl* txtLameExecutable;
+    wxStaticText* lblBitrateVBR;
+    wxDirDialog* DirDialog1;
+    wxCheckBox* chkDisableVBRTag;
+    wxStaticText* lblABR;
+    wxCheckBox* chkLowpass;
+    wxSpinCtrl* spcLowpassWidth;
+    wxCheckBox* chkCrc;
+    wxCheckBox* chkUseABR;
+    wxPanel* Panel2;
+    wxCheckBox* chkMarkNonOriginal;
+    wxRadioButton* optUseSameDir;
+    wxSpinCtrl* spcHighpassWidth;
+    wxButton* btnDefault;
+    wxSpinCtrl* spcLowpassFreq;
+    wxRadioButton* optEnableOutDir;
+    wxSlider* sldBitrateVBR;
+    wxStaticText* lblVBRQuality;
     //*)
 
 protected:

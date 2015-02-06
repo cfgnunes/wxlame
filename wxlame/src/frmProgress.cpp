@@ -7,8 +7,8 @@
 #include "Global.h"
 
 //(*InternalHeaders(frmProgress)
-#include <wx/string.h>
 #include <wx/intl.h>
+#include <wx/string.h>
 //*)
 
 #include <wx/app.h>
