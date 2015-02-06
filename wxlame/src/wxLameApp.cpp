@@ -21,7 +21,7 @@
  * Purpose:   A free front-end for the LAME MP3 encoder.
  * Author:    Cristiano Nunes (cfgnunes@gmail.com)
  * Created:   2010-12-23
- * Copyright: Copyright (C) 2011  Cristiano Nunes
+ * Copyright: Copyright (C) 2011 Cristiano Nunes
  * License:   licensed under the GNU General Public License, version 3
  *            http://www.gnu.org/licenses/gpl-3.0.html
  ************************************************************************/
