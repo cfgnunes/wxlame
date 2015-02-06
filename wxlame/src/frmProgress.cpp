@@ -81,7 +81,7 @@ void frmProgress::OnInit(wxInitDialogEvent& event)
     btnCancel->SetLabel(_("Cancel"));
     workingProgress = true;
 
-    // Initializes the timer for the process async
+    // Initializes the timer for the async process
     Timer1.Start(100);
 
     // Sets the maximum of "bar list"
@@ -124,8 +124,8 @@ void frmProgress::processNextFile()
 
 void frmProgress::stringLabelsUpdate()
 {
-    lblStatusList->SetLabel(wxString::Format(_("Processed %i files of %i."), fileIterator, lstFilesData->GetCount()));
-    int total = lstFilesData->GetCount();
+    size_t total = lstFilesData->GetCount();
+    lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), fileIterator, total));
     if (fileIterator < total)
     {
         FileInfo& fileInfo = lstFilesData->Item(fileIterator);
@@ -200,7 +200,7 @@ void frmProgress::OnProcessTerm(wxProcessEvent& event)
             wxRemoveFile(filenameInput.GetFullPath());
         }
 
-        int total = lstFilesData->GetCount();
+        size_t total = lstFilesData->GetCount();
         if (fileIterator < total)
             processNextFile();
         else
