@@ -1,10 +1,11 @@
 wxLame - Changelog file
 
-Changelog v3.0 (2015-02-??)
+Changelog v3.0 (2015-02-06)
 --------------
 - Added Czech translation
 - Added German translation
 - Updated to wxWidgets 3.0 library
+- Small bug fix
 
 Changelog v2.4.3 (2013-07-20)
 --------------
