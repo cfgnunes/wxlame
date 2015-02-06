@@ -72,7 +72,7 @@ private:
     ConfigBase* configBase;
     ArrayOfFiles* lstFilesData;
     wxProcess* process;
-    int fileIterator;
+    size_t fileIterator;
     int workType;
     bool workingProgress;
     long processPID;
