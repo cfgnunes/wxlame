@@ -9,11 +9,11 @@
 #include <wx/string.h>
 
 const wxString	APP_NAME = _T("wxLame");
-const wxString	APP_VERSION = _T("2.4.4");
+const wxString	APP_VERSION = _T("3.0");
 const wxString	APP_NAME_WITH_VERSION = APP_NAME + _T(" v") + APP_VERSION;
 
 const wxString APP_AUTHOR = _T("Cristiano Nunes <cfgnunes@gmail.com>");
-const wxString APP_COPYRIGHT = _T("(C) 2011-2013 Cristiano Nunes <cfgnunes@gmail.com>");
+const wxString APP_COPYRIGHT = _T("(C) 2011-2015 Cristiano Nunes <cfgnunes@gmail.com>");
 const wxString	APP_WEBSITE = _T("http://sourceforge.net/projects/wxlame/");
 
 const wxString  APP_WILDCARD_EXT = _T("Audio files|*.mp3;*.wav;*.aif;*.aiff;*.ape;*.MP3;*.WAV;*.AIF;*.AIFF;*.APE|MP3 files (*.mp3)|*.mp3;*.MP3|Wave files (*.wav)|*.wav;*.WAV|AIFF files (*.aif;*.aiff)|*.aif;*.aiff;*.AIF;*.AIFF|Monkey's audio files (*.ape)|*.ape;*.APE");
