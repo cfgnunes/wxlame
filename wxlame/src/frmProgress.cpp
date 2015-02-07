@@ -69,7 +69,6 @@ frmProgress::frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles*
 }
 
 frmProgress::~frmProgress() {
-    delete mp_process;
 }
 
 void frmProgress::OnInit(wxInitDialogEvent& event) {
