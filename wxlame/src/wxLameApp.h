@@ -8,14 +8,13 @@
 
 #include <wx/app.h>
 
-class wxLameApp : public wxApp
-{
+class wxLameApp : public wxApp {
 public:
     virtual bool OnInit();
 
 private:
-    wxLocale *m_locale;
-    wxArrayString *m_filesCmdLine;
+    wxLocale *mp_locale;
+    wxArrayString *mp_filesCmdLine;
 };
 
 #endif // WXLAMEAPP_H

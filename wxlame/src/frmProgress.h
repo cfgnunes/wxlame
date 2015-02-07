@@ -7,12 +7,12 @@
 #define FRMPROGRESS_H
 
 //(*Headers(frmProgress)
-#include <wx/sizer.h>
-#include <wx/stattext.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
-#include <wx/timer.h>
 #include <wx/gauge.h>
+#include <wx/dialog.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/stattext.h>
+#include <wx/timer.h>
 //*)
 
 #include "FileInfo.h"
@@ -20,30 +20,26 @@
 
 #include <wx/process.h>
 
-enum
-{
+enum {
     LAME_ENCODE = 0,
     LAME_DECODE = 1,
 };
 
-class frmProgress : public wxDialog
-{
+class frmProgress : public wxDialog {
 public:
-
     frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles* lstFilesData, int workType, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmProgress();
 
     //(*Declarations(frmProgress)
-    wxStaticText* lblStatusFile;
-    wxButton* btnCancel;
-    wxGauge* gaugeListProgress;
-    wxGauge* gaugeFileProgress;
-    wxStaticText* lblStatusList;
+    wxButton* g_btnCancel;
     wxTimer Timer1;
+    wxGauge* g_gaugeFileProgress;
+    wxStaticText* g_lblStatusList;
+    wxGauge* g_gaugeListProgress;
+    wxStaticText* g_lblStatusFile;
     //*)
 
 protected:
-
     //(*Identifiers(frmProgress)
     static const long ID_STATICTEXT1;
     static const long ID_GAUGE1;
@@ -54,7 +50,6 @@ protected:
     //*)
 
 private:
-
     //(*Handlers(frmProgress)
     void OnTimer1Trigger(wxTimerEvent& event);
     void OnbtnCancelClick(wxCommandEvent& event);
@@ -66,19 +61,19 @@ private:
     void OnProcessTerm(wxProcessEvent& event);
     void processNextFile();
     void finishedWork();
-    void stringToGaugeUpdate(const wxString & inputString);
+    void stringToGaugeUpdate(const wxString& inputString);
     void stringLabelsUpdate();
 
-    ConfigBase* configBase;
-    ArrayOfFiles* lstFilesData;
-    wxProcess* process;
-    size_t fileIterator;
-    int workType;
-    bool workingProgress;
-    long processPID;
-    wxString inputString;
+    ConfigBase *mp_configBase;
+    ArrayOfFiles *mp_lstFilesData;
+    wxProcess *mp_process;
+    size_t m_fileIterator;
+    int m_workType;
+    bool m_workingProgress;
+    long m_processPID;
+    wxString m_inputString;
 
     DECLARE_EVENT_TABLE()
 };
 
-#endif
+#endif // FRMPROGRESS_H

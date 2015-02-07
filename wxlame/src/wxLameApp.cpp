@@ -36,22 +36,20 @@
 
 IMPLEMENT_APP(wxLameApp);
 
-bool wxLameApp::OnInit()
-{
+bool wxLameApp::OnInit() {
     // Load language translation
-    delete m_locale;
-    m_locale = new wxLocale(wxLANGUAGE_DEFAULT);
-    m_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("msg"));
-    m_locale->AddCatalog(_T("wxlame"));
+    mp_locale = new wxLocale(wxLANGUAGE_DEFAULT);
+    mp_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("msg"));
+    mp_locale->AddCatalog(_T("wxlame"));
 
     wxInitAllImageHandlers();
     frmMain* Frame = new frmMain(0);
 
     // Read command line files
-    m_filesCmdLine = new wxArrayString();
-    for (int i=1; i<argc; i++)
-        m_filesCmdLine->Add(wxString(argv[i]));
-    Frame->SetFilesCmdLine(*m_filesCmdLine);
+    mp_filesCmdLine = new wxArrayString();
+    for (int i = 1; i < argc; i++)
+        mp_filesCmdLine->Add(wxString(argv[i]));
+    Frame->setFilesCmdLine(*mp_filesCmdLine);
 
     Frame->Show();
     SetTopWindow(Frame);

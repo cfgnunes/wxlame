@@ -57,8 +57,7 @@ BEGIN_EVENT_TABLE(frmMain, wxFrame)
 //*)
 END_EVENT_TABLE()
 
-frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size)
-{
+frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size) {
     //(*Initialize(frmMain)
     wxMenuItem* MenuItem2;
     wxMenuItem* MenuItem1;
@@ -77,9 +76,9 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     wxMenuItem* MenuItem8;
 
     Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
-    SetClientSize(wxSize(763,450));
+    SetClientSize(wxSize(763, 450));
     Move(wxDefaultPosition);
-    lstFiles = new wxListCtrl(this, ID_LISTCTRL1, wxPoint(184,208), wxSize(520,450), wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRL1"));
+    g_lstFiles = new wxListCtrl(this, ID_LISTCTRL1, wxPoint(184, 208), wxSize(520, 450), wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRL1"));
     MenuBar1 = new wxMenuBar();
     Menu2 = new wxMenu();
     MenuItem15 = new wxMenuItem(Menu2, ID_MENUITEM15, _("Add folder"), wxEmptyString, wxITEM_NORMAL);
@@ -116,22 +115,22 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     MenuBar1->Append(Menu5, _("&Help"));
     SetMenuBar(MenuBar1);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, wxST_SIZEGRIP, _T("ID_STATUSBAR1"));
-    int __wxStatusBarWidths_1[3] = { -10, -5, -10 };
-    int __wxStatusBarStyles_1[3] = { wxSB_NORMAL, wxSB_NORMAL, wxSB_NORMAL };
-    StatusBar1->SetFieldsCount(3,__wxStatusBarWidths_1);
-    StatusBar1->SetStatusStyles(3,__wxStatusBarStyles_1);
+    int __wxStatusBarWidths_1[3] = {-10, -5, -10};
+    int __wxStatusBarStyles_1[3] = {wxSB_NORMAL, wxSB_NORMAL, wxSB_NORMAL};
+    StatusBar1->SetFieldsCount(3, __wxStatusBarWidths_1);
+    StatusBar1->SetStatusStyles(3, __wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
-    ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_FLAT|wxTB_HORIZONTAL|wxTB_TEXT|wxNO_BORDER, _T("ID_TOOLBAR1"));
-    ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM8, _("Add folder"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    ToolBarItem2 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Add files"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    ToolBarItem3 = ToolBar1->AddTool(ID_TOOLBARITEM2, _("Remove files"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    ToolBarItem4 = ToolBar1->AddTool(ID_TOOLBARITEM3, _("Clear list"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBar1 = new wxToolBar(this, ID_TOOLBAR1, wxDefaultPosition, wxDefaultSize, wxTB_FLAT | wxTB_HORIZONTAL | wxTB_TEXT | wxNO_BORDER, _T("ID_TOOLBAR1"));
+    ToolBarItem1 = ToolBar1->AddTool(ID_TOOLBARITEM8, _("Add folder"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem2 = ToolBar1->AddTool(ID_TOOLBARITEM1, _("Add files"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem3 = ToolBar1->AddTool(ID_TOOLBARITEM2, _("Remove files"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem4 = ToolBar1->AddTool(ID_TOOLBARITEM3, _("Clear list"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBar1->AddSeparator();
-    ToolBarItem5 = ToolBar1->AddTool(ID_TOOLBARITEM4, _("Encode"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    ToolBarItem6 = ToolBar1->AddTool(ID_TOOLBARITEM5, _("Decode"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem5 = ToolBar1->AddTool(ID_TOOLBARITEM4, _("Encode"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem6 = ToolBar1->AddTool(ID_TOOLBARITEM5, _("Decode"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBar1->AddSeparator();
-    ToolBarItem7 = ToolBar1->AddTool(ID_TOOLBARITEM6, _("Settings"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
-    ToolBarItem8 = ToolBar1->AddTool(ID_TOOLBARITEM7, _("About"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")),wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem7 = ToolBar1->AddTool(ID_TOOLBARITEM6, _("Settings"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
+    ToolBarItem8 = ToolBar1->AddTool(ID_TOOLBARITEM7, _("About"), wxArtProvider::GetBitmap(wxART_MAKE_ART_ID_FROM_STR(_T("wxART_QUESTION")), wxART_TOOLBAR), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString);
     ToolBar1->Realize();
     SetToolBar(ToolBar1);
     MenuItem14 = new wxMenuItem((&Menu1), ID_MENUITEM14, _("Add folder"), wxEmptyString, wxITEM_NORMAL);
@@ -145,49 +144,49 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     Timer1.SetOwner(this, ID_TIMER1);
     Center();
 
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_DELETE_ITEM,(wxObjectEventFunction)&frmMain::OnlstFilesDeleteItem);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_SELECTED,(wxObjectEventFunction)&frmMain::OnlstFilesInsertItem);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_DESELECTED,(wxObjectEventFunction)&frmMain::OnlstFilesInsertItem);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK,(wxObjectEventFunction)&frmMain::OnlstFilesItemRClick);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_KEY_DOWN,(wxObjectEventFunction)&frmMain::OnlstFilesKeyDown);
-    Connect(ID_LISTCTRL1,wxEVT_COMMAND_LIST_INSERT_ITEM,(wxObjectEventFunction)&frmMain::OnlstFilesInsertItem);
-    Connect(ID_MENUITEM15,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddDirectory);
-    Connect(ID_MENUITEM2,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
-    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuExit);
-    Connect(ID_MENUITEM3,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuRemoveFiles);
-    Connect(ID_MENUITEM4,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuClearList);
-    Connect(ID_MENUITEM6,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuSettings);
-    Connect(ID_MENUITEM7,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuEncode);
-    Connect(ID_MENUITEM8,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuDecode);
-    Connect(ID_MENUITEM10,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuLameWebsite);
-    Connect(ID_MENUITEM11,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuWxLameWebsite);
-    Connect(ID_MENUITEM9,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAbout);
-    Connect(ID_TOOLBARITEM8,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuAddDirectory);
-    Connect(ID_TOOLBARITEM1,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
-    Connect(ID_TOOLBARITEM2,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuRemoveFiles);
-    Connect(ID_TOOLBARITEM3,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuClearList);
-    Connect(ID_TOOLBARITEM4,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuEncode);
-    Connect(ID_TOOLBARITEM5,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuDecode);
-    Connect(ID_TOOLBARITEM6,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuSettings);
-    Connect(ID_TOOLBARITEM7,wxEVT_COMMAND_TOOL_CLICKED,(wxObjectEventFunction)&frmMain::mnuAbout);
-    Connect(ID_MENUITEM14,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddDirectory);
-    Connect(ID_MENUITEM5,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuAddFiles);
-    Connect(ID_MENUITEM12,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuRemoveFiles);
-    Connect(ID_MENUITEM13,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&frmMain::mnuClearList);
-    Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&frmMain::OnTimer1Trigger);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_DELETE_ITEM, (wxObjectEventFunction) & frmMain::OnlstFilesDeleteItem);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_SELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_DESELECTED, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, (wxObjectEventFunction) & frmMain::OnlstFilesItemRClick);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_KEY_DOWN, (wxObjectEventFunction) & frmMain::OnlstFilesKeyDown);
+    Connect(ID_LISTCTRL1, wxEVT_COMMAND_LIST_INSERT_ITEM, (wxObjectEventFunction) & frmMain::OnlstFilesInsertItem);
+    Connect(ID_MENUITEM15, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuAddDirectory);
+    Connect(ID_MENUITEM2, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuAddFiles);
+    Connect(ID_MENUITEM1, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuExit);
+    Connect(ID_MENUITEM3, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuRemoveFiles);
+    Connect(ID_MENUITEM4, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuClearList);
+    Connect(ID_MENUITEM6, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuSettings);
+    Connect(ID_MENUITEM7, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuEncode);
+    Connect(ID_MENUITEM8, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuDecode);
+    Connect(ID_MENUITEM10, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuLameWebsite);
+    Connect(ID_MENUITEM11, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuWxLameWebsite);
+    Connect(ID_MENUITEM9, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuAbout);
+    Connect(ID_TOOLBARITEM8, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuAddDirectory);
+    Connect(ID_TOOLBARITEM1, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuAddFiles);
+    Connect(ID_TOOLBARITEM2, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuRemoveFiles);
+    Connect(ID_TOOLBARITEM3, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuClearList);
+    Connect(ID_TOOLBARITEM4, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuEncode);
+    Connect(ID_TOOLBARITEM5, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuDecode);
+    Connect(ID_TOOLBARITEM6, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuSettings);
+    Connect(ID_TOOLBARITEM7, wxEVT_COMMAND_TOOL_CLICKED, (wxObjectEventFunction) & frmMain::mnuAbout);
+    Connect(ID_MENUITEM14, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuAddDirectory);
+    Connect(ID_MENUITEM5, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuAddFiles);
+    Connect(ID_MENUITEM12, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuRemoveFiles);
+    Connect(ID_MENUITEM13, wxEVT_COMMAND_MENU_SELECTED, (wxObjectEventFunction) & frmMain::mnuClearList);
+    Connect(ID_TIMER1, wxEVT_TIMER, (wxObjectEventFunction) & frmMain::OnTimer1Trigger);
     //*)
 
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
     // Aux list for wxListctrl
-    lstFilesData = new ArrayOfFiles();
+    mp_lstFilesData = new ArrayOfFiles();
 
     // Support Drag & Drop
-    lstFiles->SetDropTarget(new DndFile(lstFiles, lstFilesData));
+    g_lstFiles->SetDropTarget(new DndFile(g_lstFiles, mp_lstFilesData));
 
     // Configuration file
-    configBase = new ConfigBase(APP_NAME);
+    mp_configBase = new ConfigBase(APP_NAME);
 
     // Window title
     SetTitle(APP_NAME_WITH_VERSION);
@@ -196,119 +195,105 @@ frmMain::frmMain(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSi
     loadResources();
 
     // Title List
-    lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 600);
+    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 600);
 
     // Updates the controls
     updateControls();
 }
 
-frmMain::~frmMain()
-{
-    //(*Destroy(frmMain)
-    //*)
+frmMain::~frmMain() {
+    delete mp_lstFilesData;
 
     // Deletes the object configuration file and updates the file / record
-    delete configBase;
+    delete mp_configBase;
 }
 
-void frmMain::SetFilesCmdLine(const wxArrayString& filenames)
-{
-    DndFile dndFile(lstFiles, lstFilesData);
+void frmMain::setFilesCmdLine(const wxArrayString& filenames) {
+    DndFile dndFile(g_lstFiles, mp_lstFilesData);
     dndFile.OnDropFiles(0, 0, filenames);
 }
 
-void frmMain::mnuAddFiles(wxCommandEvent& event)
-{
+void frmMain::mnuAddFiles(wxCommandEvent& event) {
     wxArrayString files;
     wxFileDialog FileDialog1(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
-    FileDialog1.SetDirectory(configBase->getLastOpenDir());
+    FileDialog1.SetDirectory(mp_configBase->getLastOpenDir());
 
-    if (FileDialog1.ShowModal() == wxID_OK)
-    {
+    if (FileDialog1.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
 
         // Get the file(s) the user selected
         FileDialog1.GetPaths(files);
-        DndFile dndFile(lstFiles, lstFilesData);
-        dndFile.InsertFileList(files);
+        DndFile dndFile(g_lstFiles, mp_lstFilesData);
+        dndFile.insertFileList(files);
 
         // Remembers the last used directory
-        configBase->setLastOpenDir(FileDialog1.GetDirectory());
+        mp_configBase->setLastOpenDir(FileDialog1.GetDirectory());
         SetCursor(wxCURSOR_ARROW);
     }
 }
 
-void frmMain::mnuAddDirectory(wxCommandEvent& event)
-{
+void frmMain::mnuAddDirectory(wxCommandEvent& event) {
     wxDirDialog DirDialog1(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
-    DirDialog1.SetPath(configBase->getLastOpenDir());
-    if (DirDialog1.ShowModal() == wxID_OK)
-    {
+    DirDialog1.SetPath(mp_configBase->getLastOpenDir());
+    if (DirDialog1.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
-        DndFile dndFile(lstFiles, lstFilesData);
-        dndFile.InsertFileListDir(DirDialog1.GetPath());
+        DndFile dndFile(g_lstFiles, mp_lstFilesData);
+        dndFile.insertFileListDir(DirDialog1.GetPath());
 
         // Remembers the last used directory
-        configBase->setLastOpenDir(DirDialog1.GetPath());
+        mp_configBase->setLastOpenDir(DirDialog1.GetPath());
         SetCursor(wxCURSOR_ARROW);
     }
 }
 
-void frmMain::mnuExit(wxCommandEvent& event)
-{
+void frmMain::mnuExit(wxCommandEvent& event) {
     // Terminates the program
     Close();
 }
 
-void frmMain::mnuClearList(wxCommandEvent& event)
-{
+void frmMain::mnuClearList(wxCommandEvent& event) {
     // Deletes all items from the list
-    lstFiles->DeleteAllItems();
-    lstFilesData->Clear();
+    g_lstFiles->DeleteAllItems();
+    mp_lstFilesData->Clear();
 
     updateControls();
 }
 
-void frmMain::mnuRemoveFiles(wxCommandEvent& event)
-{
-    int itemCount = lstFiles->GetSelectedItemCount();
+void frmMain::mnuRemoveFiles(wxCommandEvent& event) {
+    int itemCount = g_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
-        lstFiles->DeleteItem(lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
+        g_lstFiles->DeleteItem(g_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
 }
 
-void frmMain::mnuEncode(wxCommandEvent& event)
-{
+void frmMain::mnuEncode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    frmProgress Dlg(this, configBase, lstFilesData, LAME_ENCODE);
+    frmProgress Dlg(this, mp_configBase, mp_lstFilesData, LAME_ENCODE);
     Dlg.ShowModal();
 }
 
-void frmMain::mnuDecode(wxCommandEvent& event)
-{
+void frmMain::mnuDecode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    frmProgress Dlg(this, configBase, lstFilesData, LAME_DECODE);
+    frmProgress Dlg(this, mp_configBase, mp_lstFilesData, LAME_DECODE);
     Dlg.ShowModal();
 }
 
-void frmMain::mnuSettings(wxCommandEvent& event)
-{
+void frmMain::mnuSettings(wxCommandEvent& event) {
     // Displays the "Settings" window
-    frmSettings Dlg(this, configBase);
+    frmSettings Dlg(this, mp_configBase);
     Dlg.ShowModal();
 
     updateControls();
 }
 
-void frmMain::mnuAbout(wxCommandEvent& event)
-{
+void frmMain::mnuAbout(wxCommandEvent& event) {
     wxAboutDialogInfo aboutInfo;
     aboutInfo.SetName(APP_NAME);
     aboutInfo.SetVersion(APP_VERSION);
@@ -324,18 +309,15 @@ void frmMain::mnuAbout(wxCommandEvent& event)
     wxAboutBox(aboutInfo);
 }
 
-void frmMain::mnuLameWebsite(wxCommandEvent& event)
-{
+void frmMain::mnuLameWebsite(wxCommandEvent& event) {
     wxLaunchDefaultBrowser(_T("http://lame.sourceforge.net/"));
 }
 
-void frmMain::mnuWxLameWebsite(wxCommandEvent& event)
-{
+void frmMain::mnuWxLameWebsite(wxCommandEvent& event) {
     wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
-void frmMain::loadResources()
-{
+void frmMain::loadResources() {
     wxString resourceDir = GetResourceDir();
 
     // Window icon
@@ -354,79 +336,72 @@ void frmMain::loadResources()
     ToolBar1->SetToolNormalBitmap(ID_TOOLBARITEM8, wxBitmap(wxImage(resourceDir + _T("toolbar/folder.png"))));
 }
 
-void frmMain::OnlstFilesItemRClick(wxListEvent& event)
-{
+void frmMain::OnlstFilesItemRClick(wxListEvent& event) {
     updateControls();
 
     // Displays the popup menu when you click a list item
-    lstFiles->PopupMenu(&Menu1);
+    g_lstFiles->PopupMenu(&Menu1);
     event.Skip();
 }
 
-void frmMain::OnlstFilesDeleteItem(wxListEvent& event)
-{
-    lstFilesData->Detach(event.GetIndex());
+void frmMain::OnlstFilesDeleteItem(wxListEvent& event) {
+    mp_lstFilesData->Detach(event.GetIndex());
     updateControls();
     event.Skip();
 }
 
-void frmMain::OnlstFilesInsertItem(wxListEvent& event)
-{
+void frmMain::OnlstFilesInsertItem(wxListEvent& event) {
     updateControls();
     event.Skip();
 }
 
-void frmMain::updateControls()
-{
+void frmMain::updateControls() {
     Timer1.Start(10, true);
 }
 
-void frmMain::OnTimer1Trigger(wxTimerEvent& event)
-{
-    wxString newExeTool = configBase->getEncoderExecutable();
-    if(!exeTool.IsSameAs(newExeTool, false))
-    {
-        exeInputString.Clear();
-        exeInputErrorString.Clear();
-        exeTool = newExeTool;
+void frmMain::OnTimer1Trigger(wxTimerEvent& event) {
+    wxString newExeTool = mp_configBase->getEncoderExecutable();
+    if (!m_exeTool.IsSameAs(newExeTool, false)) {
+        m_exeInputString.Clear();
+        m_exeInputErrorString.Clear();
+        m_exeTool = newExeTool;
         // Execute external application
-        wxExecute(exeTool + _T(" -v"), exeInputString, exeInputErrorString, wxEXEC_NODISABLE);
+        wxExecute(m_exeTool + _T(" -v"), m_exeInputString, m_exeInputErrorString, wxEXEC_NODISABLE);
 
         // Show the version of tool
-        if (!exeInputErrorString.IsEmpty())
-            StatusBar1->SetStatusText(exeInputErrorString.Item(0), 0);
+        if (!m_exeInputErrorString.IsEmpty())
+            StatusBar1->SetStatusText(m_exeInputErrorString.Item(0), 0);
         else
             StatusBar1->SetStatusText(_("LAME not found!"), 0);
     }
 
     // Show the number of files in list on status bar
-    StatusBar1->SetStatusText(wxString::Format(_T("%i "), lstFiles->GetItemCount()) + _("files"), 1);
+    StatusBar1->SetStatusText(wxString::Format(_T("%i "), g_lstFiles->GetItemCount()) + _("files"), 1);
 
     // Show the parameters
-    StatusBar1->SetStatusText(_("Lame options: ") + configBase->getStringLameOptions(), 2);
+    StatusBar1->SetStatusText(_("Lame options: ") + mp_configBase->getStringLameOptions(), 2);
 
     // Disables the menu item "Remove files" if no item is selected
-    Menu1.Enable(ID_MENUITEM12, lstFiles->GetSelectedItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM3, lstFiles->GetSelectedItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM2, lstFiles->GetSelectedItemCount() > 0);
+    Menu1.Enable(ID_MENUITEM12, g_lstFiles->GetSelectedItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM3, g_lstFiles->GetSelectedItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM2, g_lstFiles->GetSelectedItemCount() > 0);
 
     // Disables the menu item "Clear list" if there is no item in the list
-    Menu1.Enable(ID_MENUITEM13, lstFiles->GetItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM4, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM3, lstFiles->GetItemCount() > 0);
+    Menu1.Enable(ID_MENUITEM13, g_lstFiles->GetItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM4, g_lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM3, g_lstFiles->GetItemCount() > 0);
 
     // Disables menus Encode and Decode case there is no item in the list
-    MenuBar1->Enable(ID_MENUITEM7, lstFiles->GetItemCount() > 0);
-    MenuBar1->Enable(ID_MENUITEM8, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM4, lstFiles->GetItemCount() > 0);
-    ToolBar1->EnableTool(ID_TOOLBARITEM5, lstFiles->GetItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM7, g_lstFiles->GetItemCount() > 0);
+    MenuBar1->Enable(ID_MENUITEM8, g_lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM4, g_lstFiles->GetItemCount() > 0);
+    ToolBar1->EnableTool(ID_TOOLBARITEM5, g_lstFiles->GetItemCount() > 0);
 }
 
-void frmMain::OnlstFilesKeyDown(wxListEvent& event)
-{
+void frmMain::OnlstFilesKeyDown(wxListEvent& event) {
     // Remove files with Delete key
     int keyCode = event.GetKeyCode();
-    if(keyCode == WXK_DELETE)
+    if (keyCode == WXK_DELETE)
         mnuRemoveFiles(event);
 
     event.Skip();
