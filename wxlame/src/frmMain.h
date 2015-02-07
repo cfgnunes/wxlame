@@ -95,6 +95,7 @@ private:
     void OnTimer1Trigger(wxTimerEvent& event);
     void OnlstFilesInsertItem(wxListEvent& event);
     void OnlstFilesKeyDown(wxListEvent& event);
+    void OnlstFilesItemSelect(wxListEvent& event);
     //*)
 
     void updateControls();
