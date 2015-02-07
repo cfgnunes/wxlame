@@ -26,22 +26,22 @@ public:
 
     //(*Declarations(frmMain)
     wxToolBarToolBase* ToolBarItem5;
-    wxStatusBar* StatusBar1;
     wxMenuItem* MenuItem12;
+    wxStatusBar* g_mainStatusBar;
     wxToolBarToolBase* ToolBarItem6;
     wxListCtrl* g_lstFiles;
     wxMenuItem* MenuItem15;
     wxTimer Timer1;
     wxToolBarToolBase* ToolBarItem7;
     wxToolBarToolBase* ToolBarItem2;
-    wxToolBar* ToolBar1;
     wxToolBarToolBase* ToolBarItem4;
+    wxToolBar* g_mainToolBar;
     wxToolBarToolBase* ToolBarItem1;
-    wxMenuBar* MenuBar1;
+    wxMenu g_mainMenu;
     wxToolBarToolBase* ToolBarItem3;
     wxMenuItem* MenuItem13;
     wxToolBarToolBase* ToolBarItem8;
-    wxMenu Menu1;
+    wxMenuBar* g_mainMenuBar;
     wxMenuItem* MenuItem14;
     //*)
 

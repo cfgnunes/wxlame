@@ -15,9 +15,7 @@
 #include <wx/sizer.h>
 #include <wx/notebook.h>
 #include <wx/button.h>
-#include <wx/dirdlg.h>
 #include <wx/radiobut.h>
-#include <wx/filedlg.h>
 #include <wx/panel.h>
 #include <wx/slider.h>
 #include <wx/stattext.h>
@@ -45,7 +43,6 @@ public:
     wxButton* g_btnLameExecutable;
     wxButton* g_btnCancel;
     wxButton* g_btnOK;
-    wxDirDialog* DirDialog1;
     wxChoice* g_chcAlgorithmQualitySel;
     wxSpinCtrl* g_spcHighpassFreq;
     wxPanel* Panel2;
@@ -60,7 +57,6 @@ public:
     wxChoice* g_chcResampling;
     wxSlider* g_sldBitrateVBR;
     wxStaticText* StaticText8;
-    wxFileDialog* FileDialog1;
     wxCheckBox* g_chkCrc;
     wxTextCtrl* g_txtLameExecutable;
     wxCheckBox* g_chkLowpassWidth;

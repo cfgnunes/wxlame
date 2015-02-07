@@ -533,12 +533,5 @@
 				<border>5</border>
 			</object>
 		</object>
-		<object class="wxDirDialog" variable="DirDialog1" member="yes">
-			<message>Select directory</message>
-		</object>
-		<object class="wxFileDialog" variable="FileDialog1" member="yes">
-			<message>Select file</message>
-			<style>wxFD_DEFAULT_STYLE|wxFD_OPEN</style>
-		</object>
 	</object>
 </wxsmith>

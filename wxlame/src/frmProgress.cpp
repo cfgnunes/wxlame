@@ -42,25 +42,25 @@ frmProgress::frmProgress(wxWindow* parent, ConfigBase* configBase, ArrayOfFiles*
     Create(parent, wxID_ANY, _("Progress"), wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, _T("wxID_ANY"));
     BoxSizer1 = new wxBoxSizer(wxVERTICAL);
     g_lblStatusList = new wxStaticText(this, ID_STATICTEXT1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT1"));
-    BoxSizer1->Add(g_lblStatusList, 0, wxALL | wxEXPAND | wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5);
-    g_gaugeListProgress = new wxGauge(this, ID_GAUGE1, 100, wxDefaultPosition, wxSize(370, 20), 0, wxDefaultValidator, _T("ID_GAUGE1"));
-    BoxSizer1->Add(g_gaugeListProgress, 0, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(g_lblStatusList, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    g_gaugeListProgress = new wxGauge(this, ID_GAUGE1, 100, wxDefaultPosition, wxSize(370,20), 0, wxDefaultValidator, _T("ID_GAUGE1"));
+    BoxSizer1->Add(g_gaugeListProgress, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     g_lblStatusFile = new wxStaticText(this, ID_STATICTEXT2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT2"));
-    BoxSizer1->Add(g_lblStatusFile, 0, wxALL | wxEXPAND | wxALIGN_LEFT | wxALIGN_CENTER_VERTICAL, 5);
-    g_gaugeFileProgress = new wxGauge(this, ID_GAUGE2, 100, wxDefaultPosition, wxSize(370, 20), 0, wxDefaultValidator, _T("ID_GAUGE2"));
-    BoxSizer1->Add(g_gaugeFileProgress, 0, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(g_lblStatusFile, 0, wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 5);
+    g_gaugeFileProgress = new wxGauge(this, ID_GAUGE2, 100, wxDefaultPosition, wxSize(370,20), 0, wxDefaultValidator, _T("ID_GAUGE2"));
+    BoxSizer1->Add(g_gaugeFileProgress, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     g_btnCancel = new wxButton(this, ID_BUTTON1, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-    BoxSizer1->Add(g_btnCancel, 1, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer1->Add(g_btnCancel, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(BoxSizer1);
     Timer1.SetOwner(this, ID_TIMER1);
     BoxSizer1->Fit(this);
     BoxSizer1->SetSizeHints(this);
     Center();
 
-    Connect(ID_BUTTON1, wxEVT_COMMAND_BUTTON_CLICKED, (wxObjectEventFunction) & frmProgress::OnbtnCancelClick);
-    Connect(ID_TIMER1, wxEVT_TIMER, (wxObjectEventFunction) & frmProgress::OnTimer1Trigger);
-    Connect(wxID_ANY, wxEVT_INIT_DIALOG, (wxObjectEventFunction) & frmProgress::OnInit);
-    Connect(wxID_ANY, wxEVT_CLOSE_WINDOW, (wxObjectEventFunction) & frmProgress::OnClose);
+    Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&frmProgress::OnbtnCancelClick);
+    Connect(ID_TIMER1,wxEVT_TIMER,(wxObjectEventFunction)&frmProgress::OnTimer1Trigger);
+    Connect(wxID_ANY,wxEVT_INIT_DIALOG,(wxObjectEventFunction)&frmProgress::OnInit);
+    Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&frmProgress::OnClose);
     //*)
 
     // Initializes the process

@@ -11,6 +11,9 @@
 #include <wx/intl.h>
 //*)
 
+#include <wx/filedlg.h>
+#include <wx/dirdlg.h>
+
 //(*IdInit(frmSettings)
 const long frmSettings::ID_STATICTEXT2 = wxNewId();
 const long frmSettings::ID_SLIDER1 = wxNewId();
@@ -274,8 +277,6 @@ frmSettings::frmSettings(wxWindow* parent, ConfigBase* configBase, wxWindowID id
     BoxSizer10->Add(g_btnCancel, 1, wxALL | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer1->Add(BoxSizer10, 0, wxALL | wxEXPAND | wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(BoxSizer1);
-    DirDialog1 = new wxDirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE, wxDefaultPosition, wxDefaultSize, _T("wxDirDialog"));
-    FileDialog1 = new wxFileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, wxFileSelectorDefaultWildcardStr, wxFD_DEFAULT_STYLE | wxFD_OPEN, wxDefaultPosition, wxDefaultSize, _T("wxFileDialog"));
     BoxSizer1->Fit(this);
     BoxSizer1->SetSizeHints(this);
     Center();
@@ -345,16 +346,18 @@ void frmSettings::updateDisabledControlsEvent(wxCommandEvent& event) {
 }
 
 void frmSettings::OnbtnLameExecutableClick(wxCommandEvent& event) {
-    if (FileDialog1->ShowModal() == wxID_OK) {
+    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, wxFileSelectorDefaultWildcardStr, wxFD_OPEN);
+    if (fileDialog.ShowModal() == wxID_OK) {
         g_txtLameExecutable->Clear();
-        g_txtLameExecutable->WriteText(FileDialog1->GetPath());
+        g_txtLameExecutable->WriteText(fileDialog.GetPath());
     }
 }
 
 void frmSettings::OnbtnOutputDirectoryClick(wxCommandEvent& event) {
-    if (DirDialog1->ShowModal() == wxID_OK) {
+    wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
+    if (dirDialog.ShowModal() == wxID_OK) {
         g_txtOutputDirectory->Clear();
-        g_txtOutputDirectory->WriteText(DirDialog1->GetPath());
+        g_txtOutputDirectory->WriteText(dirDialog.GetPath());
     }
 }
 
