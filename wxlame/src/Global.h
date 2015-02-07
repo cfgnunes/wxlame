@@ -7,6 +7,8 @@
 #define GLOBAL_H_INCLUDED
 
 #include <wx/string.h>
+#include <wx/stdpaths.h>
+#include <wx/filename.h>
 
 const wxString	APP_NAME = _T("wxLame");
 const wxString	APP_VERSION = _T("3.1");
@@ -25,10 +27,16 @@ const int		BITRATE_VALUES_SIZE = 18;
 const wxString	RESAMPLING_VALUES[] = {_T("8"), _T("11.025"), _T("12"), _T("16"), _T("22.05"), _T("24"), _T("32"), _T("44.1"), _T("48")};
 const int		RESAMPLING_VALUES_SIZE = 9;
 
-#ifdef __LINUX__
-const wxString	RESOURCE_DIR = _T("/usr/share/wxlame/resource/");
-#else
-const wxString	RESOURCE_DIR = _T("resource/");
-#endif
+inline wxString GetResourceDir()
+{
+    #ifdef __LINUX__
+    wxString resourceDir = _T("/usr/share/wxlame/resource/");
+    #else
+    wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
+    wxFileName executableFilename(executablePath);
+    wxString resourceDir = executableFilename.GetPath() + _T("/resource/");
+    #endif
+    return resourceDir;
+}
 
 #endif // GLOBAL_H_INCLUDED
