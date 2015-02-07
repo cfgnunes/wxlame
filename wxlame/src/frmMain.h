@@ -18,20 +18,18 @@
 #include <wx/timer.h>
 //*)
 
-class frmMain : public wxFrame
-{
+class frmMain : public wxFrame {
 public:
-
     frmMain(wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize);
     virtual ~frmMain();
-    void SetFilesCmdLine(const wxArrayString& filenames);
+    void setFilesCmdLine(const wxArrayString& filenames);
 
     //(*Declarations(frmMain)
     wxToolBarToolBase* ToolBarItem5;
     wxStatusBar* StatusBar1;
     wxMenuItem* MenuItem12;
     wxToolBarToolBase* ToolBarItem6;
-    wxListCtrl* lstFiles;
+    wxListCtrl* g_lstFiles;
     wxMenuItem* MenuItem15;
     wxTimer Timer1;
     wxToolBarToolBase* ToolBarItem7;
@@ -48,7 +46,6 @@ public:
     //*)
 
 protected:
-
     //(*Identifiers(frmMain)
     static const long ID_LISTCTRL1;
     static const long ID_MENUITEM15;
@@ -80,7 +77,6 @@ protected:
     //*)
 
 private:
-
     //(*Handlers(frmMain)
     void mnuAddFiles(wxCommandEvent& event);
     void mnuExit(wxCommandEvent& event);
@@ -102,13 +98,13 @@ private:
 
     void updateControls();
     void loadResources();
-    ConfigBase *configBase;
-    ArrayOfFiles *lstFilesData;
-    wxString exeTool;
-    wxArrayString exeInputString;
-    wxArrayString exeInputErrorString;
+    ConfigBase *mp_configBase;
+    ArrayOfFiles *mp_lstFilesData;
+    wxString m_exeTool;
+    wxArrayString m_exeInputString;
+    wxArrayString m_exeInputErrorString;
 
     DECLARE_EVENT_TABLE()
 };
 
-#endif
+#endif // FRMMAIN_H

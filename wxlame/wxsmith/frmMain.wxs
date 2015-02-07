@@ -5,7 +5,7 @@
 		<size>763,450</size>
 		<pos_arg>1</pos_arg>
 		<size_arg>1</size_arg>
-		<object class="wxListCtrl" name="ID_LISTCTRL1" variable="lstFiles" member="yes">
+		<object class="wxListCtrl" name="ID_LISTCTRL1" variable="g_lstFiles" member="yes">
 			<pos>184,208</pos>
 			<size>520,450</size>
 			<style>wxLC_REPORT</style>

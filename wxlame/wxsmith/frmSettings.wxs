@@ -19,14 +19,14 @@
 												<label>Bitrate</label>
 												<orient>wxVERTICAL</orient>
 												<object class="sizeritem">
-													<object class="wxStaticText" name="ID_STATICTEXT2" variable="lblBitrate" member="yes">
+													<object class="wxStaticText" name="ID_STATICTEXT2" variable="g_lblBitrate" member="yes">
 														<label>Current bitrate:</label>
 													</object>
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
 													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSlider" name="ID_SLIDER1" variable="sldBitrate" member="yes">
+													<object class="wxSlider" name="ID_SLIDER1" variable="g_sldBitrate" member="yes">
 														<max>1</max>
 														<style>wxSL_AUTOTICKS|wxSL_SELRANGE</style>
 														<handler function="OnsldBitrateCmdSliderUpdated" entry="EVT_COMMAND_SLIDER_UPDATED" />
@@ -44,7 +44,7 @@
 												<label>Mode</label>
 												<orient>wxVERTICAL</orient>
 												<object class="sizeritem">
-													<object class="wxChoice" name="ID_CHOICE4" variable="chcMode" member="yes">
+													<object class="wxChoice" name="ID_CHOICE4" variable="g_chcMode" member="yes">
 														<content>
 															<item>default</item>
 															<item>joint</item>
@@ -70,13 +70,13 @@
 									<object class="wxStaticBoxSizer" variable="StaticBoxSizer2" member="no">
 										<label>LAME executable</label>
 										<object class="sizeritem">
-											<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="txtLameExecutable" member="yes" />
+											<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="g_txtLameExecutable" member="yes" />
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>
 											<option>1</option>
 										</object>
 										<object class="sizeritem">
-											<object class="wxButton" name="ID_BUTTON5" variable="btnLameExecutable" member="yes">
+											<object class="wxButton" name="ID_BUTTON5" variable="g_btnLameExecutable" member="yes">
 												<size>22,22</size>
 												<handler function="OnbtnLameExecutableClick" entry="EVT_BUTTON" />
 											</object>
@@ -92,7 +92,7 @@
 										<label>Output directory</label>
 										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="optUseSameDir" member="yes">
+											<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="g_optUseSameDir" member="yes">
 												<label>Same as input directory</label>
 												<handler function="updateDisabledControlsEvent" entry="EVT_RADIOBUTTON" />
 											</object>
@@ -100,7 +100,7 @@
 											<border>2</border>
 										</object>
 										<object class="sizeritem">
-											<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="optEnableOutDir" member="yes">
+											<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="g_optEnableOutDir" member="yes">
 												<label>Use below:</label>
 												<handler function="updateDisabledControlsEvent" entry="EVT_RADIOBUTTON" />
 											</object>
@@ -110,13 +110,13 @@
 										<object class="sizeritem">
 											<object class="wxBoxSizer" variable="BoxSizer2" member="no">
 												<object class="sizeritem">
-													<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="txtOutputDirectory" member="yes" />
+													<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="g_txtOutputDirectory" member="yes" />
 													<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxButton" name="ID_BUTTON3" variable="btnOutputDirectory" member="yes">
+													<object class="wxButton" name="ID_BUTTON3" variable="g_btnOutputDirectory" member="yes">
 														<size>22,21</size>
 														<handler function="OnbtnOutputDirectoryClick" entry="EVT_BUTTON" />
 													</object>
@@ -135,7 +135,7 @@
 									<object class="wxStaticBoxSizer" variable="StaticBoxSizer8" member="no">
 										<label>Filing</label>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX7" variable="chkDeleteFiles" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX7" variable="g_chkDeleteFiles" member="yes">
 												<label>Delete source file after processing</label>
 											</object>
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
@@ -157,7 +157,7 @@
 									<object class="wxStaticBoxSizer" variable="StaticBoxSizer10" member="no">
 										<label>VBR</label>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX4" variable="chkEnabledVBR" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX4" variable="g_chkEnabledVBR" member="yes">
 												<label>Enable Variable Bitrate (VBR)</label>
 												<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 											</object>
@@ -175,14 +175,14 @@
 												<label>Maximum VBR bitrate</label>
 												<orient>wxVERTICAL</orient>
 												<object class="sizeritem">
-													<object class="wxStaticText" name="ID_STATICTEXT4" variable="lblBitrateVBR" member="yes">
+													<object class="wxStaticText" name="ID_STATICTEXT4" variable="g_lblBitrateVBR" member="yes">
 														<label>Current bitrate:</label>
 													</object>
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_TOP</flag>
 													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSlider" name="ID_SLIDER2" variable="sldBitrateVBR" member="yes">
+													<object class="wxSlider" name="ID_SLIDER2" variable="g_sldBitrateVBR" member="yes">
 														<max>1</max>
 														<style>wxSL_AUTOTICKS|wxSL_SELRANGE</style>
 														<handler function="OnsldBitrateVBRCmdSliderUpdated" entry="EVT_COMMAND_SLIDER_UPDATED" />
@@ -211,21 +211,21 @@
 												<label>Others</label>
 												<orient>wxVERTICAL</orient>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX5" variable="chkDisableVBRTag" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX5" variable="g_chkDisableVBRTag" member="yes">
 														<label>Disable writing of VBR Tag</label>
 													</object>
 													<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX6" variable="chkEnforceMinBitrate" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX6" variable="g_chkEnforceMinBitrate" member="yes">
 														<label>Strictly enforce minimum bitrate</label>
 													</object>
 													<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX8" variable="chkUseABR" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX8" variable="g_chkUseABR" member="yes">
 														<label>Use ABR instead VBR</label>
 														<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 													</object>
@@ -237,14 +237,14 @@
 														<cols>2</cols>
 														<rows>2</rows>
 														<object class="sizeritem">
-															<object class="wxStaticText" name="ID_STATICTEXT3" variable="lblVBRQuality" member="yes">
+															<object class="wxStaticText" name="ID_STATICTEXT3" variable="g_lblVBRQuality" member="yes">
 																<label>Quality of VBR encoding:</label>
 															</object>
 															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
-															<object class="wxSpinCtrl" name="ID_SPINCTRL1" variable="spcVBRQuality" member="yes">
+															<object class="wxSpinCtrl" name="ID_SPINCTRL1" variable="g_spcVBRQuality" member="yes">
 																<value>0</value>
 																<max>9</max>
 															</object>
@@ -252,14 +252,14 @@
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
-															<object class="wxStaticText" name="ID_STATICTEXT5" variable="lblABR" member="yes">
+															<object class="wxStaticText" name="ID_STATICTEXT5" variable="g_lblABR" member="yes">
 																<label>Average bitrate encoding ABR:</label>
 															</object>
 															<flag>wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL</flag>
 															<border>5</border>
 														</object>
 														<object class="sizeritem">
-															<object class="wxSpinCtrl" name="ID_SPINCTRL2" variable="spcAverageBitrateABR" member="yes">
+															<object class="wxSpinCtrl" name="ID_SPINCTRL2" variable="g_spcAverageBitrateABR" member="yes">
 																<value>0</value>
 																<min>8</min>
 																<max>320</max>
@@ -293,28 +293,28 @@
 										<label>Flags</label>
 										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX2" variable="chkMarkNonOriginal" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX2" variable="g_chkMarkNonOriginal" member="yes">
 												<label>Mark as non-original</label>
 											</object>
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 											<border>2</border>
 										</object>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX3" variable="chkMarkCopyright" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX3" variable="g_chkMarkCopyright" member="yes">
 												<label>Mark as copyright</label>
 											</object>
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 											<border>2</border>
 										</object>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX1" variable="chkCrc" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX1" variable="g_chkCrc" member="yes">
 												<label>Include CRC error detection</label>
 											</object>
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
 											<border>2</border>
 										</object>
 										<object class="sizeritem">
-											<object class="wxCheckBox" name="ID_CHECKBOX13" variable="chkEnforceISO" member="yes">
+											<object class="wxCheckBox" name="ID_CHECKBOX13" variable="g_chkEnforceISO" member="yes">
 												<label>Comply as much as possible to ISO MPEG spec</label>
 											</object>
 											<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
@@ -340,7 +340,7 @@
 													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxChoice" name="ID_CHOICE2" variable="chcAlgorithmQualitySel" member="yes">
+													<object class="wxChoice" name="ID_CHOICE2" variable="g_chcAlgorithmQualitySel" member="yes">
 														<size>200,-1</size>
 													</object>
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
@@ -354,7 +354,7 @@
 													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="txtCustomOptions" member="yes" />
+													<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="g_txtCustomOptions" member="yes" />
 													<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
 												</object>
@@ -379,7 +379,7 @@
 									<object class="wxStaticBoxSizer" variable="StaticBoxSizer12" member="no">
 										<label>Output sampling frequency</label>
 										<object class="sizeritem">
-											<object class="wxChoice" name="ID_CHOICE5" variable="chcResampling" member="yes" />
+											<object class="wxChoice" name="ID_CHOICE5" variable="g_chcResampling" member="yes" />
 											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>
 											<option>1</option>
@@ -396,7 +396,7 @@
 												<cols>2</cols>
 												<rows>2</rows>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX15" variable="chkHighpass" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX15" variable="g_chkHighpass" member="yes">
 														<label>Highpass filtering frequency (in Hz):</label>
 														<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 													</object>
@@ -404,7 +404,7 @@
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSpinCtrl" name="ID_SPINCTRL3" variable="spcHighpassFreq" member="yes">
+													<object class="wxSpinCtrl" name="ID_SPINCTRL3" variable="g_spcHighpassFreq" member="yes">
 														<value>0</value>
 														<min>50</min>
 														<max>50000</max>
@@ -414,7 +414,7 @@
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX16" variable="chkHighpassWidth" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX16" variable="g_chkHighpassWidth" member="yes">
 														<label>Width of Highpass filter (in Hz):</label>
 														<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 													</object>
@@ -422,7 +422,7 @@
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSpinCtrl" name="ID_SPINCTRL4" variable="spcHighpassWidth" member="yes">
+													<object class="wxSpinCtrl" name="ID_SPINCTRL4" variable="g_spcHighpassWidth" member="yes">
 														<value>0</value>
 														<min>50</min>
 														<max>50000</max>
@@ -447,7 +447,7 @@
 												<cols>2</cols>
 												<rows>2</rows>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX17" variable="chkLowpass" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX17" variable="g_chkLowpass" member="yes">
 														<label>Lowpass filtering frequency (in Hz):</label>
 														<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 													</object>
@@ -455,7 +455,7 @@
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSpinCtrl" name="ID_SPINCTRL5" variable="spcLowpassFreq" member="yes">
+													<object class="wxSpinCtrl" name="ID_SPINCTRL5" variable="g_spcLowpassFreq" member="yes">
 														<value>0</value>
 														<min>50</min>
 														<max>50000</max>
@@ -465,7 +465,7 @@
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxCheckBox" name="ID_CHECKBOX18" variable="chkLowpassWidth" member="yes">
+													<object class="wxCheckBox" name="ID_CHECKBOX18" variable="g_chkLowpassWidth" member="yes">
 														<label>Width of Lowpass filter (in Hz):</label>
 														<handler function="updateDisabledControlsEvent" entry="EVT_CHECKBOX" />
 													</object>
@@ -473,7 +473,7 @@
 													<border>2</border>
 												</object>
 												<object class="sizeritem">
-													<object class="wxSpinCtrl" name="ID_SPINCTRL6" variable="spcLowpassWidth" member="yes">
+													<object class="wxSpinCtrl" name="ID_SPINCTRL6" variable="g_spcLowpassWidth" member="yes">
 														<value>0</value>
 														<min>50</min>
 														<max>50000</max>
@@ -502,7 +502,7 @@
 			<object class="sizeritem">
 				<object class="wxBoxSizer" variable="BoxSizer10" member="no">
 					<object class="sizeritem">
-						<object class="wxButton" name="ID_BUTTON1" variable="btnDefault" member="yes">
+						<object class="wxButton" name="ID_BUTTON1" variable="g_btnDefault" member="yes">
 							<label>Restore defaults</label>
 							<handler function="OnbtnDefaultClick" entry="EVT_BUTTON" />
 						</object>
@@ -511,7 +511,7 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxButton" name="ID_BUTTON2" variable="btnOK" member="yes">
+						<object class="wxButton" name="ID_BUTTON2" variable="g_btnOK" member="yes">
 							<label>OK</label>
 							<handler function="OnbtnOKClick" entry="EVT_BUTTON" />
 						</object>
@@ -520,7 +520,7 @@
 						<option>1</option>
 					</object>
 					<object class="sizeritem">
-						<object class="wxButton" name="ID_BUTTON4" variable="btnCancel" member="yes">
+						<object class="wxButton" name="ID_BUTTON4" variable="g_btnCancel" member="yes">
 							<label>Cancel</label>
 							<handler function="OnbtnCancelClick" entry="EVT_BUTTON" />
 						</object>

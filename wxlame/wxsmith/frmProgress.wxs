@@ -9,35 +9,35 @@
 		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
 			<orient>wxVERTICAL</orient>
 			<object class="sizeritem">
-				<object class="wxStaticText" name="ID_STATICTEXT1" variable="lblStatusList" member="yes">
+				<object class="wxStaticText" name="ID_STATICTEXT1" variable="g_lblStatusList" member="yes">
 					<label></label>
 				</object>
 				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxGauge" name="ID_GAUGE1" variable="gaugeListProgress" member="yes">
+				<object class="wxGauge" name="ID_GAUGE1" variable="g_gaugeListProgress" member="yes">
 					<size>370,20</size>
 				</object>
 				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxStaticText" name="ID_STATICTEXT2" variable="lblStatusFile" member="yes">
+				<object class="wxStaticText" name="ID_STATICTEXT2" variable="g_lblStatusFile" member="yes">
 					<label></label>
 				</object>
 				<flag>wxALL|wxEXPAND|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxGauge" name="ID_GAUGE2" variable="gaugeFileProgress" member="yes">
+				<object class="wxGauge" name="ID_GAUGE2" variable="g_gaugeFileProgress" member="yes">
 					<size>370,20</size>
 				</object>
 				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<object class="wxButton" name="ID_BUTTON1" variable="btnCancel" member="yes">
+				<object class="wxButton" name="ID_BUTTON1" variable="g_btnCancel" member="yes">
 					<label>Cancel</label>
 					<handler function="OnbtnCancelClick" entry="EVT_BUTTON" />
 				</object>
