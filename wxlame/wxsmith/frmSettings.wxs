@@ -27,7 +27,7 @@
 												</object>
 												<object class="sizeritem">
 													<object class="wxSlider" name="ID_SLIDER1" variable="sldBitrate" member="yes">
-														<max>0</max>
+														<max>1</max>
 														<style>wxSL_AUTOTICKS|wxSL_SELRANGE</style>
 														<handler function="OnsldBitrateCmdSliderUpdated" entry="EVT_COMMAND_SLIDER_UPDATED" />
 													</object>
@@ -183,7 +183,7 @@
 												</object>
 												<object class="sizeritem">
 													<object class="wxSlider" name="ID_SLIDER2" variable="sldBitrateVBR" member="yes">
-														<max>0</max>
+														<max>1</max>
 														<style>wxSL_AUTOTICKS|wxSL_SELRANGE</style>
 														<handler function="OnsldBitrateVBRCmdSliderUpdated" entry="EVT_COMMAND_SLIDER_UPDATED" />
 													</object>
