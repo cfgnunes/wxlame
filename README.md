@@ -11,7 +11,7 @@ wxLame has been tested on the following platforms:
 - Windows XP, Vista, 7, 8, 8.1;
 - Several major Linux distributions.
 
-### Download binary files:
+### Download binary files
 https://sourceforge.net/projects/wxlame/
 
 ### Personal Package Archives for Ubuntu users:
@@ -23,7 +23,6 @@ $ sudo apt-get -y install wxlame
 
 ### Tools used for development
 Source code written completely in C++ using:
-
 - GCC - The GNU Compiler Collection;
 - CodeBlocks - Open-Source IDE;
 - wxWidgets - Open-Source GUI framework;
