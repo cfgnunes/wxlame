@@ -11,11 +11,6 @@ wxLame has been tested on the following platforms:
 - Windows XP, Vista, 7, 8, 8.1
 - Several major Linux distributions
 
-### Contact
-Project website: http://sourceforge.net/projects/wxlame/
-
-E-mail: cfgnunes@gmail.com (Cristiano Nunes)
-
 ### Download binary files:
 https://sourceforge.net/projects/wxlame/
 
