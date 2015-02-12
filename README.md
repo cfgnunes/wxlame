@@ -8,8 +8,8 @@ the Free Software Foundation, either version 3 of the License, or
 
 ### Supported systems
 wxLame has been tested on the following platforms:
-- Windows XP, Vista, 7, 8, 8.1
-- Several major Linux distributions
+- Windows XP, Vista, 7, 8, 8.1;
+- Several major Linux distributions.
 
 ### Download binary files:
 https://sourceforge.net/projects/wxlame/
@@ -24,13 +24,10 @@ $ sudo apt-get -y install wxlame
 ### Tools used for development
 Source code written completely in C++ using:
 
-* GCC - The GNU Compiler Collection
-
-* CodeBlocks - Open-Source IDE
-
-* wxWidgets - Open-Source GUI framework
-
-* wxSmith - wxWidgets GUI-builder
+- GCC - The GNU Compiler Collection;
+- CodeBlocks - Open-Source IDE;
+- wxWidgets - Open-Source GUI framework;
+- wxSmith - wxWidgets GUI-builder.
 
 ### License
 This program is licensed under the terms of the GNU General Public License version 3. Available online under:
