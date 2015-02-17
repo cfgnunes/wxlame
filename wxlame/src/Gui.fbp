@@ -361,14 +361,14 @@
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
-                        <property name="id">ID_SCAN</property>
+                        <property name="id">ID_ENCODE</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">Scan</property>
-                        <property name="name">g_mnbScan</property>
+                        <property name="label">Encode</property>
+                        <property name="name">g_mnbEncode</property>
                         <property name="permission">none</property>
                         <property name="shortcut"></property>
                         <property name="unchecked_bitmap"></property>
-                        <event name="OnMenuSelection">mnuScan</event>
+                        <event name="OnMenuSelection">mnuEncode</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                     <object class="wxMenuItem" expanded="0">
@@ -376,14 +376,14 @@
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
-                        <property name="id">ID_REPAIR</property>
+                        <property name="id">ID_DECODE</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">Repair</property>
-                        <property name="name">g_mnbRepair</property>
+                        <property name="label">Decode</property>
+                        <property name="name">g_mnbDecode</property>
                         <property name="permission">none</property>
                         <property name="shortcut"></property>
                         <property name="unchecked_bitmap"></property>
-                        <event name="OnMenuSelection">mnuRepair</event>
+                        <event name="OnMenuSelection">mnuDecode</event>
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
@@ -657,10 +657,10 @@
                 <object class="tool" expanded="0">
                     <property name="bitmap">Load From Art Provider; wxART_MISSING_IMAGE; wxART_TOOLBAR</property>
                     <property name="context_menu">0</property>
-                    <property name="id">ID_SCAN</property>
+                    <property name="id">ID_ENCODE</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Scan</property>
-                    <property name="name">g_tbScan</property>
+                    <property name="label">Encode</property>
+                    <property name="name">g_tbEncode</property>
                     <property name="permission">protected</property>
                     <property name="statusbar"></property>
                     <property name="tooltip"></property>
@@ -670,7 +670,7 @@
                     <event name="OnAuiToolBarRightClick"></event>
                     <event name="OnAuiToolBarToolDropDown"></event>
                     <event name="OnMenuSelection"></event>
-                    <event name="OnToolClicked">mnuScan</event>
+                    <event name="OnToolClicked">mnuEncode</event>
                     <event name="OnToolEnter"></event>
                     <event name="OnToolRClicked"></event>
                     <event name="OnUpdateUI"></event>
@@ -678,10 +678,10 @@
                 <object class="tool" expanded="0">
                     <property name="bitmap">Load From Art Provider; wxART_MISSING_IMAGE; wxART_TOOLBAR</property>
                     <property name="context_menu">0</property>
-                    <property name="id">ID_REPAIR</property>
+                    <property name="id">ID_DECODE</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Repair</property>
-                    <property name="name">g_tbRepair</property>
+                    <property name="label">Decode</property>
+                    <property name="name">g_tbDecode</property>
                     <property name="permission">protected</property>
                     <property name="statusbar"></property>
                     <property name="tooltip"></property>
@@ -691,7 +691,7 @@
                     <event name="OnAuiToolBarRightClick"></event>
                     <event name="OnAuiToolBarToolDropDown"></event>
                     <event name="OnMenuSelection"></event>
-                    <event name="OnToolClicked">mnuRepair</event>
+                    <event name="OnToolClicked">mnuDecode</event>
                     <event name="OnToolEnter"></event>
                     <event name="OnToolRClicked"></event>
                     <event name="OnUpdateUI"></event>
@@ -1246,7 +1246,7 @@
                                                             <event name="OnRightDClick"></event>
                                                             <event name="OnRightDown"></event>
                                                             <event name="OnRightUp"></event>
-                                                            <event name="OnScroll"></event>
+                                                            <event name="OnScroll">OnsldBitrateCmdSliderUpdated</event>
                                                             <event name="OnScrollBottom"></event>
                                                             <event name="OnScrollChanged"></event>
                                                             <event name="OnScrollLineDown"></event>
@@ -1532,7 +1532,7 @@
                                                     <property name="window_extra_style"></property>
                                                     <property name="window_name"></property>
                                                     <property name="window_style"></property>
-                                                    <event name="OnButtonClick"></event>
+                                                    <event name="OnButtonClick">OnbtnToolExecutableClick</event>
                                                     <event name="OnChar"></event>
                                                     <event name="OnEnterWindow"></event>
                                                     <event name="OnEraseBackground"></event>
@@ -1651,7 +1651,7 @@
                                                     <event name="OnMouseEvents"></event>
                                                     <event name="OnMouseWheel"></event>
                                                     <event name="OnPaint"></event>
-                                                    <event name="OnRadioButton"></event>
+                                                    <event name="OnRadioButton">updateDisabledControlsEvent</event>
                                                     <event name="OnRightDClick"></event>
                                                     <event name="OnRightDown"></event>
                                                     <event name="OnRightUp"></event>
@@ -1739,7 +1739,7 @@
                                                     <event name="OnMouseEvents"></event>
                                                     <event name="OnMouseWheel"></event>
                                                     <event name="OnPaint"></event>
-                                                    <event name="OnRadioButton"></event>
+                                                    <event name="OnRadioButton">updateDisabledControlsEvent</event>
                                                     <event name="OnRightDClick"></event>
                                                     <event name="OnRightDown"></event>
                                                     <event name="OnRightUp"></event>
@@ -1910,7 +1910,7 @@
                                                             <property name="window_extra_style"></property>
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
-                                                            <event name="OnButtonClick"></event>
+                                                            <event name="OnButtonClick">OnbtnOutputDirectoryClick</event>
                                                             <event name="OnChar"></event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
@@ -2203,7 +2203,7 @@
                                                     <property name="window_name"></property>
                                                     <property name="window_style"></property>
                                                     <event name="OnChar"></event>
-                                                    <event name="OnCheckBox"></event>
+                                                    <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                     <event name="OnEnterWindow"></event>
                                                     <event name="OnEraseBackground"></event>
                                                     <event name="OnKeyDown"></event>
@@ -2375,7 +2375,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">g_lblBitrateVBR</property>
+                                                            <property name="name">g_sldBitrateVBR</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -2427,7 +2427,7 @@
                                                             <event name="OnRightDClick"></event>
                                                             <event name="OnRightDown"></event>
                                                             <event name="OnRightUp"></event>
-                                                            <event name="OnScroll"></event>
+                                                            <event name="OnScroll">OnsldBitrateVBRCmdSliderUpdated</event>
                                                             <event name="OnScrollBottom"></event>
                                                             <event name="OnScrollChanged"></event>
                                                             <event name="OnScrollLineDown"></event>
@@ -2716,7 +2716,7 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnChar"></event>
-                                                            <event name="OnCheckBox"></event>
+                                                            <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
                                                             <event name="OnKeyDown"></event>
@@ -3625,7 +3625,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">g_txtQualitySelection</property>
+                                                            <property name="name">g_lblQualitySelection</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -3796,7 +3796,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">g_txtCustomOptions</property>
+                                                            <property name="name">g_lblCustomOptions</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -4209,7 +4209,7 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnChar"></event>
-                                                            <event name="OnCheckBox"></event>
+                                                            <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
                                                             <event name="OnKeyDown"></event>
@@ -4385,7 +4385,7 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnChar"></event>
-                                                            <event name="OnCheckBox"></event>
+                                                            <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
                                                             <event name="OnKeyDown"></event>
@@ -4452,7 +4452,7 @@
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
                                                             <property name="moveable">1</property>
-                                                            <property name="name">m_spinCtrl4</property>
+                                                            <property name="name">g_spcHighpassWidth</property>
                                                             <property name="pane_border">1</property>
                                                             <property name="pane_position"></property>
                                                             <property name="pane_size"></property>
@@ -4589,7 +4589,7 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnChar"></event>
-                                                            <event name="OnCheckBox"></event>
+                                                            <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
                                                             <event name="OnKeyDown"></event>
@@ -4765,7 +4765,7 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnChar"></event>
-                                                            <event name="OnCheckBox"></event>
+                                                            <event name="OnCheckBox">updateDisabledControlsEvent</event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
                                                             <event name="OnKeyDown"></event>
@@ -5164,7 +5164,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -5199,13 +5199,13 @@
             <event name="OnAuiPaneRestore"></event>
             <event name="OnAuiRender"></event>
             <event name="OnChar"></event>
-            <event name="OnClose"></event>
+            <event name="OnClose">OnClose</event>
             <event name="OnEnterWindow"></event>
             <event name="OnEraseBackground"></event>
             <event name="OnHibernate"></event>
             <event name="OnIconize"></event>
-            <event name="OnIdle"></event>
-            <event name="OnInitDialog"></event>
+            <event name="OnIdle">OnIdle</event>
+            <event name="OnInitDialog">OnInit</event>
             <event name="OnKeyDown"></event>
             <event name="OnKeyUp"></event>
             <event name="OnKillFocus"></event>
@@ -5226,7 +5226,7 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer12</property>
                 <property name="orient">wxVERTICAL</property>
@@ -5363,7 +5363,7 @@
                         <property name="range">100</property>
                         <property name="resize">Resizable</property>
                         <property name="show">1</property>
-                        <property name="size">370,-1</property>
+                        <property name="size">370,20</property>
                         <property name="style">wxGA_HORIZONTAL</property>
                         <property name="subclass"></property>
                         <property name="toolbar_pane">0</property>
@@ -5441,7 +5441,7 @@
                         <property name="minimize_button">0</property>
                         <property name="minimum_size"></property>
                         <property name="moveable">1</property>
-                        <property name="name">m_staticText8</property>
+                        <property name="name">g_lblStatusFile</property>
                         <property name="pane_border">1</property>
                         <property name="pane_position"></property>
                         <property name="pane_size"></property>
@@ -5533,7 +5533,7 @@
                         <property name="range">100</property>
                         <property name="resize">Resizable</property>
                         <property name="show">1</property>
-                        <property name="size">370,-1</property>
+                        <property name="size">370,20</property>
                         <property name="style">wxGA_HORIZONTAL</property>
                         <property name="subclass"></property>
                         <property name="toolbar_pane">0</property>
@@ -5633,7 +5633,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick"></event>
+                        <event name="OnButtonClick">OnbtnCancelClick</event>
                         <event name="OnChar"></event>
                         <event name="OnEnterWindow"></event>
                         <event name="OnEraseBackground"></event>
@@ -5659,6 +5659,15 @@
                         <event name="OnUpdateUI"></event>
                     </object>
                 </object>
+            </object>
+            <object class="wxTimer" expanded="0">
+                <property name="enabled">0</property>
+                <property name="id">wxID_ANY</property>
+                <property name="name">m_timer2</property>
+                <property name="oneshot">0</property>
+                <property name="period">1000</property>
+                <property name="permission">protected</property>
+                <event name="OnTimer">OnTimer2Trigger</event>
             </object>
         </object>
     </object>

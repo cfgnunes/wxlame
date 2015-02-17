@@ -26,32 +26,32 @@
  *            http://www.gnu.org/licenses/gpl-3.0.html
  ************************************************************************/
 
-#include "wxLameApp.h"
+#include "Application.h"
 #include "Global.h"
 
 //(*AppHeaders
-#include "frmMain.h"
+#include "GuiMain.h"
 #include <wx/image.h>
 //*)
 
-IMPLEMENT_APP(wxLameApp);
+IMPLEMENT_APP(Application);
 
-bool wxLameApp::OnInit() {
+bool Application::OnInit() {
     // Load language translation
     mp_locale = new wxLocale(wxLANGUAGE_DEFAULT);
     mp_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("msg"));
     mp_locale->AddCatalog(_T("wxlame"));
 
     wxInitAllImageHandlers();
-    frmMain* Frame = new frmMain(0);
+    GuiMain* guiMain = new GuiMain(0);
 
     // Read command line files
     mp_filesCmdLine = new wxArrayString();
     for (int i = 1; i < argc; i++)
         mp_filesCmdLine->Add(wxString(argv[i]));
-    Frame->setFilesCmdLine(*mp_filesCmdLine);
+    guiMain->setFilesCmdLine(*mp_filesCmdLine);
 
-    Frame->Show();
-    SetTopWindow(Frame);
+    guiMain->Show();
+    SetTopWindow(guiMain);
     return true;
 }
