@@ -16,6 +16,6 @@ FileInfo::FileInfo(const wxString& fileName) : m_fileName(fileName) {
 FileInfo::~FileInfo() {
 }
 
-wxFileName FileInfo::getFileName() {
+wxFileName FileInfo::getFileName() const {
     return m_fileName;
 }

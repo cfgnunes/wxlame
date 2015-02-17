@@ -85,38 +85,38 @@ public:
 
     void setDefaultConfig();
     void configFlush();
-    wxString getStringLameOptions();
+    wxString getStringLameOptions() const;
 
     // Gets...
-    wxString getLastOpenDir();
-    int getBitrate();
-    int getMode();
-    wxString getEncoderExecutable();
-    bool getEnableOutDir();
-    wxString getOutDir();
-    bool getDeleteFiles();
-    bool getEnabledVBR();
-    int getMaxBitrate();
-    bool getDisableVBRTag();
-    bool getEnforceMinBitrate();
-    bool getUseABR();
-    int getVBRQuality();
-    int getAverageBitrateABR();
-    bool getMarkNonOriginal();
-    bool getMarkCopyright();
-    bool getCrc();
-    bool getEnforceISO();
-    int getAlgorithmQualitySel();
-    wxString getCustomOptions();
-    int getResampling();
-    bool getHighpassEnabled();
-    int getHighpassFreq();
-    bool getHighpassWidthEnabled();
-    int getHighpassWidth();
-    bool getLowpassEnabled();
-    int getLowpassFreq();
-    bool getLowpassWidthEnabled();
-    int getLowpassWidth();
+    wxString getLastOpenDir() const;
+    int getBitrate() const;
+    int getMode() const;
+    wxString getEncoderExecutable() const;
+    bool getEnableOutDir() const;
+    wxString getOutDir() const;
+    bool getDeleteFiles() const;
+    bool getEnabledVBR() const;
+    int getMaxBitrate() const;
+    bool getDisableVBRTag() const;
+    bool getEnforceMinBitrate() const;
+    bool getUseABR() const;
+    int getVBRQuality() const;
+    int getAverageBitrateABR() const;
+    bool getMarkNonOriginal() const;
+    bool getMarkCopyright() const;
+    bool getCrc() const;
+    bool getEnforceISO() const;
+    int getAlgorithmQualitySel() const;
+    wxString getCustomOptions() const;
+    int getResampling() const;
+    bool getHighpassEnabled() const;
+    int getHighpassFreq() const;
+    bool getHighpassWidthEnabled() const;
+    int getHighpassWidth() const;
+    bool getLowpassEnabled() const;
+    int getLowpassFreq() const;
+    bool getLowpassWidthEnabled() const;
+    int getLowpassWidth() const;
 
     // Sets...
     void setLastOpenDir(wxString value);

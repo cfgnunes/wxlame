@@ -58,7 +58,7 @@ void ConfigBase::configFlush() {
     mp_config->Flush();
 }
 
-wxString ConfigBase::getStringLameOptions() {
+wxString ConfigBase::getStringLameOptions() const {
     wxString lameOptions;
 
     // Bitrate
@@ -145,175 +145,175 @@ wxString ConfigBase::getStringLameOptions() {
 
 // Gets...
 
-wxString ConfigBase::getLastOpenDir() {
+wxString ConfigBase::getLastOpenDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
-int ConfigBase::getBitrate() {
+int ConfigBase::getBitrate() const {
     int value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_Bitrate, &value);
     return value;
 }
 
-int ConfigBase::getMode() {
+int ConfigBase::getMode() const {
     int value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_Mode, &value);
     return value;
 }
 
-wxString ConfigBase::getEncoderExecutable() {
+wxString ConfigBase::getEncoderExecutable() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_EncoderExecutable, &value);
     return value;
 }
 
-bool ConfigBase::getEnableOutDir() {
+bool ConfigBase::getEnableOutDir() const {
     bool value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_EnableOutDir, &value);
     return value;
 }
 
-wxString ConfigBase::getOutDir() {
+wxString ConfigBase::getOutDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_OutDir, &value);
     return value;
 }
 
-bool ConfigBase::getDeleteFiles() {
+bool ConfigBase::getDeleteFiles() const {
     bool value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteFiles, &value);
     return value;
 }
 
-bool ConfigBase::getEnabledVBR() {
+bool ConfigBase::getEnabledVBR() const {
     bool value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_EnabledVBR, &value);
     return value;
 }
 
-int ConfigBase::getMaxBitrate() {
+int ConfigBase::getMaxBitrate() const {
     int value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_MaxBitrate, &value);
     return value;
 }
 
-bool ConfigBase::getDisableVBRTag() {
+bool ConfigBase::getDisableVBRTag() const {
     bool value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_DisableVBRTag, &value);
     return value;
 }
 
-bool ConfigBase::getEnforceMinBitrate() {
+bool ConfigBase::getEnforceMinBitrate() const {
     bool value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_EnforceMinBitrate, &value);
     return value;
 }
 
-bool ConfigBase::getUseABR() {
+bool ConfigBase::getUseABR() const {
     bool value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_UseABR, &value);
     return value;
 }
 
-int ConfigBase::getVBRQuality() {
+int ConfigBase::getVBRQuality() const {
     int value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_VBRQuality, &value);
     return value;
 }
 
-int ConfigBase::getAverageBitrateABR() {
+int ConfigBase::getAverageBitrateABR() const {
     int value;
     mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_AverageBitrateABR, &value);
     return value;
 }
 
-bool ConfigBase::getMarkNonOriginal() {
+bool ConfigBase::getMarkNonOriginal() const {
     bool value;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkNonOriginal, &value);
     return value;
 }
 
-bool ConfigBase::getMarkCopyright() {
+bool ConfigBase::getMarkCopyright() const {
     bool value;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkCopyright, &value);
     return value;
 }
 
-bool ConfigBase::getCrc() {
+bool ConfigBase::getCrc() const {
     bool value;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_Crc, &value);
     return value;
 }
 
-bool ConfigBase::getEnforceISO() {
+bool ConfigBase::getEnforceISO() const {
     bool value;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_EnforceISO, &value);
     return value;
 }
 
-int ConfigBase::getAlgorithmQualitySel() {
+int ConfigBase::getAlgorithmQualitySel() const {
     int value;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_AlgorithmQualitySel, &value);
     return value;
 }
 
-wxString ConfigBase::getCustomOptions() {
+wxString ConfigBase::getCustomOptions() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_CustomOptions, &value);
     return value;
 }
 
-int ConfigBase::getResampling() {
+int ConfigBase::getResampling() const {
     int value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_Resampling, &value);
     return value;
 }
 
-bool ConfigBase::getHighpassEnabled() {
+bool ConfigBase::getHighpassEnabled() const {
     bool value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassEnabled, &value);
     return value;
 }
 
-int ConfigBase::getHighpassFreq() {
+int ConfigBase::getHighpassFreq() const {
     int value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassFreq, &value);
     return value;
 }
 
-bool ConfigBase::getHighpassWidthEnabled() {
+bool ConfigBase::getHighpassWidthEnabled() const {
     bool value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidthEnabled, &value);
     return value;
 }
 
-int ConfigBase::getHighpassWidth() {
+int ConfigBase::getHighpassWidth() const {
     int value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidth, &value);
     return value;
 }
 
-bool ConfigBase::getLowpassEnabled() {
+bool ConfigBase::getLowpassEnabled() const {
     bool value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassEnabled, &value);
     return value;
 }
 
-int ConfigBase::getLowpassFreq() {
+int ConfigBase::getLowpassFreq() const {
     int value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassFreq, &value);
     return value;
 }
 
-bool ConfigBase::getLowpassWidthEnabled() {
+bool ConfigBase::getLowpassWidthEnabled() const {
     bool value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidthEnabled, &value);
     return value;
 }
 
-int ConfigBase::getLowpassWidth() {
+int ConfigBase::getLowpassWidth() const {
     int value;
     mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidth, &value);
     return value;
