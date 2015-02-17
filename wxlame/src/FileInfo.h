@@ -20,7 +20,7 @@ class FileInfo : public wxObject {
 public:
     FileInfo(const wxString& fileName);
     virtual ~FileInfo();
-    wxFileName getFileName();
+    wxFileName getFileName() const;
 
 private:
     wxFileName m_fileName;
