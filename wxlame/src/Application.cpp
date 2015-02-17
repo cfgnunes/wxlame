@@ -1,4 +1,4 @@
-/*
+/**
  *	  wxLame - A free front-end for the LAME MP3 encoder.
  *    Copyright (C) 2011  Cristiano Nunes
  *
@@ -16,23 +16,11 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/************************************************************************
- * Name:      wxLame
- * Purpose:   A free front-end for the LAME MP3 encoder.
- * Author:    Cristiano Nunes (cfgnunes@gmail.com)
- * Created:   2010-12-23
- * Copyright: Copyright (C) 2011 Cristiano Nunes
- * License:   licensed under the GNU General Public License, version 3
- *            http://www.gnu.org/licenses/gpl-3.0.html
- ************************************************************************/
-
 #include "Application.h"
 #include "Global.h"
-
-//(*AppHeaders
 #include "GuiMain.h"
+
 #include <wx/image.h>
-//*)
 
 IMPLEMENT_APP(Application);
 
