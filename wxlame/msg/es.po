@@ -92,8 +92,8 @@ msgstr "¿Quiere detener el proceso ahora?"
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Habilitar Bitrate Variable (VBR)"
 
-msgid "Encode"
-msgstr "Codificar"
+msgid "Encode WAV / Re-Encode MP3"
+msgstr "Codificar WAV / Re-Codificar MP3"
 
 msgid "Encoding: "
 msgstr "Codificando: "
