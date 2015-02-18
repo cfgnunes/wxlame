@@ -35,14 +35,6 @@ void GuiSettings::updateDisabledControlsEvent(wxCommandEvent& event) {
     updateDisabledControls();
 }
 
-void GuiSettings::OnbtnOutputDirectoryClick(wxCommandEvent& event) {
-    wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
-    if (dirDialog.ShowModal() == wxID_OK) {
-        g_txtOutputDirectory->Clear();
-        g_txtOutputDirectory->WriteText(dirDialog.GetPath());
-    }
-}
-
 void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent& event) {
     int number = g_sldBitrateVBR->GetValue();
     g_lblBitrateVBR->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
@@ -72,8 +64,7 @@ void GuiSettings::updateValueControls() {
     for (i = 0; BITRATE_VALUES[i] != mp_configBase->getBitrate(); i++);
     g_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    g_txtOutputDirectory->Clear();
-    g_txtOutputDirectory->WriteText(mp_configBase->getOutDir());
+    g_dpkOutputDirectory->SetPath(mp_configBase->getOutDir());
     g_optEnableOutDir->SetValue(mp_configBase->getEnableOutDir());
     g_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
     g_chcMode->SetSelection(mp_configBase->getMode());
@@ -115,8 +106,7 @@ void GuiSettings::updateValueControls() {
 
 void GuiSettings::updateDisabledControls() {
     // General controls
-    g_txtOutputDirectory->Enable(g_optEnableOutDir->GetValue());
-    g_btnOutputDirectory->Enable(g_optEnableOutDir->GetValue());
+    g_dpkOutputDirectory->Enable(g_optEnableOutDir->GetValue());
 
     // VBR controls
     g_lblBitrateVBR->Enable(g_chkEnabledVBR->GetValue());
@@ -141,7 +131,7 @@ void GuiSettings::updateDisabledControls() {
 void GuiSettings::saveValuesConfig() {
     // General controls
     mp_configBase->setBitrate(BITRATE_VALUES[g_sldBitrate->GetValue()]);
-    mp_configBase->setOutDir(g_txtOutputDirectory->GetLineText(0));
+    mp_configBase->setOutDir(g_dpkOutputDirectory->GetDirName().GetPath());
     mp_configBase->setEnableOutDir(g_optEnableOutDir->GetValue());
     mp_configBase->setMode(g_chcMode->GetCurrentSelection());
 
@@ -187,8 +177,7 @@ void GuiSettings::defaultValueControls() {
     for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_Bitrate; i++);
     g_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    g_txtOutputDirectory->Clear();
-    g_txtOutputDirectory->WriteText(DEFAULT_VALUE_OutDir);
+    g_dpkOutputDirectory->SetDirName(DEFAULT_VALUE_OutDir);
 
     g_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
     g_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
@@ -256,6 +245,4 @@ void GuiSettings::setLabelsControls() {
     g_chcAlgorithmQualitySel->Append(_T("7"));
     g_chcAlgorithmQualitySel->Append(_T("8"));
     g_chcAlgorithmQualitySel->Append(_("9 (lowest quality, fast)"));
-
-    g_btnOutputDirectory->SetLabel(_T("..."));
 }

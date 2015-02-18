@@ -259,11 +259,8 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_txtOutputDirectory = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( g_txtOutputDirectory, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	g_btnOutputDirectory = new wxButton( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 22,22 ), 0 );
-	bSizer7->Add( g_btnOutputDirectory, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	g_dpkOutputDirectory = new wxDirPickerCtrl( m_panel1, wxID_ANY, wxEmptyString, wxT("Select a folder"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
+	bSizer7->Add( g_dpkOutputDirectory, 1, wxALL, 5 );
 	
 	
 	sbSizer4->Add( bSizer7, 0, wxEXPAND, 5 );
@@ -530,7 +527,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_sldBitrate->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_optUseSameDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_optEnableOutDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
-	g_btnOutputDirectory->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOutputDirectoryClick ), NULL, this );
 	g_chkEnabledVBR->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_sldBitrateVBR->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( Settings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
 	g_sldBitrateVBR->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( Settings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
@@ -565,7 +561,6 @@ Settings::~Settings()
 	g_sldBitrate->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_optUseSameDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_optEnableOutDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
-	g_btnOutputDirectory->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOutputDirectoryClick ), NULL, this );
 	g_chkEnabledVBR->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( Settings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
 	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( Settings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
