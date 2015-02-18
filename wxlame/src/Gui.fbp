@@ -14,7 +14,7 @@
         <property name="file">Gui</property>
         <property name="first_id">1000</property>
         <property name="help_provider">none</property>
-        <property name="internationalize">0</property>
+        <property name="internationalize">1</property>
         <property name="name">Gui</property>
         <property name="namespace"></property>
         <property name="path">.</property>
@@ -398,7 +398,7 @@
                         <property name="help"></property>
                         <property name="id">ID_WEBSITE</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">LAME website</property>
+                        <property name="label">LAME Website</property>
                         <property name="name">g_mnbToolWebsite</property>
                         <property name="permission">none</property>
                         <property name="shortcut"></property>
@@ -413,7 +413,7 @@
                         <property name="help"></property>
                         <property name="id">ID_TOOL_WEBSITE</property>
                         <property name="kind">wxITEM_NORMAL</property>
-                        <property name="label">wxLame website</property>
+                        <property name="label">wxLame Website</property>
                         <property name="name">g_mnbWebsite</property>
                         <property name="permission">none</property>
                         <property name="shortcut"></property>
@@ -593,7 +593,7 @@
                     <property name="context_menu">0</property>
                     <property name="id">ID_ADD_FILES</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Add Files</property>
+                    <property name="label">Add files</property>
                     <property name="name">g_tbAddFiles</property>
                     <property name="permission">protected</property>
                     <property name="statusbar"></property>
@@ -614,7 +614,7 @@
                     <property name="context_menu">0</property>
                     <property name="id">ID_REMOVE_FILES</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Remove Files</property>
+                    <property name="label">Remove files</property>
                     <property name="name">g_tbRemoveFiles</property>
                     <property name="permission">protected</property>
                     <property name="statusbar"></property>
@@ -635,7 +635,7 @@
                     <property name="context_menu">0</property>
                     <property name="id">ID_CLEAR_LIST</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Clear List</property>
+                    <property name="label">Clear list</property>
                     <property name="name">g_tbClearList</property>
                     <property name="permission">protected</property>
                     <property name="statusbar"></property>
@@ -753,7 +753,7 @@
                     <property name="help"></property>
                     <property name="id">ID_ADD_FOLDER</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Add Folder</property>
+                    <property name="label">Add folder</property>
                     <property name="name">g_mnuAddFolder</property>
                     <property name="permission">none</property>
                     <property name="shortcut"></property>
@@ -768,7 +768,7 @@
                     <property name="help"></property>
                     <property name="id">ID_ADD_FILES</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Add Files</property>
+                    <property name="label">Add files</property>
                     <property name="name">g_mnuAddFiles</property>
                     <property name="permission">none</property>
                     <property name="shortcut"></property>
@@ -783,7 +783,7 @@
                     <property name="help"></property>
                     <property name="id">ID_REMOVE_FILES</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Remove Files</property>
+                    <property name="label">Remove files</property>
                     <property name="name">g_mnuRemoveFiles</property>
                     <property name="permission">none</property>
                     <property name="shortcut"></property>
@@ -798,7 +798,7 @@
                     <property name="help"></property>
                     <property name="id">ID_CLEAR_LIST</property>
                     <property name="kind">wxITEM_NORMAL</property>
-                    <property name="label">Clear List</property>
+                    <property name="label">Clear list</property>
                     <property name="name">g_mnuClearList</property>
                     <property name="permission">none</property>
                     <property name="shortcut"></property>
@@ -817,7 +817,7 @@
                 <event name="OnTimer">OnTimer1Trigger</event>
             </object>
         </object>
-        <object class="Dialog" expanded="1">
+        <object class="Dialog" expanded="0">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -879,16 +879,16 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="1">
+            <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="1">
+                <object class="sizeritem" expanded="0">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND | wxALL</property>
                     <property name="proportion">0</property>
-                    <object class="wxNotebook" expanded="1">
+                    <object class="wxNotebook" expanded="0">
                         <property name="BottomDockable">1</property>
                         <property name="LeftDockable">1</property>
                         <property name="RightDockable">1</property>
@@ -966,11 +966,11 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnUpdateUI"></event>
-                        <object class="notebookpage" expanded="1">
+                        <object class="notebookpage" expanded="0">
                             <property name="bitmap"></property>
                             <property name="label">General</property>
                             <property name="select">1</property>
-                            <object class="wxPanel" expanded="1">
+                            <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -1044,7 +1044,7 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxBoxSizer" expanded="1">
+                                <object class="wxBoxSizer" expanded="0">
                                     <property name="minimum_size"></property>
                                     <property name="name">bSizer5</property>
                                     <property name="orient">wxVERTICAL</property>
@@ -1293,7 +1293,7 @@
                                                             <property name="caption"></property>
                                                             <property name="caption_visible">1</property>
                                                             <property name="center_pane">0</property>
-                                                            <property name="choices">&quot;default&quot; &quot;simple&quot; &quot;force&quot; &quot;dual-mono&quot; &quot;mono&quot;</property>
+                                                            <property name="choices">&quot;default&quot; &quot;joint&quot; &quot;simple&quot; &quot;force&quot; &quot;dual-mono&quot; &quot;mono&quot;</property>
                                                             <property name="close_button">1</property>
                                                             <property name="context_help"></property>
                                                             <property name="context_menu">1</property>
@@ -1367,11 +1367,11 @@
                                             </object>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="1">
+                                    <object class="sizeritem" expanded="0">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">0</property>
-                                        <object class="wxStaticBoxSizer" expanded="1">
+                                        <object class="wxStaticBoxSizer" expanded="0">
                                             <property name="id">wxID_ANY</property>
                                             <property name="label">Output directory</property>
                                             <property name="minimum_size"></property>
@@ -1555,20 +1555,20 @@
                                                     <event name="OnUpdateUI"></event>
                                                 </object>
                                             </object>
-                                            <object class="sizeritem" expanded="1">
+                                            <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxEXPAND</property>
                                                 <property name="proportion">0</property>
-                                                <object class="wxBoxSizer" expanded="1">
+                                                <object class="wxBoxSizer" expanded="0">
                                                     <property name="minimum_size"></property>
                                                     <property name="name">bSizer7</property>
                                                     <property name="orient">wxHORIZONTAL</property>
                                                     <property name="permission">none</property>
-                                                    <object class="sizeritem" expanded="1">
+                                                    <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
                                                         <property name="flag">wxALL</property>
                                                         <property name="proportion">1</property>
-                                                        <object class="wxDirPickerCtrl" expanded="1">
+                                                        <object class="wxDirPickerCtrl" expanded="0">
                                                             <property name="BottomDockable">1</property>
                                                             <property name="LeftDockable">1</property>
                                                             <property name="RightDockable">1</property>
@@ -1599,7 +1599,7 @@
                                                             <property name="max_size"></property>
                                                             <property name="maximize_button">0</property>
                                                             <property name="maximum_size"></property>
-                                                            <property name="message">Select a folder</property>
+                                                            <property name="message">Select directory</property>
                                                             <property name="min_size"></property>
                                                             <property name="minimize_button">0</property>
                                                             <property name="minimum_size"></property>
@@ -1622,7 +1622,7 @@
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
                                                             <property name="validator_variable"></property>
-                                                            <property name="value"></property>
+                                                            <property name="value">/home/cristiano</property>
                                                             <property name="window_extra_style"></property>
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>

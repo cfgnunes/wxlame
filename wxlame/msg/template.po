@@ -167,8 +167,7 @@ msgstr ""
 msgid "Output sampling frequency"
 msgstr ""
 
-#, c-format
-msgid "Processed %i files of %i."
+msgid "Processed %lu files of %lu."
 msgstr ""
 
 msgid "Progress"
