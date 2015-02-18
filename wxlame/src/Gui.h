@@ -30,12 +30,13 @@
 #include <wx/statbox.h>
 #include <wx/choice.h>
 #include <wx/radiobut.h>
-#include <wx/textctrl.h>
-#include <wx/button.h>
+#include <wx/filepicker.h>
 #include <wx/checkbox.h>
 #include <wx/panel.h>
 #include <wx/spinctrl.h>
+#include <wx/textctrl.h>
 #include <wx/notebook.h>
+#include <wx/button.h>
 #include <wx/dialog.h>
 #include <wx/gauge.h>
 
@@ -128,8 +129,7 @@ class Settings : public wxDialog
 		wxChoice* g_chcMode;
 		wxRadioButton* g_optUseSameDir;
 		wxRadioButton* g_optEnableOutDir;
-		wxTextCtrl* g_txtOutputDirectory;
-		wxButton* g_btnOutputDirectory;
+		wxDirPickerCtrl* g_dpkOutputDirectory;
 		wxCheckBox* g_chkDeleteFiles;
 		wxPanel* m_panel2;
 		wxCheckBox* g_chkEnabledVBR;
@@ -168,7 +168,6 @@ class Settings : public wxDialog
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnsldBitrateCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
 		virtual void updateDisabledControlsEvent( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnbtnOutputDirectoryClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnsldBitrateVBRCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
 		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
