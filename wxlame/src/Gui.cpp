@@ -366,71 +366,14 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer71->Fit( m_panel2 );
 	m_notebook1->AddPage( m_panel2, _("VBR"), false );
 	m_panel3 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	wxBoxSizer* bSizer10;
-	bSizer10 = new wxBoxSizer( wxVERTICAL );
-	
-	wxStaticBoxSizer* sbSizer9;
-	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Flags") ), wxVERTICAL );
-	
-	g_chkMarkNonOriginal = new wxCheckBox( m_panel3, wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkMarkNonOriginal, 0, wxALL, 3 );
-	
-	g_chkMarkCopyright = new wxCheckBox( m_panel3, wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkMarkCopyright, 0, wxALL, 3 );
-	
-	g_chkCrc = new wxCheckBox( m_panel3, wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkCrc, 0, wxALL, 2 );
-	
-	g_chkEnforceISO = new wxCheckBox( m_panel3, wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkEnforceISO, 0, wxALL, 2 );
-	
-	
-	bSizer10->Add( sbSizer9, 0, wxEXPAND, 5 );
-	
-	wxStaticBoxSizer* sbSizer10;
-	sbSizer10 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Options") ), wxVERTICAL );
-	
-	wxFlexGridSizer* fgSizer2;
-	fgSizer2 = new wxFlexGridSizer( 2, 2, 0, 0 );
-	fgSizer2->SetFlexibleDirection( wxBOTH );
-	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	g_lblQualitySelection = new wxStaticText( m_panel3, wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblQualitySelection->Wrap( -1 );
-	fgSizer2->Add( g_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	wxArrayString g_chcAlgorithmQualitySelChoices;
-	g_chcAlgorithmQualitySel = new wxChoice( m_panel3, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), g_chcAlgorithmQualitySelChoices, 0 );
-	g_chcAlgorithmQualitySel->SetSelection( 0 );
-	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	g_lblCustomOptions = new wxStaticText( m_panel3, wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblCustomOptions->Wrap( -1 );
-	fgSizer2->Add( g_lblCustomOptions, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	g_txtCustomOptions = new wxTextCtrl( m_panel3, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-	fgSizer2->Add( g_txtCustomOptions, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	
-	sbSizer10->Add( fgSizer2, 0, wxEXPAND, 5 );
-	
-	
-	bSizer10->Add( sbSizer10, 0, wxEXPAND, 5 );
-	
-	
-	m_panel3->SetSizer( bSizer10 );
-	m_panel3->Layout();
-	bSizer10->Fit( m_panel3 );
-	m_notebook1->AddPage( m_panel3, _("Advanced"), false );
-	m_panel4 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer11;
-	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Output sampling frequency") ), wxHORIZONTAL );
+	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Output sampling frequency") ), wxHORIZONTAL );
 	
 	wxArrayString g_chcResamplingChoices;
-	g_chcResampling = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
+	g_chcResampling = new wxChoice( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
 	g_chcResampling->SetSelection( 0 );
 	sbSizer11->Add( g_chcResampling, 1, wxALL, 5 );
 	
@@ -438,21 +381,21 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer11->Add( sbSizer11, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer12;
-	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Highpass filter") ), wxVERTICAL );
+	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Highpass filter") ), wxVERTICAL );
 	
 	wxGridSizer* gSizer1;
 	gSizer1 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkHighpass = new wxCheckBox( m_panel4, wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpass = new wxCheckBox( m_panel3, wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcHighpassFreq = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcHighpassFreq = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer1->Add( g_spcHighpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkHighpassWidth = new wxCheckBox( m_panel4, wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpassWidth = new wxCheckBox( m_panel3, wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcHighpassWidth = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcHighpassWidth = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer1->Add( g_spcHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -462,21 +405,21 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer11->Add( sbSizer12, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer13;
-	sbSizer13 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Lowpass filter") ), wxVERTICAL );
+	sbSizer13 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Lowpass filter") ), wxVERTICAL );
 	
 	wxGridSizer* gSizer11;
 	gSizer11 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkLowpass = new wxCheckBox( m_panel4, wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpass = new wxCheckBox( m_panel3, wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcLowpassFreq = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcLowpassFreq = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer11->Add( g_spcLowpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkLowpassWidth = new wxCheckBox( m_panel4, wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpassWidth = new wxCheckBox( m_panel3, wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcLowpassWidth = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcLowpassWidth = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer11->Add( g_spcLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -486,10 +429,66 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer11->Add( sbSizer13, 0, wxEXPAND, 5 );
 	
 	
-	m_panel4->SetSizer( bSizer11 );
+	m_panel3->SetSizer( bSizer11 );
+	m_panel3->Layout();
+	bSizer11->Fit( m_panel3 );
+	m_notebook1->AddPage( m_panel3, _("Audio processing"), false );
+	m_panel4 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer10;
+	bSizer10 = new wxBoxSizer( wxVERTICAL );
+	
+	wxStaticBoxSizer* sbSizer9;
+	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Flags") ), wxVERTICAL );
+	
+	g_chkMarkNonOriginal = new wxCheckBox( m_panel4, wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( g_chkMarkNonOriginal, 0, wxALL, 3 );
+	
+	g_chkMarkCopyright = new wxCheckBox( m_panel4, wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( g_chkMarkCopyright, 0, wxALL, 3 );
+	
+	g_chkCrc = new wxCheckBox( m_panel4, wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( g_chkCrc, 0, wxALL, 2 );
+	
+	g_chkEnforceISO = new wxCheckBox( m_panel4, wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( g_chkEnforceISO, 0, wxALL, 2 );
+	
+	
+	bSizer10->Add( sbSizer9, 0, wxEXPAND, 5 );
+	
+	wxStaticBoxSizer* sbSizer10;
+	sbSizer10 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Options") ), wxVERTICAL );
+	
+	wxFlexGridSizer* fgSizer2;
+	fgSizer2 = new wxFlexGridSizer( 2, 2, 0, 0 );
+	fgSizer2->SetFlexibleDirection( wxBOTH );
+	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	g_lblQualitySelection = new wxStaticText( m_panel4, wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblQualitySelection->Wrap( -1 );
+	fgSizer2->Add( g_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	wxArrayString g_chcAlgorithmQualitySelChoices;
+	g_chcAlgorithmQualitySel = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), g_chcAlgorithmQualitySelChoices, 0 );
+	g_chcAlgorithmQualitySel->SetSelection( 0 );
+	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	g_chkCustomOptions = new wxCheckBox( m_panel4, wxID_ANY, _("Use custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
+	fgSizer2->Add( g_chkCustomOptions, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	g_txtCustomOptions = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	fgSizer2->Add( g_txtCustomOptions, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	
+	sbSizer10->Add( fgSizer2, 0, wxEXPAND, 5 );
+	
+	
+	bSizer10->Add( sbSizer10, 0, wxEXPAND, 5 );
+	
+	
+	m_panel4->SetSizer( bSizer10 );
 	m_panel4->Layout();
-	bSizer11->Fit( m_panel4 );
-	m_notebook1->AddPage( m_panel4, _("Audio processing"), false );
+	bSizer10->Fit( m_panel4 );
+	m_notebook1->AddPage( m_panel4, _("Advanced"), false );
 	
 	bSizer2->Add( m_notebook1, 0, wxEXPAND | wxALL, 5 );
 	
@@ -542,6 +541,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_chkHighpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_chkLowpass->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_chkLowpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
+	g_chkCustomOptions->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
 	g_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
 	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );
@@ -576,6 +576,7 @@ Settings::~Settings()
 	g_chkHighpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_chkLowpass->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_chkLowpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
+	g_chkCustomOptions->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnDefaultClick ), NULL, this );
 	g_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOKClick ), NULL, this );
 	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnCancelClick ), NULL, this );

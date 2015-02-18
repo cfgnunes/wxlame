@@ -31,12 +31,7 @@ const wxString CONFIG_STR_EnforceMinBitrate = _T("EnforceMinBitrate");
 const wxString CONFIG_STR_UseABR = _T("UseABR");
 const wxString CONFIG_STR_VBRQuality = _T("VBRQuality");
 const wxString CONFIG_STR_AverageBitrateABR = _T("AverageBitrateABR");
-const wxString CONFIG_STR_MarkNonOriginal = _T("MarkNonOriginal");
-const wxString CONFIG_STR_MarkCopyright = _T("MarkCopyright");
-const wxString CONFIG_STR_Crc = _T("Crc");
-const wxString CONFIG_STR_EnforceISO = _T("EnforceISO");
-const wxString CONFIG_STR_AlgorithmQualitySel = _T("AlgorithmQualitySel");
-const wxString CONFIG_STR_CustomOptions = _T("CustomOptions");
+const wxString CONFIG_STR_CustomOptionsText = _T("CustomOptionsText");
 const wxString CONFIG_STR_Resampling = _T("Resampling");
 const wxString CONFIG_STR_HighpassEnabled = _T("HighpassEnabled");
 const wxString CONFIG_STR_HighpassFreq = _T("HighpassFreq");
@@ -46,6 +41,13 @@ const wxString CONFIG_STR_LowpassEnabled = _T("LowpassEnabled");
 const wxString CONFIG_STR_LowpassFreq = _T("LowpassFreq");
 const wxString CONFIG_STR_LowpassWidthEnabled = _T("LowpassWidthEnabled");
 const wxString CONFIG_STR_LowpassWidth = _T("LowpassWidth");
+const wxString CONFIG_STR_MarkNonOriginal = _T("MarkNonOriginal");
+const wxString CONFIG_STR_MarkCopyright = _T("MarkCopyright");
+const wxString CONFIG_STR_Crc = _T("Crc");
+const wxString CONFIG_STR_EnforceISO = _T("EnforceISO");
+const wxString CONFIG_STR_AlgorithmQualitySel = _T("AlgorithmQualitySel");
+const wxString CONFIG_STR_CustomOptions = _T("CustomOptions");
+
 
 // Default Values
 const wxString DEFAULT_VALUE_LastOpenDir = wxFileName::GetHomeDir();
@@ -61,12 +63,6 @@ const bool DEFAULT_VALUE_EnforceMinBitrate = false;
 const bool DEFAULT_VALUE_UseABR = false;
 const int DEFAULT_VALUE_VBRQuality = 4;
 const int DEFAULT_VALUE_AverageBitrateABR = 128;
-const bool DEFAULT_VALUE_MarkNonOriginal = false;
-const bool DEFAULT_VALUE_MarkCopyright = false;
-const bool DEFAULT_VALUE_Crc = false;
-const bool DEFAULT_VALUE_EnforceISO = false;
-const int DEFAULT_VALUE_AlgorithmQualitySel = 0;
-const wxString DEFAULT_VALUE_CustomOptions = wxEmptyString;
 const int DEFAULT_VALUE_Resampling = 0;
 const bool DEFAULT_VALUE_HighpassEnabled = false;
 const int DEFAULT_VALUE_HighpassFreq = 20000;
@@ -76,6 +72,13 @@ const bool DEFAULT_VALUE_LowpassEnabled = false;
 const int DEFAULT_VALUE_LowpassFreq = 20000;
 const bool DEFAULT_VALUE_LowpassWidthEnabled = false;
 const int DEFAULT_VALUE_LowpassWidth = 20000;
+const bool DEFAULT_VALUE_MarkNonOriginal = false;
+const bool DEFAULT_VALUE_MarkCopyright = false;
+const bool DEFAULT_VALUE_Crc = false;
+const bool DEFAULT_VALUE_EnforceISO = false;
+const int DEFAULT_VALUE_AlgorithmQualitySel = 0;
+const bool DEFAULT_VALUE_CustomOptions = false;
+const wxString DEFAULT_VALUE_CustomOptionsText = _T("-b 192 --clipdetect");
 
 class ConfigBase {
 public:
@@ -101,12 +104,6 @@ public:
     bool getUseABR() const;
     int getVBRQuality() const;
     int getAverageBitrateABR() const;
-    bool getMarkNonOriginal() const;
-    bool getMarkCopyright() const;
-    bool getCrc() const;
-    bool getEnforceISO() const;
-    int getAlgorithmQualitySel() const;
-    wxString getCustomOptions() const;
     int getResampling() const;
     bool getHighpassEnabled() const;
     int getHighpassFreq() const;
@@ -116,6 +113,13 @@ public:
     int getLowpassFreq() const;
     bool getLowpassWidthEnabled() const;
     int getLowpassWidth() const;
+    bool getMarkNonOriginal() const;
+    bool getMarkCopyright() const;
+    bool getCrc() const;
+    bool getEnforceISO() const;
+    int getAlgorithmQualitySel() const;
+    bool getCustomOptions() const;
+    wxString getCustomOptionsText() const;
 
     // Sets...
     void setAppVersion(wxString value);
@@ -132,12 +136,6 @@ public:
     void setUseABR(bool value);
     void setVBRQuality(int value);
     void setAverageBitrateABR(int value);
-    void setMarkNonOriginal(bool value);
-    void setMarkCopyright(bool value);
-    void setCrc(bool value);
-    void setEnforceISO(bool value);
-    void setAlgorithmQualitySel(int value);
-    void setCustomOptions(wxString value);
     void setResampling(int value);
     void setHighpassEnabled(bool value);
     void setHighpassFreq(int value);
@@ -147,6 +145,13 @@ public:
     void setLowpassFreq(int value);
     void setLowpassWidthEnabled(bool value);
     void setLowpassWidth(int value);
+    void setMarkNonOriginal(bool value);
+    void setMarkCopyright(bool value);
+    void setCrc(bool value);
+    void setEnforceISO(bool value);
+    void setAlgorithmQualitySel(int value);
+    void setCustomOptions(bool value);
+    void setCustomOptionsText(wxString value);
 
 private:
     wxConfig *mp_config;

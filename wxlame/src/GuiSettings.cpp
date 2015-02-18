@@ -69,12 +69,6 @@ void GuiSettings::updateValueControls() {
     g_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
     g_chcMode->SetSelection(mp_configBase->getMode());
 
-    // Advanced controls
-    g_chkCrc->SetValue(mp_configBase->getCrc());
-    g_chkDeleteFiles->SetValue(mp_configBase->getDeleteFiles());
-    g_chkMarkNonOriginal->SetValue(mp_configBase->getMarkNonOriginal());
-    g_chkMarkCopyright->SetValue(mp_configBase->getMarkCopyright());
-
     // VBR controls
     g_chkEnabledVBR->SetValue(mp_configBase->getEnabledVBR());
     g_spcVBRQuality->SetValue(mp_configBase->getVBRQuality());
@@ -86,12 +80,6 @@ void GuiSettings::updateValueControls() {
     g_chkUseABR->SetValue(mp_configBase->getUseABR());
     g_spcAverageBitrateABR->SetValue(mp_configBase->getAverageBitrateABR());
 
-    // Expert controls
-    g_chkEnforceISO->SetValue(mp_configBase->getEnforceISO());
-    g_chcAlgorithmQualitySel->SetSelection(mp_configBase->getAlgorithmQualitySel());
-    g_txtCustomOptions->Clear();
-    g_txtCustomOptions->WriteText(mp_configBase->getCustomOptions());
-
     // Audio controls
     g_chcResampling->SetSelection(mp_configBase->getResampling());
     g_chkHighpass->SetValue(mp_configBase->getHighpassEnabled());
@@ -102,6 +90,17 @@ void GuiSettings::updateValueControls() {
     g_spcLowpassFreq->SetValue(mp_configBase->getLowpassFreq());
     g_chkLowpassWidth->SetValue(mp_configBase->getLowpassWidthEnabled());
     g_spcLowpassWidth->SetValue(mp_configBase->getLowpassWidth());
+
+    // Advanced controls
+    g_chkCrc->SetValue(mp_configBase->getCrc());
+    g_chkDeleteFiles->SetValue(mp_configBase->getDeleteFiles());
+    g_chkMarkNonOriginal->SetValue(mp_configBase->getMarkNonOriginal());
+    g_chkMarkCopyright->SetValue(mp_configBase->getMarkCopyright());
+    g_chkEnforceISO->SetValue(mp_configBase->getEnforceISO());
+    g_chcAlgorithmQualitySel->SetSelection(mp_configBase->getAlgorithmQualitySel());
+    g_txtCustomOptions->Clear();
+    g_chkCustomOptions->SetValue(mp_configBase->getCustomOptions());
+    g_txtCustomOptions->WriteText(mp_configBase->getCustomOptionsText());
 }
 
 void GuiSettings::updateDisabledControls() {
@@ -126,6 +125,9 @@ void GuiSettings::updateDisabledControls() {
     g_spcLowpassFreq->Enable(g_chkLowpass->GetValue());
     g_chkLowpassWidth->Enable(g_chkLowpass->GetValue());
     g_spcLowpassWidth->Enable(g_chkLowpass->GetValue() && g_chkLowpassWidth->GetValue());
+
+    // Advanced controls
+    g_txtCustomOptions->Enable(g_chkCustomOptions->GetValue());
 }
 
 void GuiSettings::saveValuesConfig() {
@@ -135,12 +137,6 @@ void GuiSettings::saveValuesConfig() {
     mp_configBase->setEnableOutDir(g_optEnableOutDir->GetValue());
     mp_configBase->setMode(g_chcMode->GetCurrentSelection());
 
-    // Advanced controls
-    mp_configBase->setCrc(g_chkCrc->GetValue());
-    mp_configBase->setDeleteFiles(g_chkDeleteFiles->GetValue());
-    mp_configBase->setMarkNonOriginal(g_chkMarkNonOriginal->GetValue());
-    mp_configBase->setMarkCopyright(g_chkMarkCopyright->GetValue());
-
     // VBR controls
     mp_configBase->setEnabledVBR(g_chkEnabledVBR->GetValue());
     mp_configBase->setVBRQuality(g_spcVBRQuality->GetValue());
@@ -149,11 +145,6 @@ void GuiSettings::saveValuesConfig() {
     mp_configBase->setEnforceMinBitrate(g_chkEnforceMinBitrate->GetValue());
     mp_configBase->setUseABR(g_chkUseABR->GetValue());
     mp_configBase->setAverageBitrateABR(g_spcAverageBitrateABR->GetValue());
-
-    // Expert controls
-    mp_configBase->setEnforceISO(g_chkEnforceISO->GetValue());
-    mp_configBase->setAlgorithmQualitySel(g_chcAlgorithmQualitySel->GetSelection());
-    mp_configBase->setCustomOptions(g_txtCustomOptions->GetLineText(0));
 
     // Audio controls
     mp_configBase->setResampling(g_chcResampling->GetCurrentSelection());
@@ -165,6 +156,16 @@ void GuiSettings::saveValuesConfig() {
     mp_configBase->setLowpassFreq(g_spcLowpassFreq->GetValue());
     mp_configBase->setLowpassWidthEnabled(g_chkLowpassWidth->GetValue());
     mp_configBase->setLowpassWidth(g_spcLowpassWidth->GetValue());
+
+    // Advanced controls
+    mp_configBase->setCrc(g_chkCrc->GetValue());
+    mp_configBase->setDeleteFiles(g_chkDeleteFiles->GetValue());
+    mp_configBase->setMarkNonOriginal(g_chkMarkNonOriginal->GetValue());
+    mp_configBase->setMarkCopyright(g_chkMarkCopyright->GetValue());
+    mp_configBase->setEnforceISO(g_chkEnforceISO->GetValue());
+    mp_configBase->setAlgorithmQualitySel(g_chcAlgorithmQualitySel->GetSelection());
+    mp_configBase->setCustomOptions(g_chkCustomOptions->GetValue());
+    mp_configBase->setCustomOptionsText(g_txtCustomOptions->GetLineText(0));
 
     mp_configBase->configFlush();
 }
@@ -183,12 +184,6 @@ void GuiSettings::defaultValueControls() {
     g_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
     g_chcMode->SetSelection(DEFAULT_VALUE_Mode);
 
-    // Advanced controls
-    g_chkCrc->SetValue(DEFAULT_VALUE_Crc);
-    g_chkDeleteFiles->SetValue(DEFAULT_VALUE_DeleteFiles);
-    g_chkMarkNonOriginal->SetValue(DEFAULT_VALUE_MarkNonOriginal);
-    g_chkMarkCopyright->SetValue(DEFAULT_VALUE_MarkCopyright);
-
     // VBR controls
     g_chkEnabledVBR->SetValue(DEFAULT_VALUE_EnabledVBR);
     g_spcVBRQuality->SetValue(DEFAULT_VALUE_VBRQuality);
@@ -200,12 +195,6 @@ void GuiSettings::defaultValueControls() {
     g_chkUseABR->SetValue(DEFAULT_VALUE_UseABR);
     g_spcAverageBitrateABR->SetValue(DEFAULT_VALUE_AverageBitrateABR);
 
-    // Expert controls
-    g_chkEnforceISO->SetValue(DEFAULT_VALUE_EnforceISO);
-    g_chcAlgorithmQualitySel->SetSelection(DEFAULT_VALUE_AlgorithmQualitySel);
-    g_txtCustomOptions->Clear();
-    g_txtCustomOptions->WriteText(DEFAULT_VALUE_CustomOptions);
-
     // Audio controls
     g_chcResampling->SetSelection(DEFAULT_VALUE_Resampling);
     g_chkHighpass->SetValue(DEFAULT_VALUE_HighpassEnabled);
@@ -216,6 +205,17 @@ void GuiSettings::defaultValueControls() {
     g_spcLowpassFreq->SetValue(DEFAULT_VALUE_LowpassFreq);
     g_chkLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidthEnabled);
     g_spcLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidth);
+
+    // Advanced controls
+    g_chkCrc->SetValue(DEFAULT_VALUE_Crc);
+    g_chkDeleteFiles->SetValue(DEFAULT_VALUE_DeleteFiles);
+    g_chkMarkNonOriginal->SetValue(DEFAULT_VALUE_MarkNonOriginal);
+    g_chkMarkCopyright->SetValue(DEFAULT_VALUE_MarkCopyright);
+    g_chkEnforceISO->SetValue(DEFAULT_VALUE_EnforceISO);
+    g_chcAlgorithmQualitySel->SetSelection(DEFAULT_VALUE_AlgorithmQualitySel);
+    g_txtCustomOptions->Clear();
+    g_chkCustomOptions->SetValue(DEFAULT_VALUE_CustomOptions);
+    g_txtCustomOptions->WriteText(DEFAULT_VALUE_CustomOptionsText);
 }
 
 void GuiSettings::setLabelsControls() {
