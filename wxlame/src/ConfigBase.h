@@ -10,11 +10,11 @@
 #include <wx/config.h>
 
 // Config Group Strings
-const wxString CONFIG_SYSTEM_GROUP = _T("/System/");
-const wxString CONFIG_GENERAL_GROUP = _T("/General/");
-const wxString CONFIG_ADVANCED_GROUP = _T("/Advanced/");
-const wxString CONFIG_VBR_GROUP = _T("/VBR/");
-const wxString CONFIG_AUDIO_GROUP = _T("/Audio/");
+const wxString CONFIG_GROUP_SYSTEM = _T("/System/");
+const wxString CONFIG_GROUP_GENERAL = _T("/General/");
+const wxString CONFIG_GROUP_ADVANCED = _T("/Advanced/");
+const wxString CONFIG_GROUP_VBR = _T("/VBR/");
+const wxString CONFIG_GROUP_AUDIO = _T("/Audio/");
 
 // Config Strings
 const wxString CONFIG_STR_AppVersion = _T("AppVersion");

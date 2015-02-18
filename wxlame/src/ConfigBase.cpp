@@ -147,293 +147,293 @@ wxString ConfigBase::getStringLameOptions() const {
 
 wxString ConfigBase::getAppVersion() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_AppVersion, &value);
+    mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, &value);
     return value;
 }
 
 wxString ConfigBase::getLastOpenDir() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, &value);
+    mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
 int ConfigBase::getBitrate() const {
     int value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_Bitrate, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_Bitrate, &value);
     return value;
 }
 
 int ConfigBase::getMode() const {
     int value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_Mode, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_Mode, &value);
     return value;
 }
 
 bool ConfigBase::getEnableOutDir() const {
     bool value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_EnableOutDir, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_EnableOutDir, &value);
     return value;
 }
 
 wxString ConfigBase::getOutDir() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_OutDir, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_OutDir, &value);
     return value;
 }
 
 bool ConfigBase::getDeleteFiles() const {
     bool value;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteFiles, &value);
+    mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteFiles, &value);
     return value;
 }
 
 bool ConfigBase::getEnabledVBR() const {
     bool value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_EnabledVBR, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_EnabledVBR, &value);
     return value;
 }
 
 int ConfigBase::getMaxBitrate() const {
     int value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_MaxBitrate, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_MaxBitrate, &value);
     return value;
 }
 
 bool ConfigBase::getDisableVBRTag() const {
     bool value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_DisableVBRTag, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_DisableVBRTag, &value);
     return value;
 }
 
 bool ConfigBase::getEnforceMinBitrate() const {
     bool value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_EnforceMinBitrate, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_EnforceMinBitrate, &value);
     return value;
 }
 
 bool ConfigBase::getUseABR() const {
     bool value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_UseABR, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_UseABR, &value);
     return value;
 }
 
 int ConfigBase::getVBRQuality() const {
     int value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_VBRQuality, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_VBRQuality, &value);
     return value;
 }
 
 int ConfigBase::getAverageBitrateABR() const {
     int value;
-    mp_config->Read(CONFIG_VBR_GROUP + CONFIG_STR_AverageBitrateABR, &value);
+    mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_AverageBitrateABR, &value);
     return value;
 }
 
 bool ConfigBase::getMarkNonOriginal() const {
     bool value;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkNonOriginal, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, &value);
     return value;
 }
 
 bool ConfigBase::getMarkCopyright() const {
     bool value;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkCopyright, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, &value);
     return value;
 }
 
 bool ConfigBase::getCrc() const {
     bool value;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_Crc, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, &value);
     return value;
 }
 
 bool ConfigBase::getEnforceISO() const {
     bool value;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_EnforceISO, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, &value);
     return value;
 }
 
 int ConfigBase::getAlgorithmQualitySel() const {
     int value;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_AlgorithmQualitySel, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, &value);
     return value;
 }
 
 wxString ConfigBase::getCustomOptions() const {
     wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_ADVANCED_GROUP + CONFIG_STR_CustomOptions, &value);
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, &value);
     return value;
 }
 
 int ConfigBase::getResampling() const {
     int value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_Resampling, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, &value);
     return value;
 }
 
 bool ConfigBase::getHighpassEnabled() const {
     bool value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassEnabled, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassEnabled, &value);
     return value;
 }
 
 int ConfigBase::getHighpassFreq() const {
     int value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassFreq, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassFreq, &value);
     return value;
 }
 
 bool ConfigBase::getHighpassWidthEnabled() const {
     bool value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidthEnabled, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidthEnabled, &value);
     return value;
 }
 
 int ConfigBase::getHighpassWidth() const {
     int value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidth, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, &value);
     return value;
 }
 
 bool ConfigBase::getLowpassEnabled() const {
     bool value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassEnabled, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassEnabled, &value);
     return value;
 }
 
 int ConfigBase::getLowpassFreq() const {
     int value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassFreq, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassFreq, &value);
     return value;
 }
 
 bool ConfigBase::getLowpassWidthEnabled() const {
     bool value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidthEnabled, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidthEnabled, &value);
     return value;
 }
 
 int ConfigBase::getLowpassWidth() const {
     int value;
-    mp_config->Read(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidth, &value);
+    mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, &value);
     return value;
 }
 
 // Sets...
 
 void ConfigBase::setAppVersion(wxString value) {
-    mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_AppVersion, value);
+    mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);
 }
 
 void ConfigBase::setLastOpenDir(wxString value) {
-    mp_config->Write(CONFIG_SYSTEM_GROUP + CONFIG_STR_LastOpenDir, value);
+    mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, value);
 }
 
 void ConfigBase::setBitrate(int value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_Bitrate, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_Bitrate, value);
 }
 
 void ConfigBase::setMode(int value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_Mode, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_Mode, value);
 }
 
 void ConfigBase::setEnableOutDir(bool value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_EnableOutDir, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_EnableOutDir, value);
 }
 
 void ConfigBase::setOutDir(wxString value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_OutDir, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_OutDir, value);
 }
 
 void ConfigBase::setDeleteFiles(bool value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_DeleteFiles, value);
+    mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteFiles, value);
 }
 
 void ConfigBase::setEnabledVBR(bool value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_EnabledVBR, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_EnabledVBR, value);
 }
 
 void ConfigBase::setMaxBitrate(int value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_MaxBitrate, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_MaxBitrate, value);
 }
 
 void ConfigBase::setDisableVBRTag(bool value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_DisableVBRTag, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_DisableVBRTag, value);
 }
 
 void ConfigBase::setEnforceMinBitrate(bool value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_EnforceMinBitrate, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_EnforceMinBitrate, value);
 }
 
 void ConfigBase::setUseABR(bool value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_UseABR, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_UseABR, value);
 }
 
 void ConfigBase::setVBRQuality(int value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_VBRQuality, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_VBRQuality, value);
 }
 
 void ConfigBase::setAverageBitrateABR(int value) {
-    mp_config->Write(CONFIG_VBR_GROUP + CONFIG_STR_AverageBitrateABR, value);
+    mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_AverageBitrateABR, value);
 }
 
 void ConfigBase::setMarkNonOriginal(bool value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkNonOriginal, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, value);
 }
 
 void ConfigBase::setMarkCopyright(bool value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_MarkCopyright, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, value);
 }
 
 void ConfigBase::setCrc(bool value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_Crc, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, value);
 }
 
 void ConfigBase::setEnforceISO(bool value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_EnforceISO, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, value);
 }
 
 void ConfigBase::setAlgorithmQualitySel(int value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_AlgorithmQualitySel, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, value);
 }
 
 void ConfigBase::setCustomOptions(wxString value) {
-    mp_config->Write(CONFIG_ADVANCED_GROUP + CONFIG_STR_CustomOptions, value);
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, value);
 }
 
 void ConfigBase::setResampling(int value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_Resampling, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, value);
 }
 
 void ConfigBase::setHighpassEnabled(bool value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassEnabled, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassEnabled, value);
 }
 
 void ConfigBase::setHighpassFreq(int value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassFreq, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassFreq, value);
 }
 
 void ConfigBase::setHighpassWidthEnabled(bool value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidthEnabled, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidthEnabled, value);
 }
 
 void ConfigBase::setHighpassWidth(int value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_HighpassWidth, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);
     ;
 }
 
 void ConfigBase::setLowpassEnabled(bool value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassEnabled, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassEnabled, value);
 }
 
 void ConfigBase::setLowpassFreq(int value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassFreq, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassFreq, value);
 }
 
 void ConfigBase::setLowpassWidthEnabled(bool value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidthEnabled, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidthEnabled, value);
 }
 
 void ConfigBase::setLowpassWidth(int value) {
-    mp_config->Write(CONFIG_AUDIO_GROUP + CONFIG_STR_LowpassWidth, value);
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, value);
 }
