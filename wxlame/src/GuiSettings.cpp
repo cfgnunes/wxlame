@@ -31,14 +31,6 @@ void GuiSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent& event) {
     event.Skip();
 }
 
-void GuiSettings::OnbtnToolExecutableClick(wxCommandEvent& event) {
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, wxFileSelectorDefaultWildcardStr, wxFD_OPEN);
-    if (fileDialog.ShowModal() == wxID_OK) {
-        g_txtToolExecutable->Clear();
-        g_txtToolExecutable->WriteText(fileDialog.GetPath());
-    }
-}
-
 void GuiSettings::updateDisabledControlsEvent(wxCommandEvent& event) {
     updateDisabledControls();
 }
@@ -85,8 +77,6 @@ void GuiSettings::updateValueControls() {
     g_optEnableOutDir->SetValue(mp_configBase->getEnableOutDir());
     g_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
     g_chcMode->SetSelection(mp_configBase->getMode());
-    g_txtToolExecutable->Clear();
-    g_txtToolExecutable->WriteText(mp_configBase->getEncoderExecutable());
 
     // Advanced controls
     g_chkCrc->SetValue(mp_configBase->getCrc());
@@ -154,7 +144,6 @@ void GuiSettings::saveValuesConfig() {
     mp_configBase->setOutDir(g_txtOutputDirectory->GetLineText(0));
     mp_configBase->setEnableOutDir(g_optEnableOutDir->GetValue());
     mp_configBase->setMode(g_chcMode->GetCurrentSelection());
-    mp_configBase->setEncoderExecutable(g_txtToolExecutable->GetLineText(0));
 
     // Advanced controls
     mp_configBase->setCrc(g_chkCrc->GetValue());
@@ -204,8 +193,6 @@ void GuiSettings::defaultValueControls() {
     g_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
     g_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
     g_chcMode->SetSelection(DEFAULT_VALUE_Mode);
-    g_txtToolExecutable->Clear();
-    g_txtToolExecutable->WriteText(DEFAULT_VALUE_EncoderExecutable);
 
     // Advanced controls
     g_chkCrc->SetValue(DEFAULT_VALUE_Crc);
@@ -270,6 +257,5 @@ void GuiSettings::setLabelsControls() {
     g_chcAlgorithmQualitySel->Append(_T("8"));
     g_chcAlgorithmQualitySel->Append(_("9 (lowest quality, fast)"));
 
-    g_btnToolExecutable->SetLabel(_T("..."));
     g_btnOutputDirectory->SetLabel(_T("..."));
 }

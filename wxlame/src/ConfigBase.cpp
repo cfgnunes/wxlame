@@ -23,7 +23,6 @@ void ConfigBase::setDefaultConfig() {
 
     setBitrate(DEFAULT_VALUE_Bitrate);
     setMode(DEFAULT_VALUE_Mode);
-    setEncoderExecutable(DEFAULT_VALUE_EncoderExecutable);
     setEnableOutDir(DEFAULT_VALUE_EnableOutDir);
     setOutDir(DEFAULT_VALUE_OutDir);
     setDeleteFiles(DEFAULT_VALUE_DeleteFiles);
@@ -160,12 +159,6 @@ int ConfigBase::getBitrate() const {
 int ConfigBase::getMode() const {
     int value;
     mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_Mode, &value);
-    return value;
-}
-
-wxString ConfigBase::getEncoderExecutable() const {
-    wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_GENERAL_GROUP + CONFIG_STR_EncoderExecutable, &value);
     return value;
 }
 
@@ -331,10 +324,6 @@ void ConfigBase::setBitrate(int value) {
 
 void ConfigBase::setMode(int value) {
     mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_Mode, value);
-}
-
-void ConfigBase::setEncoderExecutable(wxString value) {
-    mp_config->Write(CONFIG_GENERAL_GROUP + CONFIG_STR_EncoderExecutable, value);
 }
 
 void ConfigBase::setEnableOutDir(bool value) {
