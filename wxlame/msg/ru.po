@@ -170,10 +170,6 @@ msgstr "Включить определение ошибок CRC"
 msgid "LAME Website"
 msgstr "Веб-сайт LAME"
 
-#: frmSettings.cpp:122
-msgid "LAME executable"
-msgstr "исполняемый файл LAME"
-
 #: frmMain.cpp:345
 msgid "LAME not found!"
 msgstr "LAME не найден!"

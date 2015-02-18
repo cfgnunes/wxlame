@@ -169,10 +169,6 @@ msgstr "Zahrnout zjišťování chyby CRC"
 msgid "LAME Website"
 msgstr "Stránky LAME"
 
-#: frmSettings.cpp:122
-msgid "LAME executable"
-msgstr "Spustitelný soubor pro LAME"
-
 #: frmMain.cpp:345
 msgid "LAME not found!"
 msgstr "LAME nenalezeno!"

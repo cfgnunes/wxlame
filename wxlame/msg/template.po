@@ -167,10 +167,6 @@ msgstr ""
 msgid "LAME Website"
 msgstr ""
 
-#: frmSettings.cpp:122
-msgid "LAME executable"
-msgstr ""
-
 #: frmMain.cpp:345
 msgid "LAME not found!"
 msgstr ""
