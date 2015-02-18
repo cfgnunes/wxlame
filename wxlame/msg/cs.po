@@ -169,8 +169,8 @@ msgstr "Výstupní adresář"
 msgid "Output sampling frequency"
 msgstr "Výstupní vzorkovací kmitočet"
 
-msgid "Processed %i files of %i."
-msgstr "Zpracováno %i souborů z %i."
+msgid "Processed %lu files of %lu."
+msgstr "Zpracováno %lu souborů z %lu."
 
 msgid "Progress"
 msgstr "Postup"

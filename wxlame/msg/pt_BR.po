@@ -167,8 +167,8 @@ msgstr "Diretório de saída"
 msgid "Output sampling frequency"
 msgstr "Frequência de amostragem de saída"
 
-msgid "Processed %i files of %i."
-msgstr "Processado %i arquivos de %i."
+msgid "Processed %lu files of %lu."
+msgstr "Processado %lu arquivos de %lu."
 
 msgid "Progress"
 msgstr "Progresso"

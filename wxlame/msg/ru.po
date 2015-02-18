@@ -170,8 +170,8 @@ msgstr "Директория вывода"
 msgid "Output sampling frequency"
 msgstr "Частота сэмплов вывода"
 
-msgid "Processed %i files of %i."
-msgstr "Обработано %i файлов из %i."
+msgid "Processed %lu files of %lu."
+msgstr "Обработано %lu файлов из %lu."
 
 msgid "Progress"
 msgstr "Прогресс"

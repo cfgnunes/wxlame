@@ -169,8 +169,8 @@ msgstr "Ausgabeordner"
 msgid "Output sampling frequency"
 msgstr ""
 
-msgid "Processed %i files of %i."
-msgstr "%i von %i Dateien bearbeitet."
+msgid "Processed %lu files of %lu."
+msgstr "%lu von %lu Dateien bearbeitet."
 
 msgid "Progress"
 msgstr "Fortschritt"

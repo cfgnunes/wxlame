@@ -25,107 +25,107 @@ Main::Main( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoin
 	g_mainMenuBar = new wxMenuBar( 0 );
 	g_mnbFile = new wxMenu();
 	wxMenuItem* g_mnbAddFolder;
-	g_mnbAddFolder = new wxMenuItem( g_mnbFile, ID_ADD_FOLDER, wxString( wxT("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAddFolder = new wxMenuItem( g_mnbFile, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbAddFolder );
 	
 	wxMenuItem* g_mnbAddFiles;
-	g_mnbAddFiles = new wxMenuItem( g_mnbFile, ID_ADD_FILES, wxString( wxT("Add files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAddFiles = new wxMenuItem( g_mnbFile, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbAddFiles );
 	
 	g_mnbFile->AppendSeparator();
 	
 	wxMenuItem* g_mnbExit;
-	g_mnbExit = new wxMenuItem( g_mnbFile, ID_EXIT, wxString( wxT("Exit") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbExit = new wxMenuItem( g_mnbFile, ID_EXIT, wxString( _("Exit") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbFile->Append( g_mnbExit );
 	
-	g_mainMenuBar->Append( g_mnbFile, wxT("&File") ); 
+	g_mainMenuBar->Append( g_mnbFile, _("&File") ); 
 	
 	g_mnbEdit = new wxMenu();
 	wxMenuItem* g_mnbRemoveFiles;
-	g_mnbRemoveFiles = new wxMenuItem( g_mnbEdit, ID_REMOVE_FILES, wxString( wxT("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbRemoveFiles = new wxMenuItem( g_mnbEdit, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbRemoveFiles );
 	
 	wxMenuItem* g_mnbClearList;
-	g_mnbClearList = new wxMenuItem( g_mnbEdit, ID_CLEAR_LIST, wxString( wxT("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbClearList = new wxMenuItem( g_mnbEdit, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbClearList );
 	
 	g_mnbEdit->AppendSeparator();
 	
 	wxMenuItem* g_mnbSettings;
-	g_mnbSettings = new wxMenuItem( g_mnbEdit, ID_SETTINGS, wxString( wxT("Settings") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbSettings = new wxMenuItem( g_mnbEdit, ID_SETTINGS, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbEdit->Append( g_mnbSettings );
 	
-	g_mainMenuBar->Append( g_mnbEdit, wxT("&Edit") ); 
+	g_mainMenuBar->Append( g_mnbEdit, _("&Edit") ); 
 	
 	g_mnbActions = new wxMenu();
 	wxMenuItem* g_mnbEncode;
-	g_mnbEncode = new wxMenuItem( g_mnbActions, ID_ENCODE, wxString( wxT("Encode") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbEncode = new wxMenuItem( g_mnbActions, ID_ENCODE, wxString( _("Encode") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbActions->Append( g_mnbEncode );
 	
 	wxMenuItem* g_mnbDecode;
-	g_mnbDecode = new wxMenuItem( g_mnbActions, ID_DECODE, wxString( wxT("Decode") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbDecode = new wxMenuItem( g_mnbActions, ID_DECODE, wxString( _("Decode") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbActions->Append( g_mnbDecode );
 	
-	g_mainMenuBar->Append( g_mnbActions, wxT("&Actions") ); 
+	g_mainMenuBar->Append( g_mnbActions, _("&Actions") ); 
 	
 	g_mnbHelp = new wxMenu();
 	wxMenuItem* g_mnbToolWebsite;
-	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( wxT("LAME website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( _("LAME Website") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbToolWebsite );
 	
 	wxMenuItem* g_mnbWebsite;
-	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( wxT("wxLame website") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( _("wxLame Website") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbWebsite );
 	
 	g_mnbHelp->AppendSeparator();
 	
 	wxMenuItem* g_mnbAbout;
-	g_mnbAbout = new wxMenuItem( g_mnbHelp, ID_ABOUT, wxString( wxT("About") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnbAbout = new wxMenuItem( g_mnbHelp, ID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mnbHelp->Append( g_mnbAbout );
 	
-	g_mainMenuBar->Append( g_mnbHelp, wxT("&Help") ); 
+	g_mainMenuBar->Append( g_mnbHelp, _("&Help") ); 
 	
 	this->SetMenuBar( g_mainMenuBar );
 	
 	g_mainStatusBar = this->CreateStatusBar( 3, wxST_SIZEGRIP, wxID_ANY );
 	g_mainToolBar = this->CreateToolBar( wxTB_HORIZONTAL|wxTB_TEXT, wxID_ANY ); 
-	g_tbAddFolder = g_mainToolBar->AddTool( ID_ADD_FOLDER, wxT("Add folder"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbAddFolder = g_mainToolBar->AddTool( ID_ADD_FOLDER, _("Add folder"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbAddFiles = g_mainToolBar->AddTool( ID_ADD_FILES, wxT("Add Files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbAddFiles = g_mainToolBar->AddTool( ID_ADD_FILES, _("Add files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbRemoveFiles = g_mainToolBar->AddTool( ID_REMOVE_FILES, wxT("Remove Files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbRemoveFiles = g_mainToolBar->AddTool( ID_REMOVE_FILES, _("Remove files"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbClearList = g_mainToolBar->AddTool( ID_CLEAR_LIST, wxT("Clear List"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
-	
-	g_mainToolBar->AddSeparator(); 
-	
-	g_tbEncode = g_mainToolBar->AddTool( ID_ENCODE, wxT("Encode"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
-	
-	g_tbDecode = g_mainToolBar->AddTool( ID_DECODE, wxT("Decode"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbClearList = g_mainToolBar->AddTool( ID_CLEAR_LIST, _("Clear list"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
 	g_mainToolBar->AddSeparator(); 
 	
-	g_tbSettings = g_mainToolBar->AddTool( ID_SETTINGS, wxT("Settings"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbEncode = g_mainToolBar->AddTool( ID_ENCODE, _("Encode"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
-	g_tbAbout = g_mainToolBar->AddTool( ID_ABOUT, wxT("About"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	g_tbDecode = g_mainToolBar->AddTool( ID_DECODE, _("Decode"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	
+	g_mainToolBar->AddSeparator(); 
+	
+	g_tbSettings = g_mainToolBar->AddTool( ID_SETTINGS, _("Settings"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
+	
+	g_tbAbout = g_mainToolBar->AddTool( ID_ABOUT, _("About"), wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL ); 
 	
 	g_mainToolBar->Realize(); 
 	
 	g_mainMenu = new wxMenu();
 	wxMenuItem* g_mnuAddFolder;
-	g_mnuAddFolder = new wxMenuItem( g_mainMenu, ID_ADD_FOLDER, wxString( wxT("Add Folder") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuAddFolder = new wxMenuItem( g_mainMenu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuAddFolder );
 	
 	wxMenuItem* g_mnuAddFiles;
-	g_mnuAddFiles = new wxMenuItem( g_mainMenu, ID_ADD_FILES, wxString( wxT("Add Files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuAddFiles = new wxMenuItem( g_mainMenu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuAddFiles );
 	
 	wxMenuItem* g_mnuRemoveFiles;
-	g_mnuRemoveFiles = new wxMenuItem( g_mainMenu, ID_REMOVE_FILES, wxString( wxT("Remove Files") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuRemoveFiles = new wxMenuItem( g_mainMenu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuRemoveFiles );
 	
 	wxMenuItem* g_mnuClearList;
-	g_mnuClearList = new wxMenuItem( g_mainMenu, ID_CLEAR_LIST, wxString( wxT("Clear List") ) , wxEmptyString, wxITEM_NORMAL );
+	g_mnuClearList = new wxMenuItem( g_mainMenu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
 	g_mainMenu->Append( g_mnuClearList );
 	
 	this->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( Main::MainOnContextMenu ), NULL, this ); 
@@ -220,9 +220,9 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
 	
 	wxStaticBoxSizer* sbSizer6;
-	sbSizer6 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Bitrate") ), wxVERTICAL );
+	sbSizer6 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Bitrate") ), wxVERTICAL );
 	
-	g_lblBitrate = new wxStaticText( m_panel1, wxID_ANY, wxT("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblBitrate = new wxStaticText( m_panel1, wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblBitrate->Wrap( -1 );
 	sbSizer6->Add( g_lblBitrate, 0, wxALL, 5 );
 	
@@ -233,9 +233,9 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer6->Add( sbSizer6, 1, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer7;
-	sbSizer7 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Mode") ), wxVERTICAL );
+	sbSizer7 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Mode") ), wxVERTICAL );
 	
-	wxString g_chcModeChoices[] = { wxT("default"), wxT("simple"), wxT("force"), wxT("dual-mono"), wxT("mono") };
+	wxString g_chcModeChoices[] = { _("default"), _("joint"), _("simple"), _("force"), _("dual-mono"), _("mono") };
 	int g_chcModeNChoices = sizeof( g_chcModeChoices ) / sizeof( wxString );
 	g_chcMode = new wxChoice( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcModeNChoices, g_chcModeChoices, 0 );
 	g_chcMode->SetSelection( 0 );
@@ -248,18 +248,18 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer5->Add( bSizer6, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer4;
-	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Output directory") ), wxVERTICAL );
+	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Output directory") ), wxVERTICAL );
 	
-	g_optUseSameDir = new wxRadioButton( m_panel1, wxID_ANY, wxT("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_optUseSameDir = new wxRadioButton( m_panel1, wxID_ANY, _("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer4->Add( g_optUseSameDir, 0, wxALL, 2 );
 	
-	g_optEnableOutDir = new wxRadioButton( m_panel1, wxID_ANY, wxT("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_optEnableOutDir = new wxRadioButton( m_panel1, wxID_ANY, _("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer4->Add( g_optEnableOutDir, 0, wxALL, 2 );
 	
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_dpkOutputDirectory = new wxDirPickerCtrl( m_panel1, wxID_ANY, wxEmptyString, wxT("Select a folder"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
+	g_dpkOutputDirectory = new wxDirPickerCtrl( m_panel1, wxID_ANY, wxT("/home/cristiano"), _("Select directory"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
 	bSizer7->Add( g_dpkOutputDirectory, 1, wxALL, 5 );
 	
 	
@@ -269,9 +269,9 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer5->Add( sbSizer4, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer5;
-	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Filing") ), wxHORIZONTAL );
+	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Filing") ), wxHORIZONTAL );
 	
-	g_chkDeleteFiles = new wxCheckBox( m_panel1, wxID_ANY, wxT("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkDeleteFiles = new wxCheckBox( m_panel1, wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer5->Add( g_chkDeleteFiles, 0, wxALL, 2 );
 	
 	
@@ -281,15 +281,15 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_panel1->SetSizer( bSizer5 );
 	m_panel1->Layout();
 	bSizer5->Fit( m_panel1 );
-	m_notebook1->AddPage( m_panel1, wxT("General"), true );
+	m_notebook1->AddPage( m_panel1, _("General"), true );
 	m_panel2 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer71;
 	bSizer71 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer61;
-	sbSizer61 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, wxT("VBR") ), wxVERTICAL );
+	sbSizer61 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("VBR") ), wxVERTICAL );
 	
-	g_chkEnabledVBR = new wxCheckBox( m_panel2, wxID_ANY, wxT("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnabledVBR = new wxCheckBox( m_panel2, wxID_ANY, _("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer61->Add( g_chkEnabledVBR, 0, wxALL, 2 );
 	
 	
@@ -299,9 +299,9 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer8 = new wxBoxSizer( wxHORIZONTAL );
 	
 	wxStaticBoxSizer* sbSizer71;
-	sbSizer71 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, wxT("Maximum VBR bitrate") ), wxVERTICAL );
+	sbSizer71 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Maximum VBR bitrate") ), wxVERTICAL );
 	
-	g_lblBitrateVBR = new wxStaticText( m_panel2, wxID_ANY, wxT("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblBitrateVBR = new wxStaticText( m_panel2, wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblBitrateVBR->Wrap( -1 );
 	sbSizer71->Add( g_lblBitrateVBR, 0, wxALL, 5 );
 	
@@ -321,15 +321,15 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer9 = new wxBoxSizer( wxHORIZONTAL );
 	
 	wxStaticBoxSizer* sbSizer8;
-	sbSizer8 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, wxT("Others") ), wxVERTICAL );
+	sbSizer8 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Others") ), wxVERTICAL );
 	
-	g_chkDisableVBRTag = new wxCheckBox( m_panel2, wxID_ANY, wxT("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkDisableVBRTag = new wxCheckBox( m_panel2, wxID_ANY, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkDisableVBRTag, 0, wxALL, 2 );
 	
-	g_chkEnforceMinBitrate = new wxCheckBox( m_panel2, wxID_ANY, wxT("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnforceMinBitrate = new wxCheckBox( m_panel2, wxID_ANY, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkEnforceMinBitrate, 0, wxALL, 2 );
 	
-	g_chkUseABR = new wxCheckBox( m_panel2, wxID_ANY, wxT("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkUseABR = new wxCheckBox( m_panel2, wxID_ANY, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkUseABR, 0, wxALL, 2 );
 	
 	wxFlexGridSizer* fgSizer1;
@@ -337,14 +337,14 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	fgSizer1->SetFlexibleDirection( wxBOTH );
 	fgSizer1->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	g_lblVBRQuality = new wxStaticText( m_panel2, wxID_ANY, wxT("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblVBRQuality = new wxStaticText( m_panel2, wxID_ANY, _("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblVBRQuality->Wrap( -1 );
 	fgSizer1->Add( g_lblVBRQuality, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	g_spcVBRQuality = new wxSpinCtrl( m_panel2, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 9, 0 );
 	fgSizer1->Add( g_spcVBRQuality, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_lblABR = new wxStaticText( m_panel2, wxID_ANY, wxT("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblABR = new wxStaticText( m_panel2, wxID_ANY, _("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblABR->Wrap( -1 );
 	fgSizer1->Add( g_lblABR, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -364,38 +364,38 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_panel2->SetSizer( bSizer71 );
 	m_panel2->Layout();
 	bSizer71->Fit( m_panel2 );
-	m_notebook1->AddPage( m_panel2, wxT("VBR"), false );
+	m_notebook1->AddPage( m_panel2, _("VBR"), false );
 	m_panel3 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer10;
 	bSizer10 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer9;
-	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, wxT("Flags") ), wxVERTICAL );
+	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Flags") ), wxVERTICAL );
 	
-	g_chkMarkNonOriginal = new wxCheckBox( m_panel3, wxID_ANY, wxT("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkMarkNonOriginal = new wxCheckBox( m_panel3, wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkMarkNonOriginal, 0, wxALL, 3 );
 	
-	g_chkMarkCopyright = new wxCheckBox( m_panel3, wxID_ANY, wxT("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkMarkCopyright = new wxCheckBox( m_panel3, wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkMarkCopyright, 0, wxALL, 3 );
 	
-	g_chkCrc = new wxCheckBox( m_panel3, wxID_ANY, wxT("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkCrc = new wxCheckBox( m_panel3, wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkCrc, 0, wxALL, 2 );
 	
-	g_chkEnforceISO = new wxCheckBox( m_panel3, wxID_ANY, wxT("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnforceISO = new wxCheckBox( m_panel3, wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkEnforceISO, 0, wxALL, 2 );
 	
 	
 	bSizer10->Add( sbSizer9, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer10;
-	sbSizer10 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, wxT("Options") ), wxVERTICAL );
+	sbSizer10 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Options") ), wxVERTICAL );
 	
 	wxFlexGridSizer* fgSizer2;
 	fgSizer2 = new wxFlexGridSizer( 2, 2, 0, 0 );
 	fgSizer2->SetFlexibleDirection( wxBOTH );
 	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	g_lblQualitySelection = new wxStaticText( m_panel3, wxID_ANY, wxT("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblQualitySelection = new wxStaticText( m_panel3, wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblQualitySelection->Wrap( -1 );
 	fgSizer2->Add( g_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -404,7 +404,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_chcAlgorithmQualitySel->SetSelection( 0 );
 	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_lblCustomOptions = new wxStaticText( m_panel3, wxID_ANY, wxT("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblCustomOptions = new wxStaticText( m_panel3, wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblCustomOptions->Wrap( -1 );
 	fgSizer2->Add( g_lblCustomOptions, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -421,13 +421,13 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_panel3->SetSizer( bSizer10 );
 	m_panel3->Layout();
 	bSizer10->Fit( m_panel3 );
-	m_notebook1->AddPage( m_panel3, wxT("Advanced"), false );
+	m_notebook1->AddPage( m_panel3, _("Advanced"), false );
 	m_panel4 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxVERTICAL );
 	
 	wxStaticBoxSizer* sbSizer11;
-	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, wxT("Output sampling frequency") ), wxHORIZONTAL );
+	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Output sampling frequency") ), wxHORIZONTAL );
 	
 	wxArrayString g_chcResamplingChoices;
 	g_chcResampling = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
@@ -438,18 +438,18 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer11->Add( sbSizer11, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer12;
-	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, wxT("Highpass filter") ), wxVERTICAL );
+	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Highpass filter") ), wxVERTICAL );
 	
 	wxGridSizer* gSizer1;
 	gSizer1 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkHighpass = new wxCheckBox( m_panel4, wxID_ANY, wxT("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpass = new wxCheckBox( m_panel4, wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
 	g_spcHighpassFreq = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer1->Add( g_spcHighpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkHighpassWidth = new wxCheckBox( m_panel4, wxID_ANY, wxT("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpassWidth = new wxCheckBox( m_panel4, wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
 	g_spcHighpassWidth = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
@@ -462,18 +462,18 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer11->Add( sbSizer12, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer13;
-	sbSizer13 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, wxT("Lowpass filter") ), wxVERTICAL );
+	sbSizer13 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Lowpass filter") ), wxVERTICAL );
 	
 	wxGridSizer* gSizer11;
 	gSizer11 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkLowpass = new wxCheckBox( m_panel4, wxID_ANY, wxT("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpass = new wxCheckBox( m_panel4, wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
 	g_spcLowpassFreq = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer11->Add( g_spcLowpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkLowpassWidth = new wxCheckBox( m_panel4, wxID_ANY, wxT("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpassWidth = new wxCheckBox( m_panel4, wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
 	g_spcLowpassWidth = new wxSpinCtrl( m_panel4, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
@@ -489,20 +489,20 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_panel4->SetSizer( bSizer11 );
 	m_panel4->Layout();
 	bSizer11->Fit( m_panel4 );
-	m_notebook1->AddPage( m_panel4, wxT("Audio processing"), false );
+	m_notebook1->AddPage( m_panel4, _("Audio processing"), false );
 	
 	bSizer2->Add( m_notebook1, 0, wxEXPAND | wxALL, 5 );
 	
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_btnDefault = new wxButton( this, wxID_ANY, wxT("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnDefault = new wxButton( this, wxID_ANY, _("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnDefault, 1, wxALL, 5 );
 	
-	g_btnOK = new wxButton( this, wxID_ANY, wxT("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnOK = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnOK, 1, wxALL, 5 );
 	
-	g_btnCancel = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( g_btnCancel, 1, wxALL, 5 );
 	
 	
@@ -605,7 +605,7 @@ Progress::Progress( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_gaugeFileProgress->SetValue( 0 ); 
 	bSizer12->Add( g_gaugeFileProgress, 0, wxALL, 5 );
 	
-	g_btnCancel = new wxButton( this, wxID_ANY, wxT("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer12->Add( g_btnCancel, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
 	
