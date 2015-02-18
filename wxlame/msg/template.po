@@ -74,7 +74,7 @@ msgstr ""
 msgid "Custom options:"
 msgstr ""
 
-msgid "Decode"
+msgid "Decode MP3"
 msgstr ""
 
 msgid "Decoding: "
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Enable Variable Bitrate (VBR)"
 msgstr ""
 
-msgid "Encode"
+msgid "Encode WAV / Re-Encode MP3"
 msgstr ""
 
 msgid "Encoding: "

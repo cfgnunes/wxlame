@@ -76,8 +76,8 @@ msgstr "Aktuelle Bitrate:"
 msgid "Custom options:"
 msgstr "Benutzerdefinierte Optionen:"
 
-msgid "Decode"
-msgstr "Decodieren"
+msgid "Decode MP3"
+msgstr "Decodieren MP3"
 
 msgid "Decoding: "
 msgstr "Dekodiere:"
@@ -94,8 +94,8 @@ msgstr ""
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Variable Bitrate (VBR) aktivieren"
 
-msgid "Encode"
-msgstr "Codieren"
+msgid "Encode WAV / Re-Encode MP3"
+msgstr "Kodieren WAV / neu codieren MP3"
 
 msgid "Encoding: "
 msgstr "Codiere:"

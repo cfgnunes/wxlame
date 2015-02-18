@@ -76,8 +76,8 @@ msgstr "Nynější datový tok:"
 msgid "Custom options:"
 msgstr "Vlastní volby:"
 
-msgid "Decode"
-msgstr "Dekódovat"
+msgid "Decode MP3"
+msgstr "Dekódovanie MP3"
 
 msgid "Decoding: "
 msgstr "Dekódování: "
@@ -94,8 +94,8 @@ msgstr "Chcete nyní proces zastavit?"
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Povolit proměnlivý datový tok (PromDT)"
 
-msgid "Encode"
-msgstr "Zakódovat"
+msgid "Encode WAV / Re-Encode MP3"
+msgstr "Kódovanie WAV / Re-kódovať MP3"
 
 msgid "Encoding: "
 msgstr "Kódování: "
