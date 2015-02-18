@@ -17,6 +17,7 @@ const wxString CONFIG_VBR_GROUP = _T("/VBR/");
 const wxString CONFIG_AUDIO_GROUP = _T("/Audio/");
 
 // Config Strings
+const wxString CONFIG_STR_AppVersion = _T("AppVersion");
 const wxString CONFIG_STR_LastOpenDir = _T("LastOpenDir");
 const wxString CONFIG_STR_Bitrate = _T("Bitrate");
 const wxString CONFIG_STR_Mode = _T("Mode");
@@ -47,7 +48,7 @@ const wxString CONFIG_STR_LowpassWidthEnabled = _T("LowpassWidthEnabled");
 const wxString CONFIG_STR_LowpassWidth = _T("LowpassWidth");
 
 // Default Values
-const wxString DEFAULT_VALUE_LastOpenDir = wxEmptyString;
+const wxString DEFAULT_VALUE_LastOpenDir = wxFileName::GetHomeDir();
 const int DEFAULT_VALUE_Bitrate = 192;
 const int DEFAULT_VALUE_Mode = 0;
 const bool DEFAULT_VALUE_EnableOutDir = false;
@@ -86,6 +87,7 @@ public:
     wxString getStringLameOptions() const;
 
     // Gets...
+    wxString getAppVersion() const;
     wxString getLastOpenDir() const;
     int getBitrate() const;
     int getMode() const;
@@ -116,6 +118,7 @@ public:
     int getLowpassWidth() const;
 
     // Sets...
+    void setAppVersion(wxString value);
     void setLastOpenDir(wxString value);
     void setBitrate(int value);
     void setMode(int value);
