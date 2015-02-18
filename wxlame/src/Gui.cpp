@@ -247,18 +247,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	bSizer5->Add( bSizer6, 0, wxEXPAND, 5 );
 	
-	wxStaticBoxSizer* sbSizer3;
-	sbSizer3 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("LAME executable") ), wxHORIZONTAL );
-	
-	g_txtToolExecutable = new wxTextCtrl( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer3->Add( g_txtToolExecutable, 1, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	g_btnToolExecutable = new wxButton( m_panel1, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 22,22 ), 0 );
-	sbSizer3->Add( g_btnToolExecutable, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	
-	bSizer5->Add( sbSizer3, 0, wxEXPAND, 5 );
-	
 	wxStaticBoxSizer* sbSizer4;
 	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, wxT("Output directory") ), wxVERTICAL );
 	
@@ -540,7 +528,6 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_sldBitrate->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_sldBitrate->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_sldBitrate->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_btnToolExecutable->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
 	g_optUseSameDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_optEnableOutDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_btnOutputDirectory->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOutputDirectoryClick ), NULL, this );
@@ -576,7 +563,6 @@ Settings::~Settings()
 	g_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
 	g_sldBitrate->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( Settings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_btnToolExecutable->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnToolExecutableClick ), NULL, this );
 	g_optUseSameDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_optEnableOutDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( Settings::updateDisabledControlsEvent ), NULL, this );
 	g_btnOutputDirectory->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( Settings::OnbtnOutputDirectoryClick ), NULL, this );
@@ -612,7 +598,7 @@ Progress::Progress( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_lblStatusList->Wrap( -1 );
 	bSizer12->Add( g_lblStatusList, 0, wxALL, 5 );
 	
-	g_gaugeListProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,20 ), wxGA_HORIZONTAL );
+	g_gaugeListProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
 	g_gaugeListProgress->SetValue( 0 ); 
 	bSizer12->Add( g_gaugeListProgress, 0, wxALL, 5 );
 	
@@ -620,7 +606,7 @@ Progress::Progress( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_lblStatusFile->Wrap( -1 );
 	bSizer12->Add( g_lblStatusFile, 0, wxALL, 5 );
 	
-	g_gaugeFileProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,20 ), wxGA_HORIZONTAL );
+	g_gaugeFileProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
 	g_gaugeFileProgress->SetValue( 0 ); 
 	bSizer12->Add( g_gaugeFileProgress, 0, wxALL, 5 );
 	

@@ -29,9 +29,9 @@
 #include <wx/slider.h>
 #include <wx/statbox.h>
 #include <wx/choice.h>
+#include <wx/radiobut.h>
 #include <wx/textctrl.h>
 #include <wx/button.h>
-#include <wx/radiobut.h>
 #include <wx/checkbox.h>
 #include <wx/panel.h>
 #include <wx/spinctrl.h>
@@ -126,8 +126,6 @@ class Settings : public wxDialog
 		wxStaticText* g_lblBitrate;
 		wxSlider* g_sldBitrate;
 		wxChoice* g_chcMode;
-		wxTextCtrl* g_txtToolExecutable;
-		wxButton* g_btnToolExecutable;
 		wxRadioButton* g_optUseSameDir;
 		wxRadioButton* g_optEnableOutDir;
 		wxTextCtrl* g_txtOutputDirectory;
@@ -169,7 +167,6 @@ class Settings : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnsldBitrateCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
-		virtual void OnbtnToolExecutableClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void updateDisabledControlsEvent( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnOutputDirectoryClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnsldBitrateVBRCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }

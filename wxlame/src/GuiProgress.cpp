@@ -157,7 +157,7 @@ void GuiProgress::processNextFile() {
     wxFileName filenameInput = fileInfo.getFileName();
 
     wxFileName filenameOutput = filenameInput;
-    wxString fullCommand = mp_configBase->getEncoderExecutable() + _T(" ");
+    wxString fullCommand = APP_TOOL_EXECUTABLE + _T(" ");
 
     // Encode or Decode
     if (m_workType == LAME_ENCODE)

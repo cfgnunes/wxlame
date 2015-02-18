@@ -16,7 +16,6 @@ public:
 
 protected:
     void OnsldBitrateCmdSliderUpdated(wxScrollEvent& event);
-    void OnbtnToolExecutableClick(wxCommandEvent& event);
     void updateDisabledControlsEvent(wxCommandEvent& event);
     void OnbtnOutputDirectoryClick(wxCommandEvent& event);
     void OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent& event);
