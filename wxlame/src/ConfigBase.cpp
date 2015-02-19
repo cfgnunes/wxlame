@@ -36,13 +36,6 @@ void ConfigBase::setDefaultConfig() {
     setVBRQuality(DEFAULT_VALUE_VBRQuality);
     setAverageBitrateABR(DEFAULT_VALUE_AverageBitrateABR);
 
-    setMarkNonOriginal(DEFAULT_VALUE_MarkNonOriginal);
-    setMarkCopyright(DEFAULT_VALUE_MarkCopyright);
-    setCrc(DEFAULT_VALUE_Crc);
-    setEnforceISO(DEFAULT_VALUE_EnforceISO);
-    setAlgorithmQualitySel(DEFAULT_VALUE_AlgorithmQualitySel);
-    setCustomOptions(DEFAULT_VALUE_CustomOptions);
-
     setResampling(DEFAULT_VALUE_Resampling);
     setHighpassEnabled(DEFAULT_VALUE_HighpassEnabled);
     setHighpassFreq(DEFAULT_VALUE_HighpassFreq);
@@ -52,6 +45,13 @@ void ConfigBase::setDefaultConfig() {
     setLowpassFreq(DEFAULT_VALUE_LowpassFreq);
     setLowpassWidthEnabled(DEFAULT_VALUE_LowpassWidthEnabled);
     setLowpassWidth(DEFAULT_VALUE_LowpassWidth);
+
+    setMarkNonOriginal(DEFAULT_VALUE_MarkNonOriginal);
+    setMarkCopyright(DEFAULT_VALUE_MarkCopyright);
+    setCrc(DEFAULT_VALUE_Crc);
+    setEnforceISO(DEFAULT_VALUE_EnforceISO);
+    setAlgorithmQualitySel(DEFAULT_VALUE_AlgorithmQualitySel);
+    setCustomOptions(DEFAULT_VALUE_CustomOptions);
 }
 
 void ConfigBase::configFlush() {
@@ -60,6 +60,11 @@ void ConfigBase::configFlush() {
 
 wxString ConfigBase::getStringLameOptions() const {
     wxString lameOptions;
+
+    if (getCustomOptions()) {
+        lameOptions.append(getCustomOptionsText());
+        return lameOptions;
+    }
 
     // Bitrate
     lameOptions.append(_T("-b ") + wxString::Format(_T("%i "), getBitrate()));
@@ -121,8 +126,6 @@ wxString ConfigBase::getStringLameOptions() const {
 
     if (getAlgorithmQualitySel() > 0)
         lameOptions.append(_T("-q ") + wxString::Format(_T("%i "), getAlgorithmQualitySel() - 1));
-
-    lameOptions.append(getCustomOptions());
 
     if (getResampling() > 0)
         lameOptions.append(_T("--resample ") + RESAMPLING_VALUES[getResampling() - 1] + _T(" "));
@@ -229,42 +232,6 @@ int ConfigBase::getAverageBitrateABR() const {
     return value;
 }
 
-bool ConfigBase::getMarkNonOriginal() const {
-    bool value;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, &value);
-    return value;
-}
-
-bool ConfigBase::getMarkCopyright() const {
-    bool value;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, &value);
-    return value;
-}
-
-bool ConfigBase::getCrc() const {
-    bool value;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, &value);
-    return value;
-}
-
-bool ConfigBase::getEnforceISO() const {
-    bool value;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, &value);
-    return value;
-}
-
-int ConfigBase::getAlgorithmQualitySel() const {
-    int value;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, &value);
-    return value;
-}
-
-wxString ConfigBase::getCustomOptions() const {
-    wxString value = wxEmptyString;
-    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, &value);
-    return value;
-}
-
 int ConfigBase::getResampling() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, &value);
@@ -316,6 +283,48 @@ bool ConfigBase::getLowpassWidthEnabled() const {
 int ConfigBase::getLowpassWidth() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, &value);
+    return value;
+}
+
+bool ConfigBase::getMarkNonOriginal() const {
+    bool value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, &value);
+    return value;
+}
+
+bool ConfigBase::getMarkCopyright() const {
+    bool value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, &value);
+    return value;
+}
+
+bool ConfigBase::getCrc() const {
+    bool value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, &value);
+    return value;
+}
+
+bool ConfigBase::getEnforceISO() const {
+    bool value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, &value);
+    return value;
+}
+
+int ConfigBase::getAlgorithmQualitySel() const {
+    int value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, &value);
+    return value;
+}
+
+bool ConfigBase::getCustomOptions() const {
+    bool value;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, &value);
+    return value;
+}
+
+wxString ConfigBase::getCustomOptionsText() const {
+    wxString value = wxEmptyString;
+    mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptionsText, &value);
     return value;
 }
 
@@ -377,30 +386,6 @@ void ConfigBase::setAverageBitrateABR(int value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_AverageBitrateABR, value);
 }
 
-void ConfigBase::setMarkNonOriginal(bool value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, value);
-}
-
-void ConfigBase::setMarkCopyright(bool value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, value);
-}
-
-void ConfigBase::setCrc(bool value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, value);
-}
-
-void ConfigBase::setEnforceISO(bool value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, value);
-}
-
-void ConfigBase::setAlgorithmQualitySel(int value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, value);
-}
-
-void ConfigBase::setCustomOptions(wxString value) {
-    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, value);
-}
-
 void ConfigBase::setResampling(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, value);
 }
@@ -436,4 +421,32 @@ void ConfigBase::setLowpassWidthEnabled(bool value) {
 
 void ConfigBase::setLowpassWidth(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, value);
+}
+
+void ConfigBase::setMarkNonOriginal(bool value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, value);
+}
+
+void ConfigBase::setMarkCopyright(bool value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, value);
+}
+
+void ConfigBase::setCrc(bool value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, value);
+}
+
+void ConfigBase::setEnforceISO(bool value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, value);
+}
+
+void ConfigBase::setAlgorithmQualitySel(int value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, value);
+}
+
+void ConfigBase::setCustomOptions(bool value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, value);
+}
+
+void ConfigBase::setCustomOptionsText(wxString value) {
+    mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptionsText, value);
 }
