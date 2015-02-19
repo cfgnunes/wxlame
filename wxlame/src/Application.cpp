@@ -20,8 +20,6 @@
 #include "GuiMain.h"
 #include "Constants.h"
 
-#include <wx/image.h>
-
 IMPLEMENT_APP(Application);
 
 bool Application::OnInit() {
