@@ -51,8 +51,8 @@ void FileListManager::insertFiles(const wxArrayString& filenames) {
             }
             if (!repeated) {
                 mp_owner->InsertItem(mp_owner->GetItemCount(), file.GetFullName());
-                mp_owner->SetItem(i, 1, file.GetFullName().Lower().Right(3));
-                mp_owner->SetItem(i, 2, file.GetPath());
+                mp_owner->SetItem(i, ID_LIST_FOLDER, file.GetPath());
+                mp_owner->SetItem(i, ID_LIST_FORMAT, file.GetFullName().Lower().Right(3));
                 mp_lstFilesData->push_back(FileInfo(filenames[n]));
             }
         }
