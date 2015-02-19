@@ -25,9 +25,9 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->SetDropTarget(mp_dndFile);
 
     // List title
-    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 300);
-    g_lstFiles->InsertColumn(1, _("Format"), wxLIST_FORMAT_LEFT, 70);
-    g_lstFiles->InsertColumn(2, _("Folder"), wxLIST_FORMAT_LEFT, 300);
+    g_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 300);
+    g_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 300);
+    g_lstFiles->InsertColumn(ID_LIST_FORMAT, _("Format"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
     const int wxStatusBarWidths [3] = {-10, -5, -10};

@@ -98,6 +98,11 @@ const int DEFAULT_VALUE_AlgorithmQualitySel = 0;
 const bool DEFAULT_VALUE_CustomOptions = false;
 const wxString DEFAULT_VALUE_CustomOptionsText = _T("-b 192 --clipdetect");
 
+// ID for title in wxListCtrl
+int const ID_LIST_FILE = 0;
+int const ID_LIST_FOLDER = 1;
+int const ID_LIST_FORMAT = 2;
+
 inline wxString GetResourceDir() {
 #ifdef __LINUX__
     wxString resourceDir = _T("/usr/share/wxlame/resource/");
