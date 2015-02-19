@@ -2,7 +2,7 @@
  * This file is part of the wxLame and licensed under the GNU General Public License, version 3
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
- 
+
 #include "FileListManager.h"
 #include "Constants.h"
 
@@ -84,7 +84,7 @@ void FileListManager::deleteItem(unsigned long int index) {
 }
 
 void FileListManager::clear() {
-    mp_owner ->DeleteAllItems();
+    mp_owner->DeleteAllItems();
     mp_lstFilesData->clear();
 }
 
@@ -96,4 +96,8 @@ FileInfo& FileListManager::getItem(unsigned long int index) {
     std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
     std::advance(fileInfo, index);
     return *fileInfo;
+}
+
+wxListCtrl& FileListManager::getOwner() {
+    return *mp_owner;
 }

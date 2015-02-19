@@ -2,7 +2,7 @@
  * This file is part of the wxLame and licensed under the GNU General Public License, version 3
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
- 
+
 #ifndef FILELISTMANAGER_H
 #define	FILELISTMANAGER_H
 
@@ -24,6 +24,7 @@ public:
     void clear();
     long unsigned int size();
     FileInfo& getItem(unsigned long int index);
+    wxListCtrl& getOwner();
 
 private:
     bool checkValidExtension(const wxFileName& file) const;
