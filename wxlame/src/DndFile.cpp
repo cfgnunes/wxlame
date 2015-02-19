@@ -5,7 +5,7 @@
 
 #include "DndFile.h"
 
-DndFile::DndFile(wxListCtrl *owner, ArrayOfFiles *lstFilesData) : mp_owner(owner), mp_lstFilesData(lstFilesData) {
+DndFile::DndFile(wxListCtrl *owner, std::list<FileInfo>* lstFilesData) : mp_owner(owner), mp_lstFilesData(lstFilesData) {
 }
 
 DndFile::~DndFile() {
@@ -38,16 +38,17 @@ void DndFile::insertFileList(const wxArrayString& filenames) {
         if (checkValidExtension(file)) {
             // Don't insert repeated filenames
             bool repeated = false;
-            for (int i = 0; i < mp_owner->GetItemCount(); i++) {
-                FileInfo& fileInfo = mp_lstFilesData->Item(i);
-                wxFileName filenameInput = fileInfo.getFileName();
+
+            int i = 0;
+            for (std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin(); fileInfo != mp_lstFilesData->end(); fileInfo++, i++) {
+                wxFileName filenameInput = (*fileInfo).getFileName();
                 if (filenameInput.GetFullPath() == filenames[n]) {
                     repeated = true;
                 }
             }
             if (!repeated) {
                 mp_owner->InsertItem(mp_owner->GetItemCount(), file.GetFullName());
-                mp_lstFilesData->Add(new FileInfo(filenames[n]));
+                mp_lstFilesData->push_back(FileInfo(filenames[n]));
             }
         }
     }

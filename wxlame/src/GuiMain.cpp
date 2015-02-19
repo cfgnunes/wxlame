@@ -18,7 +18,7 @@ GuiMain::GuiMain(wxWindow* parent)
     SetStatusBarPane(-1);
 
     // Aux list for wxListctrl
-    mp_lstFilesData = new ArrayOfFiles();
+    mp_lstFilesData = new std::list<FileInfo>();
 
     // Support Drag & Drop
     mp_dndFile = new DndFile(g_lstFiles, mp_lstFilesData);
@@ -46,7 +46,10 @@ GuiMain::~GuiMain() {
 }
 
 void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
-    mp_lstFilesData->Detach(event.GetIndex());
+    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
+    std::advance(fileInfo, event.GetIndex());
+    mp_lstFilesData->erase(fileInfo);
+
     updateControls();
     event.Skip();
 }
@@ -131,7 +134,7 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
 void GuiMain::mnuClearList(wxCommandEvent& event) {
     // Deletes all items from the list
     g_lstFiles->DeleteAllItems();
-    mp_lstFilesData->Clear();
+    mp_lstFilesData->clear();
 
     updateControls();
 }

@@ -10,6 +10,7 @@
 #include "ConfigBase.h"
 #include "FileInfo.h"
 #include "DndFile.h"
+#include <list>
 
 class GuiMain : public Main {
 public:
@@ -41,7 +42,7 @@ private:
     void updateControls();
     void loadResources();
     ConfigBase *mp_configBase;
-    ArrayOfFiles *mp_lstFilesData;
+    std::list<FileInfo> *mp_lstFilesData;
     DndFile *mp_dndFile;
     wxString m_exeTool;
     wxArrayString m_exeInputString;
