@@ -72,7 +72,7 @@ msgid "Current bitrate:"
 msgstr "Bitrate atual:"
 
 msgid "Custom options:"
-msgstr "Opções customizadas:"
+msgstr "Opções personalizadas:"
 
 msgid "Decode"
 msgstr "Decodificar"

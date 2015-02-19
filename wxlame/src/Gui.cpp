@@ -472,7 +472,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	g_chcAlgorithmQualitySel->SetSelection( 0 );
 	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkCustomOptions = new wxCheckBox( m_panel4, wxID_ANY, _("Use custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkCustomOptions = new wxCheckBox( m_panel4, wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer2->Add( g_chkCustomOptions, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	g_txtCustomOptions = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
