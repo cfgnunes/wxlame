@@ -177,7 +177,7 @@ void GuiSettings::defaultValueControls() {
     for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_Bitrate; i++);
     g_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    g_dpkOutputDirectory->SetDirName(DEFAULT_VALUE_OutDir);
+    g_dpkOutputDirectory->SetPath(DEFAULT_VALUE_OutDir);
 
     g_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
     g_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
