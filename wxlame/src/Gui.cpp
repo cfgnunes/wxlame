@@ -269,7 +269,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	bSizer5->Add( sbSizer4, 0, wxEXPAND, 5 );
 	
 	wxStaticBoxSizer* sbSizer5;
-	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Filing") ), wxHORIZONTAL );
+	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("File options") ), wxHORIZONTAL );
 	
 	g_chkDeleteFiles = new wxCheckBox( m_panel1, wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer5->Add( g_chkDeleteFiles, 0, wxALL, 2 );
