@@ -6,237 +6,321 @@ msgstr ""
 "Project-Id-Version: wxLame\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2013-08-01 09:44+0200\n"
-"Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"
+"PO-Revision-Date: 2015-02-19 21:07-0300\n"
+"Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: Czech <>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
+#: Gui.cpp:69
 msgid "&Actions"
 msgstr "Č&innosti"
 
+#: Gui.cpp:58
 msgid "&Edit"
 msgstr "Ú&pravy"
 
+#: Gui.cpp:41
 msgid "&File"
 msgstr "&Soubor"
 
+#: Gui.cpp:86
 msgid "&Help"
 msgstr "&Nápověda"
 
+#: GuiSettings.cpp:238
 msgid "0 (highest quality, slow)"
 msgstr "0 (nejvyšší jakost, pomalé)"
 
+#: GuiSettings.cpp:247
 msgid "9 (lowest quality, fast)"
 msgstr "9 (nejnižší jakost, rychlé)"
 
+#: Gui.cpp:83 Gui.cpp:110
 msgid "About"
 msgstr "O programu"
 
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
 msgid "Add files"
 msgstr "Přidat soubory"
 
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
 msgid "Add folder"
 msgstr "Přidat složku"
 
+#: Gui.cpp:491
 msgid "Advanced"
 msgstr "Pokročilé"
 
+#: Gui.cpp:466
 msgid "Algorithm quality selection:"
 msgstr "Výběr jakosti algoritmu:"
 
+#: Gui.cpp:435
 msgid "Audio processing"
 msgstr "Zpracování zvuku"
 
+#: Gui.cpp:347
 msgid "Average bitrate encoding ABR:"
 msgstr "Kódování průměrným datovým tokem:"
 
+#: Gui.cpp:223
 msgid "Bitrate"
 msgstr "Datový tok"
 
+#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
 msgid "Cancel"
 msgstr "Zrušit"
 
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
 msgid "Clear list"
 msgstr "Vyprázdnit seznam"
 
+#: GuiProgress.cpp:137
 msgid "Close"
 msgstr "Zavřít"
 
+#: Gui.cpp:452
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr "Vyhovět, jak jen to je možné, požadavkům ISO MPEG"
 
+#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
 msgid "Current bitrate:"
 msgstr "Nynější datový tok:"
 
+#: Gui.cpp:475
 msgid "Custom options:"
 msgstr "Vlastní volby:"
 
+#: Gui.cpp:66 Gui.cpp:104
 msgid "Decode MP3"
 msgstr "Dekódovanie MP3"
 
+#: GuiProgress.cpp:190
 msgid "Decoding: "
 msgstr "Dekódování: "
 
+#: Gui.cpp:274
 msgid "Delete source file after processing"
 msgstr "Smazat zdrojový soubor po jeho zpracování"
 
+#: Gui.cpp:326
 msgid "Disable writing of VBR Tag"
 msgstr "Zakázat zápis značky proměnlivého datového toku"
 
+#: GuiProgress.cpp:33
 msgid "Do you want to stop process now?"
 msgstr "Chcete nyní proces zastavit?"
 
+#: Gui.cpp:292
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Povolit proměnlivý datový tok (PromDT)"
 
+#: Gui.cpp:62 Gui.cpp:102
 msgid "Encode WAV / Re-Encode MP3"
 msgstr "Kódovanie WAV / Re-kódovať MP3"
 
+#: GuiProgress.cpp:190
 msgid "Encoding: "
 msgstr "Kódování: "
 
+#: Gui.cpp:38
 msgid "Exit"
 msgstr "Ukončit"
 
+#: GuiMain.cpp:28
 msgid "File"
 msgstr "Soubor"
 
-msgid "Filing"
-msgstr "Archivování"
+#: Gui.cpp:272
+msgid "File options"
+msgstr "Volby pro soubory"
 
+#: Gui.cpp:441
 msgid "Flags"
 msgstr "Příznaky"
 
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr "Složka"
+
+#: GuiMain.cpp:30
+msgid "Format"
+msgstr "Formát"
+
+#: GuiMain.cpp:177
 msgid "Free front-end for the Lame"
 msgstr "Rozhraní pro Lame"
 
+#: Gui.cpp:284
 msgid "General"
 msgstr "Obecné"
 
+#: Gui.cpp:384
 msgid "Highpass filter"
 msgstr "Filtr pro vysoké pásmo"
 
+#: Gui.cpp:389
 msgid "Highpass filtering frequency (in Hz):"
 msgstr "Kmitočet filtru pro vysoké pásmo (v Hz):"
 
+#: Gui.cpp:449
 msgid "Include CRC error detection"
 msgstr "Zahrnout zjišťování chyby CRC"
 
+#: Gui.cpp:73
 msgid "LAME Website"
 msgstr "Stránky LAME"
 
+#: GuiMain.cpp:202
 msgid "LAME not found!"
 msgstr "LAME nenalezeno!"
 
+#: GuiMain.cpp:209
 msgid "Lame options: "
 msgstr "Volby pro Lame: "
 
+#: Gui.cpp:408
 msgid "Lowpass filter"
 msgstr "Filtr pro nízké pásmo"
 
+#: Gui.cpp:413
 msgid "Lowpass filtering frequency (in Hz):"
 msgstr "Kmitočet filtru pro nízké pásmo (v Hz):"
 
+#: Gui.cpp:446
 msgid "Mark as copyright"
 msgstr "Označit jako autorské právo"
 
+#: Gui.cpp:443
 msgid "Mark as non-original"
 msgstr "Označit jako ne-původní"
 
+#: Gui.cpp:302
 msgid "Maximum VBR bitrate"
 msgstr "Nejvyšší proměnlivý datový tok"
 
+#: Gui.cpp:236
 msgid "Mode"
 msgstr "Režim"
 
+#: Gui.cpp:501
 msgid "OK"
 msgstr "OK"
 
+#: Gui.cpp:459
 msgid "Options"
 msgstr "Volby"
 
+#: Gui.cpp:324
 msgid "Others"
 msgstr "Jiné"
 
+#: Gui.cpp:251
 msgid "Output directory"
 msgstr "Výstupní adresář"
 
+#: Gui.cpp:373
 msgid "Output sampling frequency"
 msgstr "Výstupní vzorkovací kmitočet"
 
+#: GuiProgress.cpp:185
+#, c-format
 msgid "Processed %lu files of %lu."
 msgstr "Zpracováno %lu souborů z %lu."
 
+#: Gui.h:210
 msgid "Progress"
 msgstr "Postup"
 
+#: Gui.cpp:340
 msgid "Quality of VBR encoding:"
 msgstr "Jakost kódování s proměnlivým datovým tokem:"
 
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
 msgid "Remove files"
 msgstr "Odstranit soubory"
 
+#: Gui.cpp:498
 msgid "Restore defaults"
 msgstr "Obnovit výchozí nastavení"
 
+#: Gui.cpp:253
 msgid "Same as input directory"
 msgstr "Stejný jako vstupní adresář"
 
+#: Gui.cpp:262 GuiMain.cpp:89
 msgid "Select directory"
 msgstr "Vybrat adresář"
 
+#: GuiMain.cpp:105
 msgid "Select file"
 msgstr "Vybrat soubor"
 
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:180
 msgid "Settings"
 msgstr "Nastavení"
 
+#: Gui.cpp:329
 msgid "Strictly enforce minimum bitrate"
 msgstr "Vynutit přísně nejnižší datový tok"
 
+#: Gui.cpp:332
 msgid "Use ABR instead VBR"
 msgstr "Použít průměrný datový tok (PrůmDT) místo proměnlivého (PromDT)"
 
+#: Gui.cpp:256
 msgid "Use below:"
 msgstr "Použít níže:"
 
+#: Gui.cpp:290 Gui.cpp:367
 msgid "VBR"
 msgstr "PromDT"
 
+#: Gui.cpp:395
 msgid "Width of Highpass filter (in Hz):"
 msgstr "Šířka filtru pro vysoké pásmo (v Hz):"
 
+#: Gui.cpp:419
 msgid "Width of Lowpass filter (in Hz):"
 msgstr "Šířka filtru pro nízké pásmo (v Hz):"
 
+#: Gui.cpp:238 GuiSettings.cpp:237
 msgid "default"
 msgstr "výchozí"
 
+#: GuiSettings.cpp:226
 msgid "default (automatic)"
 msgstr "výchozí (automaticky)"
 
+#: Gui.cpp:238
 msgid "dual-mono"
 msgstr "dvojité mono"
 
+#: GuiMain.cpp:206
+msgid "files"
+msgstr "soubory"
+
+#: Gui.cpp:238
 msgid "force"
 msgstr "vynutit"
 
+#: Gui.cpp:238
 msgid "joint"
 msgstr "spojit"
 
+#: Gui.cpp:238
 msgid "mono"
 msgstr "mono"
 
+#: Gui.cpp:238
 msgid "simple"
 msgstr "jednoduché"
 
+#: Gui.cpp:77
 msgid "wxLame Website"
 msgstr "Stránky wxLame"
-
-msgid "files"
-msgstr "soubory"

@@ -6,237 +6,321 @@ msgstr ""
 "Project-Id-Version: wxLame\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2014-03-04 12:06+0200\n"
-"Last-Translator: Jan Rimmek <jan@rimmek.de>\n"
+"PO-Revision-Date: 2015-02-19 21:07-0300\n"
+"Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.0\n"
+"X-Generator: Poedit 1.5.4\n"
 
+#: Gui.cpp:69
 msgid "&Actions"
 msgstr "&Aktionen"
 
+#: Gui.cpp:58
 msgid "&Edit"
 msgstr "B&earbeiten"
 
+#: Gui.cpp:41
 msgid "&File"
 msgstr "&Datei"
 
+#: Gui.cpp:86
 msgid "&Help"
 msgstr "&Hilfe"
 
+#: GuiSettings.cpp:238
 msgid "0 (highest quality, slow)"
 msgstr "0 (beste Qualität, langsam)"
 
+#: GuiSettings.cpp:247
 msgid "9 (lowest quality, fast)"
 msgstr "9 (schlechteste Qualität, schnell)"
 
+#: Gui.cpp:83 Gui.cpp:110
 msgid "About"
 msgstr "Über"
 
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
 msgid "Add files"
 msgstr "Dateien hinzufügen"
 
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
 msgid "Add folder"
 msgstr "Ordner hinzufügen"
 
+#: Gui.cpp:491
 msgid "Advanced"
 msgstr "Erweitert"
 
+#: Gui.cpp:466
 msgid "Algorithm quality selection:"
 msgstr ""
 
+#: Gui.cpp:435
 msgid "Audio processing"
 msgstr "Audio-Verarbeitung"
 
+#: Gui.cpp:347
 msgid "Average bitrate encoding ABR:"
 msgstr "Durchschnittliche Bitrate (ABR): "
 
+#: Gui.cpp:223
 msgid "Bitrate"
 msgstr "Bitrate"
 
+#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
 msgid "Cancel"
 msgstr "Abbrechen"
 
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
 msgid "Clear list"
 msgstr "Liste leeren"
 
+#: GuiProgress.cpp:137
 msgid "Close"
 msgstr "Schließen"
 
+#: Gui.cpp:452
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr ""
 
+#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
 msgid "Current bitrate:"
 msgstr "Aktuelle Bitrate:"
 
+#: Gui.cpp:475
 msgid "Custom options:"
 msgstr "Benutzerdefinierte Optionen:"
 
+#: Gui.cpp:66 Gui.cpp:104
 msgid "Decode MP3"
 msgstr "Decodieren MP3"
 
+#: GuiProgress.cpp:190
 msgid "Decoding: "
 msgstr "Dekodiere:"
 
+#: Gui.cpp:274
 msgid "Delete source file after processing"
 msgstr "Quelldatei nach Bearbeitung löschen"
 
+#: Gui.cpp:326
 msgid "Disable writing of VBR Tag"
 msgstr ""
 
+#: GuiProgress.cpp:33
 msgid "Do you want to stop process now?"
 msgstr ""
 
+#: Gui.cpp:292
 msgid "Enable Variable Bitrate (VBR)"
 msgstr "Variable Bitrate (VBR) aktivieren"
 
+#: Gui.cpp:62 Gui.cpp:102
 msgid "Encode WAV / Re-Encode MP3"
 msgstr "Kodieren WAV / neu codieren MP3"
 
+#: GuiProgress.cpp:190
 msgid "Encoding: "
 msgstr "Codiere:"
 
+#: Gui.cpp:38
 msgid "Exit"
 msgstr "Beenden"
 
+#: GuiMain.cpp:28
 msgid "File"
 msgstr "Datei"
 
-msgid "Filing"
-msgstr "Dateien"
+#: Gui.cpp:272
+msgid "File options"
+msgstr "Dateioptionen"
 
+#: Gui.cpp:441
 msgid "Flags"
 msgstr "Flags"
 
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr "Hinzufügen"
+
+#: GuiMain.cpp:30
+msgid "Format"
+msgstr "Format"
+
+#: GuiMain.cpp:177
 msgid "Free front-end for the Lame"
 msgstr "Freies Frontend für LAME"
 
+#: Gui.cpp:284
 msgid "General"
 msgstr "Allgemein"
 
+#: Gui.cpp:384
 msgid "Highpass filter"
 msgstr "Hochpass-Filter"
 
+#: Gui.cpp:389
 msgid "Highpass filtering frequency (in Hz):"
 msgstr "Frequenz des Hochpass-Filters (in Hz):"
 
+#: Gui.cpp:449
 msgid "Include CRC error detection"
 msgstr ""
 
+#: Gui.cpp:73
 msgid "LAME Website"
 msgstr "LAME Webseite"
 
+#: GuiMain.cpp:202
 msgid "LAME not found!"
 msgstr "LAME nicht gefunden!"
 
+#: GuiMain.cpp:209
 msgid "Lame options: "
 msgstr "LAME Einstellungen:"
 
+#: Gui.cpp:408
 msgid "Lowpass filter"
 msgstr "Tiefpass-Filter"
 
+#: Gui.cpp:413
 msgid "Lowpass filtering frequency (in Hz):"
 msgstr "Frequenz des Tiefpass-Filters (in Hz):"
 
+#: Gui.cpp:446
 msgid "Mark as copyright"
 msgstr ""
 
+#: Gui.cpp:443
 msgid "Mark as non-original"
 msgstr ""
 
+#: Gui.cpp:302
 msgid "Maximum VBR bitrate"
 msgstr "Maximale VBR-Bitrate"
 
+#: Gui.cpp:236
 msgid "Mode"
 msgstr "Modus"
 
+#: Gui.cpp:501
 msgid "OK"
 msgstr "OK"
 
+#: Gui.cpp:459
 msgid "Options"
 msgstr "Optionen"
 
+#: Gui.cpp:324
 msgid "Others"
 msgstr "Weitere Optionen"
 
+#: Gui.cpp:251
 msgid "Output directory"
 msgstr "Ausgabeordner"
 
+#: Gui.cpp:373
 msgid "Output sampling frequency"
 msgstr ""
 
+#: GuiProgress.cpp:185
+#, c-format
 msgid "Processed %lu files of %lu."
 msgstr "%lu von %lu Dateien bearbeitet."
 
+#: Gui.h:210
 msgid "Progress"
 msgstr "Fortschritt"
 
+#: Gui.cpp:340
 msgid "Quality of VBR encoding:"
 msgstr "Qualität der VBR-Kodierung:"
 
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
 msgid "Remove files"
 msgstr "Dateien entfernen"
 
+#: Gui.cpp:498
 msgid "Restore defaults"
 msgstr "Standardeinstellungen wiederherstellen"
 
+#: Gui.cpp:253
 msgid "Same as input directory"
 msgstr "Im Quellordner"
 
+#: Gui.cpp:262 GuiMain.cpp:89
 msgid "Select directory"
 msgstr "Ordner wählen"
 
+#: GuiMain.cpp:105
 msgid "Select file"
 msgstr "Datei wählen"
 
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:180
 msgid "Settings"
 msgstr "Einstellungen"
 
+#: Gui.cpp:329
 msgid "Strictly enforce minimum bitrate"
 msgstr ""
 
+#: Gui.cpp:332
 msgid "Use ABR instead VBR"
 msgstr "ABR statt VBR benutzen"
 
+#: Gui.cpp:256
 msgid "Use below:"
 msgstr "oder:"
 
+#: Gui.cpp:290 Gui.cpp:367
 msgid "VBR"
 msgstr "VBR"
 
+#: Gui.cpp:395
 msgid "Width of Highpass filter (in Hz):"
 msgstr "Frequenzbereich des Hochpass-Filters (in Hz):"
 
+#: Gui.cpp:419
 msgid "Width of Lowpass filter (in Hz):"
 msgstr "Frequenzbereich des Tiefpass-Filters (in Hz):"
 
+#: Gui.cpp:238 GuiSettings.cpp:237
 msgid "default"
 msgstr "standard"
 
+#: GuiSettings.cpp:226
 msgid "default (automatic)"
 msgstr "standard (automatisch)"
 
+#: Gui.cpp:238
 msgid "dual-mono"
 msgstr "duales Mono"
 
+#: GuiMain.cpp:206
+msgid "files"
+msgstr "dateien"
+
+#: Gui.cpp:238
 msgid "force"
 msgstr "erzwingen"
 
+#: Gui.cpp:238
 msgid "joint"
 msgstr "kanalkopplung (joint)"
 
+#: Gui.cpp:238
 msgid "mono"
 msgstr "mono"
 
+#: Gui.cpp:238
 msgid "simple"
 msgstr "einfach"
 
+#: Gui.cpp:77
 msgid "wxLame Website"
 msgstr "wxLame Webseite"
-
-msgid "files"
-msgstr "dateien"
