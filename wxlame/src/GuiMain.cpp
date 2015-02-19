@@ -144,22 +144,22 @@ void GuiMain::mnuClearList(wxCommandEvent& event) {
 
 void GuiMain::mnuSettings(wxCommandEvent& event) {
     // Displays the "Settings" window
-    GuiSettings Dlg(this, mp_configBase);
-    Dlg.ShowModal();
+    GuiSettings guiSettings(this, mp_configBase);
+    guiSettings.ShowModal();
 
     updateControls();
 }
 
 void GuiMain::mnuEncode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    GuiProgress Dlg(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
-    Dlg.ShowModal();
+    GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
+    progressDialog.ShowModal();
 }
 
 void GuiMain::mnuDecode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    GuiProgress Dlg(this, mp_configBase, mp_fileListManager, LAME_DECODE);
-    Dlg.ShowModal();
+    GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_DECODE);
+    progressDialog.ShowModal();
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent& event) {

@@ -18,7 +18,6 @@ public:
     void setFilesCmdLine(const wxArrayString& filenames);
 
 protected:
-    // Handlers for Main events.
     void OnlstFilesDeleteItem(wxListEvent& event);
     void OnlstFilesInsertItem(wxListEvent& event);
     void OnlstFilesItemSelect(wxListEvent& event);
