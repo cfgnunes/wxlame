@@ -29,6 +29,10 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->InsertColumn(1, _("Format"), wxLIST_FORMAT_LEFT, 70);
     g_lstFiles->InsertColumn(2, _("Folder"), wxLIST_FORMAT_LEFT, 300);
 
+    // Set statusbar widths
+    const int wxStatusBarWidths [3] = {-10, -5, -10};
+    g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
+
     // Configuration file
     mp_configBase = new ConfigBase(APP_NAME);
 
