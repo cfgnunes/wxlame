@@ -6,7 +6,7 @@
 #include "GuiMain.h"
 #include "GuiSettings.h"
 #include "GuiProgress.h"
-#include "Global.h"
+#include "Constants.h"
 
 #include <wx/aboutdlg.h>
 #include <wx/filedlg.h>
@@ -17,12 +17,17 @@ GuiMain::GuiMain(wxWindow* parent)
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
-    // Aux list for wxListctrl
-    mp_lstFilesData = new std::list<FileInfo>();
+    // File list manager
+    mp_fileListManager = new FileListManager(g_lstFiles);
 
-    // Support Drag & Drop
-    mp_dndFile = new DndFile(g_lstFiles, mp_lstFilesData);
+    // List Drag & Drop
+    mp_dndFile = new DndFile(mp_fileListManager);
     g_lstFiles->SetDropTarget(mp_dndFile);
+
+    // List title
+    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 300);
+    g_lstFiles->InsertColumn(1, _("Format"), wxLIST_FORMAT_LEFT, 70);
+    g_lstFiles->InsertColumn(2, _("Folder"), wxLIST_FORMAT_LEFT, 300);
 
     // Configuration file
     mp_configBase = new ConfigBase(APP_NAME);
@@ -33,22 +38,17 @@ GuiMain::GuiMain(wxWindow* parent)
     // Load resource
     loadResources();
 
-    // Title List
-    g_lstFiles->InsertColumn(0, _("File"), wxLIST_FORMAT_LEFT, 600);
-
     // Updates the controls
     updateControls();
 }
 
 GuiMain::~GuiMain() {
-    delete mp_lstFilesData;
+    delete mp_fileListManager;
     delete mp_configBase;
 }
 
 void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, event.GetIndex());
-    mp_lstFilesData->erase(fileInfo);
+    mp_fileListManager->deleteItem(event.GetIndex());
 
     updateControls();
     event.Skip();
@@ -88,7 +88,7 @@ void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
     dirDialog.SetPath(mp_configBase->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
-        mp_dndFile->insertFileListDir(dirDialog.GetPath());
+        mp_fileListManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
         mp_configBase->setLastOpenDir(dirDialog.GetPath());
@@ -108,7 +108,7 @@ void GuiMain::mnuAddFiles(wxCommandEvent& event) {
 
         // Get the file(s) the user selected
         fileDialog.GetPaths(files);
-        mp_dndFile->insertFileList(files);
+        mp_fileListManager->insertFiles(files);
 
         // Remembers the last used directory
         mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
@@ -133,8 +133,7 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
 
 void GuiMain::mnuClearList(wxCommandEvent& event) {
     // Deletes all items from the list
-    g_lstFiles->DeleteAllItems();
-    mp_lstFilesData->clear();
+    mp_fileListManager->clear();
 
     updateControls();
 }
@@ -149,13 +148,13 @@ void GuiMain::mnuSettings(wxCommandEvent& event) {
 
 void GuiMain::mnuEncode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    GuiProgress Dlg(this, mp_configBase, mp_lstFilesData, LAME_ENCODE);
+    GuiProgress Dlg(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
     Dlg.ShowModal();
 }
 
 void GuiMain::mnuDecode(wxCommandEvent& event) {
     // Displays the "Progress" window
-    GuiProgress Dlg(this, mp_configBase, mp_lstFilesData, LAME_DECODE);
+    GuiProgress Dlg(this, mp_configBase, mp_fileListManager, LAME_DECODE);
     Dlg.ShowModal();
 }
 

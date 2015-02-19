@@ -4,7 +4,7 @@
  */
 
 #include "GuiProgress.h"
-#include "Global.h"
+#include "Constants.h"
 
 #include <wx/app.h>
 #include <wx/txtstrm.h>
@@ -17,8 +17,8 @@ BEGIN_EVENT_TABLE(GuiProgress, Progress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiProgress::GuiProgress(wxWindow *parent, ConfigBase *configBase, std::list<FileInfo> *lstFilesData, int workType)
-: Progress(parent), mp_configBase(configBase), mp_lstFilesData(lstFilesData), m_fileIterator(0), m_workType(workType), m_workingProgress(false) {
+GuiProgress::GuiProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType)
+: Progress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0), m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();
@@ -75,7 +75,7 @@ void GuiProgress::OnInit(wxInitDialogEvent& event) {
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    g_gaugeListProgress->SetRange(mp_lstFilesData->size());
+    g_gaugeListProgress->SetRange(mp_fileListManager->size());
 
     // Processes the first file
     processNextFile();
@@ -113,14 +113,13 @@ void GuiProgress::OnProcessTerm(wxProcessEvent& event) {
     if (m_workingProgress) {
         // Delete the file already processed
         if (mp_configBase->getDeleteFiles()) {
-            std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-            std::advance(fileInfo, m_fileIterator - 1);
-            wxFileName filenameInput = fileInfo->getFileName();
+            FileInfo& fileInfo = mp_fileListManager->getItem(m_fileIterator - 1);
+            wxFileName filenameInput = fileInfo.getFileName();
 
             wxRemoveFile(filenameInput.GetFullPath());
         }
 
-        size_t total = mp_lstFilesData->size();
+        unsigned long int total = mp_fileListManager->size();
         if (m_fileIterator < total)
             processNextFile();
         else
@@ -155,9 +154,8 @@ void GuiProgress::stringToGaugeUpdate(const wxString & inputString) {
 }
 
 void GuiProgress::processNextFile() {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, m_fileIterator);
-    wxFileName filenameInput = fileInfo->getFileName();
+    FileInfo& fileInfo = mp_fileListManager->getItem(m_fileIterator);
+    wxFileName filenameInput = fileInfo.getFileName();
 
     wxFileName filenameOutput = filenameInput;
     wxString fullCommand = APP_TOOL_EXECUTABLE + _T(" ");
@@ -183,12 +181,11 @@ void GuiProgress::processNextFile() {
 }
 
 void GuiProgress::stringLabelsUpdate() {
-    size_t total = mp_lstFilesData->size();
+    unsigned long int total = mp_fileListManager->size();
     g_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
     if (m_fileIterator < total) {
-        std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-        std::advance(fileInfo, m_fileIterator);
-        wxFileName filenameInput = fileInfo->getFileName();
+        FileInfo fileInfo = mp_fileListManager->getItem(m_fileIterator);
+        wxFileName filenameInput = fileInfo.getFileName();
 
         g_lblStatusFile->SetLabel((m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
     }

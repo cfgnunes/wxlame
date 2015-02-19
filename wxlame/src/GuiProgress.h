@@ -7,11 +7,10 @@
 #define GUIPROGRESS_H
 
 #include "Gui.h"
-#include "FileInfo.h"
 #include "ConfigBase.h"
+#include "FileListManager.h"
 
 #include <wx/process.h>
-#include <list>
 
 enum {
     LAME_ENCODE = 0,
@@ -22,7 +21,7 @@ const int ID_TOOL_PROCESS = ::wxNewId();
 
 class GuiProgress : public Progress {
 public:
-    GuiProgress(wxWindow *parent, ConfigBase *configBase, std::list<FileInfo> *lstFilesData, int workType);
+    GuiProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType);
     virtual ~GuiProgress();
 
 protected:
@@ -40,9 +39,9 @@ private:
     void stringLabelsUpdate();
 
     ConfigBase *mp_configBase;
-    std::list<FileInfo> *mp_lstFilesData;
+    FileListManager *mp_fileListManager;
     wxProcess *mp_process;
-    size_t m_fileIterator;
+    unsigned long int m_fileIterator;
     int m_workType;
     bool m_workingProgress;
     long m_processPID;
