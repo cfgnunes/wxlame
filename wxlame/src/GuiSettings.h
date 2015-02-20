@@ -11,7 +11,7 @@
 
 class GuiSettings : public Settings {
 public:
-    GuiSettings(wxWindow* parent, ConfigBase* configBase);
+    GuiSettings(wxWindow *parent, ConfigBase *configBase);
     virtual ~GuiSettings();
 
 protected:

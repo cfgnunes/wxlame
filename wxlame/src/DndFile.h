@@ -14,10 +14,11 @@
 #include <wx/dnd.h>
 #include <wx/listctrl.h>
 #include <wx/filename.h>
+#include <list>
 
 class DndFile : public wxFileDropTarget {
 public:
-    DndFile(wxListCtrl *owner, ArrayOfFiles *lstFilesData);
+    DndFile(wxListCtrl *owner, std::list<FileInfo> *lstFilesData);
     virtual ~DndFile();
     virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames);
     void insertFileList(const wxArrayString& filenames);
@@ -26,7 +27,7 @@ public:
 private:
     bool checkValidExtension(const wxFileName& file) const;
     wxListCtrl *mp_owner;
-    ArrayOfFiles *mp_lstFilesData;
+    std::list<FileInfo> *mp_lstFilesData;
 };
 
 #endif // DNDFILE_H

@@ -9,7 +9,7 @@
 #include <wx/filedlg.h>
 #include <wx/dirdlg.h>
 
-GuiSettings::GuiSettings(wxWindow* parent, ConfigBase* configBase)
+GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
 : Settings(parent), mp_configBase(configBase) {
     // Set labels of controls
     setLabelsControls();
