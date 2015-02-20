@@ -8,9 +8,8 @@
 
 #include "Gui.h"
 #include "ConfigBase.h"
-#include "FileInfo.h"
+#include "FileListManager.h"
 #include "DndFile.h"
-#include <list>
 
 class GuiMain : public Main {
 public:
@@ -41,8 +40,9 @@ protected:
 private:
     void updateControls();
     void loadResources();
+
     ConfigBase *mp_configBase;
-    std::list<FileInfo> *mp_lstFilesData;
+    FileListManager *mp_fileListManager;
     DndFile *mp_dndFile;
     wxString m_exeTool;
     wxArrayString m_exeInputString;

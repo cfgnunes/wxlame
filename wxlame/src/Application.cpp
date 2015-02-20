@@ -17,8 +17,8 @@
  */
 
 #include "Application.h"
-#include "Global.h"
 #include "GuiMain.h"
+#include "Constants.h"
 
 #include <wx/image.h>
 
