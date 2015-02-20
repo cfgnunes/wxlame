@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: wxLame\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-04-26 19:09-0300\n"
-"PO-Revision-Date: 2015-02-19 21:10-0300\n"
+"PO-Revision-Date: 2015-02-19 22:40-0300\n"
 "Last-Translator: Cristiano Nunes <cfgnunes@gmail.com>\n"
 "Language-Team: \n"
 "Language: pt-BR\n"
@@ -121,7 +121,7 @@ msgstr "Habilitar Bitrate Variável (VBR)"
 
 #: Gui.cpp:62 Gui.cpp:102
 msgid "Encode WAV / Re-Encode MP3"
-msgstr "Codificar WAV / Decodificar MP3"
+msgstr "Codificar WAV / Re-Codificar MP3"
 
 #: GuiProgress.cpp:190
 msgid "Encoding: "
