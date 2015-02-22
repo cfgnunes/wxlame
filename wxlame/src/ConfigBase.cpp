@@ -52,6 +52,7 @@ void ConfigBase::setDefaultConfig() {
     setEnforceISO(DEFAULT_VALUE_EnforceISO);
     setAlgorithmQualitySel(DEFAULT_VALUE_AlgorithmQualitySel);
     setCustomOptions(DEFAULT_VALUE_CustomOptions);
+    setCustomOptionsText(DEFAULT_VALUE_CustomOptionsText);
 }
 
 void ConfigBase::configFlush() {
@@ -71,19 +72,19 @@ wxString ConfigBase::getStringLameOptions() const {
 
     // Mode
     switch (getMode()) {
-        case 1:
+        case MODE_JOINT:
             lameOptions.append(_T("-m j "));
             break;
-        case 2:
+        case MODE_SIMPLE:
             lameOptions.append(_T("-m s "));
             break;
-        case 3:
+        case MODE_FORCE:
             lameOptions.append(_T("-m f "));
             break;
-        case 4:
+        case MODE_DUALMONO:
             lameOptions.append(_T("-m d "));
             break;
-        case 5:
+        case MODE_MONO:
             lameOptions.append(_T("-m m "));
             break;
     }
