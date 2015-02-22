@@ -28,6 +28,14 @@ const int BITRATE_VALUES_SIZE = 18;
 const wxString RESAMPLING_VALUES[] = {_T("8"), _T("11.025"), _T("12"), _T("16"), _T("22.05"), _T("24"), _T("32"), _T("44.1"), _T("48")};
 const int RESAMPLING_VALUES_SIZE = 9;
 
+enum ModeValues {
+    MODE_JOINT = 1,
+    MODE_SIMPLE,
+    MODE_FORCE,
+    MODE_DUALMONO,
+    MODE_MONO
+};
+
 // Config Group Strings
 const wxString CONFIG_GROUP_SYSTEM = _T("/System/");
 const wxString CONFIG_GROUP_GENERAL = _T("/General/");
@@ -70,7 +78,7 @@ const wxString CONFIG_STR_CustomOptions = _T("CustomOptions");
 // Default Values
 const wxString DEFAULT_VALUE_LastOpenDir = wxFileName::GetHomeDir();
 const int DEFAULT_VALUE_Bitrate = 192;
-const int DEFAULT_VALUE_Mode = 0;
+const int DEFAULT_VALUE_Mode = MODE_JOINT;
 const bool DEFAULT_VALUE_EnableOutDir = false;
 const wxString DEFAULT_VALUE_OutDir = wxFileName::GetHomeDir();
 const bool DEFAULT_VALUE_DeleteFiles = false;
