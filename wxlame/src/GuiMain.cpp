@@ -50,7 +50,7 @@ GuiMain::~GuiMain() {
 }
 
 void GuiMain::OnlstFilesDeleteItem(wxListEvent &event) {
-    mp_fileListManager->deleteItem(event.GetIndex());
+    mp_fileListManager->deleteItem((unsigned long) event.GetIndex());
 
     updateControls();
     event.Skip();
@@ -175,13 +175,6 @@ void GuiMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetVersion(APP_VERSION);
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
-    aboutInfo.SetWebSite(APP_WEBSITE);
-    aboutInfo.AddDeveloper(APP_AUTHOR);
-    aboutInfo.AddTranslator(APP_AUTHOR);
-    aboutInfo.AddTranslator(_T("Carlos Sánchez <carlos1994sanchez@gmail.com>"));
-    aboutInfo.AddTranslator(_T("Jan Rimmek <jan@rimmek.de>"));
-    aboutInfo.AddTranslator(_T("Sergey Basalaev <sbasalaev@gmail.com>"));
-    aboutInfo.AddTranslator(_T("Pavel Fric <pavelfric@seznam.cz>"));
     wxAboutBox(aboutInfo);
 }
 

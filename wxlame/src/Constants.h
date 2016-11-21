@@ -14,7 +14,6 @@ const wxString APP_NAME = _T("wxLame");
 const wxString APP_VERSION = _T("3.5");
 const wxString APP_NAME_WITH_VERSION = APP_NAME + _T(" v") + APP_VERSION;
 
-const wxString APP_AUTHOR = _T("Cristiano Nunes <cfgnunes@gmail.com>");
 const wxString APP_COPYRIGHT = _T("(C) 2011-2015 Cristiano Nunes <cfgnunes@gmail.com>");
 const wxString APP_WEBSITE = _T("http://sourceforge.net/projects/wxlame/");
 
@@ -28,7 +27,6 @@ const int BITRATE_VALUES_SIZE = 18;
 
 const wxString RESAMPLING_VALUES[] = {_T("8"), _T("11.025"), _T("12"), _T("16"), _T("22.05"), _T("24"), _T("32"),
                                       _T("44.1"), _T("48")};
-const int RESAMPLING_VALUES_SIZE = 9;
 
 enum ModeValues {
     MODE_JOINT = 1,
