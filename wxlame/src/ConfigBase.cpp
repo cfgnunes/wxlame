@@ -72,6 +72,7 @@ wxString ConfigBase::getStringLameOptions() const {
 
     // Mode
     switch (getMode()) {
+        default:
         case MODE_JOINT:
             lameOptions.append(_T("-m j "));
             break;
@@ -87,8 +88,6 @@ wxString ConfigBase::getStringLameOptions() const {
         case MODE_MONO:
             lameOptions.append(_T("-m m "));
             break;
-        default:
-            lameOptions.append(_T("-m j "));
     }
 
     // Crc
