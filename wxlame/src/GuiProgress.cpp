@@ -73,7 +73,7 @@ void GuiProgress::OnInit(wxInitDialogEvent &event) {
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    g_gaugeListProgress->SetRange(mp_fileListManager->size());
+    g_gaugeListProgress->SetRange((int) mp_fileListManager->size());
 
     // Processes the first file
     processNextFile();
@@ -102,7 +102,7 @@ void GuiProgress::OnProcessTerm(wxProcessEvent &event) {
         m_fileIterator++;
 
     // Update the value of "bar list"
-    g_gaugeListProgress->SetValue(m_fileIterator);
+    g_gaugeListProgress->SetValue((int) m_fileIterator);
 
     // Updates the labels
     stringLabelsUpdate();
@@ -142,12 +142,12 @@ void GuiProgress::stringToGaugeUpdate(const wxString &inputString) {
     if (m_workType == LAME_ENCODE) {
         inputString.BeforeFirst('%').AfterFirst('(').ToLong(&currentValue);
         g_gaugeFileProgress->SetRange(100);
-        g_gaugeFileProgress->SetValue(currentValue);
+        g_gaugeFileProgress->SetValue((int) currentValue);
     } else {
         inputString.AfterFirst('/').BeforeFirst(' ').ToLong(&maxValue);
         inputString.BeforeFirst('/').AfterFirst(' ').ToLong(&currentValue);
-        g_gaugeFileProgress->SetRange(maxValue);
-        g_gaugeFileProgress->SetValue(currentValue);
+        g_gaugeFileProgress->SetRange((int) maxValue);
+        g_gaugeFileProgress->SetValue((int) currentValue);
     }
 }
 
