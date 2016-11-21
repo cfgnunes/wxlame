@@ -6,11 +6,8 @@
 #include "GuiSettings.h"
 #include "Constants.h"
 
-#include <wx/filedlg.h>
-#include <wx/dirdlg.h>
-
 GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
-: Settings(parent), mp_configBase(configBase) {
+        : Settings(parent), mp_configBase(configBase) {
     // Set labels of controls
     setLabelsControls();
 
@@ -24,35 +21,36 @@ GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
 GuiSettings::~GuiSettings() {
 }
 
-void GuiSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent& event) {
+void GuiSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
     int number = g_sldBitrate->GetValue();
     g_lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
 }
 
-void GuiSettings::updateDisabledControlsEvent(wxCommandEvent& event) {
+void GuiSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
     updateDisabledControls();
 }
 
-void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent& event) {
+void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
     int number = g_sldBitrateVBR->GetValue();
-    g_lblBitrateVBR->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+    g_lblBitrateVBR->SetLabel(
+            _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
 }
 
-void GuiSettings::OnbtnDefaultClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
     updateDisabledControls();
 }
 
-void GuiSettings::OnbtnOKClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
 }
 
-void GuiSettings::OnbtnCancelClick(wxCommandEvent& event) {
+void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
 }
 

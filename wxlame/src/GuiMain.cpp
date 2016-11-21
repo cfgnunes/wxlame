@@ -9,11 +9,9 @@
 #include "Constants.h"
 
 #include <wx/aboutdlg.h>
-#include <wx/filedlg.h>
-#include <wx/dirdlg.h>
 
-GuiMain::GuiMain(wxWindow* parent)
-: Main(parent) {
+GuiMain::GuiMain(wxWindow *parent)
+        : Main(parent) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -30,7 +28,7 @@ GuiMain::GuiMain(wxWindow* parent)
     g_lstFiles->InsertColumn(ID_LIST_FORMAT, _("Format"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
-    const int wxStatusBarWidths [3] = {-10, -5, -10};
+    const int wxStatusBarWidths[3] = {-10, -5, -10};
     g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
@@ -51,24 +49,24 @@ GuiMain::~GuiMain() {
     delete mp_configBase;
 }
 
-void GuiMain::OnlstFilesDeleteItem(wxListEvent& event) {
+void GuiMain::OnlstFilesDeleteItem(wxListEvent &event) {
     mp_fileListManager->deleteItem(event.GetIndex());
 
     updateControls();
     event.Skip();
 }
 
-void GuiMain::OnlstFilesInsertItem(wxListEvent& event) {
+void GuiMain::OnlstFilesInsertItem(wxListEvent &event) {
     updateControls();
     event.Skip();
 }
 
-void GuiMain::OnlstFilesItemSelect(wxListEvent& event) {
+void GuiMain::OnlstFilesItemSelect(wxListEvent &event) {
     updateControls();
     event.Skip();
 }
 
-void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
+void GuiMain::OnlstFilesItemRClick(wxListEvent &event) {
     updateControls();
 
     // Displays the popup menu when you click a list item
@@ -76,7 +74,7 @@ void GuiMain::OnlstFilesItemRClick(wxListEvent& event) {
     event.Skip();
 }
 
-void GuiMain::OnlstFilesKeyDown(wxListEvent& event) {
+void GuiMain::OnlstFilesKeyDown(wxListEvent &event) {
     // Remove files with Delete key
     int keyCode = event.GetKeyCode();
     if (keyCode == WXK_DELETE)
@@ -85,7 +83,7 @@ void GuiMain::OnlstFilesKeyDown(wxListEvent& event) {
     event.Skip();
 }
 
-void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
+void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
     wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
@@ -100,9 +98,10 @@ void GuiMain::mnuAddDirectory(wxCommandEvent& event) {
     }
 }
 
-void GuiMain::mnuAddFiles(wxCommandEvent& event) {
+void GuiMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
+    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT,
+                            wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_configBase->getLastOpenDir());
@@ -120,12 +119,12 @@ void GuiMain::mnuAddFiles(wxCommandEvent& event) {
     }
 }
 
-void GuiMain::mnuExit(wxCommandEvent& event) {
+void GuiMain::mnuExit(wxCommandEvent &event) {
     // Terminates the program
     Close();
 }
 
-void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
+void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
     int itemCount = g_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
@@ -135,14 +134,14 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuClearList(wxCommandEvent& event) {
+void GuiMain::mnuClearList(wxCommandEvent &event) {
     // Deletes all items from the list
     mp_fileListManager->clear();
 
     updateControls();
 }
 
-void GuiMain::mnuSettings(wxCommandEvent& event) {
+void GuiMain::mnuSettings(wxCommandEvent &event) {
     // Displays the "Settings" window
     GuiSettings guiSettings(this, mp_configBase);
     guiSettings.ShowModal();
@@ -150,27 +149,27 @@ void GuiMain::mnuSettings(wxCommandEvent& event) {
     updateControls();
 }
 
-void GuiMain::mnuEncode(wxCommandEvent& event) {
+void GuiMain::mnuEncode(wxCommandEvent &event) {
     // Displays the "Progress" window
     GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
     progressDialog.ShowModal();
 }
 
-void GuiMain::mnuDecode(wxCommandEvent& event) {
+void GuiMain::mnuDecode(wxCommandEvent &event) {
     // Displays the "Progress" window
     GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_DECODE);
     progressDialog.ShowModal();
 }
 
-void GuiMain::mnuToolWebsite(wxCommandEvent& event) {
+void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(_T("http://lame.sourceforge.net/"));
 }
 
-void GuiMain::mnuWebsite(wxCommandEvent& event) {
+void GuiMain::mnuWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
-void GuiMain::mnuAbout(wxCommandEvent& event) {
+void GuiMain::mnuAbout(wxCommandEvent &event) {
     wxAboutDialogInfo aboutInfo;
     aboutInfo.SetName(APP_NAME);
     aboutInfo.SetVersion(APP_VERSION);
@@ -186,7 +185,7 @@ void GuiMain::mnuAbout(wxCommandEvent& event) {
     wxAboutBox(aboutInfo);
 }
 
-void GuiMain::OnTimer1Trigger(wxTimerEvent& event) {
+void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
     wxString newExeTool = APP_TOOL_EXECUTABLE;
     if (!m_exeTool.IsSameAs(newExeTool, false)) {
         m_exeInputString.Clear();
@@ -254,6 +253,6 @@ void GuiMain::updateControls() {
     m_timer1.Start(20, true);
 }
 
-void GuiMain::setFilesCmdLine(const wxArrayString& filenames) {
+void GuiMain::setFilesCmdLine(const wxArrayString &filenames) {
     mp_fileListManager->insertFilesAndDir(filenames);
 }

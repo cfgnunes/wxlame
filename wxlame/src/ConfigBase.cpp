@@ -6,7 +6,7 @@
 #include "ConfigBase.h"
 #include "Constants.h"
 
-ConfigBase::ConfigBase(const wxString& appName) {
+ConfigBase::ConfigBase(const wxString &appName) {
     mp_config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
@@ -404,8 +404,7 @@ void ConfigBase::setHighpassWidthEnabled(bool value) {
 }
 
 void ConfigBase::setHighpassWidth(int value) {
-    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);
-    ;
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);;
 }
 
 void ConfigBase::setLowpassEnabled(bool value) {
