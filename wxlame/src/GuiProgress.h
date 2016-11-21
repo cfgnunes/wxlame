@@ -22,20 +22,29 @@ const int ID_TOOL_PROCESS = ::wxNewId();
 class GuiProgress : public Progress {
 public:
     GuiProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType);
+
     virtual ~GuiProgress();
 
 protected:
-    void OnClose(wxCloseEvent& event);
-    void OnIdle(wxIdleEvent& event);
-    void OnInit(wxInitDialogEvent& event);
-    void OnbtnCancelClick(wxCommandEvent& event);
-    void OnTimer2Trigger(wxTimerEvent& event);
-    void OnProcessTerm(wxProcessEvent& event);
+    void OnClose(wxCloseEvent &event);
+
+    void OnIdle(wxIdleEvent &event);
+
+    void OnInit(wxInitDialogEvent &event);
+
+    void OnbtnCancelClick(wxCommandEvent &event);
+
+    void OnTimer2Trigger(wxTimerEvent &event);
+
+    void OnProcessTerm(wxProcessEvent &event);
 
 private:
     void processNextFile();
+
     void finishedWork();
-    void stringToGaugeUpdate(const wxString& inputString);
+
+    void stringToGaugeUpdate(const wxString &inputString);
+
     void stringLabelsUpdate();
 
     ConfigBase *mp_configBase;
@@ -47,7 +56,7 @@ private:
     long m_processPID;
     wxString m_inputString;
 
-    DECLARE_EVENT_TABLE()
+DECLARE_EVENT_TABLE()
 };
 
 #endif // GUIPROGRESS_H
