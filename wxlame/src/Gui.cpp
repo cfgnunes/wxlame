@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Jun  6 2014)
+// C++ code generated with wxFormBuilder (version Feb 16 2016)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -222,11 +222,11 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer6;
 	sbSizer6 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Bitrate") ), wxVERTICAL );
 	
-	g_lblBitrate = new wxStaticText( m_panel1, wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblBitrate = new wxStaticText( sbSizer6->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblBitrate->Wrap( -1 );
 	sbSizer6->Add( g_lblBitrate, 0, wxALL, 5 );
 	
-	g_sldBitrate = new wxSlider( m_panel1, wxID_ANY, 50, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
+	g_sldBitrate = new wxSlider( sbSizer6->GetStaticBox(), wxID_ANY, 50, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
 	sbSizer6->Add( g_sldBitrate, 0, wxALL|wxEXPAND, 5 );
 	
 	
@@ -237,7 +237,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	wxString g_chcModeChoices[] = { _("default"), _("joint"), _("simple"), _("force"), _("dual-mono"), _("mono") };
 	int g_chcModeNChoices = sizeof( g_chcModeChoices ) / sizeof( wxString );
-	g_chcMode = new wxChoice( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcModeNChoices, g_chcModeChoices, 0 );
+	g_chcMode = new wxChoice( sbSizer7->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcModeNChoices, g_chcModeChoices, 0 );
 	g_chcMode->SetSelection( 0 );
 	sbSizer7->Add( g_chcMode, 0, wxALL|wxEXPAND, 5 );
 	
@@ -250,16 +250,16 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer4;
 	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Output directory") ), wxVERTICAL );
 	
-	g_optUseSameDir = new wxRadioButton( m_panel1, wxID_ANY, _("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_optUseSameDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer4->Add( g_optUseSameDir, 0, wxALL, 2 );
 	
-	g_optEnableOutDir = new wxRadioButton( m_panel1, wxID_ANY, _("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_optEnableOutDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer4->Add( g_optEnableOutDir, 0, wxALL, 2 );
 	
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 	
-	g_dpkOutputDirectory = new wxDirPickerCtrl( m_panel1, wxID_ANY, wxT("/home/cristiano"), _("Select directory"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
+	g_dpkOutputDirectory = new wxDirPickerCtrl( sbSizer4->GetStaticBox(), wxID_ANY, wxT("/home/cristiano"), _("Select directory"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
 	bSizer7->Add( g_dpkOutputDirectory, 1, wxALL, 5 );
 	
 	
@@ -271,7 +271,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer5;
 	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("File options") ), wxHORIZONTAL );
 	
-	g_chkDeleteFiles = new wxCheckBox( m_panel1, wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkDeleteFiles = new wxCheckBox( sbSizer5->GetStaticBox(), wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer5->Add( g_chkDeleteFiles, 0, wxALL, 2 );
 	
 	
@@ -289,7 +289,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer61;
 	sbSizer61 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("VBR") ), wxVERTICAL );
 	
-	g_chkEnabledVBR = new wxCheckBox( m_panel2, wxID_ANY, _("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnabledVBR = new wxCheckBox( sbSizer61->GetStaticBox(), wxID_ANY, _("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer61->Add( g_chkEnabledVBR, 0, wxALL, 2 );
 	
 	
@@ -301,11 +301,11 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer71;
 	sbSizer71 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Maximum VBR bitrate") ), wxVERTICAL );
 	
-	g_lblBitrateVBR = new wxStaticText( m_panel2, wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblBitrateVBR = new wxStaticText( sbSizer71->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblBitrateVBR->Wrap( -1 );
 	sbSizer71->Add( g_lblBitrateVBR, 0, wxALL, 5 );
 	
-	g_sldBitrateVBR = new wxSlider( m_panel2, wxID_ANY, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
+	g_sldBitrateVBR = new wxSlider( sbSizer71->GetStaticBox(), wxID_ANY, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
 	sbSizer71->Add( g_sldBitrateVBR, 0, wxALL|wxEXPAND, 5 );
 	
 	
@@ -323,13 +323,13 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer8;
 	sbSizer8 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Others") ), wxVERTICAL );
 	
-	g_chkDisableVBRTag = new wxCheckBox( m_panel2, wxID_ANY, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkDisableVBRTag = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkDisableVBRTag, 0, wxALL, 2 );
 	
-	g_chkEnforceMinBitrate = new wxCheckBox( m_panel2, wxID_ANY, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnforceMinBitrate = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkEnforceMinBitrate, 0, wxALL, 2 );
 	
-	g_chkUseABR = new wxCheckBox( m_panel2, wxID_ANY, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkUseABR = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer8->Add( g_chkUseABR, 0, wxALL, 2 );
 	
 	wxFlexGridSizer* fgSizer1;
@@ -337,18 +337,18 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	fgSizer1->SetFlexibleDirection( wxBOTH );
 	fgSizer1->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	g_lblVBRQuality = new wxStaticText( m_panel2, wxID_ANY, _("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblVBRQuality = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblVBRQuality->Wrap( -1 );
 	fgSizer1->Add( g_lblVBRQuality, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_spcVBRQuality = new wxSpinCtrl( m_panel2, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 9, 0 );
+	g_spcVBRQuality = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 9, 0 );
 	fgSizer1->Add( g_spcVBRQuality, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_lblABR = new wxStaticText( m_panel2, wxID_ANY, _("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblABR = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblABR->Wrap( -1 );
 	fgSizer1->Add( g_lblABR, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_spcAverageBitrateABR = new wxSpinCtrl( m_panel2, wxID_ANY, wxT("8"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 8, 320, 0 );
+	g_spcAverageBitrateABR = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("8"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 8, 320, 0 );
 	fgSizer1->Add( g_spcAverageBitrateABR, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -373,7 +373,7 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Output sampling frequency") ), wxHORIZONTAL );
 	
 	wxArrayString g_chcResamplingChoices;
-	g_chcResampling = new wxChoice( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
+	g_chcResampling = new wxChoice( sbSizer11->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
 	g_chcResampling->SetSelection( 0 );
 	sbSizer11->Add( g_chcResampling, 1, wxALL, 5 );
 	
@@ -386,16 +386,16 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxGridSizer* gSizer1;
 	gSizer1 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkHighpass = new wxCheckBox( m_panel3, wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpass = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcHighpassFreq = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcHighpassFreq = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer1->Add( g_spcHighpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkHighpassWidth = new wxCheckBox( m_panel3, wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkHighpassWidth = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer1->Add( g_chkHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcHighpassWidth = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcHighpassWidth = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer1->Add( g_spcHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -410,16 +410,16 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxGridSizer* gSizer11;
 	gSizer11 = new wxGridSizer( 2, 2, 0, 0 );
 	
-	g_chkLowpass = new wxCheckBox( m_panel3, wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpass = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcLowpassFreq = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcLowpassFreq = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer11->Add( g_spcLowpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkLowpassWidth = new wxCheckBox( m_panel3, wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkLowpassWidth = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
 	gSizer11->Add( g_chkLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 	
-	g_spcLowpassWidth = new wxSpinCtrl( m_panel3, wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	g_spcLowpassWidth = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
 	gSizer11->Add( g_spcLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -440,16 +440,16 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxStaticBoxSizer* sbSizer9;
 	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Flags") ), wxVERTICAL );
 	
-	g_chkMarkNonOriginal = new wxCheckBox( m_panel4, wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkMarkNonOriginal = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkMarkNonOriginal, 0, wxALL, 3 );
 	
-	g_chkMarkCopyright = new wxCheckBox( m_panel4, wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkMarkCopyright = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkMarkCopyright, 0, wxALL, 3 );
 	
-	g_chkCrc = new wxCheckBox( m_panel4, wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkCrc = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkCrc, 0, wxALL, 2 );
 	
-	g_chkEnforceISO = new wxCheckBox( m_panel4, wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkEnforceISO = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
 	sbSizer9->Add( g_chkEnforceISO, 0, wxALL, 2 );
 	
 	
@@ -463,19 +463,19 @@ Settings::Settings( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	fgSizer2->SetFlexibleDirection( wxBOTH );
 	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	g_lblQualitySelection = new wxStaticText( m_panel4, wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_lblQualitySelection = new wxStaticText( sbSizer10->GetStaticBox(), wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
 	g_lblQualitySelection->Wrap( -1 );
 	fgSizer2->Add( g_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxArrayString g_chcAlgorithmQualitySelChoices;
-	g_chcAlgorithmQualitySel = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), g_chcAlgorithmQualitySelChoices, 0 );
+	g_chcAlgorithmQualitySel = new wxChoice( sbSizer10->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), g_chcAlgorithmQualitySelChoices, 0 );
 	g_chcAlgorithmQualitySel->SetSelection( 0 );
 	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_chkCustomOptions = new wxCheckBox( m_panel4, wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
+	g_chkCustomOptions = new wxCheckBox( sbSizer10->GetStaticBox(), wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer2->Add( g_chkCustomOptions, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	g_txtCustomOptions = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	g_txtCustomOptions = new wxTextCtrl( sbSizer10->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
 	fgSizer2->Add( g_txtCustomOptions, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
