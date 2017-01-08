@@ -62,7 +62,7 @@ else()
 endif()
 
 if (UNIX)
-        set(CMAKE_INSTALL_PREFIX /home/cristiano/Downloads)
+        set(CMAKE_INSTALL_PREFIX /usr)
 
         # Install main files
         install(TARGETS ${PROJECT_NAME} DESTINATION bin)
