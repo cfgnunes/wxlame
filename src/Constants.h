@@ -9,6 +9,7 @@
 #include <wx/string.h>
 #include <wx/stdpaths.h>
 #include <wx/filename.h>
+#include <wx/dir.h>
 
 const wxString APP_NAME = _T("wxLame");
 const wxString APP_VERSION = _T("3.5");
@@ -112,14 +113,23 @@ int const ID_LIST_FOLDER = 1;
 int const ID_LIST_FORMAT = 2;
 
 inline wxString GetResourceDir() {
-#ifdef __LINUX__
-    wxString resourceDir = _T("/usr/share/wxlame/resource/");
-#else
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxFileName executableFilename(executablePath);
-    wxString resourceDir = executableFilename.GetPath() + _T("/resource/");
+    wxString resourceDirName = _T("/resource/");
+
+#ifdef __LINUX__
+    wxDir dir;
+    wxString resourceDir;
+
+    resourceDir = _T("/usr/share/wxlame") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
+
+    resourceDir = _T("/usr/local/share/wxlame") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
 #endif
-    return resourceDir;
+    return executableFilename.GetPath() + resourceDirName;
 }
 
 #endif // CONSTANTS_H
