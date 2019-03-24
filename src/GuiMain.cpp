@@ -162,7 +162,7 @@ void GuiMain::mnuDecode(wxCommandEvent &event) {
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
-    wxLaunchDefaultBrowser(_T("http://lame.sourceforge.net/"));
+    wxLaunchDefaultBrowser(_T("https://github.com/cfgnunes/wxlame"));
 }
 
 void GuiMain::mnuWebsite(wxCommandEvent &event) {
