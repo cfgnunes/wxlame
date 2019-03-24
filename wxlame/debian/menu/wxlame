@@ -1,6 +1,0 @@
-?package(wxlame): needs="X11" \
-                     section="Applications/Sound" \
-                     title="wxLame" \
-                     longtitle="wxLame" \
-                     icon32x32="/usr/share/pixmaps/wxlame.xpm" \
-                     command="/usr/bin/wxlame"
