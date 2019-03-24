@@ -20,13 +20,29 @@ $ sudo apt-get -y install wxlame
 ```
 ### Install from sources
 
+This section assumes Ubuntu 16.04, but the procedure is similar for other Linux distributions. The prerequisites to build the source is to install the following packages:
+```sh
+$ sudo apt-get -y install build-essential cmake
+$ sudo apt-get -y install libwxgtk3.0-dev
+```
+
 Compile the sources and install with following commands in the terminal:
 ```sh
-$ mkdir build
-$ cd build
+$ mkdir build && cd build
 $ cmake ..
 $ make
 $ sudo make install
+```
+
+### Generate Debian package for Linux systems
+Install the prerequisites:
+```sh
+$ sudo apt-get -y install devscripts debhelper
+```
+
+Run the following command on source directory:
+```sh
+$ debuild -us -uc
 ```
 
 ## Built With
