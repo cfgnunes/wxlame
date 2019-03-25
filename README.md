@@ -1,4 +1,5 @@
 # wxLame
+
 wxLame is a free front-end for the LAME MP3 encoder.
 
 ## Getting Started
@@ -56,6 +57,14 @@ Other tools:
 * [CMake](https://cmake.org/) - Build, test and package software
 * [Inno Setup](http://www.jrsoftware.org/isinfo.php) - Installer for Windows programs
 * [UPX](https://upx.github.io/) - The Ultimate Packer for eXecutables
+
+## Versioning
+
+This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](hhttps://github.com/cfgnunes/wxlame/tags).
+
+## Authors
+
+* **Cristiano Fraga G. Nunes** - *Developer - Project leader*
 
 ## License
 
