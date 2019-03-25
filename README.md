@@ -60,7 +60,7 @@ Other tools:
 
 ## Versioning
 
-This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](hhttps://github.com/cfgnunes/wxlame/tags).
+This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/cfgnunes/wxlame/tags).
 
 ## Authors
 
