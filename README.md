@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/cfgnunes/wxlame.svg?branch=master)](https://travis-ci.org/cfgnunes/wxlame)
 # wxLame
 
 wxLame is a free front-end for the LAME MP3 encoder.
@@ -30,7 +31,9 @@ sudo apt-get -y install lame
 
 Compile the sources and install with following commands in the terminal:
 ```sh
-mkdir build && cd build && cmake ..
+mkdir build
+cd build
+cmake ..
 make
 sudo make install
 ```
