@@ -1,7 +1,7 @@
 @echo off
 cls
 
-set APP_NAME=wxmp3val
+set APP_NAME=wxlame
 set OUTPUT_DIR=build
 set PATH=%PATH%;C:\TDM-GCC-32\bin
 
