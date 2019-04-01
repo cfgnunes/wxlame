@@ -128,6 +128,14 @@ inline wxString GetResourceDir() {
     resourceDir = _T("/usr/local/share/wxlame") + resourceDirName;
     if (dir.Open(resourceDir))
         return resourceDir;
+
+    resourceDir = _T(".") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
+
+    resourceDir = _T("..") + resourceDirName;
+    if (dir.Open(resourceDir))
+        return resourceDir;
 #endif
     return executableFilename.GetPath() + resourceDirName;
 }
