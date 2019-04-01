@@ -1,5 +1,10 @@
 wxLame - Changelog file
 
+Changelog v4.0 (2019-04-01)
+--------------
+- Bug fix for unicode filenames
+- Code refactor in make/build process
+
 Changelog v3.5 (2015-02-19)
 --------------
 - Changed toolbar icons
