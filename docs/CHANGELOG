@@ -1,8 +1,8 @@
 wxLame - Changelog file
 
-Changelog v4.0 (2019-04-01)
+Changelog v3.5.1 (2019-04-01)
 --------------
-- Bug fix for unicode filenames
+- New Windows binaries
 - Code refactor in make/build process
 
 Changelog v3.5 (2015-02-19)
