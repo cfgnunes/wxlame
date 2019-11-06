@@ -1,0 +1,328 @@
+# This file is part of the wxLame and licensed under the GNU General Public License, version 3
+# Cristiano Nunes <cfgnunes@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wxLame\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-26 19:09-0300\n"
+"PO-Revision-Date: 2019-11-06 11:59-0300\n"
+"Last-Translator: Yaşar Çiv <yasarciv@protonmail.com>\n"
+"Language-Team: https://mls.akdeniz.edu.tr\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: tr_TR\n"
+"X-Source-Language: C\n"
+
+#: Gui.cpp:69
+msgid "&Actions"
+msgstr "&Eylemler"
+
+#: Gui.cpp:58
+msgid "&Edit"
+msgstr ""
+
+#: Gui.cpp:41
+msgid "&File"
+msgstr ""
+
+#: Gui.cpp:86
+msgid "&Help"
+msgstr ""
+
+#: GuiSettings.cpp:238
+msgid "0 (highest quality, slow)"
+msgstr ""
+
+#: GuiSettings.cpp:247
+msgid "9 (lowest quality, fast)"
+msgstr ""
+
+#: Gui.cpp:83 Gui.cpp:110
+msgid "About"
+msgstr ""
+
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
+msgid "Add files"
+msgstr ""
+
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
+msgid "Add folder"
+msgstr ""
+
+#: Gui.cpp:491
+msgid "Advanced"
+msgstr ""
+
+#: Gui.cpp:466
+msgid "Algorithm quality selection:"
+msgstr ""
+
+#: Gui.cpp:435
+msgid "Audio processing"
+msgstr ""
+
+#: Gui.cpp:347
+msgid "Average bitrate encoding ABR:"
+msgstr ""
+
+#: Gui.cpp:223
+msgid "Bitrate"
+msgstr ""
+
+#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
+msgid "Cancel"
+msgstr ""
+
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
+msgid "Clear list"
+msgstr ""
+
+#: GuiProgress.cpp:137
+msgid "Close"
+msgstr ""
+
+#: Gui.cpp:452
+msgid "Comply as much as possible to ISO MPEG spec"
+msgstr ""
+
+#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
+msgid "Current bitrate:"
+msgstr ""
+
+#: Gui.cpp:475
+msgid "Custom options:"
+msgstr ""
+
+#: Gui.cpp:66 Gui.cpp:104
+msgid "Decode MP3"
+msgstr ""
+
+#: GuiProgress.cpp:190
+msgid "Decoding: "
+msgstr ""
+
+#: Gui.cpp:274
+msgid "Delete source file after processing"
+msgstr ""
+
+#: Gui.cpp:326
+msgid "Disable writing of VBR Tag"
+msgstr ""
+
+#: GuiProgress.cpp:33
+msgid "Do you want to stop process now?"
+msgstr ""
+
+#: Gui.cpp:292
+msgid "Enable Variable Bitrate (VBR)"
+msgstr ""
+
+#: Gui.cpp:62 Gui.cpp:102
+msgid "Encode WAV / Re-Encode MP3"
+msgstr ""
+
+#: GuiProgress.cpp:190
+msgid "Encoding: "
+msgstr ""
+
+#: Gui.cpp:38
+msgid "Exit"
+msgstr ""
+
+#: GuiMain.cpp:28
+msgid "File"
+msgstr ""
+
+#: Gui.cpp:272
+msgid "File options"
+msgstr ""
+
+#: Gui.cpp:441
+msgid "Flags"
+msgstr ""
+
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr ""
+
+#: GuiMain.cpp:30
+msgid "Format"
+msgstr ""
+
+#: GuiMain.cpp:177
+msgid "Free front-end for the Lame"
+msgstr ""
+
+#: Gui.cpp:284
+msgid "General"
+msgstr ""
+
+#: Gui.cpp:384
+msgid "Highpass filter"
+msgstr ""
+
+#: Gui.cpp:389
+msgid "Highpass filtering frequency (in Hz):"
+msgstr ""
+
+#: Gui.cpp:449
+msgid "Include CRC error detection"
+msgstr ""
+
+#: Gui.cpp:73
+msgid "LAME Website"
+msgstr ""
+
+#: GuiMain.cpp:202
+msgid "LAME not found!"
+msgstr ""
+
+#: GuiMain.cpp:209
+msgid "Lame options: "
+msgstr ""
+
+#: Gui.cpp:408
+msgid "Lowpass filter"
+msgstr ""
+
+#: Gui.cpp:413
+msgid "Lowpass filtering frequency (in Hz):"
+msgstr ""
+
+#: Gui.cpp:446
+msgid "Mark as copyright"
+msgstr ""
+
+#: Gui.cpp:443
+msgid "Mark as non-original"
+msgstr ""
+
+#: Gui.cpp:302
+msgid "Maximum VBR bitrate"
+msgstr ""
+
+#: Gui.cpp:236
+msgid "Mode"
+msgstr ""
+
+#: Gui.cpp:501
+msgid "OK"
+msgstr ""
+
+#: Gui.cpp:459
+msgid "Options"
+msgstr ""
+
+#: Gui.cpp:324
+msgid "Others"
+msgstr ""
+
+#: Gui.cpp:251
+msgid "Output directory"
+msgstr ""
+
+#: Gui.cpp:373
+msgid "Output sampling frequency"
+msgstr ""
+
+#: GuiProgress.cpp:185
+#, c-format
+msgid "Processed %lu files of %lu."
+msgstr ""
+
+#: Gui.h:210
+msgid "Progress"
+msgstr ""
+
+#: Gui.cpp:340
+msgid "Quality of VBR encoding:"
+msgstr ""
+
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
+msgid "Remove files"
+msgstr ""
+
+#: Gui.cpp:498
+msgid "Restore defaults"
+msgstr ""
+
+#: Gui.cpp:253
+msgid "Same as input directory"
+msgstr ""
+
+#: Gui.cpp:262 GuiMain.cpp:89
+msgid "Select directory"
+msgstr ""
+
+#: GuiMain.cpp:105
+msgid "Select file"
+msgstr ""
+
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:180
+msgid "Settings"
+msgstr ""
+
+#: Gui.cpp:329
+msgid "Strictly enforce minimum bitrate"
+msgstr ""
+
+#: Gui.cpp:332
+msgid "Use ABR instead VBR"
+msgstr ""
+
+#: Gui.cpp:256
+msgid "Use below:"
+msgstr ""
+
+#: Gui.cpp:290 Gui.cpp:367
+msgid "VBR"
+msgstr ""
+
+#: Gui.cpp:395
+msgid "Width of Highpass filter (in Hz):"
+msgstr ""
+
+#: Gui.cpp:419
+msgid "Width of Lowpass filter (in Hz):"
+msgstr ""
+
+#: Gui.cpp:238 GuiSettings.cpp:237
+msgid "default"
+msgstr ""
+
+#: GuiSettings.cpp:226
+msgid "default (automatic)"
+msgstr ""
+
+#: Gui.cpp:238
+msgid "dual-mono"
+msgstr ""
+
+#: GuiMain.cpp:206
+msgid "files"
+msgstr ""
+
+#: Gui.cpp:238
+msgid "force"
+msgstr ""
+
+#: Gui.cpp:238
+msgid "joint"
+msgstr ""
+
+#: Gui.cpp:238
+msgid "mono"
+msgstr ""
+
+#: Gui.cpp:238
+msgid "simple"
+msgstr ""
+
+#: Gui.cpp:77
+msgid "wxLame Website"
+msgstr ""
