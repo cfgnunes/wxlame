@@ -20,309 +20,309 @@ msgstr ""
 
 #: Gui.cpp:69
 msgid "&Actions"
-msgstr "&Eylemler"
+msgstr "Ey&lemler"
 
 #: Gui.cpp:58
 msgid "&Edit"
-msgstr ""
+msgstr "Düz&enle"
 
 #: Gui.cpp:41
 msgid "&File"
-msgstr ""
+msgstr "&Dosya"
 
 #: Gui.cpp:86
 msgid "&Help"
-msgstr ""
+msgstr "&Yardım"
 
 #: GuiSettings.cpp:238
 msgid "0 (highest quality, slow)"
-msgstr ""
+msgstr "0 (en yüksek kalite, yavaş)"
 
 #: GuiSettings.cpp:247
 msgid "9 (lowest quality, fast)"
-msgstr ""
+msgstr "9 (en düşük kalite, hızlı)"
 
 #: Gui.cpp:83 Gui.cpp:110
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
 msgid "Add files"
-msgstr ""
+msgstr "Dosya ekle"
 
 #: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
 msgid "Add folder"
-msgstr ""
+msgstr "Dizin ekle"
 
 #: Gui.cpp:491
 msgid "Advanced"
-msgstr ""
+msgstr "Gelişmiş"
 
 #: Gui.cpp:466
 msgid "Algorithm quality selection:"
-msgstr ""
+msgstr "Algoritma kalite seçimi:"
 
 #: Gui.cpp:435
 msgid "Audio processing"
-msgstr ""
+msgstr "Ses işleme"
 
 #: Gui.cpp:347
 msgid "Average bitrate encoding ABR:"
-msgstr ""
+msgstr "ABR'yi kodlayan ortalama bit hızı:"
 
 #: Gui.cpp:223
 msgid "Bitrate"
-msgstr ""
+msgstr "Bit hızı"
 
 #: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
 msgid "Cancel"
-msgstr ""
+msgstr "İptal et"
 
 #: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
 msgid "Clear list"
-msgstr ""
+msgstr "Listeyi temizle"
 
 #: GuiProgress.cpp:137
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: Gui.cpp:452
 msgid "Comply as much as possible to ISO MPEG spec"
-msgstr ""
+msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uyun"
 
 #: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
 msgid "Current bitrate:"
-msgstr ""
+msgstr "Geçerli bit hızı"
 
 #: Gui.cpp:475
 msgid "Custom options:"
-msgstr ""
+msgstr "Özel seçenekler:"
 
 #: Gui.cpp:66 Gui.cpp:104
 msgid "Decode MP3"
-msgstr ""
+msgstr "MP3 kod çözme"
 
 #: GuiProgress.cpp:190
 msgid "Decoding: "
-msgstr ""
+msgstr "Kod çözme: "
 
 #: Gui.cpp:274
 msgid "Delete source file after processing"
-msgstr ""
+msgstr "İşlendikten sonra kaynak dosyayı sil"
 
 #: Gui.cpp:326
 msgid "Disable writing of VBR Tag"
-msgstr ""
+msgstr "VBR etiketinin yazılmasını devre dışı bırak"
 
 #: GuiProgress.cpp:33
 msgid "Do you want to stop process now?"
-msgstr ""
+msgstr "Şimdi işlemi durdurmak istiyor musunuz?"
 
 #: Gui.cpp:292
 msgid "Enable Variable Bitrate (VBR)"
-msgstr ""
+msgstr "Değişken Bit Hızını etkinleştir (VBR)"
 
 #: Gui.cpp:62 Gui.cpp:102
 msgid "Encode WAV / Re-Encode MP3"
-msgstr ""
+msgstr "WAV Kodlama / MP3 Yeniden Kodlama"
 
 #: GuiProgress.cpp:190
 msgid "Encoding: "
-msgstr ""
+msgstr "Kodlama: "
 
 #: Gui.cpp:38
 msgid "Exit"
-msgstr ""
+msgstr "Çıkış"
 
 #: GuiMain.cpp:28
 msgid "File"
-msgstr ""
+msgstr "Dosya"
 
 #: Gui.cpp:272
 msgid "File options"
-msgstr ""
+msgstr "Dosya seçenekleri"
 
 #: Gui.cpp:441
 msgid "Flags"
-msgstr ""
+msgstr "Bayraklar"
 
 #: GuiMain.cpp:29
 msgid "Folder"
-msgstr ""
+msgstr "Dizin"
 
 #: GuiMain.cpp:30
 msgid "Format"
-msgstr ""
+msgstr "Biçim"
 
 #: GuiMain.cpp:177
 msgid "Free front-end for the Lame"
-msgstr ""
+msgstr "Lame için ücretsiz ön uç"
 
 #: Gui.cpp:284
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: Gui.cpp:384
 msgid "Highpass filter"
-msgstr ""
+msgstr "Yüksek geçiş süzgeci"
 
 #: Gui.cpp:389
 msgid "Highpass filtering frequency (in Hz):"
-msgstr ""
+msgstr "Yüksek geçişli süzme frekansı (Hz cinsinden):"
 
 #: Gui.cpp:449
 msgid "Include CRC error detection"
-msgstr ""
+msgstr "CRC hata algılamasını dahil et"
 
 #: Gui.cpp:73
 msgid "LAME Website"
-msgstr ""
+msgstr "LAME Web sitesi"
 
 #: GuiMain.cpp:202
 msgid "LAME not found!"
-msgstr ""
+msgstr "LAME bulunamadı!"
 
 #: GuiMain.cpp:209
 msgid "Lame options: "
-msgstr ""
+msgstr "Lame seçenekleri"
 
 #: Gui.cpp:408
 msgid "Lowpass filter"
-msgstr ""
+msgstr "Düşük geçiş süzgeci"
 
 #: Gui.cpp:413
 msgid "Lowpass filtering frequency (in Hz):"
-msgstr ""
+msgstr "Düşük geçişli süzme frekansı (Hz cinsinden):"
 
 #: Gui.cpp:446
 msgid "Mark as copyright"
-msgstr ""
+msgstr "Telif hakkı olarak işaretle"
 
 #: Gui.cpp:443
 msgid "Mark as non-original"
-msgstr ""
+msgstr "Asıl olmayan olarak işaretle"
 
 #: Gui.cpp:302
 msgid "Maximum VBR bitrate"
-msgstr ""
+msgstr "En fazla VBR bit hızı"
 
 #: Gui.cpp:236
 msgid "Mode"
-msgstr ""
+msgstr "Mod"
 
 #: Gui.cpp:501
 msgid "OK"
-msgstr ""
+msgstr "Tamam"
 
 #: Gui.cpp:459
 msgid "Options"
-msgstr ""
+msgstr "Seçenekler"
 
 #: Gui.cpp:324
 msgid "Others"
-msgstr ""
+msgstr "Diğerleri"
 
 #: Gui.cpp:251
 msgid "Output directory"
-msgstr ""
+msgstr "Çıktı dizini"
 
 #: Gui.cpp:373
 msgid "Output sampling frequency"
-msgstr ""
+msgstr "Çıktı örnekleme frekansı"
 
 #: GuiProgress.cpp:185
 #, c-format
 msgid "Processed %lu files of %lu."
-msgstr ""
+msgstr "%lu dosya işlendi, toplam %lu dosya"
 
 #: Gui.h:210
 msgid "Progress"
-msgstr ""
+msgstr "İlerleme"
 
 #: Gui.cpp:340
 msgid "Quality of VBR encoding:"
-msgstr ""
+msgstr "VBR kodlama kalitesi:"
 
 #: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
 msgid "Remove files"
-msgstr ""
+msgstr "Dosyaları kaldır"
 
 #: Gui.cpp:498
 msgid "Restore defaults"
-msgstr ""
+msgstr "Varsayılanları geri yükle"
 
 #: Gui.cpp:253
 msgid "Same as input directory"
-msgstr ""
+msgstr "Giriş dizini ile aynı"
 
 #: Gui.cpp:262 GuiMain.cpp:89
 msgid "Select directory"
-msgstr ""
+msgstr "Dizin seç"
 
 #: GuiMain.cpp:105
 msgid "Select file"
-msgstr ""
+msgstr "Dosya seç"
 
 #: Gui.cpp:55 Gui.cpp:108 Gui.h:180
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: Gui.cpp:329
 msgid "Strictly enforce minimum bitrate"
-msgstr ""
+msgstr "En az bit hızını kesinlikle uygula"
 
 #: Gui.cpp:332
 msgid "Use ABR instead VBR"
-msgstr ""
+msgstr "ABR yerine VBR kullan"
 
 #: Gui.cpp:256
 msgid "Use below:"
-msgstr ""
+msgstr "Aşağıdakileri kullan:"
 
 #: Gui.cpp:290 Gui.cpp:367
 msgid "VBR"
-msgstr ""
+msgstr "VBR"
 
 #: Gui.cpp:395
 msgid "Width of Highpass filter (in Hz):"
-msgstr ""
+msgstr "Yüksek geçiş süzgecinin genişliği (Hz cinsinden):"
 
 #: Gui.cpp:419
 msgid "Width of Lowpass filter (in Hz):"
-msgstr ""
+msgstr "Düşük geçiş süzgecinin genişliği (Hz cinsinden):"
 
 #: Gui.cpp:238 GuiSettings.cpp:237
 msgid "default"
-msgstr ""
+msgstr "varsayılan"
 
 #: GuiSettings.cpp:226
 msgid "default (automatic)"
-msgstr ""
+msgstr "varsayılan (otomatik)"
 
 #: Gui.cpp:238
 msgid "dual-mono"
-msgstr ""
+msgstr "ikili-mono"
 
 #: GuiMain.cpp:206
 msgid "files"
-msgstr ""
+msgstr "dosyalar"
 
 #: Gui.cpp:238
 msgid "force"
-msgstr ""
+msgstr "zorla"
 
 #: Gui.cpp:238
 msgid "joint"
-msgstr ""
+msgstr "ortak"
 
 #: Gui.cpp:238
 msgid "mono"
-msgstr ""
+msgstr "mono"
 
 #: Gui.cpp:238
 msgid "simple"
-msgstr ""
+msgstr "basit"
 
 #: Gui.cpp:77
 msgid "wxLame Website"
-msgstr ""
+msgstr "wxLame Web sitesi"
