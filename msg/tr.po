@@ -92,7 +92,7 @@ msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uyun"
 
 #: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
 msgid "Current bitrate:"
-msgstr "Geçerli bit hızı"
+msgstr "Geçerli bit hızı:"
 
 #: Gui.cpp:475
 msgid "Custom options:"
@@ -168,7 +168,7 @@ msgstr "Yüksek geçiş süzgeci"
 
 #: Gui.cpp:389
 msgid "Highpass filtering frequency (in Hz):"
-msgstr "Yüksek geçişli süzme frekansı (Hz cinsinden):"
+msgstr "Yüksek geçiş süzme frekansı (Hz cinsinden):"
 
 #: Gui.cpp:449
 msgid "Include CRC error detection"
@@ -184,7 +184,7 @@ msgstr "LAME bulunamadı!"
 
 #: GuiMain.cpp:209
 msgid "Lame options: "
-msgstr "Lame seçenekleri"
+msgstr "Lame seçenekleri: "
 
 #: Gui.cpp:408
 msgid "Lowpass filter"
@@ -192,7 +192,7 @@ msgstr "Düşük geçiş süzgeci"
 
 #: Gui.cpp:413
 msgid "Lowpass filtering frequency (in Hz):"
-msgstr "Düşük geçişli süzme frekansı (Hz cinsinden):"
+msgstr "Düşük geçiş süzme frekansı (Hz cinsinden):"
 
 #: Gui.cpp:446
 msgid "Mark as copyright"
@@ -233,7 +233,7 @@ msgstr "Çıktı örnekleme frekansı"
 #: GuiProgress.cpp:185
 #, c-format
 msgid "Processed %lu files of %lu."
-msgstr "%lu dosya işlendi, toplam %lu dosya"
+msgstr "%lu dosya işlendi, toplam %lu dosya."
 
 #: Gui.h:210
 msgid "Progress"
