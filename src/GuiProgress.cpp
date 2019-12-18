@@ -41,6 +41,7 @@ void GuiProgress::OnClose(wxCloseEvent &event) {
         }
     }
     Destroy();
+    event.Skip(false);
 }
 
 void GuiProgress::OnIdle(wxIdleEvent &event) {
@@ -80,10 +81,12 @@ void GuiProgress::OnInit(wxInitDialogEvent &event) {
 
     // Updates the labels
     stringLabelsUpdate();
+    event.Skip(false);
 }
 
 void GuiProgress::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
+    event.Skip(false);
 }
 
 void GuiProgress::OnTimer2Trigger(wxTimerEvent &event) {
@@ -94,6 +97,7 @@ void GuiProgress::OnTimer2Trigger(wxTimerEvent &event) {
 
     // Updates the labels
     stringLabelsUpdate();
+    event.Skip(false);
 }
 
 void GuiProgress::OnProcessTerm(wxProcessEvent &event) {
@@ -123,6 +127,7 @@ void GuiProgress::OnProcessTerm(wxProcessEvent &event) {
         else
             finishedWork();
     }
+    event.Skip(false);
 }
 
 void GuiProgress::finishedWork() {
