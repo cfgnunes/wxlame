@@ -1,5 +1,10 @@
 wxLame - Changelog file
 
+Changelog v4.? (20??-??-??)
+--------------
+- Minor improvements
+- Updated to GTK3 port of the wxWidgets
+
 Changelog v3.5.1 (2019-04-01)
 --------------
 - New Windows binaries
