@@ -96,6 +96,7 @@ void GuiMain::mnuAddDirectory(wxCommandEvent &event) {
         mp_configBase->setLastOpenDir(dirDialog.GetPath());
         SetCursor(wxCURSOR_ARROW);
     }
+    event.Skip(false);
 }
 
 void GuiMain::mnuAddFiles(wxCommandEvent &event) {
@@ -117,11 +118,13 @@ void GuiMain::mnuAddFiles(wxCommandEvent &event) {
         mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
         SetCursor(wxCURSOR_ARROW);
     }
+    event.Skip(false);
 }
 
 void GuiMain::mnuExit(wxCommandEvent &event) {
     // Terminates the program
     Close();
+    event.Skip(false);
 }
 
 void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
@@ -132,9 +135,11 @@ void GuiMain::mnuRemoveFiles(wxCommandEvent &event) {
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
+    event.Skip(false);
 }
 
 void GuiMain::mnuClearList(wxCommandEvent &event) {
+    event.Skip(false);
     // Deletes all items from the list
     mp_fileListManager->clear();
 
@@ -147,9 +152,11 @@ void GuiMain::mnuSettings(wxCommandEvent &event) {
     guiSettings.ShowModal();
 
     updateControls();
+    event.Skip(false);
 }
 
 void GuiMain::mnuEncode(wxCommandEvent &event) {
+    event.Skip(false);
     // Displays the "Progress" window
     GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
     progressDialog.ShowModal();
@@ -159,13 +166,16 @@ void GuiMain::mnuDecode(wxCommandEvent &event) {
     // Displays the "Progress" window
     GuiProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_DECODE);
     progressDialog.ShowModal();
+    event.Skip(false);
 }
 
 void GuiMain::mnuToolWebsite(wxCommandEvent &event) {
     wxLaunchDefaultBrowser(_T("http://lame.sourceforge.net/"));
+    event.Skip(false);
 }
 
 void GuiMain::mnuWebsite(wxCommandEvent &event) {
+    event.Skip(false);
     wxLaunchDefaultBrowser(APP_WEBSITE);
 }
 
@@ -176,6 +186,7 @@ void GuiMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
     wxAboutBox(aboutInfo);
+    event.Skip(false);
 }
 
 void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
@@ -215,6 +226,7 @@ void GuiMain::OnTimer1Trigger(wxTimerEvent &event) {
     g_mainMenuBar->Enable(ID_DECODE, g_lstFiles->GetItemCount() > 0);
     g_mainToolBar->EnableTool(ID_ENCODE, g_lstFiles->GetItemCount() > 0);
     g_mainToolBar->EnableTool(ID_DECODE, g_lstFiles->GetItemCount() > 0);
+    event.Skip(false);
 }
 
 void GuiMain::loadResources() {

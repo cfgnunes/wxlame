@@ -1,12 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Feb 16 2016)
+// C++ code generated with wxFormBuilder (version Oct 26 2018)
 // http://www.wxformbuilder.org/
 //
-// PLEASE DO "NOT" EDIT THIS FILE!
+// PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
-#ifndef __GUI_H__
-#define __GUI_H__
+#pragma once
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
@@ -58,10 +57,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Main
 ///////////////////////////////////////////////////////////////////////////////
-class Main : public wxFrame 
+class Main : public wxFrame
 {
 	private:
-	
+
 	protected:
 		wxListCtrl* g_lstFiles;
 		wxMenuBar* g_mainMenuBar;
@@ -71,17 +70,17 @@ class Main : public wxFrame
 		wxMenu* g_mnbHelp;
 		wxStatusBar* g_mainStatusBar;
 		wxToolBar* g_mainToolBar;
-		wxToolBarToolBase* g_tbAddFolder; 
-		wxToolBarToolBase* g_tbAddFiles; 
-		wxToolBarToolBase* g_tbRemoveFiles; 
-		wxToolBarToolBase* g_tbClearList; 
-		wxToolBarToolBase* g_tbEncode; 
-		wxToolBarToolBase* g_tbDecode; 
-		wxToolBarToolBase* g_tbSettings; 
-		wxToolBarToolBase* g_tbAbout; 
+		wxToolBarToolBase* g_tbAddFolder;
+		wxToolBarToolBase* g_tbAddFiles;
+		wxToolBarToolBase* g_tbRemoveFiles;
+		wxToolBarToolBase* g_tbClearList;
+		wxToolBarToolBase* g_tbEncode;
+		wxToolBarToolBase* g_tbDecode;
+		wxToolBarToolBase* g_tbSettings;
+		wxToolBarToolBase* g_tbAbout;
 		wxMenu* g_mainMenu;
 		wxTimer m_timer1;
-		
+
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnlstFilesDeleteItem( wxListEvent& event ) { event.Skip(); }
 		virtual void OnlstFilesInsertItem( wxListEvent& event ) { event.Skip(); }
@@ -100,31 +99,29 @@ class Main : public wxFrame
 		virtual void mnuWebsite( wxCommandEvent& event ) { event.Skip(); }
 		virtual void mnuAbout( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnTimer1Trigger( wxTimerEvent& event ) { event.Skip(); }
-		
-	
+
+
 	public:
-		
+
 		Main( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 790,450 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		
+
 		~Main();
-		
+
 		void MainOnContextMenu( wxMouseEvent &event )
 		{
 			this->PopupMenu( g_mainMenu, event.GetPosition() );
 		}
-	
+
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Settings
 ///////////////////////////////////////////////////////////////////////////////
-class Settings : public wxDialog 
+class Settings : public wxDialog
 {
 	private:
-	
+
 	protected:
-		wxNotebook* m_notebook1;
-		wxPanel* m_panel1;
 		wxStaticText* g_lblBitrate;
 		wxSlider* g_sldBitrate;
 		wxChoice* g_chcMode;
@@ -132,7 +129,6 @@ class Settings : public wxDialog
 		wxRadioButton* g_optEnableOutDir;
 		wxDirPickerCtrl* g_dpkOutputDirectory;
 		wxCheckBox* g_chkDeleteFiles;
-		wxPanel* m_panel2;
 		wxCheckBox* g_chkEnabledVBR;
 		wxStaticText* g_lblBitrateVBR;
 		wxSlider* g_sldBitrateVBR;
@@ -143,7 +139,6 @@ class Settings : public wxDialog
 		wxSpinCtrl* g_spcVBRQuality;
 		wxStaticText* g_lblABR;
 		wxSpinCtrl* g_spcAverageBitrateABR;
-		wxPanel* m_panel3;
 		wxChoice* g_chcResampling;
 		wxCheckBox* g_chkHighpass;
 		wxSpinCtrl* g_spcHighpassFreq;
@@ -153,7 +148,6 @@ class Settings : public wxDialog
 		wxSpinCtrl* g_spcLowpassFreq;
 		wxCheckBox* g_chkLowpassWidth;
 		wxSpinCtrl* g_spcLowpassWidth;
-		wxPanel* m_panel4;
 		wxCheckBox* g_chkMarkNonOriginal;
 		wxCheckBox* g_chkMarkCopyright;
 		wxCheckBox* g_chkCrc;
@@ -165,7 +159,7 @@ class Settings : public wxDialog
 		wxButton* g_btnDefault;
 		wxButton* g_btnOK;
 		wxButton* g_btnCancel;
-		
+
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnsldBitrateCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
 		virtual void updateDisabledControlsEvent( wxCommandEvent& event ) { event.Skip(); }
@@ -173,22 +167,22 @@ class Settings : public wxDialog
 		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }
-		
-	
+
+
 	public:
-		
-		Settings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
+
+		Settings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 		~Settings();
-	
+
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class Progress
 ///////////////////////////////////////////////////////////////////////////////
-class Progress : public wxDialog 
+class Progress : public wxDialog
 {
 	private:
-	
+
 	protected:
 		wxStaticText* g_lblStatusList;
 		wxGauge* g_gaugeListProgress;
@@ -196,20 +190,19 @@ class Progress : public wxDialog
 		wxGauge* g_gaugeFileProgress;
 		wxButton* g_btnCancel;
 		wxTimer m_timer2;
-		
+
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
 		virtual void OnIdle( wxIdleEvent& event ) { event.Skip(); }
 		virtual void OnInit( wxInitDialogEvent& event ) { event.Skip(); }
 		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnTimer2Trigger( wxTimerEvent& event ) { event.Skip(); }
-		
-	
+
+
 	public:
-		
-		Progress( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Progress"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
+
+		Progress( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Progress"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
 		~Progress();
-	
+
 };
 
-#endif //__GUI_H__

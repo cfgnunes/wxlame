@@ -30,6 +30,7 @@ void GuiSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
 
 void GuiSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
     updateDisabledControls();
+    event.Skip(false);
 }
 
 void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
@@ -43,15 +44,18 @@ void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
 void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
     updateDisabledControls();
+    event.Skip(false);
 }
 
 void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
+    event.Skip(false);
 }
 
 void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
+    event.Skip(false);
 }
 
 void GuiSettings::updateValueControls() {
