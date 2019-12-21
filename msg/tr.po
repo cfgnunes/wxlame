@@ -88,7 +88,7 @@ msgstr "Kapat"
 
 #: Gui.cpp:452
 msgid "Comply as much as possible to ISO MPEG spec"
-msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uyun"
+msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uy"
 
 #: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
 msgid "Current bitrate:"
@@ -277,7 +277,7 @@ msgstr "ABR yerine VBR kullan"
 
 #: Gui.cpp:256
 msgid "Use below:"
-msgstr "Aşağıdakileri kullan:"
+msgstr "Aşağıdakini kullan:"
 
 #: Gui.cpp:290 Gui.cpp:367
 msgid "VBR"
