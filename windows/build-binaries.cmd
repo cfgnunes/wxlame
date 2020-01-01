@@ -1,7 +1,7 @@
 @echo off
 cls
 
-set APP_NAME=wxmp3gain
+set APP_NAME=wxlame
 set OUTPUT_DIR=build
 set PATH=%PATH%;C:\mingw32\bin
 
