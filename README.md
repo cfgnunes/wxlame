@@ -1,6 +1,6 @@
-# wxLame
+# wxLame [![Build Status](https://travis-ci.org/cfgnunes/wxlame.svg?branch=master)](https://travis-ci.org/cfgnunes/wxlame)
 
-[![Build Status](https://travis-ci.org/cfgnunes/wxlame.svg?branch=master)](https://travis-ci.org/cfgnunes/wxlame)
+If you like this project, please consider making a donation to support the developer. [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2EDNU6LPSCH6S)
 
 wxLame is a free front-end for the LAME MP3 encoder.
 
