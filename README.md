@@ -4,6 +4,8 @@
 
 wxLame is a free front-end for the LAME MP3 encoder.
 
+![screenshot](doc/screenshot.png)
+
 ## Getting Started
 
 ### Install from binaries
