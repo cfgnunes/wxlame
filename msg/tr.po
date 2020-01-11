@@ -1,0 +1,328 @@
+# This file is part of the wxLame and licensed under the GNU General Public License, version 3
+# Cristiano Nunes <cfgnunes@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wxLame\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-26 19:09-0300\n"
+"PO-Revision-Date: 2019-11-06 11:59-0300\n"
+"Last-Translator: Yaşar Çiv <yasarciv@protonmail.com>\n"
+"Language-Team: https://mls.akdeniz.edu.tr\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: tr_TR\n"
+"X-Source-Language: C\n"
+
+#: Gui.cpp:69
+msgid "&Actions"
+msgstr "Ey&lemler"
+
+#: Gui.cpp:58
+msgid "&Edit"
+msgstr "Düz&enle"
+
+#: Gui.cpp:41
+msgid "&File"
+msgstr "&Dosya"
+
+#: Gui.cpp:86
+msgid "&Help"
+msgstr "&Yardım"
+
+#: GuiSettings.cpp:238
+msgid "0 (highest quality, slow)"
+msgstr "0 (en yüksek kalite, yavaş)"
+
+#: GuiSettings.cpp:247
+msgid "9 (lowest quality, fast)"
+msgstr "9 (en düşük kalite, hızlı)"
+
+#: Gui.cpp:83 Gui.cpp:110
+msgid "About"
+msgstr "Hakkında"
+
+#: Gui.cpp:32 Gui.cpp:94 Gui.cpp:120
+msgid "Add files"
+msgstr "Dosya ekle"
+
+#: Gui.cpp:28 Gui.cpp:92 Gui.cpp:116
+msgid "Add folder"
+msgstr "Dizin ekle"
+
+#: Gui.cpp:491
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: Gui.cpp:466
+msgid "Algorithm quality selection:"
+msgstr "Algoritma kalite seçimi:"
+
+#: Gui.cpp:435
+msgid "Audio processing"
+msgstr "Ses işleme"
+
+#: Gui.cpp:347
+msgid "Average bitrate encoding ABR:"
+msgstr "ABR'yi kodlayan ortalama bit hızı:"
+
+#: Gui.cpp:223
+msgid "Bitrate"
+msgstr "Bit hızı"
+
+#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
+msgid "Cancel"
+msgstr "İptal et"
+
+#: Gui.cpp:49 Gui.cpp:98 Gui.cpp:128
+msgid "Clear list"
+msgstr "Listeyi temizle"
+
+#: GuiProgress.cpp:137
+msgid "Close"
+msgstr "Kapat"
+
+#: Gui.cpp:452
+msgid "Comply as much as possible to ISO MPEG spec"
+msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uy"
+
+#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
+msgid "Current bitrate:"
+msgstr "Geçerli bit hızı:"
+
+#: Gui.cpp:475
+msgid "Custom options:"
+msgstr "Özel seçenekler:"
+
+#: Gui.cpp:66 Gui.cpp:104
+msgid "Decode MP3"
+msgstr "MP3 kod çözme"
+
+#: GuiProgress.cpp:190
+msgid "Decoding: "
+msgstr "Kod çözme: "
+
+#: Gui.cpp:274
+msgid "Delete source file after processing"
+msgstr "İşlendikten sonra kaynak dosyayı sil"
+
+#: Gui.cpp:326
+msgid "Disable writing of VBR Tag"
+msgstr "VBR etiketinin yazılmasını devre dışı bırak"
+
+#: GuiProgress.cpp:33
+msgid "Do you want to stop process now?"
+msgstr "Şimdi işlemi durdurmak istiyor musunuz?"
+
+#: Gui.cpp:292
+msgid "Enable Variable Bitrate (VBR)"
+msgstr "Değişken Bit Hızını etkinleştir (VBR)"
+
+#: Gui.cpp:62 Gui.cpp:102
+msgid "Encode WAV / Re-Encode MP3"
+msgstr "WAV Kodlama / MP3 Yeniden Kodlama"
+
+#: GuiProgress.cpp:190
+msgid "Encoding: "
+msgstr "Kodlama: "
+
+#: Gui.cpp:38
+msgid "Exit"
+msgstr "Çıkış"
+
+#: GuiMain.cpp:28
+msgid "File"
+msgstr "Dosya"
+
+#: Gui.cpp:272
+msgid "File options"
+msgstr "Dosya seçenekleri"
+
+#: Gui.cpp:441
+msgid "Flags"
+msgstr "Bayraklar"
+
+#: GuiMain.cpp:29
+msgid "Folder"
+msgstr "Dizin"
+
+#: GuiMain.cpp:30
+msgid "Format"
+msgstr "Biçim"
+
+#: GuiMain.cpp:177
+msgid "Free front-end for the Lame"
+msgstr "Lame için ücretsiz ön uç"
+
+#: Gui.cpp:284
+msgid "General"
+msgstr "Genel"
+
+#: Gui.cpp:384
+msgid "Highpass filter"
+msgstr "Yüksek geçiş süzgeci"
+
+#: Gui.cpp:389
+msgid "Highpass filtering frequency (in Hz):"
+msgstr "Yüksek geçiş süzme frekansı (Hz cinsinden):"
+
+#: Gui.cpp:449
+msgid "Include CRC error detection"
+msgstr "CRC hata algılamasını dahil et"
+
+#: Gui.cpp:73
+msgid "LAME Website"
+msgstr "LAME Web sitesi"
+
+#: GuiMain.cpp:202
+msgid "LAME not found!"
+msgstr "LAME bulunamadı!"
+
+#: GuiMain.cpp:209
+msgid "Lame options: "
+msgstr "Lame seçenekleri: "
+
+#: Gui.cpp:408
+msgid "Lowpass filter"
+msgstr "Düşük geçiş süzgeci"
+
+#: Gui.cpp:413
+msgid "Lowpass filtering frequency (in Hz):"
+msgstr "Düşük geçiş süzme frekansı (Hz cinsinden):"
+
+#: Gui.cpp:446
+msgid "Mark as copyright"
+msgstr "Telif hakkı olarak işaretle"
+
+#: Gui.cpp:443
+msgid "Mark as non-original"
+msgstr "Asıl olmayan olarak işaretle"
+
+#: Gui.cpp:302
+msgid "Maximum VBR bitrate"
+msgstr "En fazla VBR bit hızı"
+
+#: Gui.cpp:236
+msgid "Mode"
+msgstr "Mod"
+
+#: Gui.cpp:501
+msgid "OK"
+msgstr "Tamam"
+
+#: Gui.cpp:459
+msgid "Options"
+msgstr "Seçenekler"
+
+#: Gui.cpp:324
+msgid "Others"
+msgstr "Diğerleri"
+
+#: Gui.cpp:251
+msgid "Output directory"
+msgstr "Çıktı dizini"
+
+#: Gui.cpp:373
+msgid "Output sampling frequency"
+msgstr "Çıktı örnekleme frekansı"
+
+#: GuiProgress.cpp:185
+#, c-format
+msgid "Processed %lu files of %lu."
+msgstr "%lu dosya işlendi, toplam %lu dosya."
+
+#: Gui.h:210
+msgid "Progress"
+msgstr "İlerleme"
+
+#: Gui.cpp:340
+msgid "Quality of VBR encoding:"
+msgstr "VBR kodlama kalitesi:"
+
+#: Gui.cpp:45 Gui.cpp:96 Gui.cpp:124
+msgid "Remove files"
+msgstr "Dosyaları kaldır"
+
+#: Gui.cpp:498
+msgid "Restore defaults"
+msgstr "Varsayılanları geri yükle"
+
+#: Gui.cpp:253
+msgid "Same as input directory"
+msgstr "Giriş dizini ile aynı"
+
+#: Gui.cpp:262 GuiMain.cpp:89
+msgid "Select directory"
+msgstr "Dizin seç"
+
+#: GuiMain.cpp:105
+msgid "Select file"
+msgstr "Dosya seç"
+
+#: Gui.cpp:55 Gui.cpp:108 Gui.h:180
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: Gui.cpp:329
+msgid "Strictly enforce minimum bitrate"
+msgstr "En az bit hızını kesinlikle uygula"
+
+#: Gui.cpp:332
+msgid "Use ABR instead VBR"
+msgstr "ABR yerine VBR kullan"
+
+#: Gui.cpp:256
+msgid "Use below:"
+msgstr "Aşağıdakini kullan:"
+
+#: Gui.cpp:290 Gui.cpp:367
+msgid "VBR"
+msgstr "VBR"
+
+#: Gui.cpp:395
+msgid "Width of Highpass filter (in Hz):"
+msgstr "Yüksek geçiş süzgecinin genişliği (Hz cinsinden):"
+
+#: Gui.cpp:419
+msgid "Width of Lowpass filter (in Hz):"
+msgstr "Düşük geçiş süzgecinin genişliği (Hz cinsinden):"
+
+#: Gui.cpp:238 GuiSettings.cpp:237
+msgid "default"
+msgstr "varsayılan"
+
+#: GuiSettings.cpp:226
+msgid "default (automatic)"
+msgstr "varsayılan (otomatik)"
+
+#: Gui.cpp:238
+msgid "dual-mono"
+msgstr "ikili-mono"
+
+#: GuiMain.cpp:206
+msgid "files"
+msgstr "dosyalar"
+
+#: Gui.cpp:238
+msgid "force"
+msgstr "zorla"
+
+#: Gui.cpp:238
+msgid "joint"
+msgstr "ortak"
+
+#: Gui.cpp:238
+msgid "mono"
+msgstr "mono"
+
+#: Gui.cpp:238
+msgid "simple"
+msgstr "basit"
+
+#: Gui.cpp:77
+msgid "wxLame Website"
+msgstr "wxLame Web sitesi"
