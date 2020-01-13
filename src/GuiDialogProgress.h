@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef GUIPROGRESS_H
-#define GUIPROGRESS_H
+#ifndef GUIDIALOGPROGRESS_H
+#define GUIDIALOGPROGRESS_H
 
 #include "Gui.h"
 #include "ConfigBase.h"
@@ -19,11 +19,11 @@ enum {
 
 const int ID_TOOL_PROCESS = ::wxNewId();
 
-class GuiProgress : public Progress {
+class GuiDialogProgress : public DialogProgress {
 public:
-    GuiProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType);
+    GuiDialogProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType);
 
-    virtual ~GuiProgress();
+    virtual ~GuiDialogProgress();
 
 protected:
     void OnClose(wxCloseEvent &event);
@@ -59,4 +59,4 @@ private:
 DECLARE_EVENT_TABLE()
 };
 
-#endif // GUIPROGRESS_H
+#endif // GUIDIALOGPROGRESS_H

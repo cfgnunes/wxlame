@@ -34,11 +34,11 @@ msgstr "&Dosya"
 msgid "&Help"
 msgstr "&Yardım"
 
-#: GuiSettings.cpp:238
+#: GuiDialogSettings.cpp:238
 msgid "0 (highest quality, slow)"
 msgstr "0 (en yüksek kalite, yavaş)"
 
-#: GuiSettings.cpp:247
+#: GuiDialogSettings.cpp:247
 msgid "9 (lowest quality, fast)"
 msgstr "9 (en düşük kalite, hızlı)"
 
@@ -74,7 +74,7 @@ msgstr "ABR'yi kodlayan ortalama bit hızı:"
 msgid "Bitrate"
 msgstr "Bit hızı"
 
-#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
+#: Gui.cpp:504 Gui.cpp:609 GuiDialogProgress.cpp:71
 msgid "Cancel"
 msgstr "İptal et"
 
@@ -82,7 +82,7 @@ msgstr "İptal et"
 msgid "Clear list"
 msgstr "Listeyi temizle"
 
-#: GuiProgress.cpp:137
+#: GuiDialogProgress.cpp:137
 msgid "Close"
 msgstr "Kapat"
 
@@ -90,7 +90,7 @@ msgstr "Kapat"
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr "ISO MPEG teknik özelliklerine mümkün olduğunca uy"
 
-#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
+#: Gui.cpp:225 Gui.cpp:304 GuiDialogSettings.cpp:29 GuiDialogSettings.cpp:40
 msgid "Current bitrate:"
 msgstr "Geçerli bit hızı:"
 
@@ -102,7 +102,7 @@ msgstr "Özel seçenekler:"
 msgid "Decode MP3"
 msgstr "MP3 kod çözme"
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Decoding: "
 msgstr "Kod çözme: "
 
@@ -114,7 +114,7 @@ msgstr "İşlendikten sonra kaynak dosyayı sil"
 msgid "Disable writing of VBR Tag"
 msgstr "VBR etiketinin yazılmasını devre dışı bırak"
 
-#: GuiProgress.cpp:33
+#: GuiDialogProgress.cpp:33
 msgid "Do you want to stop process now?"
 msgstr "Şimdi işlemi durdurmak istiyor musunuz?"
 
@@ -126,7 +126,7 @@ msgstr "Değişken Bit Hızını etkinleştir (VBR)"
 msgid "Encode WAV / Re-Encode MP3"
 msgstr "WAV Kodlama / MP3 Yeniden Kodlama"
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Encoding: "
 msgstr "Kodlama: "
 
@@ -134,7 +134,7 @@ msgstr "Kodlama: "
 msgid "Exit"
 msgstr "Çıkış"
 
-#: GuiMain.cpp:28
+#: GuiFrameMain.cpp:28
 msgid "File"
 msgstr "Dosya"
 
@@ -146,15 +146,15 @@ msgstr "Dosya seçenekleri"
 msgid "Flags"
 msgstr "Bayraklar"
 
-#: GuiMain.cpp:29
+#: GuiFrameMain.cpp:29
 msgid "Folder"
 msgstr "Dizin"
 
-#: GuiMain.cpp:30
+#: GuiFrameMain.cpp:30
 msgid "Format"
 msgstr "Biçim"
 
-#: GuiMain.cpp:177
+#: GuiFrameMain.cpp:177
 msgid "Free front-end for the Lame"
 msgstr "Lame için ücretsiz ön uç"
 
@@ -178,11 +178,11 @@ msgstr "CRC hata algılamasını dahil et"
 msgid "LAME Website"
 msgstr "LAME Web sitesi"
 
-#: GuiMain.cpp:202
+#: GuiFrameMain.cpp:202
 msgid "LAME not found!"
 msgstr "LAME bulunamadı!"
 
-#: GuiMain.cpp:209
+#: GuiFrameMain.cpp:209
 msgid "Lame options: "
 msgstr "Lame seçenekleri: "
 
@@ -230,7 +230,7 @@ msgstr "Çıktı dizini"
 msgid "Output sampling frequency"
 msgstr "Çıktı örnekleme frekansı"
 
-#: GuiProgress.cpp:185
+#: GuiDialogProgress.cpp:185
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr "%lu dosya işlendi, toplam %lu dosya."
@@ -255,11 +255,11 @@ msgstr "Varsayılanları geri yükle"
 msgid "Same as input directory"
 msgstr "Giriş dizini ile aynı"
 
-#: Gui.cpp:262 GuiMain.cpp:89
+#: Gui.cpp:262 GuiFrameMain.cpp:89
 msgid "Select directory"
 msgstr "Dizin seç"
 
-#: GuiMain.cpp:105
+#: GuiFrameMain.cpp:105
 msgid "Select file"
 msgstr "Dosya seç"
 
@@ -291,11 +291,11 @@ msgstr "Yüksek geçiş süzgecinin genişliği (Hz cinsinden):"
 msgid "Width of Lowpass filter (in Hz):"
 msgstr "Düşük geçiş süzgecinin genişliği (Hz cinsinden):"
 
-#: Gui.cpp:238 GuiSettings.cpp:237
+#: Gui.cpp:238 GuiDialogSettings.cpp:237
 msgid "default"
 msgstr "varsayılan"
 
-#: GuiSettings.cpp:226
+#: GuiDialogSettings.cpp:226
 msgid "default (automatic)"
 msgstr "varsayılan (otomatik)"
 
@@ -303,7 +303,7 @@ msgstr "varsayılan (otomatik)"
 msgid "dual-mono"
 msgstr "ikili-mono"
 
-#: GuiMain.cpp:206
+#: GuiFrameMain.cpp:206
 msgid "files"
 msgstr "dosyalar"
 

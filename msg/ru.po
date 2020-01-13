@@ -33,11 +33,11 @@ msgstr "&Файл"
 msgid "&Help"
 msgstr "&Справка"
 
-#: GuiSettings.cpp:238
+#: GuiDialogSettings.cpp:238
 msgid "0 (highest quality, slow)"
 msgstr "0 (наилучшее качество, медленно)"
 
-#: GuiSettings.cpp:247
+#: GuiDialogSettings.cpp:247
 msgid "9 (lowest quality, fast)"
 msgstr "9 (наихудшее качество, быстро)"
 
@@ -73,7 +73,7 @@ msgstr "Кодировка среднего битрейта ABR:"
 msgid "Bitrate"
 msgstr "Битрейт"
 
-#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
+#: Gui.cpp:504 Gui.cpp:609 GuiDialogProgress.cpp:71
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -81,7 +81,7 @@ msgstr "Отмена"
 msgid "Clear list"
 msgstr "Очистить список"
 
-#: GuiProgress.cpp:137
+#: GuiDialogProgress.cpp:137
 msgid "Close"
 msgstr "Закрыть"
 
@@ -89,7 +89,7 @@ msgstr "Закрыть"
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr "Следовать спецификации ISO MPEG, насколько это возможно"
 
-#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
+#: Gui.cpp:225 Gui.cpp:304 GuiDialogSettings.cpp:29 GuiDialogSettings.cpp:40
 msgid "Current bitrate:"
 msgstr "Текущий битрейт:"
 
@@ -101,7 +101,7 @@ msgstr "Дополнительные опции:"
 msgid "Decode MP3"
 msgstr "декодирования MP3"
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Decoding: "
 msgstr "Декодирование:"
 
@@ -113,7 +113,7 @@ msgstr "Удалить исходные файлы после обработки
 msgid "Disable writing of VBR Tag"
 msgstr "Запретить запись тега VBR"
 
-#: GuiProgress.cpp:33
+#: GuiDialogProgress.cpp:33
 msgid "Do you want to stop process now?"
 msgstr "Хотите завершить процесс сейчас?"
 
@@ -125,7 +125,7 @@ msgstr "Включить переменный битрейт (VBR)"
 msgid "Encode WAV / Re-Encode MP3"
 msgstr "Кодирование WAV / перекодировать MP3"
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Encoding: "
 msgstr "Кодирование:"
 
@@ -133,7 +133,7 @@ msgstr "Кодирование:"
 msgid "Exit"
 msgstr "Выход"
 
-#: GuiMain.cpp:28
+#: GuiFrameMain.cpp:28
 msgid "File"
 msgstr "Файл"
 
@@ -145,15 +145,15 @@ msgstr "Опции файла"
 msgid "Flags"
 msgstr "Флаги"
 
-#: GuiMain.cpp:29
+#: GuiFrameMain.cpp:29
 msgid "Folder"
 msgstr "папка"
 
-#: GuiMain.cpp:30
+#: GuiFrameMain.cpp:30
 msgid "Format"
 msgstr "формат"
 
-#: GuiMain.cpp:177
+#: GuiFrameMain.cpp:177
 msgid "Free front-end for the Lame"
 msgstr "Свободный интерфейс для Lame"
 
@@ -177,11 +177,11 @@ msgstr "Включить определение ошибок CRC"
 msgid "LAME Website"
 msgstr "Веб-сайт LAME"
 
-#: GuiMain.cpp:202
+#: GuiFrameMain.cpp:202
 msgid "LAME not found!"
 msgstr "LAME не найден!"
 
-#: GuiMain.cpp:209
+#: GuiFrameMain.cpp:209
 msgid "Lame options: "
 msgstr "Опции Lame:"
 
@@ -229,7 +229,7 @@ msgstr "Директория вывода"
 msgid "Output sampling frequency"
 msgstr "Частота сэмплов вывода"
 
-#: GuiProgress.cpp:185
+#: GuiDialogProgress.cpp:185
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr "Обработано %lu файлов из %lu."
@@ -254,11 +254,11 @@ msgstr "Восстановить значения по умолчанию"
 msgid "Same as input directory"
 msgstr "Та же, что и директория ввода"
 
-#: Gui.cpp:262 GuiMain.cpp:89
+#: Gui.cpp:262 GuiFrameMain.cpp:89
 msgid "Select directory"
 msgstr "Выбор папки"
 
-#: GuiMain.cpp:105
+#: GuiFrameMain.cpp:105
 msgid "Select file"
 msgstr "Выбор файла"
 
@@ -290,11 +290,11 @@ msgstr "Ширина фильтра высоких частот (в Гц):"
 msgid "Width of Lowpass filter (in Hz):"
 msgstr "Ширина фильтра низких частот (в Гц):"
 
-#: Gui.cpp:238 GuiSettings.cpp:237
+#: Gui.cpp:238 GuiDialogSettings.cpp:237
 msgid "default"
 msgstr "по умолчанию"
 
-#: GuiSettings.cpp:226
+#: GuiDialogSettings.cpp:226
 msgid "default (automatic)"
 msgstr "по умолчанию (автоматически)"
 
@@ -302,7 +302,7 @@ msgstr "по умолчанию (автоматически)"
 msgid "dual-mono"
 msgstr ""
 
-#: GuiMain.cpp:206
+#: GuiFrameMain.cpp:206
 msgid "files"
 msgstr "файлы"
 
