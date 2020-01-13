@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Oct 26 2018)
+// C++ code generated with wxFormBuilder (version 3.9.0 Jan  3 2020)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -55,9 +55,9 @@
 #define ID_ABOUT 1010
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class Main
+/// Class FrameMain
 ///////////////////////////////////////////////////////////////////////////////
-class Main : public wxFrame
+class FrameMain : public wxFrame
 {
 	private:
 
@@ -103,21 +103,21 @@ class Main : public wxFrame
 
 	public:
 
-		Main( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 790,450 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		FrameMain( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 790,450 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
-		~Main();
+		~FrameMain();
 
-		void MainOnContextMenu( wxMouseEvent &event )
+		void FrameMainOnContextMenu( wxMouseEvent &event )
 		{
-			this->PopupMenu( g_mainMenu, event.GetPosition() );
+		this->PopupMenu( g_mainMenu, event.GetPosition() );
 		}
 
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class Settings
+/// Class DialogSettings
 ///////////////////////////////////////////////////////////////////////////////
-class Settings : public wxDialog
+class DialogSettings : public wxDialog
 {
 	private:
 
@@ -171,15 +171,15 @@ class Settings : public wxDialog
 
 	public:
 
-		Settings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
-		~Settings();
+		DialogSettings( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		~DialogSettings();
 
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class Progress
+/// Class DialogProgress
 ///////////////////////////////////////////////////////////////////////////////
-class Progress : public wxDialog
+class DialogProgress : public wxDialog
 {
 	private:
 
@@ -201,8 +201,8 @@ class Progress : public wxDialog
 
 	public:
 
-		Progress( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Progress"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
-		~Progress();
+		DialogProgress( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Progress"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE );
+		~DialogProgress();
 
 };
 

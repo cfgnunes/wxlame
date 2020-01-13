@@ -3,29 +3,29 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "GuiProgress.h"
+#include "GuiDialogProgress.h"
 #include "Constants.h"
 
 #include <wx/app.h>
 #include <wx/txtstrm.h>
 #include <wx/msgdlg.h>
 
-BEGIN_EVENT_TABLE(GuiProgress, Progress)
-                EVT_END_PROCESS(ID_TOOL_PROCESS, GuiProgress::OnProcessTerm)
+BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
+                EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiProgress::GuiProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType)
-        : Progress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0),
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType)
+        : DialogProgress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0),
           m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();
 }
 
-GuiProgress::~GuiProgress() {
+GuiDialogProgress::~GuiDialogProgress() {
 }
 
-void GuiProgress::OnClose(wxCloseEvent &event) {
+void GuiDialogProgress::OnClose(wxCloseEvent &event) {
     if (event.CanVeto()) {
         if (m_workingProgress) {
             if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
@@ -44,7 +44,7 @@ void GuiProgress::OnClose(wxCloseEvent &event) {
     event.Skip(false);
 }
 
-void GuiProgress::OnIdle(wxIdleEvent &event) {
+void GuiDialogProgress::OnIdle(wxIdleEvent &event) {
     wxString tempString;
 
     if (mp_process->IsErrorAvailable()) {
@@ -65,7 +65,7 @@ void GuiProgress::OnIdle(wxIdleEvent &event) {
     event.Skip();
 }
 
-void GuiProgress::OnInit(wxInitDialogEvent &event) {
+void GuiDialogProgress::OnInit(wxInitDialogEvent &event) {
     // Change the button's label to "Cancel"
     g_btnCancel->SetLabel(_("Cancel"));
     m_workingProgress = true;
@@ -84,12 +84,12 @@ void GuiProgress::OnInit(wxInitDialogEvent &event) {
     event.Skip(false);
 }
 
-void GuiProgress::OnbtnCancelClick(wxCommandEvent &event) {
+void GuiDialogProgress::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
     event.Skip(false);
 }
 
-void GuiProgress::OnTimer2Trigger(wxTimerEvent &event) {
+void GuiDialogProgress::OnTimer2Trigger(wxTimerEvent &event) {
     wxWakeUpIdle();
 
     // Updates the "files bar" every 500 ms
@@ -100,7 +100,7 @@ void GuiProgress::OnTimer2Trigger(wxTimerEvent &event) {
     event.Skip(false);
 }
 
-void GuiProgress::OnProcessTerm(wxProcessEvent &event) {
+void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     // Positions for next file
     if (m_workingProgress)
         m_fileIterator++;
@@ -130,7 +130,7 @@ void GuiProgress::OnProcessTerm(wxProcessEvent &event) {
     event.Skip(false);
 }
 
-void GuiProgress::finishedWork() {
+void GuiDialogProgress::finishedWork() {
     m_timer2.Stop();
 
     g_gaugeFileProgress->SetRange(1);
@@ -141,7 +141,7 @@ void GuiProgress::finishedWork() {
     m_workingProgress = false;
 }
 
-void GuiProgress::stringToGaugeUpdate(const wxString &inputString) {
+void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
     long maxValue = 0;
     long currentValue = 0;
     if (m_workType == LAME_ENCODE) {
@@ -156,7 +156,7 @@ void GuiProgress::stringToGaugeUpdate(const wxString &inputString) {
     }
 }
 
-void GuiProgress::processNextFile() {
+void GuiDialogProgress::processNextFile() {
     FileInfo &fileInfo = mp_fileListManager->getItem(m_fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();
 
@@ -185,7 +185,7 @@ void GuiProgress::processNextFile() {
             _T("\""), wxEXEC_ASYNC, mp_process);
 }
 
-void GuiProgress::stringLabelsUpdate() {
+void GuiDialogProgress::stringLabelsUpdate() {
     unsigned long int total = mp_fileListManager->size();
     g_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
     if (m_fileIterator < total) {

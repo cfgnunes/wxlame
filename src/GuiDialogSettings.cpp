@@ -3,11 +3,11 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "GuiSettings.h"
+#include "GuiDialogSettings.h"
 #include "Constants.h"
 
-GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
-        : Settings(parent), mp_configBase(configBase) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
+        : DialogSettings(parent), mp_configBase(configBase) {
     // Set labels of controls
     setLabelsControls();
 
@@ -18,22 +18,22 @@ GuiSettings::GuiSettings(wxWindow *parent, ConfigBase *configBase)
     updateDisabledControls();
 }
 
-GuiSettings::~GuiSettings() {
+GuiDialogSettings::~GuiDialogSettings() {
 }
 
-void GuiSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
+void GuiDialogSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
     int number = g_sldBitrate->GetValue();
     g_lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
 }
 
-void GuiSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
+void GuiDialogSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
     updateDisabledControls();
     event.Skip(false);
 }
 
-void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
+void GuiDialogSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
     int number = g_sldBitrateVBR->GetValue();
     g_lblBitrateVBR->SetLabel(
             _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
@@ -41,24 +41,24 @@ void GuiSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
     event.Skip();
 }
 
-void GuiSettings::OnbtnDefaultClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnDefaultClick(wxCommandEvent &event) {
     defaultValueControls();
     updateDisabledControls();
     event.Skip(false);
 }
 
-void GuiSettings::OnbtnOKClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnOKClick(wxCommandEvent &event) {
     saveValuesConfig();
     Close();
     event.Skip(false);
 }
 
-void GuiSettings::OnbtnCancelClick(wxCommandEvent &event) {
+void GuiDialogSettings::OnbtnCancelClick(wxCommandEvent &event) {
     Close();
     event.Skip(false);
 }
 
-void GuiSettings::updateValueControls() {
+void GuiDialogSettings::updateValueControls() {
     int i;
     wxScrollEvent evt;
 
@@ -105,7 +105,7 @@ void GuiSettings::updateValueControls() {
     g_txtCustomOptions->WriteText(mp_configBase->getCustomOptionsText());
 }
 
-void GuiSettings::updateDisabledControls() {
+void GuiDialogSettings::updateDisabledControls() {
     // General controls
     g_dpkOutputDirectory->Enable(g_optEnableOutDir->GetValue());
 
@@ -132,7 +132,7 @@ void GuiSettings::updateDisabledControls() {
     g_txtCustomOptions->Enable(g_chkCustomOptions->GetValue());
 }
 
-void GuiSettings::saveValuesConfig() {
+void GuiDialogSettings::saveValuesConfig() {
     // General controls
     mp_configBase->setBitrate(BITRATE_VALUES[g_sldBitrate->GetValue()]);
     mp_configBase->setOutDir(g_dpkOutputDirectory->GetDirName().GetPath());
@@ -172,7 +172,7 @@ void GuiSettings::saveValuesConfig() {
     mp_configBase->configFlush();
 }
 
-void GuiSettings::defaultValueControls() {
+void GuiDialogSettings::defaultValueControls() {
     int i;
     wxScrollEvent evt;
 
@@ -220,7 +220,7 @@ void GuiSettings::defaultValueControls() {
     g_txtCustomOptions->WriteText(DEFAULT_VALUE_CustomOptionsText);
 }
 
-void GuiSettings::setLabelsControls() {
+void GuiDialogSettings::setLabelsControls() {
     // Sets the size of the sliders
     g_sldBitrate->SetMax(BITRATE_VALUES_SIZE - 1);
     g_sldBitrateVBR->SetMax(BITRATE_VALUES_SIZE - 1);

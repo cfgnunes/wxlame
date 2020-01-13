@@ -31,11 +31,11 @@ msgstr ""
 msgid "&Help"
 msgstr ""
 
-#: GuiSettings.cpp:238
+#: GuiDialogSettings.cpp:238
 msgid "0 (highest quality, slow)"
 msgstr ""
 
-#: GuiSettings.cpp:247
+#: GuiDialogSettings.cpp:247
 msgid "9 (lowest quality, fast)"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Bitrate"
 msgstr ""
 
-#: Gui.cpp:504 Gui.cpp:609 GuiProgress.cpp:71
+#: Gui.cpp:504 Gui.cpp:609 GuiDialogProgress.cpp:71
 msgid "Cancel"
 msgstr ""
 
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Clear list"
 msgstr ""
 
-#: GuiProgress.cpp:137
+#: GuiDialogProgress.cpp:137
 msgid "Close"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Comply as much as possible to ISO MPEG spec"
 msgstr ""
 
-#: Gui.cpp:225 Gui.cpp:304 GuiSettings.cpp:29 GuiSettings.cpp:40
+#: Gui.cpp:225 Gui.cpp:304 GuiDialogSettings.cpp:29 GuiDialogSettings.cpp:40
 msgid "Current bitrate:"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Decode MP3"
 msgstr ""
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Decoding: "
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "Disable writing of VBR Tag"
 msgstr ""
 
-#: GuiProgress.cpp:33
+#: GuiDialogProgress.cpp:33
 msgid "Do you want to stop process now?"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Encode WAV / Re-Encode MP3"
 msgstr ""
 
-#: GuiProgress.cpp:190
+#: GuiDialogProgress.cpp:190
 msgid "Encoding: "
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Exit"
 msgstr ""
 
-#: GuiMain.cpp:28
+#: GuiFrameMain.cpp:28
 msgid "File"
 msgstr ""
 
@@ -143,15 +143,15 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
-#: GuiMain.cpp:29
+#: GuiFrameMain.cpp:29
 msgid "Folder"
 msgstr ""
 
-#: GuiMain.cpp:30
+#: GuiFrameMain.cpp:30
 msgid "Format"
 msgstr ""
 
-#: GuiMain.cpp:177
+#: GuiFrameMain.cpp:177
 msgid "Free front-end for the Lame"
 msgstr ""
 
@@ -175,11 +175,11 @@ msgstr ""
 msgid "LAME Website"
 msgstr ""
 
-#: GuiMain.cpp:202
+#: GuiFrameMain.cpp:202
 msgid "LAME not found!"
 msgstr ""
 
-#: GuiMain.cpp:209
+#: GuiFrameMain.cpp:209
 msgid "Lame options: "
 msgstr ""
 
@@ -227,7 +227,7 @@ msgstr ""
 msgid "Output sampling frequency"
 msgstr ""
 
-#: GuiProgress.cpp:185
+#: GuiDialogProgress.cpp:185
 #, c-format
 msgid "Processed %lu files of %lu."
 msgstr ""
@@ -252,11 +252,11 @@ msgstr ""
 msgid "Same as input directory"
 msgstr ""
 
-#: Gui.cpp:262 GuiMain.cpp:89
+#: Gui.cpp:262 GuiFrameMain.cpp:89
 msgid "Select directory"
 msgstr ""
 
-#: GuiMain.cpp:105
+#: GuiFrameMain.cpp:105
 msgid "Select file"
 msgstr ""
 
@@ -288,11 +288,11 @@ msgstr ""
 msgid "Width of Lowpass filter (in Hz):"
 msgstr ""
 
-#: Gui.cpp:238 GuiSettings.cpp:237
+#: Gui.cpp:238 GuiDialogSettings.cpp:237
 msgid "default"
 msgstr ""
 
-#: GuiSettings.cpp:226
+#: GuiDialogSettings.cpp:226
 msgid "default (automatic)"
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr ""
 msgid "dual-mono"
 msgstr ""
 
-#: GuiMain.cpp:206
+#: GuiFrameMain.cpp:206
 msgid "files"
 msgstr ""
 
