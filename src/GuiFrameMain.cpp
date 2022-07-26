@@ -170,7 +170,7 @@ void GuiFrameMain::mnuDecode(wxCommandEvent &event) {
 }
 
 void GuiFrameMain::mnuToolWebsite(wxCommandEvent &event) {
-    wxLaunchDefaultBrowser(_T("http://lame.sourceforge.net/"));
+    wxLaunchDefaultBrowser(_T("http://lame.sourceforge.io/"));
     event.Skip(false);
 }
 
