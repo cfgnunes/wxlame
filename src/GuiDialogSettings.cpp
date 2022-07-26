@@ -22,8 +22,8 @@ GuiDialogSettings::~GuiDialogSettings() {
 }
 
 void GuiDialogSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
-    int number = g_sldBitrate->GetValue();
-    g_lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+    int number = gui_sldBitrate->GetValue();
+    gui_lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
 }
@@ -34,8 +34,8 @@ void GuiDialogSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
 }
 
 void GuiDialogSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
-    int number = g_sldBitrateVBR->GetValue();
-    g_lblBitrateVBR->SetLabel(
+    int number = gui_sldBitrateVBR->GetValue();
+    gui_lblBitrateVBR->SetLabel(
         _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
@@ -64,110 +64,110 @@ void GuiDialogSettings::updateValueControls() {
 
     // General controls
     for (i = 0; BITRATE_VALUES[i] != mp_configBase->getBitrate(); i++);
-    g_sldBitrate->SetValue(i);
+    gui_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    g_dpkOutputDirectory->SetPath(mp_configBase->getOutDir());
-    g_optEnableOutDir->SetValue(mp_configBase->getEnableOutDir());
-    g_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
-    g_chcMode->SetSelection(mp_configBase->getMode());
+    gui_dpkOutputDirectory->SetPath(mp_configBase->getOutDir());
+    gui_optEnableOutDir->SetValue(mp_configBase->getEnableOutDir());
+    gui_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
+    gui_chcMode->SetSelection(mp_configBase->getMode());
 
     // VBR controls
-    g_chkEnabledVBR->SetValue(mp_configBase->getEnabledVBR());
-    g_spcVBRQuality->SetValue(mp_configBase->getVBRQuality());
+    gui_chkEnabledVBR->SetValue(mp_configBase->getEnabledVBR());
+    gui_spcVBRQuality->SetValue(mp_configBase->getVBRQuality());
     for (i = 0; BITRATE_VALUES[i] != mp_configBase->getMaxBitrate(); i++);
-    g_sldBitrateVBR->SetValue(i);
+    gui_sldBitrateVBR->SetValue(i);
     OnsldBitrateVBRCmdSliderUpdated(evt);
-    g_chkDisableVBRTag->SetValue(mp_configBase->getDisableVBRTag());
-    g_chkEnforceMinBitrate->SetValue(mp_configBase->getEnforceMinBitrate());
-    g_chkUseABR->SetValue(mp_configBase->getUseABR());
-    g_spcAverageBitrateABR->SetValue(mp_configBase->getAverageBitrateABR());
+    gui_chkDisableVBRTag->SetValue(mp_configBase->getDisableVBRTag());
+    gui_chkEnforceMinBitrate->SetValue(mp_configBase->getEnforceMinBitrate());
+    gui_chkUseABR->SetValue(mp_configBase->getUseABR());
+    gui_spcAverageBitrateABR->SetValue(mp_configBase->getAverageBitrateABR());
 
     // Audio controls
-    g_chcResampling->SetSelection(mp_configBase->getResampling());
-    g_chkHighpass->SetValue(mp_configBase->getHighpassEnabled());
-    g_spcHighpassFreq->SetValue(mp_configBase->getHighpassFreq());
-    g_chkHighpassWidth->SetValue(mp_configBase->getHighpassWidthEnabled());
-    g_spcHighpassWidth->SetValue(mp_configBase->getHighpassWidth());
-    g_chkLowpass->SetValue(mp_configBase->getLowpassEnabled());
-    g_spcLowpassFreq->SetValue(mp_configBase->getLowpassFreq());
-    g_chkLowpassWidth->SetValue(mp_configBase->getLowpassWidthEnabled());
-    g_spcLowpassWidth->SetValue(mp_configBase->getLowpassWidth());
+    gui_chcResampling->SetSelection(mp_configBase->getResampling());
+    gui_chkHighpass->SetValue(mp_configBase->getHighpassEnabled());
+    gui_spcHighpassFreq->SetValue(mp_configBase->getHighpassFreq());
+    gui_chkHighpassWidth->SetValue(mp_configBase->getHighpassWidthEnabled());
+    gui_spcHighpassWidth->SetValue(mp_configBase->getHighpassWidth());
+    gui_chkLowpass->SetValue(mp_configBase->getLowpassEnabled());
+    gui_spcLowpassFreq->SetValue(mp_configBase->getLowpassFreq());
+    gui_chkLowpassWidth->SetValue(mp_configBase->getLowpassWidthEnabled());
+    gui_spcLowpassWidth->SetValue(mp_configBase->getLowpassWidth());
 
     // Advanced controls
-    g_chkCrc->SetValue(mp_configBase->getCrc());
-    g_chkDeleteFiles->SetValue(mp_configBase->getDeleteFiles());
-    g_chkMarkNonOriginal->SetValue(mp_configBase->getMarkNonOriginal());
-    g_chkMarkCopyright->SetValue(mp_configBase->getMarkCopyright());
-    g_chkEnforceISO->SetValue(mp_configBase->getEnforceISO());
-    g_chcAlgorithmQualitySel->SetSelection(mp_configBase->getAlgorithmQualitySel());
-    g_txtCustomOptions->Clear();
-    g_chkCustomOptions->SetValue(mp_configBase->getCustomOptions());
-    g_txtCustomOptions->WriteText(mp_configBase->getCustomOptionsText());
+    gui_chkCrc->SetValue(mp_configBase->getCrc());
+    gui_chkDeleteFiles->SetValue(mp_configBase->getDeleteFiles());
+    gui_chkMarkNonOriginal->SetValue(mp_configBase->getMarkNonOriginal());
+    gui_chkMarkCopyright->SetValue(mp_configBase->getMarkCopyright());
+    gui_chkEnforceISO->SetValue(mp_configBase->getEnforceISO());
+    gui_chcAlgorithmQualitySel->SetSelection(mp_configBase->getAlgorithmQualitySel());
+    gui_txtCustomOptions->Clear();
+    gui_chkCustomOptions->SetValue(mp_configBase->getCustomOptions());
+    gui_txtCustomOptions->WriteText(mp_configBase->getCustomOptionsText());
 }
 
 void GuiDialogSettings::updateDisabledControls() {
     // General controls
-    g_dpkOutputDirectory->Enable(g_optEnableOutDir->GetValue());
+    gui_dpkOutputDirectory->Enable(gui_optEnableOutDir->GetValue());
 
     // VBR controls
-    g_lblBitrateVBR->Enable(g_chkEnabledVBR->GetValue());
-    g_sldBitrateVBR->Enable(g_chkEnabledVBR->GetValue());
-    g_spcVBRQuality->Enable(g_chkEnabledVBR->GetValue() && !g_chkUseABR->GetValue());
-    g_lblVBRQuality->Enable(g_chkEnabledVBR->GetValue() && !g_chkUseABR->GetValue());
-    g_chkDisableVBRTag->Enable(g_chkEnabledVBR->GetValue());
-    g_chkEnforceMinBitrate->Enable(g_chkEnabledVBR->GetValue());
-    g_chkUseABR->Enable(g_chkEnabledVBR->GetValue());
-    g_lblABR->Enable(g_chkEnabledVBR->GetValue() && g_chkUseABR->GetValue());
-    g_spcAverageBitrateABR->Enable(g_chkEnabledVBR->GetValue() && g_chkUseABR->GetValue());
+    gui_lblBitrateVBR->Enable(gui_chkEnabledVBR->GetValue());
+    gui_sldBitrateVBR->Enable(gui_chkEnabledVBR->GetValue());
+    gui_spcVBRQuality->Enable(gui_chkEnabledVBR->GetValue() && !gui_chkUseABR->GetValue());
+    gui_lblVBRQuality->Enable(gui_chkEnabledVBR->GetValue() && !gui_chkUseABR->GetValue());
+    gui_chkDisableVBRTag->Enable(gui_chkEnabledVBR->GetValue());
+    gui_chkEnforceMinBitrate->Enable(gui_chkEnabledVBR->GetValue());
+    gui_chkUseABR->Enable(gui_chkEnabledVBR->GetValue());
+    gui_lblABR->Enable(gui_chkEnabledVBR->GetValue() && gui_chkUseABR->GetValue());
+    gui_spcAverageBitrateABR->Enable(gui_chkEnabledVBR->GetValue() && gui_chkUseABR->GetValue());
 
     // Audio controls
-    g_spcHighpassFreq->Enable(g_chkHighpass->GetValue());
-    g_chkHighpassWidth->Enable(g_chkHighpass->GetValue());
-    g_spcHighpassWidth->Enable(g_chkHighpass->GetValue() && g_chkHighpassWidth->GetValue());
-    g_spcLowpassFreq->Enable(g_chkLowpass->GetValue());
-    g_chkLowpassWidth->Enable(g_chkLowpass->GetValue());
-    g_spcLowpassWidth->Enable(g_chkLowpass->GetValue() && g_chkLowpassWidth->GetValue());
+    gui_spcHighpassFreq->Enable(gui_chkHighpass->GetValue());
+    gui_chkHighpassWidth->Enable(gui_chkHighpass->GetValue());
+    gui_spcHighpassWidth->Enable(gui_chkHighpass->GetValue() && gui_chkHighpassWidth->GetValue());
+    gui_spcLowpassFreq->Enable(gui_chkLowpass->GetValue());
+    gui_chkLowpassWidth->Enable(gui_chkLowpass->GetValue());
+    gui_spcLowpassWidth->Enable(gui_chkLowpass->GetValue() && gui_chkLowpassWidth->GetValue());
 
     // Advanced controls
-    g_txtCustomOptions->Enable(g_chkCustomOptions->GetValue());
+    gui_txtCustomOptions->Enable(gui_chkCustomOptions->GetValue());
 }
 
 void GuiDialogSettings::saveValuesConfig() {
     // General controls
-    mp_configBase->setBitrate(BITRATE_VALUES[g_sldBitrate->GetValue()]);
-    mp_configBase->setOutDir(g_dpkOutputDirectory->GetDirName().GetPath());
-    mp_configBase->setEnableOutDir(g_optEnableOutDir->GetValue());
-    mp_configBase->setMode(g_chcMode->GetCurrentSelection());
+    mp_configBase->setBitrate(BITRATE_VALUES[gui_sldBitrate->GetValue()]);
+    mp_configBase->setOutDir(gui_dpkOutputDirectory->GetDirName().GetPath());
+    mp_configBase->setEnableOutDir(gui_optEnableOutDir->GetValue());
+    mp_configBase->setMode(gui_chcMode->GetCurrentSelection());
 
     // VBR controls
-    mp_configBase->setEnabledVBR(g_chkEnabledVBR->GetValue());
-    mp_configBase->setVBRQuality(g_spcVBRQuality->GetValue());
-    mp_configBase->setMaxBitrate(BITRATE_VALUES[g_sldBitrateVBR->GetValue()]);
-    mp_configBase->setDisableVBRTag(g_chkDisableVBRTag->GetValue());
-    mp_configBase->setEnforceMinBitrate(g_chkEnforceMinBitrate->GetValue());
-    mp_configBase->setUseABR(g_chkUseABR->GetValue());
-    mp_configBase->setAverageBitrateABR(g_spcAverageBitrateABR->GetValue());
+    mp_configBase->setEnabledVBR(gui_chkEnabledVBR->GetValue());
+    mp_configBase->setVBRQuality(gui_spcVBRQuality->GetValue());
+    mp_configBase->setMaxBitrate(BITRATE_VALUES[gui_sldBitrateVBR->GetValue()]);
+    mp_configBase->setDisableVBRTag(gui_chkDisableVBRTag->GetValue());
+    mp_configBase->setEnforceMinBitrate(gui_chkEnforceMinBitrate->GetValue());
+    mp_configBase->setUseABR(gui_chkUseABR->GetValue());
+    mp_configBase->setAverageBitrateABR(gui_spcAverageBitrateABR->GetValue());
 
     // Audio controls
-    mp_configBase->setResampling(g_chcResampling->GetCurrentSelection());
-    mp_configBase->setHighpassEnabled(g_chkHighpass->GetValue());
-    mp_configBase->setHighpassFreq(g_spcHighpassFreq->GetValue());
-    mp_configBase->setHighpassWidthEnabled(g_chkHighpassWidth->GetValue());
-    mp_configBase->setHighpassWidth(g_spcHighpassWidth->GetValue());
-    mp_configBase->setLowpassEnabled(g_chkLowpass->GetValue());
-    mp_configBase->setLowpassFreq(g_spcLowpassFreq->GetValue());
-    mp_configBase->setLowpassWidthEnabled(g_chkLowpassWidth->GetValue());
-    mp_configBase->setLowpassWidth(g_spcLowpassWidth->GetValue());
+    mp_configBase->setResampling(gui_chcResampling->GetCurrentSelection());
+    mp_configBase->setHighpassEnabled(gui_chkHighpass->GetValue());
+    mp_configBase->setHighpassFreq(gui_spcHighpassFreq->GetValue());
+    mp_configBase->setHighpassWidthEnabled(gui_chkHighpassWidth->GetValue());
+    mp_configBase->setHighpassWidth(gui_spcHighpassWidth->GetValue());
+    mp_configBase->setLowpassEnabled(gui_chkLowpass->GetValue());
+    mp_configBase->setLowpassFreq(gui_spcLowpassFreq->GetValue());
+    mp_configBase->setLowpassWidthEnabled(gui_chkLowpassWidth->GetValue());
+    mp_configBase->setLowpassWidth(gui_spcLowpassWidth->GetValue());
 
     // Advanced controls
-    mp_configBase->setCrc(g_chkCrc->GetValue());
-    mp_configBase->setDeleteFiles(g_chkDeleteFiles->GetValue());
-    mp_configBase->setMarkNonOriginal(g_chkMarkNonOriginal->GetValue());
-    mp_configBase->setMarkCopyright(g_chkMarkCopyright->GetValue());
-    mp_configBase->setEnforceISO(g_chkEnforceISO->GetValue());
-    mp_configBase->setAlgorithmQualitySel(g_chcAlgorithmQualitySel->GetSelection());
-    mp_configBase->setCustomOptions(g_chkCustomOptions->GetValue());
-    mp_configBase->setCustomOptionsText(g_txtCustomOptions->GetLineText(0));
+    mp_configBase->setCrc(gui_chkCrc->GetValue());
+    mp_configBase->setDeleteFiles(gui_chkDeleteFiles->GetValue());
+    mp_configBase->setMarkNonOriginal(gui_chkMarkNonOriginal->GetValue());
+    mp_configBase->setMarkCopyright(gui_chkMarkCopyright->GetValue());
+    mp_configBase->setEnforceISO(gui_chkEnforceISO->GetValue());
+    mp_configBase->setAlgorithmQualitySel(gui_chcAlgorithmQualitySel->GetSelection());
+    mp_configBase->setCustomOptions(gui_chkCustomOptions->GetValue());
+    mp_configBase->setCustomOptionsText(gui_txtCustomOptions->GetLineText(0));
 
     mp_configBase->configFlush();
 }
@@ -178,73 +178,73 @@ void GuiDialogSettings::defaultValueControls() {
 
     // General controls
     for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_Bitrate; i++);
-    g_sldBitrate->SetValue(i);
+    gui_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    g_dpkOutputDirectory->SetPath(DEFAULT_VALUE_OutDir);
+    gui_dpkOutputDirectory->SetPath(DEFAULT_VALUE_OutDir);
 
-    g_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
-    g_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
-    g_chcMode->SetSelection(DEFAULT_VALUE_Mode);
+    gui_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
+    gui_optUseSameDir->SetValue(!DEFAULT_VALUE_EnableOutDir);
+    gui_chcMode->SetSelection(DEFAULT_VALUE_Mode);
 
     // VBR controls
-    g_chkEnabledVBR->SetValue(DEFAULT_VALUE_EnabledVBR);
-    g_spcVBRQuality->SetValue(DEFAULT_VALUE_VBRQuality);
+    gui_chkEnabledVBR->SetValue(DEFAULT_VALUE_EnabledVBR);
+    gui_spcVBRQuality->SetValue(DEFAULT_VALUE_VBRQuality);
     for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_MaxBitrate; i++);
-    g_sldBitrateVBR->SetValue(i);
+    gui_sldBitrateVBR->SetValue(i);
     OnsldBitrateVBRCmdSliderUpdated(evt);
-    g_chkDisableVBRTag->SetValue(DEFAULT_VALUE_DisableVBRTag);
-    g_chkEnforceMinBitrate->SetValue(DEFAULT_VALUE_EnforceMinBitrate);
-    g_chkUseABR->SetValue(DEFAULT_VALUE_UseABR);
-    g_spcAverageBitrateABR->SetValue(DEFAULT_VALUE_AverageBitrateABR);
+    gui_chkDisableVBRTag->SetValue(DEFAULT_VALUE_DisableVBRTag);
+    gui_chkEnforceMinBitrate->SetValue(DEFAULT_VALUE_EnforceMinBitrate);
+    gui_chkUseABR->SetValue(DEFAULT_VALUE_UseABR);
+    gui_spcAverageBitrateABR->SetValue(DEFAULT_VALUE_AverageBitrateABR);
 
     // Audio controls
-    g_chcResampling->SetSelection(DEFAULT_VALUE_Resampling);
-    g_chkHighpass->SetValue(DEFAULT_VALUE_HighpassEnabled);
-    g_spcHighpassFreq->SetValue(DEFAULT_VALUE_HighpassFreq);
-    g_chkHighpassWidth->SetValue(DEFAULT_VALUE_HighpassWidthEnabled);
-    g_spcHighpassWidth->SetValue(DEFAULT_VALUE_HighpassWidth);
-    g_chkLowpass->SetValue(DEFAULT_VALUE_LowpassEnabled);
-    g_spcLowpassFreq->SetValue(DEFAULT_VALUE_LowpassFreq);
-    g_chkLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidthEnabled);
-    g_spcLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidth);
+    gui_chcResampling->SetSelection(DEFAULT_VALUE_Resampling);
+    gui_chkHighpass->SetValue(DEFAULT_VALUE_HighpassEnabled);
+    gui_spcHighpassFreq->SetValue(DEFAULT_VALUE_HighpassFreq);
+    gui_chkHighpassWidth->SetValue(DEFAULT_VALUE_HighpassWidthEnabled);
+    gui_spcHighpassWidth->SetValue(DEFAULT_VALUE_HighpassWidth);
+    gui_chkLowpass->SetValue(DEFAULT_VALUE_LowpassEnabled);
+    gui_spcLowpassFreq->SetValue(DEFAULT_VALUE_LowpassFreq);
+    gui_chkLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidthEnabled);
+    gui_spcLowpassWidth->SetValue(DEFAULT_VALUE_LowpassWidth);
 
     // Advanced controls
-    g_chkCrc->SetValue(DEFAULT_VALUE_Crc);
-    g_chkDeleteFiles->SetValue(DEFAULT_VALUE_DeleteFiles);
-    g_chkMarkNonOriginal->SetValue(DEFAULT_VALUE_MarkNonOriginal);
-    g_chkMarkCopyright->SetValue(DEFAULT_VALUE_MarkCopyright);
-    g_chkEnforceISO->SetValue(DEFAULT_VALUE_EnforceISO);
-    g_chcAlgorithmQualitySel->SetSelection(DEFAULT_VALUE_AlgorithmQualitySel);
-    g_txtCustomOptions->Clear();
-    g_chkCustomOptions->SetValue(DEFAULT_VALUE_CustomOptions);
-    g_txtCustomOptions->WriteText(DEFAULT_VALUE_CustomOptionsText);
+    gui_chkCrc->SetValue(DEFAULT_VALUE_Crc);
+    gui_chkDeleteFiles->SetValue(DEFAULT_VALUE_DeleteFiles);
+    gui_chkMarkNonOriginal->SetValue(DEFAULT_VALUE_MarkNonOriginal);
+    gui_chkMarkCopyright->SetValue(DEFAULT_VALUE_MarkCopyright);
+    gui_chkEnforceISO->SetValue(DEFAULT_VALUE_EnforceISO);
+    gui_chcAlgorithmQualitySel->SetSelection(DEFAULT_VALUE_AlgorithmQualitySel);
+    gui_txtCustomOptions->Clear();
+    gui_chkCustomOptions->SetValue(DEFAULT_VALUE_CustomOptions);
+    gui_txtCustomOptions->WriteText(DEFAULT_VALUE_CustomOptionsText);
 }
 
 void GuiDialogSettings::setLabelsControls() {
     // Sets the size of the sliders
-    g_sldBitrate->SetMax(BITRATE_VALUES_SIZE - 1);
-    g_sldBitrateVBR->SetMax(BITRATE_VALUES_SIZE - 1);
+    gui_sldBitrate->SetMax(BITRATE_VALUES_SIZE - 1);
+    gui_sldBitrateVBR->SetMax(BITRATE_VALUES_SIZE - 1);
 
-    g_chcResampling->Append(_("default (automatic)"));
-    g_chcResampling->Append(_T("8 kHz"));
-    g_chcResampling->Append(_T("11.025 kHz"));
-    g_chcResampling->Append(_T("12 kHz"));
-    g_chcResampling->Append(_T("16 kHz"));
-    g_chcResampling->Append(_T("22.05 kHz"));
-    g_chcResampling->Append(_T("24 kHz"));
-    g_chcResampling->Append(_T("32 kHz"));
-    g_chcResampling->Append(_T("44.1 kHz"));
-    g_chcResampling->Append(_T("48 kHz"));
+    gui_chcResampling->Append(_("default (automatic)"));
+    gui_chcResampling->Append(_T("8 kHz"));
+    gui_chcResampling->Append(_T("11.025 kHz"));
+    gui_chcResampling->Append(_T("12 kHz"));
+    gui_chcResampling->Append(_T("16 kHz"));
+    gui_chcResampling->Append(_T("22.05 kHz"));
+    gui_chcResampling->Append(_T("24 kHz"));
+    gui_chcResampling->Append(_T("32 kHz"));
+    gui_chcResampling->Append(_T("44.1 kHz"));
+    gui_chcResampling->Append(_T("48 kHz"));
 
-    g_chcAlgorithmQualitySel->Append(_("default"));
-    g_chcAlgorithmQualitySel->Append(_("0 (highest quality, slow)"));
-    g_chcAlgorithmQualitySel->Append(_T("1"));
-    g_chcAlgorithmQualitySel->Append(_T("2"));
-    g_chcAlgorithmQualitySel->Append(_T("3"));
-    g_chcAlgorithmQualitySel->Append(_T("4"));
-    g_chcAlgorithmQualitySel->Append(_T("5"));
-    g_chcAlgorithmQualitySel->Append(_T("6"));
-    g_chcAlgorithmQualitySel->Append(_T("7"));
-    g_chcAlgorithmQualitySel->Append(_T("8"));
-    g_chcAlgorithmQualitySel->Append(_("9 (lowest quality, fast)"));
+    gui_chcAlgorithmQualitySel->Append(_("default"));
+    gui_chcAlgorithmQualitySel->Append(_("0 (highest quality, slow)"));
+    gui_chcAlgorithmQualitySel->Append(_T("1"));
+    gui_chcAlgorithmQualitySel->Append(_T("2"));
+    gui_chcAlgorithmQualitySel->Append(_T("3"));
+    gui_chcAlgorithmQualitySel->Append(_T("4"));
+    gui_chcAlgorithmQualitySel->Append(_T("5"));
+    gui_chcAlgorithmQualitySel->Append(_T("6"));
+    gui_chcAlgorithmQualitySel->Append(_T("7"));
+    gui_chcAlgorithmQualitySel->Append(_T("8"));
+    gui_chcAlgorithmQualitySel->Append(_("9 (lowest quality, fast)"));
 }

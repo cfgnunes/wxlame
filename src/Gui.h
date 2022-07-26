@@ -62,23 +62,23 @@ class FrameMain : public wxFrame
 	private:
 
 	protected:
-		wxListCtrl* g_lstFiles;
-		wxMenuBar* g_mainMenuBar;
-		wxMenu* g_mnbFile;
-		wxMenu* g_mnbEdit;
-		wxMenu* g_mnbActions;
-		wxMenu* g_mnbHelp;
-		wxStatusBar* g_mainStatusBar;
-		wxToolBar* g_mainToolBar;
-		wxToolBarToolBase* g_tbAddFolder;
-		wxToolBarToolBase* g_tbAddFiles;
-		wxToolBarToolBase* g_tbRemoveFiles;
-		wxToolBarToolBase* g_tbClearList;
-		wxToolBarToolBase* g_tbEncode;
-		wxToolBarToolBase* g_tbDecode;
-		wxToolBarToolBase* g_tbSettings;
-		wxToolBarToolBase* g_tbAbout;
-		wxMenu* g_mainMenu;
+		wxListCtrl* gui_lstFiles;
+		wxMenuBar* gui_mainMenuBar;
+		wxMenu* gui_mnbFile;
+		wxMenu* gui_mnbEdit;
+		wxMenu* gui_mnbActions;
+		wxMenu* gui_mnbHelp;
+		wxStatusBar* gui_mainStatusBar;
+		wxToolBar* gui_mainToolBar;
+		wxToolBarToolBase* gui_tbAddFolder;
+		wxToolBarToolBase* gui_tbAddFiles;
+		wxToolBarToolBase* gui_tbRemoveFiles;
+		wxToolBarToolBase* gui_tbClearList;
+		wxToolBarToolBase* gui_tbEncode;
+		wxToolBarToolBase* gui_tbDecode;
+		wxToolBarToolBase* gui_tbSettings;
+		wxToolBarToolBase* gui_tbAbout;
+		wxMenu* gui_mainMenu;
 		wxTimer m_timer1;
 
 		// Virtual event handlers, overide them in your derived class
@@ -109,7 +109,7 @@ class FrameMain : public wxFrame
 
 		void FrameMainOnContextMenu( wxMouseEvent &event )
 		{
-		this->PopupMenu( g_mainMenu, event.GetPosition() );
+		this->PopupMenu( gui_mainMenu, event.GetPosition() );
 		}
 
 };
@@ -122,43 +122,43 @@ class DialogSettings : public wxDialog
 	private:
 
 	protected:
-		wxStaticText* g_lblBitrate;
-		wxSlider* g_sldBitrate;
-		wxChoice* g_chcMode;
-		wxRadioButton* g_optUseSameDir;
-		wxRadioButton* g_optEnableOutDir;
-		wxDirPickerCtrl* g_dpkOutputDirectory;
-		wxCheckBox* g_chkDeleteFiles;
-		wxCheckBox* g_chkEnabledVBR;
-		wxStaticText* g_lblBitrateVBR;
-		wxSlider* g_sldBitrateVBR;
-		wxCheckBox* g_chkDisableVBRTag;
-		wxCheckBox* g_chkEnforceMinBitrate;
-		wxCheckBox* g_chkUseABR;
-		wxStaticText* g_lblVBRQuality;
-		wxSpinCtrl* g_spcVBRQuality;
-		wxStaticText* g_lblABR;
-		wxSpinCtrl* g_spcAverageBitrateABR;
-		wxChoice* g_chcResampling;
-		wxCheckBox* g_chkHighpass;
-		wxSpinCtrl* g_spcHighpassFreq;
-		wxCheckBox* g_chkHighpassWidth;
-		wxSpinCtrl* g_spcHighpassWidth;
-		wxCheckBox* g_chkLowpass;
-		wxSpinCtrl* g_spcLowpassFreq;
-		wxCheckBox* g_chkLowpassWidth;
-		wxSpinCtrl* g_spcLowpassWidth;
-		wxCheckBox* g_chkMarkNonOriginal;
-		wxCheckBox* g_chkMarkCopyright;
-		wxCheckBox* g_chkCrc;
-		wxCheckBox* g_chkEnforceISO;
-		wxStaticText* g_lblQualitySelection;
-		wxChoice* g_chcAlgorithmQualitySel;
-		wxCheckBox* g_chkCustomOptions;
-		wxTextCtrl* g_txtCustomOptions;
-		wxButton* g_btnDefault;
-		wxButton* g_btnOK;
-		wxButton* g_btnCancel;
+		wxStaticText* gui_lblBitrate;
+		wxSlider* gui_sldBitrate;
+		wxChoice* gui_chcMode;
+		wxRadioButton* gui_optUseSameDir;
+		wxRadioButton* gui_optEnableOutDir;
+		wxDirPickerCtrl* gui_dpkOutputDirectory;
+		wxCheckBox* gui_chkDeleteFiles;
+		wxCheckBox* gui_chkEnabledVBR;
+		wxStaticText* gui_lblBitrateVBR;
+		wxSlider* gui_sldBitrateVBR;
+		wxCheckBox* gui_chkDisableVBRTag;
+		wxCheckBox* gui_chkEnforceMinBitrate;
+		wxCheckBox* gui_chkUseABR;
+		wxStaticText* gui_lblVBRQuality;
+		wxSpinCtrl* gui_spcVBRQuality;
+		wxStaticText* gui_lblABR;
+		wxSpinCtrl* gui_spcAverageBitrateABR;
+		wxChoice* gui_chcResampling;
+		wxCheckBox* gui_chkHighpass;
+		wxSpinCtrl* gui_spcHighpassFreq;
+		wxCheckBox* gui_chkHighpassWidth;
+		wxSpinCtrl* gui_spcHighpassWidth;
+		wxCheckBox* gui_chkLowpass;
+		wxSpinCtrl* gui_spcLowpassFreq;
+		wxCheckBox* gui_chkLowpassWidth;
+		wxSpinCtrl* gui_spcLowpassWidth;
+		wxCheckBox* gui_chkMarkNonOriginal;
+		wxCheckBox* gui_chkMarkCopyright;
+		wxCheckBox* gui_chkCrc;
+		wxCheckBox* gui_chkEnforceISO;
+		wxStaticText* gui_lblQualitySelection;
+		wxChoice* gui_chcAlgorithmQualitySel;
+		wxCheckBox* gui_chkCustomOptions;
+		wxTextCtrl* gui_txtCustomOptions;
+		wxButton* gui_btnDefault;
+		wxButton* gui_btnOK;
+		wxButton* gui_btnCancel;
 
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnsldBitrateCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
@@ -184,11 +184,11 @@ class DialogProgress : public wxDialog
 	private:
 
 	protected:
-		wxStaticText* g_lblStatusList;
-		wxGauge* g_gaugeListProgress;
-		wxStaticText* g_lblStatusFile;
-		wxGauge* g_gaugeFileProgress;
-		wxButton* g_btnCancel;
+		wxStaticText* gui_lblStatusList;
+		wxGauge* gui_gaugeListProgress;
+		wxStaticText* gui_lblStatusFile;
+		wxGauge* gui_gaugeFileProgress;
+		wxButton* gui_btnCancel;
 		wxTimer m_timer2;
 
 		// Virtual event handlers, overide them in your derived class

@@ -16,20 +16,20 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
     SetStatusBarPane(-1);
 
     // File list manager
-    mp_fileListManager = new FileListManager(g_lstFiles);
+    mp_fileListManager = new FileListManager(gui_lstFiles);
 
     // List Drag & Drop
     mp_dndFile = new DndFile(mp_fileListManager);
-    g_lstFiles->SetDropTarget(mp_dndFile);
+    gui_lstFiles->SetDropTarget(mp_dndFile);
 
     // List title
-    g_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 300);
-    g_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 300);
-    g_lstFiles->InsertColumn(ID_LIST_FORMAT, _("Format"), wxLIST_FORMAT_LEFT, 70);
+    gui_lstFiles->InsertColumn(ID_LIST_FILE, _("File"), wxLIST_FORMAT_LEFT, 300);
+    gui_lstFiles->InsertColumn(ID_LIST_FOLDER, _("Folder"), wxLIST_FORMAT_LEFT, 300);
+    gui_lstFiles->InsertColumn(ID_LIST_FORMAT, _("Format"), wxLIST_FORMAT_LEFT, 70);
 
     // Set statusbar widths
     const int wxStatusBarWidths[3] = {-10, -5, -10};
-    g_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
+    gui_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
     mp_configBase = new ConfigBase(APP_NAME);
@@ -70,7 +70,7 @@ void GuiFrameMain::OnlstFilesItemRClick(wxListEvent &event) {
     updateControls();
 
     // Displays the popup menu when you click a list item
-    g_lstFiles->PopupMenu(g_mainMenu);
+    gui_lstFiles->PopupMenu(gui_mainMenu);
     event.Skip();
 }
 
@@ -128,10 +128,10 @@ void GuiFrameMain::mnuExit(wxCommandEvent &event) {
 }
 
 void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
-    int itemCount = g_lstFiles->GetSelectedItemCount();
+    int itemCount = gui_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
     for (int i = 0; i < itemCount; i++)
-        g_lstFiles->DeleteItem(g_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
+        gui_lstFiles->DeleteItem(gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
@@ -202,32 +202,32 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
 
         // Show the version of tool
         if (!m_exeInputErrorString.IsEmpty())
-            g_mainStatusBar->SetStatusText(m_exeInputErrorString.Item(0), 0);
+            gui_mainStatusBar->SetStatusText(m_exeInputErrorString.Item(0), 0);
         else
-            g_mainStatusBar->SetStatusText(_("LAME not found!"), 0);
+            gui_mainStatusBar->SetStatusText(_("LAME not found!"), 0);
     }
 
     // Show the number of files in list on status bar
-    g_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), g_lstFiles->GetItemCount()) + _("files"), 1);
+    gui_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), gui_lstFiles->GetItemCount()) + _("files"), 1);
 
     // Show the parameters
-    g_mainStatusBar->SetStatusText(_("Lame options: ") + mp_configBase->getStringLameOptions(), 2);
+    gui_mainStatusBar->SetStatusText(_("Lame options: ") + mp_configBase->getStringLameOptions(), 2);
 
     // Disables the menu item "Remove files" if no item is selected
-    g_mainMenu->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
-    g_mainMenuBar->Enable(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_REMOVE_FILES, g_lstFiles->GetSelectedItemCount() > 0);
+    gui_mainMenu->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0);
+    gui_mainMenuBar->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0);
+    gui_mainToolBar->EnableTool(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0);
 
     // Disables the menu item "Clear list" if there is no item in the list
-    g_mainMenu->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
-    g_mainMenuBar->Enable(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_CLEAR_LIST, g_lstFiles->GetItemCount() > 0);
+    gui_mainMenu->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0);
+    gui_mainMenuBar->Enable(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0);
+    gui_mainToolBar->EnableTool(ID_CLEAR_LIST, gui_lstFiles->GetItemCount() > 0);
 
     // Disables menus Encode and Decode case there is no item in the list
-    g_mainMenuBar->Enable(ID_ENCODE, g_lstFiles->GetItemCount() > 0);
-    g_mainMenuBar->Enable(ID_DECODE, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_ENCODE, g_lstFiles->GetItemCount() > 0);
-    g_mainToolBar->EnableTool(ID_DECODE, g_lstFiles->GetItemCount() > 0);
+    gui_mainMenuBar->Enable(ID_ENCODE, gui_lstFiles->GetItemCount() > 0);
+    gui_mainMenuBar->Enable(ID_DECODE, gui_lstFiles->GetItemCount() > 0);
+    gui_mainToolBar->EnableTool(ID_ENCODE, gui_lstFiles->GetItemCount() > 0);
+    gui_mainToolBar->EnableTool(ID_DECODE, gui_lstFiles->GetItemCount() > 0);
     event.Skip(false);
 }
 
@@ -238,14 +238,14 @@ void GuiFrameMain::loadResources() {
     SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/add-folder.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ENCODE, wxBitmap(wxImage(resourceDir + _T("toolbar/encode.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_DECODE, wxBitmap(wxImage(resourceDir + _T("toolbar/decode.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
-    g_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/add-folder.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ENCODE, wxBitmap(wxImage(resourceDir + _T("toolbar/encode.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_DECODE, wxBitmap(wxImage(resourceDir + _T("toolbar/decode.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
 }
 
 void GuiFrameMain::updateControls() {

@@ -16,117 +16,117 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxHORIZONTAL );
 
-	g_lstFiles = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_REPORT );
-	bSizer1->Add( g_lstFiles, 1, wxALL|wxEXPAND, 0 );
+	gui_lstFiles = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_REPORT );
+	bSizer1->Add( gui_lstFiles, 1, wxALL|wxEXPAND, 0 );
 
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
-	g_mainMenuBar = new wxMenuBar( 0 );
-	g_mnbFile = new wxMenu();
-	wxMenuItem* g_mnbAddFolder;
-	g_mnbAddFolder = new wxMenuItem( g_mnbFile, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbFile->Append( g_mnbAddFolder );
+	gui_mainMenuBar = new wxMenuBar( 0 );
+	gui_mnbFile = new wxMenu();
+	wxMenuItem* gui_mnbAddFolder;
+	gui_mnbAddFolder = new wxMenuItem( gui_mnbFile, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbFile->Append( gui_mnbAddFolder );
 
-	wxMenuItem* g_mnbAddFiles;
-	g_mnbAddFiles = new wxMenuItem( g_mnbFile, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbFile->Append( g_mnbAddFiles );
+	wxMenuItem* gui_mnbAddFiles;
+	gui_mnbAddFiles = new wxMenuItem( gui_mnbFile, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbFile->Append( gui_mnbAddFiles );
 
-	g_mnbFile->AppendSeparator();
+	gui_mnbFile->AppendSeparator();
 
-	wxMenuItem* g_mnbExit;
-	g_mnbExit = new wxMenuItem( g_mnbFile, ID_EXIT, wxString( _("Exit") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbFile->Append( g_mnbExit );
+	wxMenuItem* gui_mnbExit;
+	gui_mnbExit = new wxMenuItem( gui_mnbFile, ID_EXIT, wxString( _("Exit") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbFile->Append( gui_mnbExit );
 
-	g_mainMenuBar->Append( g_mnbFile, _("&File") );
+	gui_mainMenuBar->Append( gui_mnbFile, _("&File") );
 
-	g_mnbEdit = new wxMenu();
-	wxMenuItem* g_mnbRemoveFiles;
-	g_mnbRemoveFiles = new wxMenuItem( g_mnbEdit, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbEdit->Append( g_mnbRemoveFiles );
+	gui_mnbEdit = new wxMenu();
+	wxMenuItem* gui_mnbRemoveFiles;
+	gui_mnbRemoveFiles = new wxMenuItem( gui_mnbEdit, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbEdit->Append( gui_mnbRemoveFiles );
 
-	wxMenuItem* g_mnbClearList;
-	g_mnbClearList = new wxMenuItem( g_mnbEdit, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbEdit->Append( g_mnbClearList );
+	wxMenuItem* gui_mnbClearList;
+	gui_mnbClearList = new wxMenuItem( gui_mnbEdit, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbEdit->Append( gui_mnbClearList );
 
-	g_mnbEdit->AppendSeparator();
+	gui_mnbEdit->AppendSeparator();
 
-	wxMenuItem* g_mnbSettings;
-	g_mnbSettings = new wxMenuItem( g_mnbEdit, ID_SETTINGS, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbEdit->Append( g_mnbSettings );
+	wxMenuItem* gui_mnbSettings;
+	gui_mnbSettings = new wxMenuItem( gui_mnbEdit, ID_SETTINGS, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbEdit->Append( gui_mnbSettings );
 
-	g_mainMenuBar->Append( g_mnbEdit, _("&Edit") );
+	gui_mainMenuBar->Append( gui_mnbEdit, _("&Edit") );
 
-	g_mnbActions = new wxMenu();
-	wxMenuItem* g_mnbEncode;
-	g_mnbEncode = new wxMenuItem( g_mnbActions, ID_ENCODE, wxString( _("Encode WAV / Re-Encode MP3") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbActions->Append( g_mnbEncode );
+	gui_mnbActions = new wxMenu();
+	wxMenuItem* gui_mnbEncode;
+	gui_mnbEncode = new wxMenuItem( gui_mnbActions, ID_ENCODE, wxString( _("Encode WAV / Re-Encode MP3") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbActions->Append( gui_mnbEncode );
 
-	wxMenuItem* g_mnbDecode;
-	g_mnbDecode = new wxMenuItem( g_mnbActions, ID_DECODE, wxString( _("Decode MP3") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbActions->Append( g_mnbDecode );
+	wxMenuItem* gui_mnbDecode;
+	gui_mnbDecode = new wxMenuItem( gui_mnbActions, ID_DECODE, wxString( _("Decode MP3") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbActions->Append( gui_mnbDecode );
 
-	g_mainMenuBar->Append( g_mnbActions, _("&Actions") );
+	gui_mainMenuBar->Append( gui_mnbActions, _("&Actions") );
 
-	g_mnbHelp = new wxMenu();
-	wxMenuItem* g_mnbToolWebsite;
-	g_mnbToolWebsite = new wxMenuItem( g_mnbHelp, ID_WEBSITE, wxString( _("LAME Website") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbHelp->Append( g_mnbToolWebsite );
+	gui_mnbHelp = new wxMenu();
+	wxMenuItem* gui_mnbToolWebsite;
+	gui_mnbToolWebsite = new wxMenuItem( gui_mnbHelp, ID_WEBSITE, wxString( _("LAME Website") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbHelp->Append( gui_mnbToolWebsite );
 
-	wxMenuItem* g_mnbWebsite;
-	g_mnbWebsite = new wxMenuItem( g_mnbHelp, ID_TOOL_WEBSITE, wxString( _("wxLame Website") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbHelp->Append( g_mnbWebsite );
+	wxMenuItem* gui_mnbWebsite;
+	gui_mnbWebsite = new wxMenuItem( gui_mnbHelp, ID_TOOL_WEBSITE, wxString( _("wxLame Website") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbHelp->Append( gui_mnbWebsite );
 
-	g_mnbHelp->AppendSeparator();
+	gui_mnbHelp->AppendSeparator();
 
-	wxMenuItem* g_mnbAbout;
-	g_mnbAbout = new wxMenuItem( g_mnbHelp, ID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mnbHelp->Append( g_mnbAbout );
+	wxMenuItem* gui_mnbAbout;
+	gui_mnbAbout = new wxMenuItem( gui_mnbHelp, ID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mnbHelp->Append( gui_mnbAbout );
 
-	g_mainMenuBar->Append( g_mnbHelp, _("&Help") );
+	gui_mainMenuBar->Append( gui_mnbHelp, _("&Help") );
 
-	this->SetMenuBar( g_mainMenuBar );
+	this->SetMenuBar( gui_mainMenuBar );
 
-	g_mainStatusBar = this->CreateStatusBar( 3, wxSTB_SIZEGRIP, wxID_ANY );
-	g_mainToolBar = this->CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, wxID_ANY );
-	g_tbAddFolder = g_mainToolBar->AddTool( ID_ADD_FOLDER, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add folder"), wxEmptyString, NULL );
+	gui_mainStatusBar = this->CreateStatusBar( 3, wxSTB_SIZEGRIP, wxID_ANY );
+	gui_mainToolBar = this->CreateToolBar( wxTB_FLAT|wxTB_HORIZONTAL, wxID_ANY );
+	gui_tbAddFolder = gui_mainToolBar->AddTool( ID_ADD_FOLDER, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add folder"), wxEmptyString, NULL );
 
-	g_tbAddFiles = g_mainToolBar->AddTool( ID_ADD_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add files"), wxEmptyString, NULL );
+	gui_tbAddFiles = gui_mainToolBar->AddTool( ID_ADD_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Add files"), wxEmptyString, NULL );
 
-	g_tbRemoveFiles = g_mainToolBar->AddTool( ID_REMOVE_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Remove files"), wxEmptyString, NULL );
+	gui_tbRemoveFiles = gui_mainToolBar->AddTool( ID_REMOVE_FILES, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Remove files"), wxEmptyString, NULL );
 
-	g_tbClearList = g_mainToolBar->AddTool( ID_CLEAR_LIST, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Clear list"), wxEmptyString, NULL );
+	gui_tbClearList = gui_mainToolBar->AddTool( ID_CLEAR_LIST, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Clear list"), wxEmptyString, NULL );
 
-	g_mainToolBar->AddSeparator();
+	gui_mainToolBar->AddSeparator();
 
-	g_tbEncode = g_mainToolBar->AddTool( ID_ENCODE, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Encode WAV / Re-Encode MP3"), wxEmptyString, NULL );
+	gui_tbEncode = gui_mainToolBar->AddTool( ID_ENCODE, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Encode WAV / Re-Encode MP3"), wxEmptyString, NULL );
 
-	g_tbDecode = g_mainToolBar->AddTool( ID_DECODE, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Decode MP3"), wxEmptyString, NULL );
+	gui_tbDecode = gui_mainToolBar->AddTool( ID_DECODE, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Decode MP3"), wxEmptyString, NULL );
 
-	g_mainToolBar->AddSeparator();
+	gui_mainToolBar->AddSeparator();
 
-	g_tbSettings = g_mainToolBar->AddTool( ID_SETTINGS, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Settings"), wxEmptyString, NULL );
+	gui_tbSettings = gui_mainToolBar->AddTool( ID_SETTINGS, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("Settings"), wxEmptyString, NULL );
 
-	g_tbAbout = g_mainToolBar->AddTool( ID_ABOUT, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("About"), wxEmptyString, NULL );
+	gui_tbAbout = gui_mainToolBar->AddTool( ID_ABOUT, wxEmptyString, wxArtProvider::GetBitmap( wxART_MISSING_IMAGE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, _("About"), wxEmptyString, NULL );
 
-	g_mainToolBar->Realize();
+	gui_mainToolBar->Realize();
 
-	g_mainMenu = new wxMenu();
-	wxMenuItem* g_mnuAddFolder;
-	g_mnuAddFolder = new wxMenuItem( g_mainMenu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mainMenu->Append( g_mnuAddFolder );
+	gui_mainMenu = new wxMenu();
+	wxMenuItem* gui_mnuAddFolder;
+	gui_mnuAddFolder = new wxMenuItem( gui_mainMenu, ID_ADD_FOLDER, wxString( _("Add folder") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mainMenu->Append( gui_mnuAddFolder );
 
-	wxMenuItem* g_mnuAddFiles;
-	g_mnuAddFiles = new wxMenuItem( g_mainMenu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mainMenu->Append( g_mnuAddFiles );
+	wxMenuItem* gui_mnuAddFiles;
+	gui_mnuAddFiles = new wxMenuItem( gui_mainMenu, ID_ADD_FILES, wxString( _("Add files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mainMenu->Append( gui_mnuAddFiles );
 
-	wxMenuItem* g_mnuRemoveFiles;
-	g_mnuRemoveFiles = new wxMenuItem( g_mainMenu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mainMenu->Append( g_mnuRemoveFiles );
+	wxMenuItem* gui_mnuRemoveFiles;
+	gui_mnuRemoveFiles = new wxMenuItem( gui_mainMenu, ID_REMOVE_FILES, wxString( _("Remove files") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mainMenu->Append( gui_mnuRemoveFiles );
 
-	wxMenuItem* g_mnuClearList;
-	g_mnuClearList = new wxMenuItem( g_mainMenu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
-	g_mainMenu->Append( g_mnuClearList );
+	wxMenuItem* gui_mnuClearList;
+	gui_mnuClearList = new wxMenuItem( gui_mainMenu, ID_CLEAR_LIST, wxString( _("Clear list") ) , wxEmptyString, wxITEM_NORMAL );
+	gui_mainMenu->Append( gui_mnuClearList );
 
 	this->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( FrameMain::FrameMainOnContextMenu ), NULL, this );
 
@@ -135,58 +135,58 @@ FrameMain::FrameMain( wxWindow* parent, wxWindowID id, const wxString& title, co
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler( FrameMain::OnlstFilesDeleteItem ), NULL, this );
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_INSERT_ITEM, wxListEventHandler( FrameMain::OnlstFilesInsertItem ), NULL, this );
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( FrameMain::OnlstFilesItemRClick ), NULL, this );
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
-	g_lstFiles->Connect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( FrameMain::OnlstFilesKeyDown ), NULL, this );
-	g_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, g_mnbAddFolder->GetId());
-	g_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, g_mnbAddFiles->GetId());
-	g_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuExit ), this, g_mnbExit->GetId());
-	g_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, g_mnbRemoveFiles->GetId());
-	g_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, g_mnbClearList->GetId());
-	g_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuSettings ), this, g_mnbSettings->GetId());
-	g_mnbActions->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuEncode ), this, g_mnbEncode->GetId());
-	g_mnbActions->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuDecode ), this, g_mnbDecode->GetId());
-	g_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuToolWebsite ), this, g_mnbToolWebsite->GetId());
-	g_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuWebsite ), this, g_mnbWebsite->GetId());
-	g_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAbout ), this, g_mnbAbout->GetId());
-	this->Connect( g_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddDirectory ) );
-	this->Connect( g_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddFiles ) );
-	this->Connect( g_tbRemoveFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ) );
-	this->Connect( g_tbClearList->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuClearList ) );
-	this->Connect( g_tbEncode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuEncode ) );
-	this->Connect( g_tbDecode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuDecode ) );
-	this->Connect( g_tbSettings->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuSettings ) );
-	this->Connect( g_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
-	g_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, g_mnuAddFolder->GetId());
-	g_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, g_mnuAddFiles->GetId());
-	g_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, g_mnuRemoveFiles->GetId());
-	g_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, g_mnuClearList->GetId());
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler( FrameMain::OnlstFilesDeleteItem ), NULL, this );
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_INSERT_ITEM, wxListEventHandler( FrameMain::OnlstFilesInsertItem ), NULL, this );
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( FrameMain::OnlstFilesItemRClick ), NULL, this );
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
+	gui_lstFiles->Connect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( FrameMain::OnlstFilesKeyDown ), NULL, this );
+	gui_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, gui_mnbAddFolder->GetId());
+	gui_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, gui_mnbAddFiles->GetId());
+	gui_mnbFile->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuExit ), this, gui_mnbExit->GetId());
+	gui_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, gui_mnbRemoveFiles->GetId());
+	gui_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, gui_mnbClearList->GetId());
+	gui_mnbEdit->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuSettings ), this, gui_mnbSettings->GetId());
+	gui_mnbActions->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuEncode ), this, gui_mnbEncode->GetId());
+	gui_mnbActions->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuDecode ), this, gui_mnbDecode->GetId());
+	gui_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuToolWebsite ), this, gui_mnbToolWebsite->GetId());
+	gui_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuWebsite ), this, gui_mnbWebsite->GetId());
+	gui_mnbHelp->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAbout ), this, gui_mnbAbout->GetId());
+	this->Connect( gui_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddDirectory ) );
+	this->Connect( gui_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddFiles ) );
+	this->Connect( gui_tbRemoveFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ) );
+	this->Connect( gui_tbClearList->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuClearList ) );
+	this->Connect( gui_tbEncode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuEncode ) );
+	this->Connect( gui_tbDecode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuDecode ) );
+	this->Connect( gui_tbSettings->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuSettings ) );
+	this->Connect( gui_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
+	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddDirectory ), this, gui_mnuAddFolder->GetId());
+	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuAddFiles ), this, gui_mnuAddFiles->GetId());
+	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ), this, gui_mnuRemoveFiles->GetId());
+	gui_mainMenu->Bind(wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( FrameMain::mnuClearList ), this, gui_mnuClearList->GetId());
 	this->Connect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( FrameMain::OnTimer1Trigger ) );
 }
 
 FrameMain::~FrameMain()
 {
 	// Disconnect Events
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler( FrameMain::OnlstFilesDeleteItem ), NULL, this );
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_INSERT_ITEM, wxListEventHandler( FrameMain::OnlstFilesInsertItem ), NULL, this );
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( FrameMain::OnlstFilesItemRClick ), NULL, this );
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
-	g_lstFiles->Disconnect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( FrameMain::OnlstFilesKeyDown ), NULL, this );
-	this->Disconnect( g_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddDirectory ) );
-	this->Disconnect( g_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddFiles ) );
-	this->Disconnect( g_tbRemoveFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ) );
-	this->Disconnect( g_tbClearList->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuClearList ) );
-	this->Disconnect( g_tbEncode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuEncode ) );
-	this->Disconnect( g_tbDecode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuDecode ) );
-	this->Disconnect( g_tbSettings->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuSettings ) );
-	this->Disconnect( g_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_DELETE_ITEM, wxListEventHandler( FrameMain::OnlstFilesDeleteItem ), NULL, this );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_INSERT_ITEM, wxListEventHandler( FrameMain::OnlstFilesInsertItem ), NULL, this );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_DESELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_RIGHT_CLICK, wxListEventHandler( FrameMain::OnlstFilesItemRClick ), NULL, this );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_ITEM_SELECTED, wxListEventHandler( FrameMain::OnlstFilesItemSelect ), NULL, this );
+	gui_lstFiles->Disconnect( wxEVT_COMMAND_LIST_KEY_DOWN, wxListEventHandler( FrameMain::OnlstFilesKeyDown ), NULL, this );
+	this->Disconnect( gui_tbAddFolder->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddDirectory ) );
+	this->Disconnect( gui_tbAddFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAddFiles ) );
+	this->Disconnect( gui_tbRemoveFiles->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuRemoveFiles ) );
+	this->Disconnect( gui_tbClearList->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuClearList ) );
+	this->Disconnect( gui_tbEncode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuEncode ) );
+	this->Disconnect( gui_tbDecode->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuDecode ) );
+	this->Disconnect( gui_tbSettings->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuSettings ) );
+	this->Disconnect( gui_tbAbout->GetId(), wxEVT_COMMAND_TOOL_CLICKED, wxCommandEventHandler( FrameMain::mnuAbout ) );
 	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( FrameMain::OnTimer1Trigger ) );
 
-	delete g_mainMenu;
+	delete gui_mainMenu;
 }
 
 DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
@@ -209,12 +209,12 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer6;
 	sbSizer6 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Bitrate") ), wxVERTICAL );
 
-	g_lblBitrate = new wxStaticText( sbSizer6->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblBitrate->Wrap( -1 );
-	sbSizer6->Add( g_lblBitrate, 0, wxALL, 5 );
+	gui_lblBitrate = new wxStaticText( sbSizer6->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblBitrate->Wrap( -1 );
+	sbSizer6->Add( gui_lblBitrate, 0, wxALL, 5 );
 
-	g_sldBitrate = new wxSlider( sbSizer6->GetStaticBox(), wxID_ANY, 50, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
-	sbSizer6->Add( g_sldBitrate, 0, wxALL|wxEXPAND, 5 );
+	gui_sldBitrate = new wxSlider( sbSizer6->GetStaticBox(), wxID_ANY, 50, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
+	sbSizer6->Add( gui_sldBitrate, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer6->Add( sbSizer6, 1, wxEXPAND, 5 );
@@ -222,11 +222,11 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer7;
 	sbSizer7 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Mode") ), wxVERTICAL );
 
-	wxString g_chcModeChoices[] = { _("default"), _("joint"), _("simple"), _("force"), _("dual-mono"), _("mono") };
-	int g_chcModeNChoices = sizeof( g_chcModeChoices ) / sizeof( wxString );
-	g_chcMode = new wxChoice( sbSizer7->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcModeNChoices, g_chcModeChoices, 0 );
-	g_chcMode->SetSelection( 0 );
-	sbSizer7->Add( g_chcMode, 0, wxALL|wxEXPAND, 5 );
+	wxString gui_chcModeChoices[] = { _("default"), _("joint"), _("simple"), _("force"), _("dual-mono"), _("mono") };
+	int gui_chcModeNChoices = sizeof( gui_chcModeChoices ) / sizeof( wxString );
+	gui_chcMode = new wxChoice( sbSizer7->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, gui_chcModeNChoices, gui_chcModeChoices, 0 );
+	gui_chcMode->SetSelection( 0 );
+	sbSizer7->Add( gui_chcMode, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer6->Add( sbSizer7, 1, wxEXPAND, 5 );
@@ -237,17 +237,17 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer4;
 	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("Output directory") ), wxVERTICAL );
 
-	g_optUseSameDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer4->Add( g_optUseSameDir, 0, wxALL, 2 );
+	gui_optUseSameDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Same as input directory"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer4->Add( gui_optUseSameDir, 0, wxALL, 2 );
 
-	g_optEnableOutDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer4->Add( g_optEnableOutDir, 0, wxALL, 2 );
+	gui_optEnableOutDir = new wxRadioButton( sbSizer4->GetStaticBox(), wxID_ANY, _("Use below:"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer4->Add( gui_optEnableOutDir, 0, wxALL, 2 );
 
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxHORIZONTAL );
 
-	g_dpkOutputDirectory = new wxDirPickerCtrl( sbSizer4->GetStaticBox(), wxID_ANY, wxT("/home/cristiano"), _("Select directory"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
-	bSizer7->Add( g_dpkOutputDirectory, 1, wxALL, 5 );
+	gui_dpkOutputDirectory = new wxDirPickerCtrl( sbSizer4->GetStaticBox(), wxID_ANY, wxT("/home/cristiano"), _("Select directory"), wxDefaultPosition, wxDefaultSize, wxDIRP_DEFAULT_STYLE );
+	bSizer7->Add( gui_dpkOutputDirectory, 1, wxALL, 5 );
 
 
 	sbSizer4->Add( bSizer7, 0, wxEXPAND, 5 );
@@ -258,8 +258,8 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer5;
 	sbSizer5 = new wxStaticBoxSizer( new wxStaticBox( m_panel1, wxID_ANY, _("File options") ), wxHORIZONTAL );
 
-	g_chkDeleteFiles = new wxCheckBox( sbSizer5->GetStaticBox(), wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer5->Add( g_chkDeleteFiles, 0, wxALL, 2 );
+	gui_chkDeleteFiles = new wxCheckBox( sbSizer5->GetStaticBox(), wxID_ANY, _("Delete source file after processing"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer5->Add( gui_chkDeleteFiles, 0, wxALL, 2 );
 
 
 	bSizer5->Add( sbSizer5, 0, wxEXPAND, 5 );
@@ -277,8 +277,8 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer61;
 	sbSizer61 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("VBR") ), wxVERTICAL );
 
-	g_chkEnabledVBR = new wxCheckBox( sbSizer61->GetStaticBox(), wxID_ANY, _("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer61->Add( g_chkEnabledVBR, 0, wxALL, 2 );
+	gui_chkEnabledVBR = new wxCheckBox( sbSizer61->GetStaticBox(), wxID_ANY, _("Enable Variable Bitrate (VBR)"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer61->Add( gui_chkEnabledVBR, 0, wxALL, 2 );
 
 
 	bSizer71->Add( sbSizer61, 0, wxEXPAND, 5 );
@@ -289,12 +289,12 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer71;
 	sbSizer71 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Maximum VBR bitrate") ), wxVERTICAL );
 
-	g_lblBitrateVBR = new wxStaticText( sbSizer71->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblBitrateVBR->Wrap( -1 );
-	sbSizer71->Add( g_lblBitrateVBR, 0, wxALL, 5 );
+	gui_lblBitrateVBR = new wxStaticText( sbSizer71->GetStaticBox(), wxID_ANY, _("Current bitrate:"), wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblBitrateVBR->Wrap( -1 );
+	sbSizer71->Add( gui_lblBitrateVBR, 0, wxALL, 5 );
 
-	g_sldBitrateVBR = new wxSlider( sbSizer71->GetStaticBox(), wxID_ANY, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
-	sbSizer71->Add( g_sldBitrateVBR, 0, wxALL|wxEXPAND, 5 );
+	gui_sldBitrateVBR = new wxSlider( sbSizer71->GetStaticBox(), wxID_ANY, 0, 0, 1, wxDefaultPosition, wxDefaultSize, wxSL_AUTOTICKS|wxSL_HORIZONTAL|wxSL_SELRANGE );
+	sbSizer71->Add( gui_sldBitrateVBR, 0, wxALL|wxEXPAND, 5 );
 
 
 	bSizer8->Add( sbSizer71, 1, wxEXPAND, 5 );
@@ -311,33 +311,33 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer8;
 	sbSizer8 = new wxStaticBoxSizer( new wxStaticBox( m_panel2, wxID_ANY, _("Others") ), wxVERTICAL );
 
-	g_chkDisableVBRTag = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer8->Add( g_chkDisableVBRTag, 0, wxALL, 2 );
+	gui_chkDisableVBRTag = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Disable writing of VBR Tag"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer8->Add( gui_chkDisableVBRTag, 0, wxALL, 2 );
 
-	g_chkEnforceMinBitrate = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer8->Add( g_chkEnforceMinBitrate, 0, wxALL, 2 );
+	gui_chkEnforceMinBitrate = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Strictly enforce minimum bitrate"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer8->Add( gui_chkEnforceMinBitrate, 0, wxALL, 2 );
 
-	g_chkUseABR = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer8->Add( g_chkUseABR, 0, wxALL, 2 );
+	gui_chkUseABR = new wxCheckBox( sbSizer8->GetStaticBox(), wxID_ANY, _("Use ABR instead VBR"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer8->Add( gui_chkUseABR, 0, wxALL, 2 );
 
 	wxFlexGridSizer* fgSizer1;
 	fgSizer1 = new wxFlexGridSizer( 2, 2, 0, 0 );
 	fgSizer1->SetFlexibleDirection( wxBOTH );
 	fgSizer1->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 
-	g_lblVBRQuality = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblVBRQuality->Wrap( -1 );
-	fgSizer1->Add( g_lblVBRQuality, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_lblVBRQuality = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Quality of VBR encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblVBRQuality->Wrap( -1 );
+	fgSizer1->Add( gui_lblVBRQuality, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_spcVBRQuality = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 9, 0 );
-	fgSizer1->Add( g_spcVBRQuality, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcVBRQuality = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 9, 0 );
+	fgSizer1->Add( gui_spcVBRQuality, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_lblABR = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblABR->Wrap( -1 );
-	fgSizer1->Add( g_lblABR, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_lblABR = new wxStaticText( sbSizer8->GetStaticBox(), wxID_ANY, _("Average bitrate encoding ABR:"), wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblABR->Wrap( -1 );
+	fgSizer1->Add( gui_lblABR, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_spcAverageBitrateABR = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("8"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 8, 320, 0 );
-	fgSizer1->Add( g_spcAverageBitrateABR, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcAverageBitrateABR = new wxSpinCtrl( sbSizer8->GetStaticBox(), wxID_ANY, wxT("8"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 8, 320, 0 );
+	fgSizer1->Add( gui_spcAverageBitrateABR, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	sbSizer8->Add( fgSizer1, 0, wxEXPAND, 5 );
@@ -361,10 +361,10 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer11;
 	sbSizer11 = new wxStaticBoxSizer( new wxStaticBox( m_panel3, wxID_ANY, _("Output sampling frequency") ), wxHORIZONTAL );
 
-	wxArrayString g_chcResamplingChoices;
-	g_chcResampling = new wxChoice( sbSizer11->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, g_chcResamplingChoices, 0 );
-	g_chcResampling->SetSelection( 0 );
-	sbSizer11->Add( g_chcResampling, 1, wxALL, 5 );
+	wxArrayString gui_chcResamplingChoices;
+	gui_chcResampling = new wxChoice( sbSizer11->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxDefaultSize, gui_chcResamplingChoices, 0 );
+	gui_chcResampling->SetSelection( 0 );
+	sbSizer11->Add( gui_chcResampling, 1, wxALL, 5 );
 
 
 	bSizer11->Add( sbSizer11, 0, wxEXPAND, 5 );
@@ -375,17 +375,17 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxGridSizer* gSizer1;
 	gSizer1 = new wxGridSizer( 2, 2, 0, 0 );
 
-	g_chkHighpass = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer1->Add( g_chkHighpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
+	gui_chkHighpass = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Highpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	gSizer1->Add( gui_chkHighpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 
-	g_spcHighpassFreq = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
-	gSizer1->Add( g_spcHighpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcHighpassFreq = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	gSizer1->Add( gui_spcHighpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_chkHighpassWidth = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer1->Add( g_chkHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
+	gui_chkHighpassWidth = new wxCheckBox( sbSizer12->GetStaticBox(), wxID_ANY, _("Width of Highpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	gSizer1->Add( gui_chkHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 
-	g_spcHighpassWidth = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
-	gSizer1->Add( g_spcHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcHighpassWidth = new wxSpinCtrl( sbSizer12->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	gSizer1->Add( gui_spcHighpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	sbSizer12->Add( gSizer1, 0, 0, 5 );
@@ -399,17 +399,17 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxGridSizer* gSizer11;
 	gSizer11 = new wxGridSizer( 2, 2, 0, 0 );
 
-	g_chkLowpass = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer11->Add( g_chkLowpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
+	gui_chkLowpass = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Lowpass filtering frequency (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	gSizer11->Add( gui_chkLowpass, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 
-	g_spcLowpassFreq = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
-	gSizer11->Add( g_spcLowpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcLowpassFreq = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	gSizer11->Add( gui_spcLowpassFreq, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_chkLowpassWidth = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
-	gSizer11->Add( g_chkLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
+	gui_chkLowpassWidth = new wxCheckBox( sbSizer13->GetStaticBox(), wxID_ANY, _("Width of Lowpass filter (in Hz):"), wxDefaultPosition, wxDefaultSize, 0 );
+	gSizer11->Add( gui_chkLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 2 );
 
-	g_spcLowpassWidth = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
-	gSizer11->Add( g_spcLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_spcLowpassWidth = new wxSpinCtrl( sbSizer13->GetStaticBox(), wxID_ANY, wxT("50"), wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 50, 50000, 0 );
+	gSizer11->Add( gui_spcLowpassWidth, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	sbSizer13->Add( gSizer11, 0, 0, 5 );
@@ -430,17 +430,17 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxStaticBoxSizer* sbSizer9;
 	sbSizer9 = new wxStaticBoxSizer( new wxStaticBox( m_panel4, wxID_ANY, _("Flags") ), wxVERTICAL );
 
-	g_chkMarkNonOriginal = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkMarkNonOriginal, 0, wxALL, 3 );
+	gui_chkMarkNonOriginal = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as non-original"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( gui_chkMarkNonOriginal, 0, wxALL, 3 );
 
-	g_chkMarkCopyright = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkMarkCopyright, 0, wxALL, 3 );
+	gui_chkMarkCopyright = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Mark as copyright"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( gui_chkMarkCopyright, 0, wxALL, 3 );
 
-	g_chkCrc = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkCrc, 0, wxALL, 2 );
+	gui_chkCrc = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Include CRC error detection"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( gui_chkCrc, 0, wxALL, 2 );
 
-	g_chkEnforceISO = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
-	sbSizer9->Add( g_chkEnforceISO, 0, wxALL, 2 );
+	gui_chkEnforceISO = new wxCheckBox( sbSizer9->GetStaticBox(), wxID_ANY, _("Comply as much as possible to ISO MPEG spec"), wxDefaultPosition, wxDefaultSize, 0 );
+	sbSizer9->Add( gui_chkEnforceISO, 0, wxALL, 2 );
 
 
 	bSizer10->Add( sbSizer9, 0, wxEXPAND, 5 );
@@ -453,20 +453,20 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	fgSizer2->SetFlexibleDirection( wxBOTH );
 	fgSizer2->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 
-	g_lblQualitySelection = new wxStaticText( sbSizer10->GetStaticBox(), wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblQualitySelection->Wrap( -1 );
-	fgSizer2->Add( g_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_lblQualitySelection = new wxStaticText( sbSizer10->GetStaticBox(), wxID_ANY, _("Algorithm quality selection:"), wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblQualitySelection->Wrap( -1 );
+	fgSizer2->Add( gui_lblQualitySelection, 0, wxALIGN_RIGHT|wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	wxArrayString g_chcAlgorithmQualitySelChoices;
-	g_chcAlgorithmQualitySel = new wxChoice( sbSizer10->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), g_chcAlgorithmQualitySelChoices, 0 );
-	g_chcAlgorithmQualitySel->SetSelection( 0 );
-	fgSizer2->Add( g_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
+	wxArrayString gui_chcAlgorithmQualitySelChoices;
+	gui_chcAlgorithmQualitySel = new wxChoice( sbSizer10->GetStaticBox(), wxID_ANY, wxDefaultPosition, wxSize( 200,-1 ), gui_chcAlgorithmQualitySelChoices, 0 );
+	gui_chcAlgorithmQualitySel->SetSelection( 0 );
+	fgSizer2->Add( gui_chcAlgorithmQualitySel, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_chkCustomOptions = new wxCheckBox( sbSizer10->GetStaticBox(), wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
-	fgSizer2->Add( g_chkCustomOptions, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_chkCustomOptions = new wxCheckBox( sbSizer10->GetStaticBox(), wxID_ANY, _("Custom options:"), wxDefaultPosition, wxDefaultSize, 0 );
+	fgSizer2->Add( gui_chkCustomOptions, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	g_txtCustomOptions = new wxTextCtrl( sbSizer10->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
-	fgSizer2->Add( g_txtCustomOptions, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
+	gui_txtCustomOptions = new wxTextCtrl( sbSizer10->GetStaticBox(), wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	fgSizer2->Add( gui_txtCustomOptions, 0, wxALL|wxEXPAND|wxALIGN_CENTER_VERTICAL, 5 );
 
 
 	sbSizer10->Add( fgSizer2, 0, wxEXPAND, 5 );
@@ -485,14 +485,14 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer3;
 	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
 
-	g_btnDefault = new wxButton( this, wxID_ANY, _("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnDefault, 1, wxALL, 5 );
+	gui_btnDefault = new wxButton( this, wxID_ANY, _("Restore defaults"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( gui_btnDefault, 1, wxALL, 5 );
 
-	g_btnOK = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnOK, 1, wxALL, 5 );
+	gui_btnOK = new wxButton( this, wxID_ANY, _("OK"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( gui_btnOK, 1, wxALL, 5 );
 
-	g_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer3->Add( g_btnCancel, 1, wxALL, 5 );
+	gui_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3->Add( gui_btnCancel, 1, wxALL, 5 );
 
 
 	bSizer2->Add( bSizer3, 1, wxEXPAND, 5 );
@@ -505,71 +505,71 @@ DialogSettings::DialogSettings( wxWindow* parent, wxWindowID id, const wxString&
 	this->Centre( wxBOTH );
 
 	// Connect Events
-	g_sldBitrate->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_optUseSameDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_optEnableOutDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkEnabledVBR->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_chkUseABR->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkHighpass->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkHighpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkLowpass->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkLowpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkCustomOptions->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnDefaultClick ), NULL, this );
-	g_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnOKClick ), NULL, this );
-	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnCancelClick ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_optUseSameDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_optEnableOutDir->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkEnabledVBR->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Connect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_chkUseABR->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkHighpass->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkHighpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkLowpass->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkLowpassWidth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkCustomOptions->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_btnDefault->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnDefaultClick ), NULL, this );
+	gui_btnOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnOKClick ), NULL, this );
+	gui_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnCancelClick ), NULL, this );
 }
 
 DialogSettings::~DialogSettings()
 {
 	// Disconnect Events
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_sldBitrate->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
-	g_optUseSameDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_optEnableOutDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkEnabledVBR->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_sldBitrateVBR->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
-	g_chkUseABR->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkHighpass->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkHighpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkLowpass->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkLowpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_chkCustomOptions->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
-	g_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnDefaultClick ), NULL, this );
-	g_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnOKClick ), NULL, this );
-	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnCancelClick ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_sldBitrate->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateCmdSliderUpdated ), NULL, this );
+	gui_optUseSameDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_optEnableOutDir->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkEnabledVBR->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_TOP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_BOTTOM, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_LINEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_LINEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_PAGEUP, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_PAGEDOWN, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_THUMBTRACK, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_THUMBRELEASE, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_sldBitrateVBR->Disconnect( wxEVT_SCROLL_CHANGED, wxScrollEventHandler( DialogSettings::OnsldBitrateVBRCmdSliderUpdated ), NULL, this );
+	gui_chkUseABR->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkHighpass->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkHighpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkLowpass->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkLowpassWidth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_chkCustomOptions->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( DialogSettings::updateDisabledControlsEvent ), NULL, this );
+	gui_btnDefault->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnDefaultClick ), NULL, this );
+	gui_btnOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnOKClick ), NULL, this );
+	gui_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogSettings::OnbtnCancelClick ), NULL, this );
 
 }
 
@@ -580,24 +580,24 @@ DialogProgress::DialogProgress( wxWindow* parent, wxWindowID id, const wxString&
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxVERTICAL );
 
-	g_lblStatusList = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblStatusList->Wrap( -1 );
-	bSizer12->Add( g_lblStatusList, 0, wxALL, 5 );
+	gui_lblStatusList = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblStatusList->Wrap( -1 );
+	bSizer12->Add( gui_lblStatusList, 0, wxALL, 5 );
 
-	g_gaugeListProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
-	g_gaugeListProgress->SetValue( 0 );
-	bSizer12->Add( g_gaugeListProgress, 0, wxALL, 5 );
+	gui_gaugeListProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
+	gui_gaugeListProgress->SetValue( 0 );
+	bSizer12->Add( gui_gaugeListProgress, 0, wxALL, 5 );
 
-	g_lblStatusFile = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	g_lblStatusFile->Wrap( -1 );
-	bSizer12->Add( g_lblStatusFile, 0, wxALL, 5 );
+	gui_lblStatusFile = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	gui_lblStatusFile->Wrap( -1 );
+	bSizer12->Add( gui_lblStatusFile, 0, wxALL, 5 );
 
-	g_gaugeFileProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
-	g_gaugeFileProgress->SetValue( 0 );
-	bSizer12->Add( g_gaugeFileProgress, 0, wxALL, 5 );
+	gui_gaugeFileProgress = new wxGauge( this, wxID_ANY, 100, wxDefaultPosition, wxSize( 370,-1 ), wxGA_HORIZONTAL );
+	gui_gaugeFileProgress->SetValue( 0 );
+	bSizer12->Add( gui_gaugeFileProgress, 0, wxALL, 5 );
 
-	g_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer12->Add( g_btnCancel, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	gui_btnCancel = new wxButton( this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer12->Add( gui_btnCancel, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
 	this->SetSizer( bSizer12 );
@@ -611,7 +611,7 @@ DialogProgress::DialogProgress( wxWindow* parent, wxWindowID id, const wxString&
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( DialogProgress::OnClose ) );
 	this->Connect( wxEVT_IDLE, wxIdleEventHandler( DialogProgress::OnIdle ) );
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( DialogProgress::OnInit ) );
-	g_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogProgress::OnbtnCancelClick ), NULL, this );
+	gui_btnCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogProgress::OnbtnCancelClick ), NULL, this );
 	this->Connect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( DialogProgress::OnTimer2Trigger ) );
 }
 
@@ -621,7 +621,7 @@ DialogProgress::~DialogProgress()
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( DialogProgress::OnClose ) );
 	this->Disconnect( wxEVT_IDLE, wxIdleEventHandler( DialogProgress::OnIdle ) );
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( DialogProgress::OnInit ) );
-	g_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogProgress::OnbtnCancelClick ), NULL, this );
+	gui_btnCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( DialogProgress::OnbtnCancelClick ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_TIMER, wxTimerEventHandler( DialogProgress::OnTimer2Trigger ) );
 
 }

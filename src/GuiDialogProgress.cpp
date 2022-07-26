@@ -67,14 +67,14 @@ void GuiDialogProgress::OnIdle(wxIdleEvent &event) {
 
 void GuiDialogProgress::OnInit(wxInitDialogEvent &event) {
     // Change the button's label to "Cancel"
-    g_btnCancel->SetLabel(_("Cancel"));
+    gui_btnCancel->SetLabel(_("Cancel"));
     m_workingProgress = true;
 
     // Initializes the timer for the async process
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    g_gaugeListProgress->SetRange((int)mp_fileListManager->size());
+    gui_gaugeListProgress->SetRange((int)mp_fileListManager->size());
 
     // Processes the first file
     processNextFile();
@@ -106,7 +106,7 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
         m_fileIterator++;
 
     // Update the value of "bar list"
-    g_gaugeListProgress->SetValue((int)m_fileIterator);
+    gui_gaugeListProgress->SetValue((int)m_fileIterator);
 
     // Updates the labels
     stringLabelsUpdate();
@@ -133,11 +133,11 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
 void GuiDialogProgress::finishedWork() {
     m_timer2.Stop();
 
-    g_gaugeFileProgress->SetRange(1);
-    g_gaugeFileProgress->SetValue(1);
+    gui_gaugeFileProgress->SetRange(1);
+    gui_gaugeFileProgress->SetValue(1);
 
     // Change the button's label to "Close"
-    g_btnCancel->SetLabel(_("Close"));
+    gui_btnCancel->SetLabel(_("Close"));
     m_workingProgress = false;
 }
 
@@ -146,13 +146,13 @@ void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
     long currentValue = 0;
     if (m_workType == LAME_ENCODE) {
         inputString.BeforeFirst('%').AfterFirst('(').ToLong(&currentValue);
-        g_gaugeFileProgress->SetRange(100);
-        g_gaugeFileProgress->SetValue((int)currentValue);
+        gui_gaugeFileProgress->SetRange(100);
+        gui_gaugeFileProgress->SetValue((int)currentValue);
     } else {
         inputString.AfterFirst('/').BeforeFirst(' ').ToLong(&maxValue);
         inputString.BeforeFirst('/').AfterFirst(' ').ToLong(&currentValue);
-        g_gaugeFileProgress->SetRange((int)maxValue);
-        g_gaugeFileProgress->SetValue((int)currentValue);
+        gui_gaugeFileProgress->SetRange((int)maxValue);
+        gui_gaugeFileProgress->SetValue((int)currentValue);
     }
 }
 
@@ -188,12 +188,12 @@ void GuiDialogProgress::processNextFile() {
 
 void GuiDialogProgress::stringLabelsUpdate() {
     unsigned long int total = mp_fileListManager->size();
-    g_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
+    gui_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
     if (m_fileIterator < total) {
         FileInfo fileInfo = mp_fileListManager->getItem(m_fileIterator);
         wxFileName filenameInput = fileInfo.getFileName();
 
-        g_lblStatusFile->SetLabel(
+        gui_lblStatusFile->SetLabel(
             (m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
     }
 }
