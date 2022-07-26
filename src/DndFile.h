@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef DNDFILE_H
-#define DNDFILE_H
+#ifndef DND_FILE_HPP
+#define DND_FILE_HPP
 
 #include "FileInfo.h"
 #include "FileListManager.h"
@@ -12,15 +12,14 @@
 #include <wx/dnd.h>
 
 class DndFile : public wxFileDropTarget {
-public:
+  public:
     DndFile(FileListManager *fileListManager);
-
     virtual ~DndFile();
 
     virtual bool OnDropFiles(wxCoord, wxCoord, const wxArrayString &filenames);
 
-private:
+  private:
     FileListManager *mp_fileListManager;
 };
 
-#endif // DNDFILE_H
+#endif // DND_FILE_HPP

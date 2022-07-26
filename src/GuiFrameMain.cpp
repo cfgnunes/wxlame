@@ -4,14 +4,15 @@
  */
 
 #include "GuiFrameMain.h"
-#include "GuiDialogSettings.h"
-#include "GuiDialogProgress.h"
 #include "Constants.h"
+#include "GuiDialogProgress.h"
+#include "GuiDialogSettings.h"
 
 #include <wx/aboutdlg.h>
+#include <wx/gdicmn.h>
 
 GuiFrameMain::GuiFrameMain(wxWindow *parent)
-        : FrameMain(parent) {
+    : FrameMain(parent) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -50,7 +51,7 @@ GuiFrameMain::~GuiFrameMain() {
 }
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
-    mp_fileListManager->deleteItem((unsigned long) event.GetIndex());
+    mp_fileListManager->deleteItem((unsigned long)event.GetIndex());
 
     updateControls();
     event.Skip();
@@ -185,6 +186,8 @@ void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetVersion(APP_VERSION);
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
+    wxString resourceDir = GetResourceDir();
+    aboutInfo.SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
     wxAboutBox(aboutInfo);
     event.Skip(false);
 }
@@ -233,7 +236,7 @@ void GuiFrameMain::loadResources() {
     wxString resourceDir = GetResourceDir();
 
     // Window icon
-    SetIcon(wxIcon(resourceDir + _T("icon-app.ico")));
+    SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
     g_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));

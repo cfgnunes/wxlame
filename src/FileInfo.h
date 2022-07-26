@@ -3,22 +3,21 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef FILEINFO_H
-#define FILEINFO_H
+#ifndef FILE_INFO_HPP
+#define FILE_INFO_HPP
 
-#include <wx/string.h>
 #include <wx/filename.h>
+#include <wx/string.h>
 
 class FileInfo {
-public:
+  public:
     FileInfo(const wxString &fileName);
-
     virtual ~FileInfo();
 
     wxFileName getFileName() const;
 
-private:
+  private:
     wxFileName m_fileName;
 };
 
-#endif // FILEINFO_H
+#endif // FILE_INFO_HPP

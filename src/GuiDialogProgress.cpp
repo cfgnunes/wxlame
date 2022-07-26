@@ -7,16 +7,16 @@
 #include "Constants.h"
 
 #include <wx/app.h>
-#include <wx/txtstrm.h>
 #include <wx/msgdlg.h>
+#include <wx/txtstrm.h>
 
 BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
-                EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
+EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
 GuiDialogProgress::GuiDialogProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType)
-        : DialogProgress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0),
-          m_workType(workType), m_workingProgress(false) {
+    : DialogProgress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0),
+      m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();
@@ -74,7 +74,7 @@ void GuiDialogProgress::OnInit(wxInitDialogEvent &event) {
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    g_gaugeListProgress->SetRange((int) mp_fileListManager->size());
+    g_gaugeListProgress->SetRange((int)mp_fileListManager->size());
 
     // Processes the first file
     processNextFile();
@@ -106,7 +106,7 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
         m_fileIterator++;
 
     // Update the value of "bar list"
-    g_gaugeListProgress->SetValue((int) m_fileIterator);
+    g_gaugeListProgress->SetValue((int)m_fileIterator);
 
     // Updates the labels
     stringLabelsUpdate();
@@ -147,12 +147,12 @@ void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
     if (m_workType == LAME_ENCODE) {
         inputString.BeforeFirst('%').AfterFirst('(').ToLong(&currentValue);
         g_gaugeFileProgress->SetRange(100);
-        g_gaugeFileProgress->SetValue((int) currentValue);
+        g_gaugeFileProgress->SetValue((int)currentValue);
     } else {
         inputString.AfterFirst('/').BeforeFirst(' ').ToLong(&maxValue);
         inputString.BeforeFirst('/').AfterFirst(' ').ToLong(&currentValue);
-        g_gaugeFileProgress->SetRange((int) maxValue);
-        g_gaugeFileProgress->SetValue((int) currentValue);
+        g_gaugeFileProgress->SetRange((int)maxValue);
+        g_gaugeFileProgress->SetValue((int)currentValue);
     }
 }
 
@@ -181,8 +181,9 @@ void GuiDialogProgress::processNextFile() {
 
     // Execute external application
     m_processPID = wxExecute(
-            fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() +
-            _T("\""), wxEXEC_ASYNC, mp_process);
+        fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() +
+            _T("\""),
+        wxEXEC_ASYNC, mp_process);
 }
 
 void GuiDialogProgress::stringLabelsUpdate() {
@@ -193,6 +194,6 @@ void GuiDialogProgress::stringLabelsUpdate() {
         wxFileName filenameInput = fileInfo.getFileName();
 
         g_lblStatusFile->SetLabel(
-                (m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
+            (m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
     }
 }

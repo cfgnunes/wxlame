@@ -3,60 +3,42 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef GUIFRAMEMAIN_H
-#define GUIFRAMEMAIN_H
+#ifndef GUI_FRAME_MAIN_HPP
+#define GUI_FRAME_MAIN_HPP
 
-#include "Gui.h"
 #include "ConfigBase.h"
-#include "FileListManager.h"
 #include "DndFile.h"
+#include "FileListManager.h"
+#include "Gui.h"
 
 class GuiFrameMain : public FrameMain {
-public:
+  public:
     GuiFrameMain(wxWindow *parent);
-
     virtual ~GuiFrameMain();
 
     void setFilesCmdLine(const wxArrayString &filenames);
 
-protected:
+  protected:
     void OnlstFilesDeleteItem(wxListEvent &event);
-
     void OnlstFilesInsertItem(wxListEvent &event);
-
     void OnlstFilesItemSelect(wxListEvent &event);
-
     void OnlstFilesItemRClick(wxListEvent &event);
-
     void OnlstFilesKeyDown(wxListEvent &event);
-
     void mnuAddDirectory(wxCommandEvent &event);
-
     void mnuAddFiles(wxCommandEvent &event);
-
     void mnuExit(wxCommandEvent &event);
-
     void mnuRemoveFiles(wxCommandEvent &event);
-
     void mnuClearList(wxCommandEvent &event);
-
     void mnuSettings(wxCommandEvent &event);
-
     void mnuEncode(wxCommandEvent &event);
-
     void mnuDecode(wxCommandEvent &event);
-
     void mnuToolWebsite(wxCommandEvent &event);
-
     void mnuWebsite(wxCommandEvent &event);
-
     void mnuAbout(wxCommandEvent &event);
-
     void OnTimer1Trigger(wxTimerEvent &event);
 
-private:
+  private:
     void updateControls();
-
     void loadResources();
 
     ConfigBase *mp_configBase;
@@ -67,4 +49,4 @@ private:
     wxArrayString m_exeInputErrorString;
 };
 
-#endif // GUIFRAMEMAIN_H
+#endif // GUI_FRAME_MAIN_HPP

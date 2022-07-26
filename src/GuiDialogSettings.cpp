@@ -7,7 +7,7 @@
 #include "Constants.h"
 
 GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
-        : DialogSettings(parent), mp_configBase(configBase) {
+    : DialogSettings(parent), mp_configBase(configBase) {
     // Set labels of controls
     setLabelsControls();
 
@@ -36,7 +36,7 @@ void GuiDialogSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
 void GuiDialogSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
     int number = g_sldBitrateVBR->GetValue();
     g_lblBitrateVBR->SetLabel(
-            _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+        _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
 
     event.Skip();
 }

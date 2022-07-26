@@ -3,19 +3,19 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#ifndef CONSTANTS_HPP
+#define CONSTANTS_HPP
 
-#include <wx/string.h>
-#include <wx/stdpaths.h>
-#include <wx/filename.h>
 #include <wx/dir.h>
+#include <wx/filename.h>
+#include <wx/stdpaths.h>
+#include <wx/string.h>
 
 const wxString APP_NAME = _T("wxLame");
 const wxString APP_VERSION = _T("3.5");
 const wxString APP_NAME_WITH_VERSION = APP_NAME + _T(" v") + APP_VERSION;
 
-const wxString APP_COPYRIGHT = _T("(C) 2011-2019 Cristiano Nunes <cfgnunes@gmail.com>");
+const wxString APP_COPYRIGHT = _T("(C) 2011-2019 Cristiano Fraga G. Nunes <cfgnunes@gmail.com>");
 const wxString APP_WEBSITE = _T("https://github.com/cfgnunes/wxlame");
 
 const wxString APP_TOOL_EXECUTABLE = _T("lame");
@@ -33,7 +33,7 @@ enum ModeValues {
     MODE_JOINT = 1,
     MODE_SIMPLE,
     MODE_FORCE,
-    MODE_DUALMONO,
+    MODE_DUAL_MONO,
     MODE_MONO
 };
 
@@ -116,20 +116,24 @@ inline wxString GetResourceDir() {
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxFileName executableFilename(executablePath);
     wxString resourceDirName = _T("/resource/");
-
-#ifdef __LINUX__
     wxDir dir;
     wxString resourceDir;
 
+#ifdef __LINUX__
     resourceDir = _T("/usr/share/wxlame") + resourceDirName;
-    if (dir.Open(resourceDir))
-        return resourceDir;
-
-    resourceDir = _T(".") + resourceDirName;
-    if (dir.Open(resourceDir))
+    if (dir.Exists(resourceDir))
         return resourceDir;
 #endif
+
+    resourceDir = _T(".") + resourceDirName;
+    if (dir.Exists(resourceDir))
+        return resourceDir;
+
+    resourceDir = _T("..") + resourceDirName;
+    if (dir.Exists(resourceDir))
+        return resourceDir;
+
     return executableFilename.GetPath() + resourceDirName;
 }
 
-#endif // CONSTANTS_H
+#endif // CONSTANTS_HPP

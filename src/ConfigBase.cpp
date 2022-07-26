@@ -82,7 +82,7 @@ wxString ConfigBase::getStringLameOptions() const {
         case MODE_FORCE:
             lameOptions.append(_T("-m f "));
             break;
-        case MODE_DUALMONO:
+        case MODE_DUAL_MONO:
             lameOptions.append(_T("-m d "));
             break;
         case MODE_MONO:
@@ -148,7 +148,7 @@ wxString ConfigBase::getStringLameOptions() const {
     return lameOptions;
 }
 
-// Gets...
+// Gets
 
 wxString ConfigBase::getAppVersion() const {
     wxString value = wxEmptyString;
@@ -330,7 +330,7 @@ wxString ConfigBase::getCustomOptionsText() const {
     return value;
 }
 
-// Sets...
+// Sets
 
 void ConfigBase::setAppVersion(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);

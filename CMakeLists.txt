@@ -14,7 +14,7 @@ include(${wxWidgets_USE_FILE})
 
 # Set compiler parameters
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s -O3 -Wall -Wextra -Wpedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ansi -s -Wall -Wextra -Wpedantic")
 
 # Sources
 file(GLOB SRC_FILES src/*.cpp src/*.h)

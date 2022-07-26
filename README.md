@@ -65,10 +65,6 @@ If you spot a bug, or want to improve the code, or even make the content better,
 
 This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/cfgnunes/wxlame/tags).
 
-## Authors
-
-- Cristiano Nunes
-
 ## License
 
 This program is licensed under the terms of the GNU General Public License version 3. Available online under:
