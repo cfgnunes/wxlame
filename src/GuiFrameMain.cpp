@@ -9,7 +9,6 @@
 #include "GuiDialogSettings.h"
 
 #include <wx/aboutdlg.h>
-#include <wx/gdicmn.h>
 
 GuiFrameMain::GuiFrameMain(wxWindow *parent)
     : FrameMain(parent) {
