@@ -6,8 +6,8 @@
 #ifndef GUI_DIALOG_PROGRESS_HPP
 #define GUI_DIALOG_PROGRESS_HPP
 
-#include "AppSettings.hpp"
-#include "FileListManager.hpp"
+#include "../AppSettings.hpp"
+#include "../FileListManager.hpp"
 #include "Gui.h"
 
 #include <wx/process.h>

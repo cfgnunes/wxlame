@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
+#include "../Constants.hpp"
 #include "GuiFrameMain.hpp"
-#include "Constants.hpp"
 #include "GuiDialogProgress.hpp"
 #include "GuiDialogSettings.hpp"
 
