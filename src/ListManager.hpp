@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#ifndef LIST_CTRL_MANAGER_HPP
-#define LIST_CTRL_MANAGER_HPP
+#ifndef LIST_MANAGER_HPP
+#define LIST_MANAGER_HPP
 
 #include "FileData.hpp"
 
@@ -13,10 +13,10 @@
 #include <wx/filename.h>
 #include <wx/listctrl.h>
 
-class ListCtrlManager {
+class ListManager {
   public:
-    ListCtrlManager(wxListCtrl *listCtrl);
-    virtual ~ListCtrlManager();
+    ListManager(wxListCtrl *listCtrl);
+    virtual ~ListManager();
 
     void insertFilesAndDir(const wxArrayString &filenames);
     void insertFiles(const wxArrayString &filenames);
@@ -34,4 +34,4 @@ class ListCtrlManager {
     std::list<FileData> *mp_filesData;
 };
 
-#endif // LIST_CTRL_MANAGER_HPP
+#endif // LIST_MANAGER_HPP

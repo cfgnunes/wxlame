@@ -8,7 +8,7 @@
 
 #include "../AppSettings.hpp"
 #include "../FileDrop.hpp"
-#include "../ListCtrlManager.hpp"
+#include "../ListManager.hpp"
 #include "Gui.h"
 
 class GuiFrameMain : public FrameMain {
@@ -42,7 +42,7 @@ class GuiFrameMain : public FrameMain {
     void loadResources();
 
     AppSettings *mp_appSettings;
-    ListCtrlManager *mp_listManager;
+    ListManager *mp_listManager;
     FileDrop *mp_fileDrop;
     wxString m_exeTool;
     wxArrayString m_exeInputString;

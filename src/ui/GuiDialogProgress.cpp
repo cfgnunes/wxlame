@@ -14,7 +14,7 @@ BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listManager, int workType) : DialogProgress(parent), mp_appSettings(appSettings), mp_listManager(listManager), m_fileIdx(0), m_workType(workType), m_workingProgress(false) {
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListManager *listManager, int workType) : DialogProgress(parent), mp_appSettings(appSettings), mp_listManager(listManager), m_fileIdx(0), m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();

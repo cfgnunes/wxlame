@@ -7,7 +7,7 @@
 #define GUI_DIALOG_PROGRESS_HPP
 
 #include "../AppSettings.hpp"
-#include "../ListCtrlManager.hpp"
+#include "../ListManager.hpp"
 #include "Gui.h"
 
 #include <wx/process.h>
@@ -21,7 +21,7 @@ const int ID_TOOL_PROCESS = ::wxNewId();
 
 class GuiDialogProgress : public DialogProgress {
   public:
-    GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listManager, int workType);
+    GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListManager *listManager, int workType);
     virtual ~GuiDialogProgress();
 
   protected:
@@ -39,7 +39,7 @@ class GuiDialogProgress : public DialogProgress {
     void stringLabelsUpdate();
 
     AppSettings *mp_appSettings;
-    ListCtrlManager *mp_listManager;
+    ListManager *mp_listManager;
     wxProcess *mp_process;
     unsigned long int m_fileIdx;
     int m_workType;
