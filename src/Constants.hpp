@@ -26,8 +26,7 @@ const wxString APP_OPEN_EXT = _T("mp3;wav;aif;aiff;ape");
 const int BITRATE_VALUES[] = {8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 192, 224, 256, 320};
 const int BITRATE_VALUES_SIZE = 18;
 
-const wxString RESAMPLING_VALUES[] = {_T("8"), _T("11.025"), _T("12"), _T("16"), _T("22.05"), _T("24"), _T("32"),
-                                      _T("44.1"), _T("48")};
+const wxString RESAMPLING_VALUES[] = {_T("8"), _T("11.025"), _T("12"), _T("16"), _T("22.05"), _T("24"), _T("32"), _T("44.1"), _T("48")};
 
 enum ModeValues {
     MODE_JOINT = 1,

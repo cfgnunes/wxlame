@@ -5,8 +5,7 @@
 
 #include "FileData.hpp"
 
-FileData::FileData(const wxString &fileName)
-    : m_fileName(fileName) {
+FileData::FileData(const wxString &fileName) : m_fileName(fileName) {
 }
 
 FileData::~FileData() {

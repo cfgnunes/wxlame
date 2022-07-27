@@ -3,8 +3,8 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "../Constants.hpp"
 #include "GuiDialogProgress.hpp"
+#include "../Constants.hpp"
 
 #include <wx/app.h>
 #include <wx/msgdlg.h>
@@ -14,9 +14,7 @@ BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listCtrlManager, int workType)
-    : DialogProgress(parent), mp_appSettings(appSettings), mp_listCtrlManager(listCtrlManager), m_fileIterator(0),
-      m_workType(workType), m_workingProgress(false) {
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listCtrlManager, int workType) : DialogProgress(parent), mp_appSettings(appSettings), mp_listCtrlManager(listCtrlManager), m_fileIterator(0), m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();
@@ -180,10 +178,7 @@ void GuiDialogProgress::processNextFile() {
         filenameOutput.SetExt(_T("wav"));
 
     // Execute external application
-    m_processPID = wxExecute(
-        fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() +
-            _T("\""),
-        wxEXEC_ASYNC, mp_process);
+    m_processPID = wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() + _T("\""), wxEXEC_ASYNC, mp_process);
 }
 
 void GuiDialogProgress::stringLabelsUpdate() {
@@ -193,7 +188,6 @@ void GuiDialogProgress::stringLabelsUpdate() {
         FileData fileData = mp_listCtrlManager->getFileData(m_fileIterator);
         wxFileName filenameInput = fileData.getFileName();
 
-        gui_lblStatusFile->SetLabel(
-            (m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
+        gui_lblStatusFile->SetLabel((m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
     }
 }

@@ -3,15 +3,14 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "../Constants.hpp"
 #include "GuiFrameMain.hpp"
+#include "../Constants.hpp"
 #include "GuiDialogProgress.hpp"
 #include "GuiDialogSettings.hpp"
 
 #include <wx/aboutdlg.h>
 
-GuiFrameMain::GuiFrameMain(wxWindow *parent)
-    : FrameMain(parent) {
+GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent) {
     // Disable status bar pane used to display menu and toolbar help
     SetStatusBarPane(-1);
 
@@ -101,8 +100,7 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT,
-                            wxFD_OPEN | wxFD_MULTIPLE);
+    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());

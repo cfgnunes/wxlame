@@ -72,22 +72,22 @@ wxString AppSettings::getStringLameOptions() const {
 
     // Mode
     switch (getMode()) {
-        default:
-        case MODE_JOINT:
-            lameOptions.append(_T("-m j "));
-            break;
-        case MODE_SIMPLE:
-            lameOptions.append(_T("-m s "));
-            break;
-        case MODE_FORCE:
-            lameOptions.append(_T("-m f "));
-            break;
-        case MODE_DUAL_MONO:
-            lameOptions.append(_T("-m d "));
-            break;
-        case MODE_MONO:
-            lameOptions.append(_T("-m m "));
-            break;
+    default:
+    case MODE_JOINT:
+        lameOptions.append(_T("-m j "));
+        break;
+    case MODE_SIMPLE:
+        lameOptions.append(_T("-m s "));
+        break;
+    case MODE_FORCE:
+        lameOptions.append(_T("-m f "));
+        break;
+    case MODE_DUAL_MONO:
+        lameOptions.append(_T("-m d "));
+        break;
+    case MODE_MONO:
+        lameOptions.append(_T("-m m "));
+        break;
     }
 
     // Crc
@@ -405,7 +405,7 @@ void AppSettings::setHighpassWidthEnabled(bool value) {
 }
 
 void AppSettings::setHighpassWidth(int value) {
-    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);;
+    mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);
 }
 
 void AppSettings::setLowpassEnabled(bool value) {
