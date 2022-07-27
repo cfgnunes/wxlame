@@ -63,13 +63,13 @@ class FrameMain : public wxFrame
 
 	protected:
 		wxListCtrl* gui_lstFiles;
-		wxMenuBar* gui_mainMenuBar;
+		wxMenuBar* gui_menuBar;
 		wxMenu* gui_mnbFile;
 		wxMenu* gui_mnbEdit;
 		wxMenu* gui_mnbActions;
 		wxMenu* gui_mnbHelp;
 		wxStatusBar* gui_mainStatusBar;
-		wxToolBar* gui_mainToolBar;
+		wxToolBar* gui_toolBar;
 		wxToolBarToolBase* gui_tbAddFolder;
 		wxToolBarToolBase* gui_tbAddFiles;
 		wxToolBarToolBase* gui_tbRemoveFiles;
@@ -78,7 +78,7 @@ class FrameMain : public wxFrame
 		wxToolBarToolBase* gui_tbDecode;
 		wxToolBarToolBase* gui_tbSettings;
 		wxToolBarToolBase* gui_tbAbout;
-		wxMenu* gui_mainMenu;
+		wxMenu* gui_menu;
 		wxTimer m_timer1;
 
 		// Virtual event handlers, overide them in your derived class
@@ -109,7 +109,7 @@ class FrameMain : public wxFrame
 
 		void FrameMainOnContextMenu( wxMouseEvent &event )
 		{
-		this->PopupMenu( gui_mainMenu, event.GetPosition() );
+		this->PopupMenu( gui_menu, event.GetPosition() );
 		}
 
 };
@@ -161,9 +161,9 @@ class DialogSettings : public wxDialog
 		wxButton* gui_btnCancel;
 
 		// Virtual event handlers, overide them in your derived class
-		virtual void OnsldBitrateCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
+		virtual void OnsldBitrateSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
 		virtual void updateDisabledControlsEvent( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnsldBitrateVBRCmdSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
+		virtual void OnsldBitrateVBRSliderUpdated( wxScrollEvent& event ) { event.Skip(); }
 		virtual void OnbtnDefaultClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnOKClick( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnbtnCancelClick( wxCommandEvent& event ) { event.Skip(); }

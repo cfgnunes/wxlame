@@ -15,9 +15,9 @@ class GuiDialogSettings : public DialogSettings {
     virtual ~GuiDialogSettings();
 
   protected:
-    void OnsldBitrateCmdSliderUpdated(wxScrollEvent &event);
+    void OnsldBitrateSliderUpdated(wxScrollEvent &event);
     void updateDisabledControlsEvent(wxCommandEvent &event);
-    void OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event);
+    void OnsldBitrateVBRSliderUpdated(wxScrollEvent &event);
     void OnbtnDefaultClick(wxCommandEvent &event);
     void OnbtnOKClick(wxCommandEvent &event);
     void OnbtnCancelClick(wxCommandEvent &event);

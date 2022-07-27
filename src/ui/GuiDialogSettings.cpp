@@ -3,11 +3,10 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "../Constants.hpp"
 #include "GuiDialogSettings.hpp"
+#include "../Constants.hpp"
 
-GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings)
-    : DialogSettings(parent), mp_appSettings(appSettings) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings) : DialogSettings(parent), mp_appSettings(appSettings) {
     // Set labels of controls
     setLabelsControls();
 
@@ -21,9 +20,13 @@ GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings)
 GuiDialogSettings::~GuiDialogSettings() {
 }
 
-void GuiDialogSettings::OnsldBitrateCmdSliderUpdated(wxScrollEvent &event) {
+void GuiDialogSettings::OnsldBitrateSliderUpdated(wxScrollEvent &event) {
     int number = gui_sldBitrate->GetValue();
-    gui_lblBitrate->SetLabel(_("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+    wxString msg;
+    msg += _("Current bitrate:");
+    msg += wxString::Format(_T(" %i"), BITRATE_VALUES[number]);
+    msg += _T(" kbit");
+    gui_lblBitrate->SetLabel(msg);
 
     event.Skip();
 }
@@ -33,10 +36,13 @@ void GuiDialogSettings::updateDisabledControlsEvent(wxCommandEvent &event) {
     event.Skip(false);
 }
 
-void GuiDialogSettings::OnsldBitrateVBRCmdSliderUpdated(wxScrollEvent &event) {
+void GuiDialogSettings::OnsldBitrateVBRSliderUpdated(wxScrollEvent &event) {
     int number = gui_sldBitrateVBR->GetValue();
-    gui_lblBitrateVBR->SetLabel(
-        _("Current bitrate:") + wxString::Format(_T(" %i"), BITRATE_VALUES[number]) + _T(" kbit"));
+    wxString msg;
+    msg += _("Current bitrate:");
+    msg += wxString::Format(_T(" %i"), BITRATE_VALUES[number]);
+    msg += _T(" kbit");
+    gui_lblBitrateVBR->SetLabel(msg);
 
     event.Skip();
 }
@@ -63,9 +69,10 @@ void GuiDialogSettings::updateValueControls() {
     wxScrollEvent evt;
 
     // General controls
-    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getBitrate(); i++);
+    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getBitrate(); i++)
+        ;
     gui_sldBitrate->SetValue(i);
-    OnsldBitrateCmdSliderUpdated(evt);
+    OnsldBitrateSliderUpdated(evt);
     gui_dpkOutputDirectory->SetPath(mp_appSettings->getOutDir());
     gui_optEnableOutDir->SetValue(mp_appSettings->getEnableOutDir());
     gui_optUseSameDir->SetValue(!mp_appSettings->getEnableOutDir());
@@ -74,9 +81,10 @@ void GuiDialogSettings::updateValueControls() {
     // VBR controls
     gui_chkEnabledVBR->SetValue(mp_appSettings->getEnabledVBR());
     gui_spcVBRQuality->SetValue(mp_appSettings->getVBRQuality());
-    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getMaxBitrate(); i++);
+    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getMaxBitrate(); i++)
+        ;
     gui_sldBitrateVBR->SetValue(i);
-    OnsldBitrateVBRCmdSliderUpdated(evt);
+    OnsldBitrateVBRSliderUpdated(evt);
     gui_chkDisableVBRTag->SetValue(mp_appSettings->getDisableVBRTag());
     gui_chkEnforceMinBitrate->SetValue(mp_appSettings->getEnforceMinBitrate());
     gui_chkUseABR->SetValue(mp_appSettings->getUseABR());
@@ -177,9 +185,10 @@ void GuiDialogSettings::defaultValueControls() {
     wxScrollEvent evt;
 
     // General controls
-    for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_Bitrate; i++);
+    for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_Bitrate; i++)
+        ;
     gui_sldBitrate->SetValue(i);
-    OnsldBitrateCmdSliderUpdated(evt);
+    OnsldBitrateSliderUpdated(evt);
     gui_dpkOutputDirectory->SetPath(DEFAULT_VALUE_OutDir);
 
     gui_optEnableOutDir->SetValue(DEFAULT_VALUE_EnableOutDir);
@@ -189,9 +198,10 @@ void GuiDialogSettings::defaultValueControls() {
     // VBR controls
     gui_chkEnabledVBR->SetValue(DEFAULT_VALUE_EnabledVBR);
     gui_spcVBRQuality->SetValue(DEFAULT_VALUE_VBRQuality);
-    for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_MaxBitrate; i++);
+    for (i = 0; BITRATE_VALUES[i] != DEFAULT_VALUE_MaxBitrate; i++)
+        ;
     gui_sldBitrateVBR->SetValue(i);
-    OnsldBitrateVBRCmdSliderUpdated(evt);
+    OnsldBitrateVBRSliderUpdated(evt);
     gui_chkDisableVBRTag->SetValue(DEFAULT_VALUE_DisableVBRTag);
     gui_chkEnforceMinBitrate->SetValue(DEFAULT_VALUE_EnforceMinBitrate);
     gui_chkUseABR->SetValue(DEFAULT_VALUE_UseABR);
