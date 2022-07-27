@@ -19,8 +19,7 @@ const wxString APP_COPYRIGHT = _T("(C) 2011-2019 Cristiano Fraga G. Nunes <cfgnu
 const wxString APP_WEBSITE = _T("https://github.com/cfgnunes/wxlame");
 
 const wxString APP_TOOL_EXECUTABLE = _T("lame");
-const wxString APP_WILDCARD_EXT = _T(
-        "Audio files|*.mp3;*.wav;*.aif;*.aiff;*.ape;*.MP3;*.WAV;*.AIF;*.AIFF;*.APE|MP3 files (*.mp3)|*.mp3;*.MP3|Wave files (*.wav)|*.wav;*.WAV|AIFF files (*.aif;*.aiff)|*.aif;*.aiff;*.AIF;*.AIFF|Monkey's audio files (*.ape)|*.ape;*.APE");
+const wxString APP_WILDCARD_EXT = _T("Audio files|*.mp3;*.wav;*.aif;*.aiff;*.ape;*.MP3;*.WAV;*.AIF;*.AIFF;*.APE|MP3 files (*.mp3)|*.mp3;*.MP3|Wave files (*.wav)|*.wav;*.WAV|AIFF files (*.aif;*.aiff)|*.aif;*.aiff;*.AIF;*.AIFF|Monkey's audio files (*.ape)|*.ape;*.APE");
 const wxString APP_OPEN_EXT = _T("mp3;wav;aif;aiff;ape");
 
 const int BITRATE_VALUES[] = {8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, 192, 224, 256, 320};
