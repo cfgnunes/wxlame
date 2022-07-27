@@ -14,8 +14,8 @@ class AppSettings {
     AppSettings(const wxString &appName = wxEmptyString);
     ~AppSettings();
 
-    void setDefaultConfig();
-    void configFlush();
+    void setDefaultValues();
+    void flush();
     wxString getStringLameOptions() const;
 
     // Gets

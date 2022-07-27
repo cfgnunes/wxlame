@@ -169,7 +169,7 @@ void GuiDialogSettings::saveValuesConfig() {
     mp_appSettings->setCustomOptions(gui_chkCustomOptions->GetValue());
     mp_appSettings->setCustomOptionsText(gui_txtCustomOptions->GetLineText(0));
 
-    mp_appSettings->configFlush();
+    mp_appSettings->flush();
 }
 
 void GuiDialogSettings::defaultValueControls() {
