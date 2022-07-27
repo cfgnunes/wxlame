@@ -6,12 +6,12 @@
 #ifndef GUI_DIALOG_SETTINGS_HPP
 #define GUI_DIALOG_SETTINGS_HPP
 
-#include "ConfigBase.hpp"
+#include "AppSettings.hpp"
 #include "Gui.h"
 
 class GuiDialogSettings : public DialogSettings {
   public:
-    GuiDialogSettings(wxWindow *parent, ConfigBase *configBase);
+    GuiDialogSettings(wxWindow *parent, AppSettings *appSettings);
     virtual ~GuiDialogSettings();
 
   protected:
@@ -29,7 +29,7 @@ class GuiDialogSettings : public DialogSettings {
     void saveValuesConfig();
     void setLabelsControls();
 
-    ConfigBase *mp_configBase;
+    AppSettings *mp_appSettings;
 };
 
 #endif // GUI_DIALOG_SETTINGS_HPP

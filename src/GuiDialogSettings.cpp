@@ -6,8 +6,8 @@
 #include "GuiDialogSettings.hpp"
 #include "Constants.hpp"
 
-GuiDialogSettings::GuiDialogSettings(wxWindow *parent, ConfigBase *configBase)
-    : DialogSettings(parent), mp_configBase(configBase) {
+GuiDialogSettings::GuiDialogSettings(wxWindow *parent, AppSettings *appSettings)
+    : DialogSettings(parent), mp_appSettings(appSettings) {
     // Set labels of controls
     setLabelsControls();
 
@@ -63,46 +63,46 @@ void GuiDialogSettings::updateValueControls() {
     wxScrollEvent evt;
 
     // General controls
-    for (i = 0; BITRATE_VALUES[i] != mp_configBase->getBitrate(); i++);
+    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getBitrate(); i++);
     gui_sldBitrate->SetValue(i);
     OnsldBitrateCmdSliderUpdated(evt);
-    gui_dpkOutputDirectory->SetPath(mp_configBase->getOutDir());
-    gui_optEnableOutDir->SetValue(mp_configBase->getEnableOutDir());
-    gui_optUseSameDir->SetValue(!mp_configBase->getEnableOutDir());
-    gui_chcMode->SetSelection(mp_configBase->getMode());
+    gui_dpkOutputDirectory->SetPath(mp_appSettings->getOutDir());
+    gui_optEnableOutDir->SetValue(mp_appSettings->getEnableOutDir());
+    gui_optUseSameDir->SetValue(!mp_appSettings->getEnableOutDir());
+    gui_chcMode->SetSelection(mp_appSettings->getMode());
 
     // VBR controls
-    gui_chkEnabledVBR->SetValue(mp_configBase->getEnabledVBR());
-    gui_spcVBRQuality->SetValue(mp_configBase->getVBRQuality());
-    for (i = 0; BITRATE_VALUES[i] != mp_configBase->getMaxBitrate(); i++);
+    gui_chkEnabledVBR->SetValue(mp_appSettings->getEnabledVBR());
+    gui_spcVBRQuality->SetValue(mp_appSettings->getVBRQuality());
+    for (i = 0; BITRATE_VALUES[i] != mp_appSettings->getMaxBitrate(); i++);
     gui_sldBitrateVBR->SetValue(i);
     OnsldBitrateVBRCmdSliderUpdated(evt);
-    gui_chkDisableVBRTag->SetValue(mp_configBase->getDisableVBRTag());
-    gui_chkEnforceMinBitrate->SetValue(mp_configBase->getEnforceMinBitrate());
-    gui_chkUseABR->SetValue(mp_configBase->getUseABR());
-    gui_spcAverageBitrateABR->SetValue(mp_configBase->getAverageBitrateABR());
+    gui_chkDisableVBRTag->SetValue(mp_appSettings->getDisableVBRTag());
+    gui_chkEnforceMinBitrate->SetValue(mp_appSettings->getEnforceMinBitrate());
+    gui_chkUseABR->SetValue(mp_appSettings->getUseABR());
+    gui_spcAverageBitrateABR->SetValue(mp_appSettings->getAverageBitrateABR());
 
     // Audio controls
-    gui_chcResampling->SetSelection(mp_configBase->getResampling());
-    gui_chkHighpass->SetValue(mp_configBase->getHighpassEnabled());
-    gui_spcHighpassFreq->SetValue(mp_configBase->getHighpassFreq());
-    gui_chkHighpassWidth->SetValue(mp_configBase->getHighpassWidthEnabled());
-    gui_spcHighpassWidth->SetValue(mp_configBase->getHighpassWidth());
-    gui_chkLowpass->SetValue(mp_configBase->getLowpassEnabled());
-    gui_spcLowpassFreq->SetValue(mp_configBase->getLowpassFreq());
-    gui_chkLowpassWidth->SetValue(mp_configBase->getLowpassWidthEnabled());
-    gui_spcLowpassWidth->SetValue(mp_configBase->getLowpassWidth());
+    gui_chcResampling->SetSelection(mp_appSettings->getResampling());
+    gui_chkHighpass->SetValue(mp_appSettings->getHighpassEnabled());
+    gui_spcHighpassFreq->SetValue(mp_appSettings->getHighpassFreq());
+    gui_chkHighpassWidth->SetValue(mp_appSettings->getHighpassWidthEnabled());
+    gui_spcHighpassWidth->SetValue(mp_appSettings->getHighpassWidth());
+    gui_chkLowpass->SetValue(mp_appSettings->getLowpassEnabled());
+    gui_spcLowpassFreq->SetValue(mp_appSettings->getLowpassFreq());
+    gui_chkLowpassWidth->SetValue(mp_appSettings->getLowpassWidthEnabled());
+    gui_spcLowpassWidth->SetValue(mp_appSettings->getLowpassWidth());
 
     // Advanced controls
-    gui_chkCrc->SetValue(mp_configBase->getCrc());
-    gui_chkDeleteFiles->SetValue(mp_configBase->getDeleteFiles());
-    gui_chkMarkNonOriginal->SetValue(mp_configBase->getMarkNonOriginal());
-    gui_chkMarkCopyright->SetValue(mp_configBase->getMarkCopyright());
-    gui_chkEnforceISO->SetValue(mp_configBase->getEnforceISO());
-    gui_chcAlgorithmQualitySel->SetSelection(mp_configBase->getAlgorithmQualitySel());
+    gui_chkCrc->SetValue(mp_appSettings->getCrc());
+    gui_chkDeleteFiles->SetValue(mp_appSettings->getDeleteFiles());
+    gui_chkMarkNonOriginal->SetValue(mp_appSettings->getMarkNonOriginal());
+    gui_chkMarkCopyright->SetValue(mp_appSettings->getMarkCopyright());
+    gui_chkEnforceISO->SetValue(mp_appSettings->getEnforceISO());
+    gui_chcAlgorithmQualitySel->SetSelection(mp_appSettings->getAlgorithmQualitySel());
     gui_txtCustomOptions->Clear();
-    gui_chkCustomOptions->SetValue(mp_configBase->getCustomOptions());
-    gui_txtCustomOptions->WriteText(mp_configBase->getCustomOptionsText());
+    gui_chkCustomOptions->SetValue(mp_appSettings->getCustomOptions());
+    gui_txtCustomOptions->WriteText(mp_appSettings->getCustomOptionsText());
 }
 
 void GuiDialogSettings::updateDisabledControls() {
@@ -134,42 +134,42 @@ void GuiDialogSettings::updateDisabledControls() {
 
 void GuiDialogSettings::saveValuesConfig() {
     // General controls
-    mp_configBase->setBitrate(BITRATE_VALUES[gui_sldBitrate->GetValue()]);
-    mp_configBase->setOutDir(gui_dpkOutputDirectory->GetDirName().GetPath());
-    mp_configBase->setEnableOutDir(gui_optEnableOutDir->GetValue());
-    mp_configBase->setMode(gui_chcMode->GetCurrentSelection());
+    mp_appSettings->setBitrate(BITRATE_VALUES[gui_sldBitrate->GetValue()]);
+    mp_appSettings->setOutDir(gui_dpkOutputDirectory->GetDirName().GetPath());
+    mp_appSettings->setEnableOutDir(gui_optEnableOutDir->GetValue());
+    mp_appSettings->setMode(gui_chcMode->GetCurrentSelection());
 
     // VBR controls
-    mp_configBase->setEnabledVBR(gui_chkEnabledVBR->GetValue());
-    mp_configBase->setVBRQuality(gui_spcVBRQuality->GetValue());
-    mp_configBase->setMaxBitrate(BITRATE_VALUES[gui_sldBitrateVBR->GetValue()]);
-    mp_configBase->setDisableVBRTag(gui_chkDisableVBRTag->GetValue());
-    mp_configBase->setEnforceMinBitrate(gui_chkEnforceMinBitrate->GetValue());
-    mp_configBase->setUseABR(gui_chkUseABR->GetValue());
-    mp_configBase->setAverageBitrateABR(gui_spcAverageBitrateABR->GetValue());
+    mp_appSettings->setEnabledVBR(gui_chkEnabledVBR->GetValue());
+    mp_appSettings->setVBRQuality(gui_spcVBRQuality->GetValue());
+    mp_appSettings->setMaxBitrate(BITRATE_VALUES[gui_sldBitrateVBR->GetValue()]);
+    mp_appSettings->setDisableVBRTag(gui_chkDisableVBRTag->GetValue());
+    mp_appSettings->setEnforceMinBitrate(gui_chkEnforceMinBitrate->GetValue());
+    mp_appSettings->setUseABR(gui_chkUseABR->GetValue());
+    mp_appSettings->setAverageBitrateABR(gui_spcAverageBitrateABR->GetValue());
 
     // Audio controls
-    mp_configBase->setResampling(gui_chcResampling->GetCurrentSelection());
-    mp_configBase->setHighpassEnabled(gui_chkHighpass->GetValue());
-    mp_configBase->setHighpassFreq(gui_spcHighpassFreq->GetValue());
-    mp_configBase->setHighpassWidthEnabled(gui_chkHighpassWidth->GetValue());
-    mp_configBase->setHighpassWidth(gui_spcHighpassWidth->GetValue());
-    mp_configBase->setLowpassEnabled(gui_chkLowpass->GetValue());
-    mp_configBase->setLowpassFreq(gui_spcLowpassFreq->GetValue());
-    mp_configBase->setLowpassWidthEnabled(gui_chkLowpassWidth->GetValue());
-    mp_configBase->setLowpassWidth(gui_spcLowpassWidth->GetValue());
+    mp_appSettings->setResampling(gui_chcResampling->GetCurrentSelection());
+    mp_appSettings->setHighpassEnabled(gui_chkHighpass->GetValue());
+    mp_appSettings->setHighpassFreq(gui_spcHighpassFreq->GetValue());
+    mp_appSettings->setHighpassWidthEnabled(gui_chkHighpassWidth->GetValue());
+    mp_appSettings->setHighpassWidth(gui_spcHighpassWidth->GetValue());
+    mp_appSettings->setLowpassEnabled(gui_chkLowpass->GetValue());
+    mp_appSettings->setLowpassFreq(gui_spcLowpassFreq->GetValue());
+    mp_appSettings->setLowpassWidthEnabled(gui_chkLowpassWidth->GetValue());
+    mp_appSettings->setLowpassWidth(gui_spcLowpassWidth->GetValue());
 
     // Advanced controls
-    mp_configBase->setCrc(gui_chkCrc->GetValue());
-    mp_configBase->setDeleteFiles(gui_chkDeleteFiles->GetValue());
-    mp_configBase->setMarkNonOriginal(gui_chkMarkNonOriginal->GetValue());
-    mp_configBase->setMarkCopyright(gui_chkMarkCopyright->GetValue());
-    mp_configBase->setEnforceISO(gui_chkEnforceISO->GetValue());
-    mp_configBase->setAlgorithmQualitySel(gui_chcAlgorithmQualitySel->GetSelection());
-    mp_configBase->setCustomOptions(gui_chkCustomOptions->GetValue());
-    mp_configBase->setCustomOptionsText(gui_txtCustomOptions->GetLineText(0));
+    mp_appSettings->setCrc(gui_chkCrc->GetValue());
+    mp_appSettings->setDeleteFiles(gui_chkDeleteFiles->GetValue());
+    mp_appSettings->setMarkNonOriginal(gui_chkMarkNonOriginal->GetValue());
+    mp_appSettings->setMarkCopyright(gui_chkMarkCopyright->GetValue());
+    mp_appSettings->setEnforceISO(gui_chkEnforceISO->GetValue());
+    mp_appSettings->setAlgorithmQualitySel(gui_chcAlgorithmQualitySel->GetSelection());
+    mp_appSettings->setCustomOptions(gui_chkCustomOptions->GetValue());
+    mp_appSettings->setCustomOptionsText(gui_txtCustomOptions->GetLineText(0));
 
-    mp_configBase->configFlush();
+    mp_appSettings->configFlush();
 }
 
 void GuiDialogSettings::defaultValueControls() {

@@ -14,8 +14,8 @@ BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiDialogProgress::GuiDialogProgress(wxWindow *parent, ConfigBase *configBase, FileListManager *fileListManager, int workType)
-    : DialogProgress(parent), mp_configBase(configBase), mp_fileListManager(fileListManager), m_fileIterator(0),
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, FileListManager *fileListManager, int workType)
+    : DialogProgress(parent), mp_appSettings(appSettings), mp_fileListManager(fileListManager), m_fileIterator(0),
       m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
@@ -114,7 +114,7 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     // Processes the next file
     if (m_workingProgress) {
         // Delete the file already processed
-        if (mp_configBase->getDeleteFiles()) {
+        if (mp_appSettings->getDeleteFiles()) {
             FileInfo &fileInfo = mp_fileListManager->getItem(m_fileIterator - 1);
             wxFileName filenameInput = fileInfo.getFileName();
 
@@ -165,13 +165,13 @@ void GuiDialogProgress::processNextFile() {
 
     // Encode or Decode
     if (m_workType == LAME_ENCODE)
-        fullCommand.append(mp_configBase->getStringLameOptions());
+        fullCommand.append(mp_appSettings->getStringLameOptions());
     else
         fullCommand.append(_T("--decode"));
 
     // Sets the output directory of the file
-    if (mp_configBase->getEnableOutDir())
-        filenameOutput.SetPath(mp_configBase->getOutDir());
+    if (mp_appSettings->getEnableOutDir())
+        filenameOutput.SetPath(mp_appSettings->getOutDir());
 
     // Defines the file extension
     if (m_workType == LAME_ENCODE)

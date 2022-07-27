@@ -3,10 +3,10 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "ConfigBase.hpp"
+#include "AppSettings.hpp"
 #include "Constants.hpp"
 
-ConfigBase::ConfigBase(const wxString &appName) {
+AppSettings::AppSettings(const wxString &appName) {
     mp_config = new wxConfig(appName);
 
     // If there isn't a setting, writes a new one with default values
@@ -14,11 +14,11 @@ ConfigBase::ConfigBase(const wxString &appName) {
         setDefaultConfig();
 }
 
-ConfigBase::~ConfigBase() {
+AppSettings::~AppSettings() {
     delete mp_config;
 }
 
-void ConfigBase::setDefaultConfig() {
+void AppSettings::setDefaultConfig() {
     setAppVersion(APP_VERSION);
     setLastOpenDir(DEFAULT_VALUE_LastOpenDir);
 
@@ -55,11 +55,11 @@ void ConfigBase::setDefaultConfig() {
     setCustomOptionsText(DEFAULT_VALUE_CustomOptionsText);
 }
 
-void ConfigBase::configFlush() {
+void AppSettings::configFlush() {
     mp_config->Flush();
 }
 
-wxString ConfigBase::getStringLameOptions() const {
+wxString AppSettings::getStringLameOptions() const {
     wxString lameOptions;
 
     if (getCustomOptions()) {
@@ -150,181 +150,181 @@ wxString ConfigBase::getStringLameOptions() const {
 
 // Gets
 
-wxString ConfigBase::getAppVersion() const {
+wxString AppSettings::getAppVersion() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, &value);
     return value;
 }
 
-wxString ConfigBase::getLastOpenDir() const {
+wxString AppSettings::getLastOpenDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, &value);
     return value;
 }
 
-int ConfigBase::getBitrate() const {
+int AppSettings::getBitrate() const {
     int value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_Bitrate, &value);
     return value;
 }
 
-int ConfigBase::getMode() const {
+int AppSettings::getMode() const {
     int value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_Mode, &value);
     return value;
 }
 
-bool ConfigBase::getEnableOutDir() const {
+bool AppSettings::getEnableOutDir() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_EnableOutDir, &value);
     return value;
 }
 
-wxString ConfigBase::getOutDir() const {
+wxString AppSettings::getOutDir() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_OutDir, &value);
     return value;
 }
 
-bool ConfigBase::getDeleteFiles() const {
+bool AppSettings::getDeleteFiles() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteFiles, &value);
     return value;
 }
 
-bool ConfigBase::getEnabledVBR() const {
+bool AppSettings::getEnabledVBR() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_EnabledVBR, &value);
     return value;
 }
 
-int ConfigBase::getMaxBitrate() const {
+int AppSettings::getMaxBitrate() const {
     int value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_MaxBitrate, &value);
     return value;
 }
 
-bool ConfigBase::getDisableVBRTag() const {
+bool AppSettings::getDisableVBRTag() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_DisableVBRTag, &value);
     return value;
 }
 
-bool ConfigBase::getEnforceMinBitrate() const {
+bool AppSettings::getEnforceMinBitrate() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_EnforceMinBitrate, &value);
     return value;
 }
 
-bool ConfigBase::getUseABR() const {
+bool AppSettings::getUseABR() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_UseABR, &value);
     return value;
 }
 
-int ConfigBase::getVBRQuality() const {
+int AppSettings::getVBRQuality() const {
     int value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_VBRQuality, &value);
     return value;
 }
 
-int ConfigBase::getAverageBitrateABR() const {
+int AppSettings::getAverageBitrateABR() const {
     int value;
     mp_config->Read(CONFIG_GROUP_VBR + CONFIG_STR_AverageBitrateABR, &value);
     return value;
 }
 
-int ConfigBase::getResampling() const {
+int AppSettings::getResampling() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, &value);
     return value;
 }
 
-bool ConfigBase::getHighpassEnabled() const {
+bool AppSettings::getHighpassEnabled() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassEnabled, &value);
     return value;
 }
 
-int ConfigBase::getHighpassFreq() const {
+int AppSettings::getHighpassFreq() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassFreq, &value);
     return value;
 }
 
-bool ConfigBase::getHighpassWidthEnabled() const {
+bool AppSettings::getHighpassWidthEnabled() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidthEnabled, &value);
     return value;
 }
 
-int ConfigBase::getHighpassWidth() const {
+int AppSettings::getHighpassWidth() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, &value);
     return value;
 }
 
-bool ConfigBase::getLowpassEnabled() const {
+bool AppSettings::getLowpassEnabled() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassEnabled, &value);
     return value;
 }
 
-int ConfigBase::getLowpassFreq() const {
+int AppSettings::getLowpassFreq() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassFreq, &value);
     return value;
 }
 
-bool ConfigBase::getLowpassWidthEnabled() const {
+bool AppSettings::getLowpassWidthEnabled() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidthEnabled, &value);
     return value;
 }
 
-int ConfigBase::getLowpassWidth() const {
+int AppSettings::getLowpassWidth() const {
     int value;
     mp_config->Read(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, &value);
     return value;
 }
 
-bool ConfigBase::getMarkNonOriginal() const {
+bool AppSettings::getMarkNonOriginal() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, &value);
     return value;
 }
 
-bool ConfigBase::getMarkCopyright() const {
+bool AppSettings::getMarkCopyright() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, &value);
     return value;
 }
 
-bool ConfigBase::getCrc() const {
+bool AppSettings::getCrc() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, &value);
     return value;
 }
 
-bool ConfigBase::getEnforceISO() const {
+bool AppSettings::getEnforceISO() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, &value);
     return value;
 }
 
-int ConfigBase::getAlgorithmQualitySel() const {
+int AppSettings::getAlgorithmQualitySel() const {
     int value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, &value);
     return value;
 }
 
-bool ConfigBase::getCustomOptions() const {
+bool AppSettings::getCustomOptions() const {
     bool value;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, &value);
     return value;
 }
 
-wxString ConfigBase::getCustomOptionsText() const {
+wxString AppSettings::getCustomOptionsText() const {
     wxString value = wxEmptyString;
     mp_config->Read(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptionsText, &value);
     return value;
@@ -332,122 +332,122 @@ wxString ConfigBase::getCustomOptionsText() const {
 
 // Sets
 
-void ConfigBase::setAppVersion(wxString value) {
+void AppSettings::setAppVersion(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_AppVersion, value);
 }
 
-void ConfigBase::setLastOpenDir(wxString value) {
+void AppSettings::setLastOpenDir(wxString value) {
     mp_config->Write(CONFIG_GROUP_SYSTEM + CONFIG_STR_LastOpenDir, value);
 }
 
-void ConfigBase::setBitrate(int value) {
+void AppSettings::setBitrate(int value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_Bitrate, value);
 }
 
-void ConfigBase::setMode(int value) {
+void AppSettings::setMode(int value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_Mode, value);
 }
 
-void ConfigBase::setEnableOutDir(bool value) {
+void AppSettings::setEnableOutDir(bool value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_EnableOutDir, value);
 }
 
-void ConfigBase::setOutDir(wxString value) {
+void AppSettings::setOutDir(wxString value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_OutDir, value);
 }
 
-void ConfigBase::setDeleteFiles(bool value) {
+void AppSettings::setDeleteFiles(bool value) {
     mp_config->Write(CONFIG_GROUP_GENERAL + CONFIG_STR_DeleteFiles, value);
 }
 
-void ConfigBase::setEnabledVBR(bool value) {
+void AppSettings::setEnabledVBR(bool value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_EnabledVBR, value);
 }
 
-void ConfigBase::setMaxBitrate(int value) {
+void AppSettings::setMaxBitrate(int value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_MaxBitrate, value);
 }
 
-void ConfigBase::setDisableVBRTag(bool value) {
+void AppSettings::setDisableVBRTag(bool value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_DisableVBRTag, value);
 }
 
-void ConfigBase::setEnforceMinBitrate(bool value) {
+void AppSettings::setEnforceMinBitrate(bool value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_EnforceMinBitrate, value);
 }
 
-void ConfigBase::setUseABR(bool value) {
+void AppSettings::setUseABR(bool value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_UseABR, value);
 }
 
-void ConfigBase::setVBRQuality(int value) {
+void AppSettings::setVBRQuality(int value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_VBRQuality, value);
 }
 
-void ConfigBase::setAverageBitrateABR(int value) {
+void AppSettings::setAverageBitrateABR(int value) {
     mp_config->Write(CONFIG_GROUP_VBR + CONFIG_STR_AverageBitrateABR, value);
 }
 
-void ConfigBase::setResampling(int value) {
+void AppSettings::setResampling(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_Resampling, value);
 }
 
-void ConfigBase::setHighpassEnabled(bool value) {
+void AppSettings::setHighpassEnabled(bool value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassEnabled, value);
 }
 
-void ConfigBase::setHighpassFreq(int value) {
+void AppSettings::setHighpassFreq(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassFreq, value);
 }
 
-void ConfigBase::setHighpassWidthEnabled(bool value) {
+void AppSettings::setHighpassWidthEnabled(bool value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidthEnabled, value);
 }
 
-void ConfigBase::setHighpassWidth(int value) {
+void AppSettings::setHighpassWidth(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_HighpassWidth, value);;
 }
 
-void ConfigBase::setLowpassEnabled(bool value) {
+void AppSettings::setLowpassEnabled(bool value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassEnabled, value);
 }
 
-void ConfigBase::setLowpassFreq(int value) {
+void AppSettings::setLowpassFreq(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassFreq, value);
 }
 
-void ConfigBase::setLowpassWidthEnabled(bool value) {
+void AppSettings::setLowpassWidthEnabled(bool value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidthEnabled, value);
 }
 
-void ConfigBase::setLowpassWidth(int value) {
+void AppSettings::setLowpassWidth(int value) {
     mp_config->Write(CONFIG_GROUP_AUDIO + CONFIG_STR_LowpassWidth, value);
 }
 
-void ConfigBase::setMarkNonOriginal(bool value) {
+void AppSettings::setMarkNonOriginal(bool value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkNonOriginal, value);
 }
 
-void ConfigBase::setMarkCopyright(bool value) {
+void AppSettings::setMarkCopyright(bool value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_MarkCopyright, value);
 }
 
-void ConfigBase::setCrc(bool value) {
+void AppSettings::setCrc(bool value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_Crc, value);
 }
 
-void ConfigBase::setEnforceISO(bool value) {
+void AppSettings::setEnforceISO(bool value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_EnforceISO, value);
 }
 
-void ConfigBase::setAlgorithmQualitySel(int value) {
+void AppSettings::setAlgorithmQualitySel(int value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_AlgorithmQualitySel, value);
 }
 
-void ConfigBase::setCustomOptions(bool value) {
+void AppSettings::setCustomOptions(bool value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptions, value);
 }
 
-void ConfigBase::setCustomOptionsText(wxString value) {
+void AppSettings::setCustomOptionsText(wxString value) {
     mp_config->Write(CONFIG_GROUP_ADVANCED + CONFIG_STR_CustomOptionsText, value);
 }

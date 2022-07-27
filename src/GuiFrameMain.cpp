@@ -32,7 +32,7 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
     gui_mainStatusBar->SetStatusWidths(3, wxStatusBarWidths);
 
     // Configuration file
-    mp_configBase = new ConfigBase(APP_NAME);
+    mp_appSettings = new AppSettings(APP_NAME);
 
     // Window title
     SetTitle(APP_NAME_WITH_VERSION);
@@ -46,7 +46,7 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent)
 
 GuiFrameMain::~GuiFrameMain() {
     delete mp_fileListManager;
-    delete mp_configBase;
+    delete mp_appSettings;
 }
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
@@ -87,13 +87,13 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
     wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
-    dirDialog.SetPath(mp_configBase->getLastOpenDir());
+    dirDialog.SetPath(mp_appSettings->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
         mp_fileListManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
-        mp_configBase->setLastOpenDir(dirDialog.GetPath());
+        mp_appSettings->setLastOpenDir(dirDialog.GetPath());
         SetCursor(wxCURSOR_ARROW);
     }
     event.Skip(false);
@@ -105,7 +105,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
                             wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
-    fileDialog.SetDirectory(mp_configBase->getLastOpenDir());
+    fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());
 
     if (fileDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
@@ -115,7 +115,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
         mp_fileListManager->insertFiles(files);
 
         // Remembers the last used directory
-        mp_configBase->setLastOpenDir(fileDialog.GetDirectory());
+        mp_appSettings->setLastOpenDir(fileDialog.GetDirectory());
         SetCursor(wxCURSOR_ARROW);
     }
     event.Skip(false);
@@ -148,7 +148,7 @@ void GuiFrameMain::mnuClearList(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuSettings(wxCommandEvent &event) {
     // Displays the "Settings" window
-    GuiDialogSettings guiSettings(this, mp_configBase);
+    GuiDialogSettings guiSettings(this, mp_appSettings);
     guiSettings.ShowModal();
 
     updateControls();
@@ -158,13 +158,13 @@ void GuiFrameMain::mnuSettings(wxCommandEvent &event) {
 void GuiFrameMain::mnuEncode(wxCommandEvent &event) {
     event.Skip(false);
     // Displays the "Progress" window
-    GuiDialogProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_ENCODE);
+    GuiDialogProgress progressDialog(this, mp_appSettings, mp_fileListManager, LAME_ENCODE);
     progressDialog.ShowModal();
 }
 
 void GuiFrameMain::mnuDecode(wxCommandEvent &event) {
     // Displays the "Progress" window
-    GuiDialogProgress progressDialog(this, mp_configBase, mp_fileListManager, LAME_DECODE);
+    GuiDialogProgress progressDialog(this, mp_appSettings, mp_fileListManager, LAME_DECODE);
     progressDialog.ShowModal();
     event.Skip(false);
 }
@@ -211,7 +211,7 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
     gui_mainStatusBar->SetStatusText(wxString::Format(_T("%i "), gui_lstFiles->GetItemCount()) + _("files"), 1);
 
     // Show the parameters
-    gui_mainStatusBar->SetStatusText(_("Lame options: ") + mp_configBase->getStringLameOptions(), 2);
+    gui_mainStatusBar->SetStatusText(_("Lame options: ") + mp_appSettings->getStringLameOptions(), 2);
 
     // Disables the menu item "Remove files" if no item is selected
     gui_mainMenu->Enable(ID_REMOVE_FILES, gui_lstFiles->GetSelectedItemCount() > 0);
