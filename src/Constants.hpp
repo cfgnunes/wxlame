@@ -112,7 +112,7 @@ int const ID_LIST_FILE = 0;
 int const ID_LIST_FOLDER = 1;
 int const ID_LIST_FORMAT = 2;
 
-inline wxString getResourceDir() {
+inline wxString getDataDir() {
     wxString executablePath = wxStandardPaths::Get().GetExecutablePath();
     wxFileName executableFilename(executablePath);
     wxString dataDirName = _T("/data/");

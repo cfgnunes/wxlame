@@ -185,7 +185,7 @@ void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetVersion(APP_VERSION);
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
-    wxString dataDir = getResourceDir();
+    wxString dataDir = getDataDir();
     aboutInfo.SetIcon(wxIcon(dataDir + _T("icons/app.ico"), wxBITMAP_TYPE_ICO));
     wxAboutBox(aboutInfo);
     event.Skip(false);
@@ -232,7 +232,7 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
 }
 
 void GuiFrameMain::loadResources() {
-    wxString dataDir = getResourceDir();
+    wxString dataDir = getDataDir();
 
     // Window icon
     SetIcon(wxIcon(dataDir + _T("icons/app.ico"), wxBITMAP_TYPE_ICO));
