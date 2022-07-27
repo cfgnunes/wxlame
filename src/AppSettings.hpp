@@ -18,7 +18,7 @@ class AppSettings {
     void configFlush();
     wxString getStringLameOptions() const;
 
-    // Gets...
+    // Gets
     wxString getAppVersion() const;
     wxString getLastOpenDir() const;
     int getBitrate() const;
@@ -50,7 +50,7 @@ class AppSettings {
     bool getCustomOptions() const;
     wxString getCustomOptionsText() const;
 
-    // Sets...
+    // Sets
     void setAppVersion(wxString value);
     void setLastOpenDir(wxString value);
     void setBitrate(int value);
