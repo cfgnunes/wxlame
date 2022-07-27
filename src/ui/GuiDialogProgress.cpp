@@ -14,7 +14,7 @@ BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listCtrlManager, int workType) : DialogProgress(parent), mp_appSettings(appSettings), mp_listCtrlManager(listCtrlManager), m_fileIterator(0), m_workType(workType), m_workingProgress(false) {
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listManager, int workType) : DialogProgress(parent), mp_appSettings(appSettings), mp_listManager(listManager), m_fileIdx(0), m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
     mp_process->Redirect();
@@ -24,18 +24,18 @@ GuiDialogProgress::~GuiDialogProgress() {
 }
 
 void GuiDialogProgress::OnClose(wxCloseEvent &event) {
-    if (event.CanVeto()) {
-        if (m_workingProgress) {
-            if (wxMessageBox(_("Do you want to stop process now?"), APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
-                // Kill the process
-                m_workingProgress = false;
-                mp_process->Detach();
-                wxKill(m_processPID, wxSIGKILL);
-                finishedWork();
-            } else {
-                event.Veto();
-                return;
-            }
+    wxString msg = _("Do you want to stop process now?");
+
+    if (event.CanVeto() && m_workingProgress) {
+        if (wxMessageBox(msg, APP_NAME, wxYES_NO | wxICON_QUESTION) == wxYES) {
+            // Kill the process
+            m_workingProgress = false;
+            mp_process->Detach();
+            wxKill(m_processPID, wxSIGKILL);
+            finishedWork();
+        } else {
+            event.Veto();
+            return;
         }
     }
     Destroy();
@@ -72,7 +72,7 @@ void GuiDialogProgress::OnInit(wxInitDialogEvent &event) {
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    gui_gaugeListProgress->SetRange((int)mp_listCtrlManager->size());
+    gui_gaugeListProgress->SetRange((int)mp_listManager->size());
 
     // Processes the first file
     processNextFile();
@@ -101,10 +101,10 @@ void GuiDialogProgress::OnTimer2Trigger(wxTimerEvent &event) {
 void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     // Positions for next file
     if (m_workingProgress)
-        m_fileIterator++;
+        m_fileIdx++;
 
     // Update the value of "bar list"
-    gui_gaugeListProgress->SetValue((int)m_fileIterator);
+    gui_gaugeListProgress->SetValue((int)m_fileIdx);
 
     // Updates the labels
     stringLabelsUpdate();
@@ -113,14 +113,14 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     if (m_workingProgress) {
         // Delete the file already processed
         if (mp_appSettings->getDeleteFiles()) {
-            FileData &fileData = mp_listCtrlManager->getFileData(m_fileIterator - 1);
+            FileData &fileData = mp_listManager->getFileData(m_fileIdx - 1);
             wxFileName filenameInput = fileData.getFileName();
 
             wxRemoveFile(filenameInput.GetFullPath());
         }
 
-        unsigned long int total = mp_listCtrlManager->size();
-        if (m_fileIterator < total)
+        unsigned long int total = mp_listManager->size();
+        if (m_fileIdx < total)
             processNextFile();
         else
             finishedWork();
@@ -155,7 +155,7 @@ void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
 }
 
 void GuiDialogProgress::processNextFile() {
-    FileData &fileData = mp_listCtrlManager->getFileData(m_fileIterator);
+    FileData &fileData = mp_listManager->getFileData(m_fileIdx);
     wxFileName filenameInput = fileData.getFileName();
 
     wxFileName filenameOutput = filenameInput;
@@ -178,16 +178,26 @@ void GuiDialogProgress::processNextFile() {
         filenameOutput.SetExt(_T("wav"));
 
     // Execute external application
-    m_processPID = wxExecute(fullCommand + _T(" \"") + filenameInput.GetFullPath() + _T("\" \"") + filenameOutput.GetFullPath() + _T("\""), wxEXEC_ASYNC, mp_process);
+    wxString command;
+    command += fullCommand + _T(" \"") + filenameInput.GetFullPath();
+    command += _T("\" \"") + filenameOutput.GetFullPath() + _T("\"");
+    m_processPID = wxExecute(command, wxEXEC_ASYNC, mp_process);
 }
 
 void GuiDialogProgress::stringLabelsUpdate() {
-    unsigned long int total = mp_listCtrlManager->size();
-    gui_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
-    if (m_fileIterator < total) {
-        FileData fileData = mp_listCtrlManager->getFileData(m_fileIterator);
-        wxFileName filenameInput = fileData.getFileName();
+    unsigned long int total = mp_listManager->size();
 
-        gui_lblStatusFile->SetLabel((m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
+    wxString msg;
+    msg = wxString::Format(_("Processed %lu files of %lu."), m_fileIdx, total);
+    gui_lblStatusList->SetLabel(msg);
+
+    if (m_fileIdx < total) {
+        FileData fileData = mp_listManager->getFileData(m_fileIdx);
+        wxFileName filename = fileData.getFileName();
+
+        if (m_workType == LAME_ENCODE)
+            gui_lblStatusFile->SetLabel(_("Encoding: ") + filename.GetFullName());
+        else
+            gui_lblStatusFile->SetLabel(_("Decoding: ") + filename.GetFullName());
     }
 }

@@ -42,7 +42,7 @@ class GuiFrameMain : public FrameMain {
     void loadResources();
 
     AppSettings *mp_appSettings;
-    ListCtrlManager *mp_listCtrlManager;
+    ListCtrlManager *mp_listManager;
     FileDrop *mp_fileDrop;
     wxString m_exeTool;
     wxArrayString m_exeInputString;

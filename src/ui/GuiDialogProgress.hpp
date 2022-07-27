@@ -21,7 +21,7 @@ const int ID_TOOL_PROCESS = ::wxNewId();
 
 class GuiDialogProgress : public DialogProgress {
   public:
-    GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listCtrlManager, int workType);
+    GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listManager, int workType);
     virtual ~GuiDialogProgress();
 
   protected:
@@ -39,9 +39,9 @@ class GuiDialogProgress : public DialogProgress {
     void stringLabelsUpdate();
 
     AppSettings *mp_appSettings;
-    ListCtrlManager *mp_listCtrlManager;
+    ListCtrlManager *mp_listManager;
     wxProcess *mp_process;
-    unsigned long int m_fileIterator;
+    unsigned long int m_fileIdx;
     int m_workType;
     bool m_workingProgress;
     long m_processPID;

@@ -15,10 +15,10 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent) {
     SetStatusBarPane(-1);
 
     // File list manager
-    mp_listCtrlManager = new ListCtrlManager(gui_lstFiles);
+    mp_listManager = new ListCtrlManager(gui_lstFiles);
 
     // List Drag & Drop
-    mp_fileDrop = new FileDrop(mp_listCtrlManager);
+    mp_fileDrop = new FileDrop(mp_listManager);
     gui_lstFiles->SetDropTarget(mp_fileDrop);
 
     // List title
@@ -44,12 +44,12 @@ GuiFrameMain::GuiFrameMain(wxWindow *parent) : FrameMain(parent) {
 }
 
 GuiFrameMain::~GuiFrameMain() {
-    delete mp_listCtrlManager;
+    delete mp_listManager;
     delete mp_appSettings;
 }
 
 void GuiFrameMain::OnlstFilesDeleteItem(wxListEvent &event) {
-    mp_listCtrlManager->deleteItem((unsigned long)event.GetIndex());
+    mp_listManager->deleteItem((unsigned long)event.GetIndex());
 
     updateControls();
     event.Skip();
@@ -83,13 +83,14 @@ void GuiFrameMain::OnlstFilesKeyDown(wxListEvent &event) {
 }
 
 void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
-    wxDirDialog dirDialog(this, _("Select directory"), wxEmptyString, wxDD_DEFAULT_STYLE);
+    wxString msg = _("Select directory");
+    wxDirDialog dirDialog(this, msg, wxEmptyString, wxDD_DEFAULT_STYLE);
 
     // Read the last directory used
     dirDialog.SetPath(mp_appSettings->getLastOpenDir());
     if (dirDialog.ShowModal() == wxID_OK) {
         SetCursor(wxCURSOR_WAIT);
-        mp_listCtrlManager->insertDir(dirDialog.GetPath());
+        mp_listManager->insertDir(dirDialog.GetPath());
 
         // Remembers the last used directory
         mp_appSettings->setLastOpenDir(dirDialog.GetPath());
@@ -100,7 +101,8 @@ void GuiFrameMain::mnuAddDirectory(wxCommandEvent &event) {
 
 void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
     wxArrayString files;
-    wxFileDialog fileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
+    wxString msg = _("Select file");
+    wxFileDialog fileDialog(this, msg, wxEmptyString, wxEmptyString, APP_WILDCARD_EXT, wxFD_OPEN | wxFD_MULTIPLE);
 
     // Read the last directory used
     fileDialog.SetDirectory(mp_appSettings->getLastOpenDir());
@@ -110,7 +112,7 @@ void GuiFrameMain::mnuAddFiles(wxCommandEvent &event) {
 
         // Get the file(s) the user selected
         fileDialog.GetPaths(files);
-        mp_listCtrlManager->insertFiles(files);
+        mp_listManager->insertFiles(files);
 
         // Remembers the last used directory
         mp_appSettings->setLastOpenDir(fileDialog.GetDirectory());
@@ -128,8 +130,10 @@ void GuiFrameMain::mnuExit(wxCommandEvent &event) {
 void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
     int itemCount = gui_lstFiles->GetSelectedItemCount();
     SetCursor(wxCURSOR_WAIT);
-    for (int i = 0; i < itemCount; i++)
-        gui_lstFiles->DeleteItem(gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED));
+    for (int i = 0; i < itemCount; i++) {
+        long item = gui_lstFiles->GetNextItem(-1, wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        gui_lstFiles->DeleteItem(item);
+    }
     SetCursor(wxCURSOR_ARROW);
 
     updateControls();
@@ -139,7 +143,7 @@ void GuiFrameMain::mnuRemoveFiles(wxCommandEvent &event) {
 void GuiFrameMain::mnuClearList(wxCommandEvent &event) {
     event.Skip(false);
     // Deletes all items from the list
-    mp_listCtrlManager->clear();
+    mp_listManager->clear();
 
     updateControls();
 }
@@ -156,14 +160,14 @@ void GuiFrameMain::mnuSettings(wxCommandEvent &event) {
 void GuiFrameMain::mnuEncode(wxCommandEvent &event) {
     event.Skip(false);
     // Displays the "Progress" window
-    GuiDialogProgress progressDialog(this, mp_appSettings, mp_listCtrlManager, LAME_ENCODE);
-    progressDialog.ShowModal();
+    GuiDialogProgress dialogProgress(this, mp_appSettings, mp_listManager, LAME_ENCODE);
+    dialogProgress.ShowModal();
 }
 
 void GuiFrameMain::mnuDecode(wxCommandEvent &event) {
     // Displays the "Progress" window
-    GuiDialogProgress progressDialog(this, mp_appSettings, mp_listCtrlManager, LAME_DECODE);
-    progressDialog.ShowModal();
+    GuiDialogProgress dialogProgress(this, mp_appSettings, mp_listManager, LAME_DECODE);
+    dialogProgress.ShowModal();
     event.Skip(false);
 }
 
@@ -257,5 +261,5 @@ void GuiFrameMain::updateControls() {
 }
 
 void GuiFrameMain::setFilesCmdLine(const wxArrayString &filenames) {
-    mp_listCtrlManager->insertFilesAndDir(filenames);
+    mp_listManager->insertFilesAndDir(filenames);
 }
