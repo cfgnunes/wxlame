@@ -185,8 +185,8 @@ void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetVersion(APP_VERSION);
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
-    wxString resourceDir = GetResourceDir();
-    aboutInfo.SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
+    wxString dataDir = GetResourceDir();
+    aboutInfo.SetIcon(wxIcon(dataDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
     wxAboutBox(aboutInfo);
     event.Skip(false);
 }
@@ -232,20 +232,20 @@ void GuiFrameMain::OnTimer1Trigger(wxTimerEvent &event) {
 }
 
 void GuiFrameMain::loadResources() {
-    wxString resourceDir = GetResourceDir();
+    wxString dataDir = GetResourceDir();
 
     // Window icon
-    SetIcon(wxIcon(resourceDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
+    SetIcon(wxIcon(dataDir + _T("icon-app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
-    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/add-file.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(resourceDir + _T("toolbar/add-folder.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(resourceDir + _T("toolbar/remove.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(resourceDir + _T("toolbar/clear.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_ENCODE, wxBitmap(wxImage(resourceDir + _T("toolbar/encode.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_DECODE, wxBitmap(wxImage(resourceDir + _T("toolbar/decode.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(resourceDir + _T("toolbar/settings.png"))));
-    gui_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(resourceDir + _T("toolbar/about.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/add-file.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FOLDER, wxBitmap(wxImage(dataDir + _T("toolbar/add-folder.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_REMOVE_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/remove.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_CLEAR_LIST, wxBitmap(wxImage(dataDir + _T("toolbar/clear.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ENCODE, wxBitmap(wxImage(dataDir + _T("toolbar/encode.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_DECODE, wxBitmap(wxImage(dataDir + _T("toolbar/decode.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_SETTINGS, wxBitmap(wxImage(dataDir + _T("toolbar/settings.png"))));
+    gui_mainToolBar->SetToolNormalBitmap(ID_ABOUT, wxBitmap(wxImage(dataDir + _T("toolbar/about.png"))));
 }
 
 void GuiFrameMain::updateControls() {
