@@ -9,13 +9,13 @@
 #include <wx/dir.h>
 #include <wx/tokenzr.h>
 
-ListCtrlManager::ListCtrlManager(wxListCtrl *owner)
-    : mp_owner(owner) {
-    mp_lstFilesData = new std::list<FileInfo>();
+ListCtrlManager::ListCtrlManager(wxListCtrl *listCtrl)
+    : mp_listCtrl(listCtrl) {
+    mp_filesData = new std::list<FileData>();
 }
 
 ListCtrlManager::~ListCtrlManager() {
-    delete mp_lstFilesData;
+    delete mp_filesData;
 }
 
 void ListCtrlManager::insertFilesAndDir(const wxArrayString &filenames) {
@@ -44,18 +44,18 @@ void ListCtrlManager::insertFiles(const wxArrayString &filenames) {
             bool repeated = false;
 
             unsigned long int i = 0;
-            for (std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-                 fileInfo != mp_lstFilesData->end(); fileInfo++, i++) {
-                wxFileName filenameInput = (*fileInfo).getFileName();
+            for (std::list<FileData>::iterator fileData = mp_filesData->begin();
+                 fileData != mp_filesData->end(); fileData++, i++) {
+                wxFileName filenameInput = (*fileData).getFileName();
                 if (filenameInput.GetFullPath() == filenames[n]) {
                     repeated = true;
                 }
             }
             if (!repeated) {
-                mp_owner->InsertItem(mp_owner->GetItemCount(), file.GetFullName());
-                mp_owner->SetItem(i, ID_LIST_FOLDER, file.GetPath());
-                mp_owner->SetItem(i, ID_LIST_FORMAT, file.GetFullName().Lower().Right(3));
-                mp_lstFilesData->push_back(FileInfo(filenames[n]));
+                mp_listCtrl->InsertItem(mp_listCtrl->GetItemCount(), file.GetFullName());
+                mp_listCtrl->SetItem(i, ID_LIST_FOLDER, file.GetPath());
+                mp_listCtrl->SetItem(i, ID_LIST_FORMAT, file.GetFullName().Lower().Right(3));
+                mp_filesData->push_back(FileData(filenames[n]));
             }
         }
     }
@@ -80,26 +80,26 @@ bool ListCtrlManager::checkValidExtension(const wxFileName &file) const {
 }
 
 void ListCtrlManager::deleteItem(unsigned long int index) {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, index);
-    mp_lstFilesData->erase(fileInfo);
+    std::list<FileData>::iterator fileData = mp_filesData->begin();
+    std::advance(fileData, index);
+    mp_filesData->erase(fileData);
 }
 
 void ListCtrlManager::clear() {
-    mp_owner->DeleteAllItems();
-    mp_lstFilesData->clear();
+    mp_listCtrl->DeleteAllItems();
+    mp_filesData->clear();
 }
 
 long unsigned int ListCtrlManager::size() {
-    return mp_lstFilesData->size();
+    return mp_filesData->size();
 }
 
-FileInfo &ListCtrlManager::getItem(unsigned long int index) {
-    std::list<FileInfo>::iterator fileInfo = mp_lstFilesData->begin();
-    std::advance(fileInfo, index);
-    return *fileInfo;
+FileData &ListCtrlManager::getFileData(unsigned long int index) {
+    std::list<FileData>::iterator fileData = mp_filesData->begin();
+    std::advance(fileData, index);
+    return *fileData;
 }
 
-wxListCtrl &ListCtrlManager::getOwner() {
-    return *mp_owner;
+wxListCtrl &ListCtrlManager::getListCtrl() {
+    return *mp_listCtrl;
 }

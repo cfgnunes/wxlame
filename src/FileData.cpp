@@ -3,15 +3,15 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "FileInfo.hpp"
+#include "FileData.hpp"
 
-FileInfo::FileInfo(const wxString &fileName)
+FileData::FileData(const wxString &fileName)
     : m_fileName(fileName) {
 }
 
-FileInfo::~FileInfo() {
+FileData::~FileData() {
 }
 
-wxFileName FileInfo::getFileName() const {
+wxFileName FileData::getFileName() const {
     return m_fileName;
 }

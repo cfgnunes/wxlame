@@ -115,8 +115,8 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     if (m_workingProgress) {
         // Delete the file already processed
         if (mp_appSettings->getDeleteFiles()) {
-            FileInfo &fileInfo = mp_listCtrlManager->getItem(m_fileIterator - 1);
-            wxFileName filenameInput = fileInfo.getFileName();
+            FileData &fileData = mp_listCtrlManager->getFileData(m_fileIterator - 1);
+            wxFileName filenameInput = fileData.getFileName();
 
             wxRemoveFile(filenameInput.GetFullPath());
         }
@@ -157,8 +157,8 @@ void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
 }
 
 void GuiDialogProgress::processNextFile() {
-    FileInfo &fileInfo = mp_listCtrlManager->getItem(m_fileIterator);
-    wxFileName filenameInput = fileInfo.getFileName();
+    FileData &fileData = mp_listCtrlManager->getFileData(m_fileIterator);
+    wxFileName filenameInput = fileData.getFileName();
 
     wxFileName filenameOutput = filenameInput;
     wxString fullCommand = APP_TOOL_EXECUTABLE + _T(" ");
@@ -190,8 +190,8 @@ void GuiDialogProgress::stringLabelsUpdate() {
     unsigned long int total = mp_listCtrlManager->size();
     gui_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
     if (m_fileIterator < total) {
-        FileInfo fileInfo = mp_listCtrlManager->getItem(m_fileIterator);
-        wxFileName filenameInput = fileInfo.getFileName();
+        FileData fileData = mp_listCtrlManager->getFileData(m_fileIterator);
+        wxFileName filenameInput = fileData.getFileName();
 
         gui_lblStatusFile->SetLabel(
             (m_workType == LAME_ENCODE ? _("Encoding: ") : _("Decoding: ")) + filenameInput.GetFullName());
