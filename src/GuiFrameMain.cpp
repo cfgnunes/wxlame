@@ -3,10 +3,10 @@
  * http://www.gnu.org/licenses/gpl-3.0.html
  */
 
-#include "GuiFrameMain.h"
-#include "Constants.h"
-#include "GuiDialogProgress.h"
-#include "GuiDialogSettings.h"
+#include "GuiFrameMain.hpp"
+#include "Constants.hpp"
+#include "GuiDialogProgress.hpp"
+#include "GuiDialogSettings.hpp"
 
 #include <wx/aboutdlg.h>
 
