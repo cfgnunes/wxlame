@@ -186,7 +186,7 @@ void GuiFrameMain::mnuAbout(wxCommandEvent &event) {
     aboutInfo.SetDescription(_("Free front-end for the Lame"));
     aboutInfo.SetCopyright(APP_COPYRIGHT);
     wxString dataDir = GetResourceDir();
-    aboutInfo.SetIcon(wxIcon(dataDir + _T("icons/icon-app.ico"), wxBITMAP_TYPE_ICO));
+    aboutInfo.SetIcon(wxIcon(dataDir + _T("icons/app.ico"), wxBITMAP_TYPE_ICO));
     wxAboutBox(aboutInfo);
     event.Skip(false);
 }
@@ -235,7 +235,7 @@ void GuiFrameMain::loadResources() {
     wxString dataDir = GetResourceDir();
 
     // Window icon
-    SetIcon(wxIcon(dataDir + _T("icons/icon-app.ico"), wxBITMAP_TYPE_ICO));
+    SetIcon(wxIcon(dataDir + _T("icons/app.ico"), wxBITMAP_TYPE_ICO));
 
     // Toolbar bitmaps
     gui_mainToolBar->SetToolNormalBitmap(ID_ADD_FILES, wxBitmap(wxImage(dataDir + _T("toolbar/add-file.png"))));
