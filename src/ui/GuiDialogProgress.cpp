@@ -14,8 +14,8 @@ BEGIN_EVENT_TABLE(GuiDialogProgress, DialogProgress)
 EVT_END_PROCESS(ID_TOOL_PROCESS, GuiDialogProgress::OnProcessTerm)
 END_EVENT_TABLE()
 
-GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, FileListManager *fileListManager, int workType)
-    : DialogProgress(parent), mp_appSettings(appSettings), mp_fileListManager(fileListManager), m_fileIterator(0),
+GuiDialogProgress::GuiDialogProgress(wxWindow *parent, AppSettings *appSettings, ListCtrlManager *listCtrlManager, int workType)
+    : DialogProgress(parent), mp_appSettings(appSettings), mp_listCtrlManager(listCtrlManager), m_fileIterator(0),
       m_workType(workType), m_workingProgress(false) {
     // Initializes the process
     mp_process = new wxProcess(this, ID_TOOL_PROCESS);
@@ -74,7 +74,7 @@ void GuiDialogProgress::OnInit(wxInitDialogEvent &event) {
     m_timer2.Start(100);
 
     // Sets the maximum of "bar list"
-    gui_gaugeListProgress->SetRange((int)mp_fileListManager->size());
+    gui_gaugeListProgress->SetRange((int)mp_listCtrlManager->size());
 
     // Processes the first file
     processNextFile();
@@ -115,13 +115,13 @@ void GuiDialogProgress::OnProcessTerm(wxProcessEvent &event) {
     if (m_workingProgress) {
         // Delete the file already processed
         if (mp_appSettings->getDeleteFiles()) {
-            FileInfo &fileInfo = mp_fileListManager->getItem(m_fileIterator - 1);
+            FileInfo &fileInfo = mp_listCtrlManager->getItem(m_fileIterator - 1);
             wxFileName filenameInput = fileInfo.getFileName();
 
             wxRemoveFile(filenameInput.GetFullPath());
         }
 
-        unsigned long int total = mp_fileListManager->size();
+        unsigned long int total = mp_listCtrlManager->size();
         if (m_fileIterator < total)
             processNextFile();
         else
@@ -157,7 +157,7 @@ void GuiDialogProgress::stringToGaugeUpdate(const wxString &inputString) {
 }
 
 void GuiDialogProgress::processNextFile() {
-    FileInfo &fileInfo = mp_fileListManager->getItem(m_fileIterator);
+    FileInfo &fileInfo = mp_listCtrlManager->getItem(m_fileIterator);
     wxFileName filenameInput = fileInfo.getFileName();
 
     wxFileName filenameOutput = filenameInput;
@@ -187,10 +187,10 @@ void GuiDialogProgress::processNextFile() {
 }
 
 void GuiDialogProgress::stringLabelsUpdate() {
-    unsigned long int total = mp_fileListManager->size();
+    unsigned long int total = mp_listCtrlManager->size();
     gui_lblStatusList->SetLabel(wxString::Format(_("Processed %lu files of %lu."), m_fileIterator, total));
     if (m_fileIterator < total) {
-        FileInfo fileInfo = mp_fileListManager->getItem(m_fileIterator);
+        FileInfo fileInfo = mp_listCtrlManager->getItem(m_fileIterator);
         wxFileName filenameInput = fileInfo.getFileName();
 
         gui_lblStatusFile->SetLabel(
