@@ -25,7 +25,7 @@ IMPLEMENT_APP(Main)
 bool Main::OnInit() {
     // Load language translation
     mp_locale = new wxLocale(wxLANGUAGE_DEFAULT);
-    mp_locale->AddCatalogLookupPathPrefix(GetResourceDir() + _T("po"));
+    mp_locale->AddCatalogLookupPathPrefix(getResourceDir() + _T("po"));
     mp_locale->AddCatalog(_T("wxlame"));
 
     wxInitAllImageHandlers();
