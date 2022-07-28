@@ -1,9 +1,12 @@
 # Changelog
 
-## v4.? (20??-??-??)
+## v4.1 (20??-??-??)
 
 - Minor improvements
 - Updated to GTK3 port of the wxWidgets
+- Fixed build for Ubuntu 20.04, Ubuntu 22.04 and Linux Mint 20
+- Updated CMake project structure
+- Updated documentation
 
 ## v3.5.1 (2019-04-01)
 
