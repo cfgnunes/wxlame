@@ -1,8 +1,10 @@
 [Desktop Entry]
+Encoding=UTF-8
 Name=wxLame
-Comment=A free front-end for the LAME MP3 encoder.
+Comment=Free front-end for the LAME MP3 encoder.
 Exec=wxlame
 Icon=wxlame
 Categories=AudioVideo;Audio;
 Terminal=false
 Type=Application
+Version=1.0
