@@ -8,7 +8,7 @@ wxLame is a free front-end for the LAME MP3 encoder.
 
 ### Install from binaries
 
-Link to download the binary files: <https://sourceforge.net/projects/wxlame/>
+Link to download the binary files: <https://sourceforge.net/projects/wxlame>
 
 This program has been tested on the following platforms:
 
