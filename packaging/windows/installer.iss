@@ -3,7 +3,7 @@
 
 #define ApplicationName "wxLame"
 #define ApplicationSite "https://github.com/cfgnunes/wxlame"
-#define ApplicationVersion "4.1"
+#define ApplicationVersion "4.2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.

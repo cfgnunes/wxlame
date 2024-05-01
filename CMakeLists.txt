@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.10)
 # Set the project name and version
 project(
     wxLame
-    VERSION 4.1.0.0
+    VERSION 4.2.0.0
     DESCRIPTION "wxLame is a free front-end for the LAME MP3 encoder."
     HOMEPAGE_URL "https://github.com/cfgnunes/wxlame"
 )
