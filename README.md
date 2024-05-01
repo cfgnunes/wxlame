@@ -10,7 +10,7 @@ wxLame is a free front-end for the [LAME](https://lame.sourceforge.io) MP3 encod
 
 The pre-compiled binaries have been tested to work on the following platforms:
 
-- Windows XP, Vista, 7, 8, 10
+- Windows Vista, 7, 8, 10
 - Ubuntu 16.04, 18.04, 20.04, 22.04
 - Mint 20.2, 20.4
 
@@ -20,8 +20,8 @@ On Linux, you can also install them via *Personal Package Archive (PPA)*:
 
 ```sh
 sudo add-apt-repository -y ppa:cfgnunes/ppa
-sudo apt update
-sudo apt -y install wxlame
+sudo apt-get update
+sudo apt-get -y install wxlame
 ```
 
 ### Install from sources
@@ -35,11 +35,8 @@ This section assumes you are using Ubuntu 20.04 (Focal Fossa), but the procedure
 The prerequisites to build the source is to install the following packages:
 
 ```sh
-sudo apt -y install build-essential cmake lame
-sudo apt -y install libwxgtk3.0-gtk3-dev
+sudo apt-get -y install build-essential cmake gettext libwxgtk3.0-gtk3-dev lame
 ```
-
-For old Linux distributions, the package `libwxgtk3.0-dev` (instead of `libwxgtk3.0-gtk3-dev`) needs to be installed.
 
 Compile the sources and install the binaries, entering the following commands in the terminal:
 
@@ -66,7 +63,6 @@ Compile the sources and install with following commands in the terminal:
 ```sh
 mkdir build
 cd build
-cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=dist ..
 cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=dist ..
 cmake --build . --tar
 ```
