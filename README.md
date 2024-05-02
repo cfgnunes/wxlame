@@ -10,9 +10,8 @@ wxLame is a free front-end for the [LAME](https://lame.sourceforge.io) MP3 encod
 
 The pre-compiled binaries have been tested to work on the following platforms:
 
-- Windows Vista, 7, 8, 10
-- Ubuntu 16.04, 18.04, 20.04, 22.04
-- Mint 20.2, 20.4
+- Windows 7, 8, 10, 11
+- Ubuntu 16.04, 18.04, 20.04, 22.04, 24.04
 
 Link to download the pre-compiled binary files: <https://github.com/cfgnunes/wxlame/releases>
 
