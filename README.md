@@ -63,7 +63,8 @@ Compile the sources and install with following commands in the terminal:
 mkdir build
 cd build
 cmake -G "MinGW Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=dist ..
-cmake --build . --tar
+cmake --build .
+cmake --install .
 ```
 
 To create an installer on Windows, which is optional, the [Inno Setup](http://www.jrsoftware.org/isinfo.php) must to be downloaded and installed.
