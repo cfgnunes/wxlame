@@ -184,7 +184,7 @@ target_link_libraries(${CMAKE_BIN_NAME} ${wxWidgets_LIBRARIES})
 # Define the file locations during install process
 if(WIN32)
     install(TARGETS ${CMAKE_BIN_NAME} DESTINATION "/")
-    install(DIRECTORY "${CMAKE_DATA_DIR}" DESTINATION "${CMAKE_DATA_DIR}")
+    install(DIRECTORY "${CMAKE_DATA_DIR}" DESTINATION "/")
     install(FILES "${CMAKE_DOC_DIR}/CHANGELOG.md" DESTINATION "/" RENAME "Changelog.txt")
     install(FILES "${CMAKE_DOC_DIR}/COPYING" DESTINATION "/" RENAME "License.txt")
     install(FILES "${CMAKE_DOC_DIR}/README.md" DESTINATION "/" RENAME "Readme.txt")
