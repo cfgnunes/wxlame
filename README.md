@@ -1,4 +1,4 @@
-# wxLame [![Actions Status](https://github.com/cfgnunes/wxlame/workflows/build/badge.svg)](https://github.com/cfgnunes/wxlame/actions)
+# wxLame - MP3 Encoder and Decoder [![Actions Status](https://github.com/cfgnunes/wxlame/workflows/build/badge.svg)](https://github.com/cfgnunes/wxlame/actions)
 
 wxLame is a free front-end for the [LAME](https://lame.sourceforge.io) MP3 encoder.
 
